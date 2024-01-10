@@ -1,2 +1,5 @@
 # Ignoring problematic Mac generated files
 *.DS_Store
+
+# Deborah's gitignore
+*.idea/*

@@ -10,4 +10,4 @@ Things to do:
 - might wanna make the mobile top bar fixed position so people always have access to nav elements. 
 - OMG for decoration on main page i can make stickers like my green journal and randomly scatter them across the page and people can drag and drop them! and the stickers should have a drop shadow to make it look like they're on top of everything else. and what if clicking on stickers revealed random facts about me hehe
 
-~ photos and fonts not working T-T
+- change sizing of the square grid in bg based on breakpoint? 

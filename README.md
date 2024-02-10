@@ -11,3 +11,4 @@ Things to do:
 - OMG for decoration on main page i can make stickers like my green journal and randomly scatter them across the page and people can drag and drop them! and the stickers should have a drop shadow to make it look like they're on top of everything else. and what if clicking on stickers revealed random facts about me hehe
 
 - change sizing of the square grid in bg based on breakpoint? 
+- should i say i have a passion for creative design as opposed to ux design?

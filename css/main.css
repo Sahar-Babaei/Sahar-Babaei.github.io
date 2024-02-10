@@ -12,6 +12,8 @@
     background: #C0A4FA;
     /* color: black; */
     background: #C3ADF1;
+    background: #8D6BED;
+    color: white;
 
 }
 
@@ -75,7 +77,7 @@ h2{
     color: var(--secondary-bodycopy-color);
     font-weight: 300;
     font-style: italic;
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-bottom: 1.2rem;
 }
 
@@ -157,10 +159,11 @@ nav a:hover, nav a:focus{
     text-decoration: underline;
 }
 
-.callout{
+.callout p{
     font-family: "family",sans-serif;
     font-weight: 100;
     font-size: 1.3rem;
+    word-spacing: 0.15rem;
 }
 
 main{
@@ -193,7 +196,7 @@ footer p{
     display: block;
     color:var(--navbar-text-color);
     text-align: center;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 200;
 }
 

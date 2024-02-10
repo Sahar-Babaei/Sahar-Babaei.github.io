@@ -10,16 +10,16 @@
     }
 
     main{
-        margin-right: 14rem;
+        margin-right: 14.5rem;
     }
 
     .main-section{
-        width:95%;
+        width:85%;
         margin:2.5rem auto;
     }
 
     .nav-section{
-        width: 14rem;
+        width: 14.5rem;
         flex-direction: column;
         justify-content: space-around;
         height: 100vh;
@@ -98,7 +98,7 @@
         display: block;
         color:var(--navbar-text-color);
         text-align: center;
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         font-weight: 200;
     }
 
@@ -106,10 +106,15 @@
         display: block; 
     }
 
-    .callout{
-        font-size: 5rem;
+    .callout p{
+        font-size: 4.6rem;
+        word-spacing: 0.15rem;
+    
     }
 
+.callout{
+    margin-top: 6rem;
+}
 
 
 }

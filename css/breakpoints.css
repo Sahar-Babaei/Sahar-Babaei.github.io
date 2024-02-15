@@ -7,14 +7,6 @@
     }
 
     .logotype{
-        /* display: block;
-        color: var(--navbar-text-color);
-        text-decoration: none;
-        text-align: center;
-        font-size: 1.7rem;
-        line-height: 2rem;
-        padding: 0 2rem ; */
-
         display:block;
         font-weight: 300;
         font-size: 1.85rem;
@@ -24,8 +16,19 @@
         margin-top: 0.4rem;
         margin-right: 0.5rem;
         padding:0;
-
     }
+
+
+    .main-section{
+        width:93%;
+        margin:2.5rem auto;
+    }
+
+    .callout p{
+        font-size: 2rem;
+        word-spacing: 0.15rem;
+    }
+
 
 }
 
@@ -141,12 +144,29 @@
     .callout p{
         font-size: 4.6rem;
         word-spacing: 0.15rem;
+        font-size: 2.8rem;
     
     }
 
-.callout{
-    margin-top: 6rem;
+    .callout{
+        margin-top: 6rem;
+        margin-top: 3rem;
+    }
+
+
 }
 
+
+
+
+/* for big callout  */
+@media (min-width : 80.625rem){
+
+    .callout p{
+        font-size: 4.6rem;
+        word-spacing: 0.15rem;
+        font-size: 4rem;
+    
+    }
 
 }

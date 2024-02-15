@@ -1,4 +1,36 @@
 
+/* 481px or bigger for full name on top bar */
+@media (min-width : 30rem){
+
+    .short-logotype{
+        display:none;
+    }
+
+    .logotype{
+        /* display: block;
+        color: var(--navbar-text-color);
+        text-decoration: none;
+        text-align: center;
+        font-size: 1.7rem;
+        line-height: 2rem;
+        padding: 0 2rem ; */
+
+        display:block;
+        font-weight: 300;
+        font-size: 1.85rem;
+        color: var(--navbar-text-color);
+        text-decoration: none;
+        margin:0.2rem;
+        margin-top: 0.4rem;
+        margin-right: 0.5rem;
+        padding:0;
+
+    }
+
+}
+
+
+
 
 
 /* ============ layout SWITCH - 920 px and bigger ============ */

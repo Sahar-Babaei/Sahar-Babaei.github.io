@@ -66,6 +66,10 @@ p{
     font-weight: 300;
 }
 
+.feel-free-points p{
+    font-weight: 200;
+}
+
 h1{
     font-family: "abc-diatype-round",sans-serif;
     color: var(--secondary-bodycopy-color);
@@ -82,8 +86,13 @@ h2{
 }
 
 h3{
-    font-family: sans-serif;
-
+    font-family: "abc-diatype-round",sans-serif;
+    color: var(--secondary-bodycopy-color);
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1rem;
+    margin-top: 1.8rem;
+    margin-bottom: 0.4rem;
 }
 
 h4{

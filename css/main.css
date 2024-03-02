@@ -27,6 +27,7 @@
     --primary-color: #16874F;
     --link-color: #fb5353;
     --link-hover-color: #00b649;
+    --selection-color: #8D6BED;
 }
 
 
@@ -76,11 +77,12 @@ p{
 
 .feel-free-points a{
 color: var(--secondary-bodycopy-color);
+font-weight: 400;
 }
 
 
 .feel-free-points a:hover, .feel-free-points a:focus {
-color: var(--primary-color);
+color: var(--selection-color);
 
 }
 
@@ -106,7 +108,7 @@ h3{
     font-weight: 300;
     font-style: italic;
     font-size: 1rem;
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     margin-bottom: 0.6rem;
 }
 
@@ -190,6 +192,10 @@ nav a:hover, nav a:focus{
     font-weight: 400;
     font-size: 1.7rem;
     word-spacing: 0.15rem;
+}
+
+.callout{
+    margin-bottom: 2.1rem;
 }
 
 main{

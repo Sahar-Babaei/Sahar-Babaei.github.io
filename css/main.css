@@ -52,6 +52,7 @@ a{
     font-family: "abc-diatype-round", sans-serif;
     color: var(--link-color);
     word-break: break-word;
+    text-decoration:underline;
 }
 
 a:hover, a:focus{
@@ -67,8 +68,22 @@ p{
 }
 
 .feel-free-points p{
-    font-weight: 200;
+    color: var(--secondary-bodycopy-color);
+    font-size:0.89rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
 }
+
+.feel-free-points a{
+color: var(--secondary-bodycopy-color);
+}
+
+
+.feel-free-points a:hover, .feel-free-points a:focus {
+color: var(--primary-color);
+
+}
+
 
 h1{
     font-family: "abc-diatype-round",sans-serif;
@@ -91,8 +106,8 @@ h3{
     font-weight: 300;
     font-style: italic;
     font-size: 1rem;
-    margin-top: 1.8rem;
-    margin-bottom: 0.4rem;
+    margin-top: 2rem;
+    margin-bottom: 0.6rem;
 }
 
 h4{
@@ -170,8 +185,10 @@ nav a:hover, nav a:focus{
 
 .callout p{
     font-family: "family",sans-serif;
+    /* font-family: "abc-diatype-round",sans-serif; */
     font-weight: 100;
-    font-size: 1.3rem;
+    font-weight: 400;
+    font-size: 1.7rem;
     word-spacing: 0.15rem;
 }
 

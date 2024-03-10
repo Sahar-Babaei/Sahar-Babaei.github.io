@@ -20,6 +20,7 @@
 /* declaring global css varibales */
 :root{
     --main-bodycopy-color: #000;
+    --lighter-black: #212121;
     --secondary-bodycopy-color: #737373;
     --navbar-text-color: white;
     --navbar-color: #16874F;
@@ -69,7 +70,7 @@ p{
 }
 
 .feel-free-points p{
-    color: var(--secondary-bodycopy-color);
+    color: var(--lighter-black);
     font-size:0.89rem;
     font-weight: 300;
     margin-bottom: 0.5rem;
@@ -77,6 +78,7 @@ p{
 
 .feel-free-points a{
 color: var(--secondary-bodycopy-color);
+color: var(--lighter-black);
 font-weight: 400;
 }
 
@@ -190,8 +192,10 @@ nav a:hover, nav a:focus{
     /* font-family: "abc-diatype-round",sans-serif; */
     font-weight: 100;
     font-weight: 400;
+    font-weight: 300;
     font-size: 1.7rem;
     word-spacing: 0.15rem;
+    color: var(--lighter-black);
 }
 
 .callout{

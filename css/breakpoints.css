@@ -30,7 +30,7 @@
 
 
     .main-section{
-        width:93%;
+        width:94%;
         margin:2.5rem auto;
     }
 
@@ -63,6 +63,11 @@
         grid-template-columns: 1fr 3fr;
         align-items:first baseline;
     }
+
+    .project-sec-two-column{
+        grid-template-columns: 1fr 1fr;
+        gap: 1.8rem;
+    }
 }
 
 
@@ -82,7 +87,7 @@
     }
 
     .main-section{
-        width:85%;
+        width:94%;
         margin:2.5rem auto;
     }
 

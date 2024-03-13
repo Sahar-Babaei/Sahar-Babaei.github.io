@@ -25,6 +25,7 @@
     --navbar-text-color: white;
     --navbar-color: #16874F;
     --main-bg-color: #ecebeb;
+    --soft-accent-color:#b1b1b1;
     --primary-color: #16874F;
     --link-color: #fb5353;
     --link-hover-color: #00b649;
@@ -211,8 +212,12 @@ main{
 
     background-color: #FBFBFB;
 
-    opacity: 1;
+    /* opacity: 1;
     background-image:  linear-gradient(#EFEEEE 1.1px, transparent 1.1px), linear-gradient(to right, #EFEEEE 1.1px, #FBFBFB 1.1px);
+    background-size: 23px 23px; */
+
+    opacity: 1;
+    background-image:  linear-gradient(#f3f3f3 1.1px, transparent 1.1px), linear-gradient(to right, #f3f3f3 1.1px, #FBFBFB  1.1px);
     background-size: 23px 23px;
 
 }
@@ -248,8 +253,9 @@ footer p{
 /* project page starts here */
 
 .project-main-section{
-    background-color: pink;
-    background-color: beige;
+    /* background-color: pink;
+    background-color: beige; */
+    /* background-color: #FBFBFB ; */
 }
 
 
@@ -293,8 +299,8 @@ footer p{
 
 .section-margin-control{
     margin: 0 auto;
-    max-width: 40.65rem;
-    background-color: rgb(237, 220, 123);
+    max-width: 42.7rem;
+    /* background-color: rgb(237, 220, 123); */
     /* height: 2rem; */
 }
 
@@ -305,8 +311,10 @@ footer p{
 } */
 
 .overview-subsec{
-    padding: 0.75rem 0;
-    border-bottom: solid 0.08rem red;
+    padding: 0.9rem 0;
+    padding-top:1rem;
+    padding-bottom:0.85rem;
+    border-bottom: solid 0.085rem var(--soft-accent-color);
 }
 
 .project-overview-sec h4{

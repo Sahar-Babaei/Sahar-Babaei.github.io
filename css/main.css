@@ -115,7 +115,11 @@ h3{
 }
 
 h4{
-    font-family: sans-serif;
+    font-family: "abc-diatype-round",sans-serif;
+    color: var(--main-bodycopy-color);
+    font-weight: 500;
+    font-style: normal;
+    font-size: 0.95rem;
 
 }
 
@@ -206,16 +210,15 @@ main{
     flex-grow:1;
 
     background-color: #FBFBFB;
+
     opacity: 1;
     background-image:  linear-gradient(#EFEEEE 1.1px, transparent 1.1px), linear-gradient(to right, #EFEEEE 1.1px, #FBFBFB 1.1px);
     background-size: 23px 23px;
-    /* background-size: 1.3156rem 1.3156rem; */
 
-    /* padding: 1.5rem; */
 }
 
 .main-section{
-    padding: 1.5rem;
+    padding: 1.5rem 0.95rem;
 }
 
 .side-footer{
@@ -261,13 +264,14 @@ footer p{
     align-items: baseline;
     gap: 0.6rem;
     padding: 0.6rem 0;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
 
 }
 
 
 .divider-line{
-    height: 1.7px;
+    height: 1.5px;
     background-color: var(--primary-color);
     flex-grow: 1;
 
@@ -283,4 +287,38 @@ footer p{
     font-size: 1.2rem;
     margin:0;
     padding:0;
+}
+
+
+
+.section-margin-control{
+    margin: 0 auto;
+    max-width: 40.65rem;
+    background-color: rgb(237, 220, 123);
+    /* height: 2rem; */
+}
+
+/* .overview-grid{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items:first baseline;
+} */
+
+.overview-subsec{
+    padding: 0.75rem 0;
+    border-bottom: solid 0.08rem red;
+}
+
+.project-overview-sec h4{
+    padding-bottom: 0.3rem;
+
+}
+
+/* .project-overview-sec p{
+    padding: 0.75rem 0;
+    
+} */
+
+.no-border{
+    border:none;
 }

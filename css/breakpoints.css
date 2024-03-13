@@ -1,4 +1,14 @@
 
+.grid{
+    display: grid;
+}
+
+
+
+
+
+
+
 /* 481px or bigger for full name on top bar */
 @media (min-width : 30rem){
 
@@ -40,6 +50,18 @@
 
     p{
         font-size: 0.9rem;
+    }
+
+}
+
+
+
+/* project overview grid starts  */
+@media (min-width : 40.75rem){
+    .overview-grid{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        align-items:first baseline;
     }
 }
 
@@ -182,7 +204,19 @@
     }
 
 
+
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

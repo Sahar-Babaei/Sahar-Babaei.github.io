@@ -64,10 +64,6 @@
         align-items:first baseline;
     }
 
-    .project-sec-two-column{
-        grid-template-columns: 1fr 1fr;
-        gap: 1.8rem;
-    }
 }
 
 
@@ -87,7 +83,7 @@
     }
 
     .main-section{
-        width:94%;
+        width:88%;
         margin:2.5rem auto;
     }
 
@@ -215,6 +211,34 @@
 
 
 
+/* projects get a 2 column grid */
+/* 1221 px -- 76.312rem*/
+@media (min-width : 75rem){
+
+    .project-sec-two-column{
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+
+
+    .project-detail{
+        margin: auto 0;
+    }
+
+    .project-detail p{
+        /* max-width: 32rem; */
+        padding-right: 2rem;
+        max-width: 40rem;
+    }
+
+    .full-span-img{
+        grid-column-start: span 2;
+    }
+
+}
+
+
 
 
 
@@ -256,4 +280,17 @@
         margin-bottom: 0.8rem;
     }
 
+}
+
+
+
+
+
+/* for biggest side margins   */
+@media (min-width : 80.625rem){
+
+    .main-section{
+        /* width:84%;
+        margin:2.5rem auto; */
+    }
 }

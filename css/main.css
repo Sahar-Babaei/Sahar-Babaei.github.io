@@ -273,6 +273,12 @@ footer p{
     margin-top: 2rem;
     margin-bottom: 0.7rem;
 
+
+
+    position: sticky;
+    z-index: 1;
+    top:0;
+
 }
 
 

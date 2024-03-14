@@ -213,7 +213,7 @@
 
 /* projects get a 2 column grid */
 /* 1221 px -- 76.312rem*/
-@media (min-width : 75rem){
+@media (min-width : 76.5rem){
 
     .project-sec-two-column{
         grid-template-columns: 1fr 1fr;
@@ -222,17 +222,18 @@
 
 
 
-    .project-detail{
+    /* .project-detail{
         margin: auto 0;
-    }
+    } */
 
-    .project-detail p{
-        /* max-width: 32rem; */
+    /* .project-detail p{
+
         padding-right: 2rem;
+        padding-right: 3vw;
         max-width: 40rem;
-    }
+    } */
 
-    .full-span-img{
+    .full-span-the-grid{
         grid-column-start: span 2;
     }
 
@@ -278,6 +279,17 @@
     .feel-free-points p{
         font-size:1rem;
         margin-bottom: 0.8rem;
+    }
+
+    .project-detail{
+        margin: auto 0;
+    }
+
+    .project-detail p{
+        /* max-width: 32rem; */
+        padding-right: 2rem;
+        padding-right: 3vw;
+        max-width: 40rem;
     }
 
 }

@@ -350,3 +350,8 @@ footer p{
     grid-template-columns: 1fr ;
     gap: 1rem;
 }
+
+
+.project-body-img{
+    margin: 1rem 0;
+}

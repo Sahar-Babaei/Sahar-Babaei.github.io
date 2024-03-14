@@ -12,3 +12,6 @@ Things to do:
 
 - change sizing of the square grid in bg based on breakpoint? 
 - should i say i have a passion for creative design as opposed to ux design?
+
+
+- for listerine's body. instead of grid do a flex container for copy and supermarket image and let the other images be full width. 

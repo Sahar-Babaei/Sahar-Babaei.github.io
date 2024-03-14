@@ -272,12 +272,10 @@ footer p{
     padding: 0.6rem 0;
     margin-top: 2rem;
     margin-bottom: 0.7rem;
-
-
-
+/* 
     position: sticky;
     z-index: 1;
-    top:0;
+    top:2rem; */
 
 }
 
@@ -308,6 +306,7 @@ footer p{
     /* margin-left:9.8rem; */
     /* margin-right:0; */
     max-width: 42.7rem;
+    max-width: 54rem;
     /* max-width: 38.6rem; */
     /* background-color: rgb(237, 220, 123); */
     /* height: 2rem; */

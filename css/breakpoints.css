@@ -288,16 +288,16 @@
     .project-detail p{
         /* max-width: 32rem; */
         padding-right: 2rem;
-        padding-right: 3vw;
+        padding-right: 1vw;
         max-width: 40rem;
     }
 
 
 
-    .project-body-inner-sec{
+    /* .project-body-inner-sec{
         margin-left: 15vw;
 
-    }
+    } */
 
 }
 

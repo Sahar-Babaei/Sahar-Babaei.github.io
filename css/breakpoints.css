@@ -346,8 +346,32 @@
 
     } */
 
+    .card-grid{
+        grid-template-columns: 1fr 1fr;
+        gap: 2.6rem;
+    }
+
+
+
 }
 
+
+
+/* for card header flexbox  */
+@media (min-width : 95rem){
+
+    .project-card-heading{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .project-card-heading p{
+        margin-right:0.35rem;
+    }
+
+
+}
 
 
 

@@ -394,8 +394,11 @@ footer p{
 }
 
 .project-card-heading h3{
-    font-size: 1.1rem;
+
+    font-size: 1.2rem;
+
     font-weight: 500;
+
     font-style: normal;
     color:var(--primary-color);
     margin:0;
@@ -405,9 +408,19 @@ footer p{
 }
 
 .project-card-heading p{
+
+    font-family: "family",sans-serif;
+
     font-size:0.75rem;
+
+    font-size:0.8rem;
+
     color: var(--secondary-bodycopy-color);
     margin-bottom: 0.4rem;
+
+    margin: 0.3rem 0;
+    margin-bottom: 0.65rem;
+
     margin-left:0.35rem;
 }
 
@@ -434,17 +447,19 @@ color:white;
 
 
 .project-card-img{
+    /* filter:grayscale(100%); */
     border-radius: 0.5rem;
     border-radius: 1.5rem;
-    padding:0.7rem;
-    padding-top:0.9rem;
-    padding-bottom:0.5rem;
+    padding:0.5rem;
+    padding-top:0.7rem;
+    padding-bottom:0.3rem;
 }
 
 
 .project-card-img:hover, .project-card-img:focus{
     transition: all 0.12s ease-out;
     transform: scale(1.015, 1.015);
+    /* filter:grayscale(0%); */
 
 }
 

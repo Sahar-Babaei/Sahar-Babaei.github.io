@@ -14,4 +14,6 @@ Things to do:
 - should i say i have a passion for creative design as opposed to ux design?
 
 
+-omg i forgot to make a flaticon 
+
 - for listerine's body. instead of grid do a flex container for copy and supermarket image and let the other images be full width. 

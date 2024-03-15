@@ -451,8 +451,8 @@ color:white;
     border-radius: 0.5rem;
     border-radius: 1.5rem;
     padding:0.5rem;
-    padding-top:0.7rem;
-    padding-bottom:0.3rem;
+    padding-top:0.6rem;
+    padding-bottom:0.1rem;
 }
 
 
@@ -473,3 +473,28 @@ color:white;
     grid-template-columns: 1fr ;
     gap: 1rem;
 }
+
+
+.video-section{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* gap:1rem; */
+    background-color: orange;
+    /* padding: 1rem 0; */
+}
+
+/* .video-section video{
+    object-fit: fill;
+} */
+.vid-class{
+    width: 100%;
+    max-width: 17rem;
+    height: 100%;
+    object-fit: contain;
+    display: inline-block;
+}
+
+/* .video-section p{
+    flex-grow: 1;
+} */

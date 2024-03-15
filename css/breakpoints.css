@@ -31,7 +31,7 @@
 
     .main-section{
         width:94%;
-        margin:2.5rem auto;
+        margin:2.3rem auto;
     }
 
     .callout p{
@@ -105,7 +105,7 @@
 
     .main-section{
         width:88%;
-        margin:2.5rem auto;
+        margin:2.3rem auto;
     }
 
     .nav-section{
@@ -221,7 +221,7 @@
 
     .callout{
         margin-top: 6rem;
-        margin-top: 2.3rem;
+        margin-top: 2.1rem;
         margin-bottom: 3.2rem;
     }
 
@@ -299,11 +299,11 @@
 
 
 /* for big callout  */
-@media (min-width : 80.625rem){
+@media (min-width : 84.625rem){
 
 
     .callout{
-        margin-top: 2.4rem;
+        margin-top: 2.2rem;
         margin-bottom: 3.5rem;
     }
 
@@ -311,6 +311,7 @@
         font-size: 4.6rem;
         word-spacing: 0.15rem;
         font-size: 4rem;
+        font-size: 3.2rem;
     
     }
 
@@ -350,8 +351,6 @@
         grid-template-columns: 1fr 1fr;
         gap: 2.6rem;
     }
-
-
 
 }
 

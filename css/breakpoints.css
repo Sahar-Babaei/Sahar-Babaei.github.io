@@ -201,6 +201,11 @@
         font-size: 1.2rem;
     }
 
+
+    .callout-sec h2{
+        font-size: 1.1rem;
+    }
+
     h3{
         font-size: 1.2rem;
     }
@@ -315,14 +320,23 @@
     
     }
 
+
+
     h2{
         font-size: 1.35rem;
     }
+
+
+    .callout-sec h2{
+        font-size: 1.15rem;
+    }
+
 
     h3{
         font-size: 1.35rem;
         margin-bottom: 0.9rem;
     }
+
 
     .feel-free-points p{
         font-size:1rem;

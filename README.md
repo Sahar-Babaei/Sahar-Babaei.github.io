@@ -17,3 +17,5 @@ Things to do:
 -omg i forgot to make a flaticon 
 
 - for listerine's body. instead of grid do a flex container for copy and supermarket image and let the other images be full width. 
+
+- kinda too late now but maybe i should use margin control for the bio page's flexbox

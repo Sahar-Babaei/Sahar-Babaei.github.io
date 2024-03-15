@@ -30,6 +30,7 @@
     --link-color: #fb5353;
     --link-hover-color: #00b649;
     --selection-color: #8D6BED;
+    --card-bg-color: white;
 }
 
 
@@ -369,4 +370,39 @@ footer p{
 
 .make-italic{
     font-style: italic;
+}
+
+
+
+
+/* project cards */
+.project-card{
+    background-color: pink;
+    border: solid 0.18rem var(--navbar-color);
+    border-radius: 1.8rem;
+    padding:0.8rem 0.7rem;
+
+    max-width: 35rem;
+}
+
+.project-card-heading{
+    display:flex;
+    flex-direction: column;
+    border-bottom: solid 0.1rem var(--soft-accent-color);
+    margin-bottom:0.5rem;
+}
+
+.project-card-heading h3{
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: normal;
+    color:var(--primary-color);
+    margin:0;
+    padding:0;
+}
+
+.project-card-heading p{
+    font-size:0.75rem;
+    color: var(--secondary-bodycopy-color);
+    margin-bottom: 0.4rem;
 }

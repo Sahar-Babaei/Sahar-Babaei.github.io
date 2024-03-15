@@ -389,6 +389,7 @@ footer p{
     display:flex;
     flex-direction: column;
     border-bottom: solid 0.1rem var(--soft-accent-color);
+    border-bottom: solid 0.1rem var(--primary-color);
     margin-bottom:0.5rem;
 }
 
@@ -415,33 +416,35 @@ footer p{
 }
 
 
-.project-card:hover p, .project-card:focus p{
+/* .project-card:hover p, .project-card:focus p{
 color:white;
 }
 
 .project-card:hover h3, .project-card:focus h3{
     color:white;
-}
+} */
 
 
 .project-card:hover, .project-card:focus{
     box-shadow: 0.0rem 0.2rem 0.6rem rgba(0, 0, 0, 0.15);
     transition: all 0.2s ease-out;
     transform: scale(1.007, 1.007);
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
 }
 
 
 .project-card-img{
     border-radius: 0.5rem;
     border-radius: 1.5rem;
-    padding:0.2rem 0.5rem;
+    padding:0.7rem;
+    padding-top:0.9rem;
+    padding-bottom:0.5rem;
 }
 
 
 .project-card-img:hover, .project-card-img:focus{
-    transition: all 0.2s ease-out;
-    transform: scale(1.02, 1.02);
+    transition: all 0.12s ease-out;
+    transform: scale(1.015, 1.015);
 
 }
 

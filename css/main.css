@@ -141,6 +141,7 @@ h5{
 /* mobile styling of nav section */
 .nav-section{
     background-color: var(--navbar-color);
+    color: var(--navbar-text-color);
     display : flex;
     flex-direction: row;
     justify-content: space-between;
@@ -154,8 +155,22 @@ h5{
     display:flex;
     flex-direction: row-reverse;
     align-items: center ;
-
 }
+
+
+/* the star means apply these to all elements within the .my-brand-link */
+.my-brand-link,
+.my-brand-link *{ 
+    text-decoration: none;
+    color:inherit;
+}
+
+.my-brand-link:hover,
+.my-brand-link:hover *{ 
+    text-decoration: none;
+    color:inherit;
+}
+
 
 .logotype{
     display: none;

@@ -34,7 +34,6 @@
 }
 
 
-
 .main-wrapper{
     display: flex;
     flex-direction:column;
@@ -107,6 +106,32 @@ h2{
     margin-bottom: 1.2rem;
 }
 
+/* Page title on Projects.html / Archive.html — the plain h2{} above (small,
+   grey, italic) is the same treatment used for e.g. about.html's
+   eyebrow-style heading, but on these two pages it's the actual page
+   title, so it needs real presence. Darker, bigger, upright, and set
+   in "family" (the site's display/heading font — see .vu-hero h2 in
+   casestudy-extra.css) rather than the body sans. Sized well under
+   the case-study hero heading's clamp(1.8rem, 4.2vw, 2.8rem) — this
+   is a section title, not a hero — and scaled up gently at the same
+   breakpoints main.css/breakpoints.css already use for the plain h2,
+   so it grows in step with the rest of the page instead of jumping. */
+h2.page-heading{
+    font-family: "family", sans-serif;
+    color: var(--lighter-black);
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.4rem;
+}
+
+/* Homepage's "Hello there, welcome to my portfolio." — scoped to
+   .callout-sec specifically so the base h2{} above (used as a
+   fallback on case-study pages before their .vu-hero h2 override
+   loads) stays untouched everywhere else. */
+.callout-sec h2{
+    font-style: normal;
+}
+
 h3{
     font-family: "abc-diatype-round",sans-serif;
     color: var(--secondary-bodycopy-color);
@@ -115,6 +140,13 @@ h3{
     font-size: 1rem;
     /* margin-top: 2rem; */
     margin-bottom: 0.6rem;
+}
+
+/* About page's "Connect with me" — scoped to .contact-div so the
+   base h3{} above (relied on elsewhere as a fallback/plain heading
+   style) stays untouched everywhere else. */
+.contact-div h3{
+    font-style: normal;
 }
 
 h4{
@@ -225,8 +257,11 @@ nav a:hover, nav a:focus{
     font-weight: 100;
     font-weight: 400;
     font-weight: 300;
-    font-size: 1.7rem;
-    word-spacing: 0.15rem;
+    /* No font-size here anymore — each .callout-tierN rule in
+       casestudy-extra.css sets its own fluid cqw-based size. See the
+       "preset layout" comment above the six <p class="callout-lead
+       callout-tierN"> blocks in index.html for why. */
+    word-spacing: 0rem;
     color: var(--lighter-black);
 }
 
@@ -252,6 +287,13 @@ main{
 
 .main-section{
     padding: 1.5rem 0.95rem;
+    /* Lets the callout paragraph size itself with cqw units, which are
+       relative to THIS element's actual rendered width — not the
+       viewport. That sidesteps having to hand-derive the width formula
+       at every breakpoint (percentage-based here, fixed-padding there,
+       sidebar-offset elsewhere): cqw is exactly proportional to this
+       container's real width no matter which formula produced it. */
+    container-type: inline-size;
 }
 
 .side-footer{
@@ -279,12 +321,12 @@ footer p{
 
 
 /* project page starts here */
-
+/* 
 .project-main-section{
-    /* background-color: pink;
-    background-color: beige; */
-    /* background-color: #FBFBFB ; */
-}
+    background-color: pink;
+    background-color: beige;
+    background-color: #FBFBFB ;
+} */
 
 
 .project-hero-img{
@@ -546,7 +588,18 @@ margin: auto 0;
     /* display: inline-block; */
     padding:4.8%;
 
+}
 
+/* Same as .vid-class but without padding — for videos
+   sitting inside containers that already control their own padding
+    */
+.vid-class-noside{
+    z-index:20;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* padding:4.8% 0; */
+    border-radius: 0.6rem;
 }
 
 .vid-container{
@@ -601,11 +654,11 @@ margin: auto 0;
 
 
 
-.bio-img-div{
-    /* background-color: lightgreen; */
-    /* max-width: 25rem; */
-    /* max-width: 23rem; */
-}
+/* .bio-img-div{
+    background-color: lightgreen;
+    max-width: 25rem;
+    max-width: 23rem;
+} */
 
 /* .bio-img{
     max-width: 23rem;
@@ -614,9 +667,7 @@ margin: auto 0;
 
 .bio-container a{
     /* color:var(--secondary-bodycopy-color); */
-    color:var(--main-bodycopy-color);
-    text-decoration: none;
-    
+    color:var(--primary-color);
 }
 
 .bio-container a:hover, .bio-container a:focus {
@@ -624,18 +675,31 @@ margin: auto 0;
 }
 
 
-
-
-
 .bio-p{
     /* flex-grow: 1; */
     max-width: 34.2rem;
     max-width: 36rem;
     margin-bottom: 0.5rem;
+    /* Matches .vu-section-body's type treatment — the standard body-
+       paragraph style used across the case studies — for consistency
+       with the rest of the site. font-weight isn't redeclared here:
+       it already matches (300, inherited from the base p{} rule
+       above), and leaving it out avoids this rule silently overriding
+       .make-it-bold's 500 on the "currently seeking..." paragraph,
+       which carries both classes. */
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: #333;
 }
 
 .contact-div a{
     display: block;
+    /* display:block makes each link stack on its own line, but without
+       a width constraint the clickable box also stretches to fill the
+       container — so whitespace past the visible text was clickable
+       too. width:fit-content keeps the stacking but shrinks the box
+       (and therefore the click target) down to the text itself. */
+    width: fit-content;
     font-family: "abc-diatype-round", sans-serif;
     color:var(--primary-color);
     font-size: 0.95rem;
@@ -643,8 +707,6 @@ margin: auto 0;
     margin:0.6rem 0;
     margin-right: 1rem;
 }
-
-
 
 
 /* chnage based on viewport */
@@ -655,3 +717,173 @@ margin: auto 0;
 
 }
 
+
+
+/* ======================================================
+   ADDITIONS
+   ====================================================== */
+
+/* "Hello there..." and "So you want to know more..." —
+   these are styled like the original h2 (grey, italic, light)
+   but are <p> tags so they don't affect heading hierarchy */
+p.page-eyebrow {
+    font-family: "abc-diatype-round", sans-serif;
+    color: var(--secondary-bodycopy-color);
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+/* Active nav link — applied via aria-current="page" set by nav.js.
+   Only underlines the link that matches the current page. */
+nav a[aria-current="page"] {
+    text-decoration: underline;
+}
+
+/* Placeholder block for before/after images — remove once real images are added */
+.before-after-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e8e8e8;
+    border: 2px dashed var(--soft-accent-color);
+    border-radius: 0.75rem;
+    color: var(--secondary-bodycopy-color);
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    min-height: 12rem;
+    margin: 0.5rem 0 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Pull-quote for user research quotes in case study pages */
+blockquote.user-quote {
+    font-family: "family", sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.05rem;
+    color: var(--primary-color);
+    border-left: 2px solid var(--primary-color);
+    margin: 0.6rem 0 1rem 0;
+    padding: 0.4rem 0 0.4rem 1rem;
+}
+
+/* "Open to work" — about.html's availability card. A single bordered
+   container (matching the reference screenshot's rounded, bordered
+   pill) built from the same tokens the case studies use for their
+   small white cards (.vu-opp-card / .vu-highlight-card: white bg,
+   #ececea border, 0.75rem-family radius), with a small eyebrow-style
+   label reused from .vu-section-eyebrow sitting above the bullet row. */
+.open-to-work-card {
+    width: 100%;
+    max-width: 36rem;
+    background: var(--card-bg-color);
+    border: 1px solid #ececea;
+    border-radius: 1rem;
+    padding: 1rem 1.4rem;
+    margin: 1.5rem 0 0.3rem;
+    box-shadow: 0 0.15rem 0.5rem rgba(0, 0, 0, 0.05);
+}
+
+.open-to-work-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: #dff2ea;
+    color: var(--primary-color);
+    border-radius: 10rem;
+    padding: 0.3rem 0.8rem 0.3rem 0.6rem;
+    margin: 0 0 0.7rem;
+}
+
+.open-to-work-chip span:last-child {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+.availability-dot {
+    flex-shrink: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--primary-color);
+    animation: availability-dot-blink 1.8s ease-in-out infinite;
+}
+
+@keyframes availability-dot-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .availability-dot {
+        animation: none;
+    }
+}
+
+.open-to-work-body {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--main-bodycopy-color);
+    margin: 0;
+}
+
+/* "Jump to top" — case-study pages only, tablet-range only (hidden
+   here by default; see breakpoints.css for the 30rem/57.5rem toggle,
+   and nav.js for the .vu-hero page-type check that decides whether
+   this button exists in the DOM at all). Fixed to the viewport's
+   top-right corner. Deliberately the exact same button treatment,
+   arrow icon, and CSS-path stroke-width fix as .vu-project-card-go
+   in casestudy-extra.css — just rotated to point up and sized up a
+   touch, rather than a new icon. */
+.vu-jump-to-top {
+    display: none;
+    position: fixed;
+    bottom: 1.2rem;
+    right: 1.2rem;
+    width: 2.35rem;
+    height: 2.35rem;
+    border-radius: 50%;
+    background: white;
+    border: 0.125rem solid var(--primary-color);
+    color: var(--primary-color);
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    cursor: pointer;
+    z-index: 40;
+    box-shadow: 0 0.2rem 0.6rem rgba(0,0,0,0.12);
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.vu-jump-to-top:hover,
+.vu-jump-to-top:focus-visible {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.vu-jump-to-top svg {
+    width: 0.95rem;
+    height: 0.95rem;
+    transform: rotate(-90deg);
+    transition: transform 0.15s ease;
+}
+
+.vu-jump-to-top:hover svg,
+.vu-jump-to-top:focus-visible svg {
+    transform: rotate(-90deg) translateX(0.05rem);
+}
+
+/* Same fix as .vu-project-card-go svg path — a bare SVG stroke-width
+   attribute is in viewBox user-units, so at small icon sizes most of
+   its value gets scaled away to an imperceptible sub-pixel line. This
+   CSS override (with a real rem unit) is what actually renders as a
+   visible stroke. */
+.vu-jump-to-top svg path {
+    stroke-width: 0.1375rem;
+}

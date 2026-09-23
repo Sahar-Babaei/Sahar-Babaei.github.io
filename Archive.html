@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Etc. — Sahar Babaei</title>
+    <meta name="description" content="Visual design projects by Sahar Babaei — standalone visual work, experimental pieces, and side projects.">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Sahar Babaei" />
+    <link rel="manifest" href="img/favicon/site.webmanifest" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-Regular-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-RegularItalic-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-light.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/breakpoints.css">
+    <link rel="stylesheet" href="css/casestudy-extra.css">
+    <script src="js/nav.js" defer></script>
+    <script src="js/cursor.js" defer></script>
+</head>
+<body>
+<div class="main-wrapper">
+    <header id="site-header" class="nav-section"></header>
+
+    <main>
+        <section class="main-section">
+            <h2 class="page-heading">Archive of Visual Design Work</h2>
+            <p class="etc-intro">Visual design work, side projects, and experiments that don't need a case study to speak for themselves. Click any image to view it in full with context.</p>
+
+            <!--
+                ETC GRID
+                ─────────────────────────────────────────────────────
+                Each .etc-item needs these data attributes on the cover image:
+                  data-title="Project name"
+                  data-context="When / what it was for"
+                  data-overview="A sentence or two about the work"
+
+                data-context and data-overview below are placeholders —
+                replace them with the real project details. Extra images
+                (.etc-extra-img) become lightbox thumbnails automatically;
+                add or remove them freely, they never appear in the grid.
+
+                All images live in img/etc-images/.
+            -->
+            <div class="etc-grid" id="etc-grid">
+
+                <!-- mach dich project -->
+                <div class="etc-item" data-index="0">
+                    <div class="etc-item-inner">
+                        <img class="etc-cover" src="img/etc-images/mach-dich-1.webp" loading="lazy" width="2000" height="1334"
+                             alt="Playing card merch design for Mach Dich Hübsch"
+                             data-title="Mach Dich Hübsch — Merch"
+                             data-context="Academic Project · #VisualDesign #Branding"
+                             data-overview="Merchandise concepts for the Mach Dich Hübsch exhibition at the Stedelijk Museum, exploring its branding through playing cards, a booklet, and a tote bag.">
+                        <!-- Additional images for this project — shown as thumbnails in the lightbox -->
+                        <img class="etc-extra-img" src="img/etc-images/mach-dich-2.webp" width="2200" height="1650" alt="Booklet design for the Mach Dich Hübsch exhibition">
+                        <img class="etc-extra-img" src="img/etc-images/mach-dich-3.webp" width="2200" height="1467" alt="Tote bag design for the Mach Dich Hübsch exhibition">
+                    </div>
+                    <div class="etc-item-meta">
+                        <span class="etc-item-title">Mach Dich Hübsch — Merch</span>
+                        <span class="etc-item-tag">#VisualDesign</span>
+                    </div>
+                </div>
+
+                <!-- dad crying project -->
+                <div class="etc-item" data-index="1">
+                    <div class="etc-item-inner">
+                        <img class="etc-cover" src="img/etc-images/dad-dried-1.webp" loading="lazy" width="2200" height="1719"
+                             alt="Set of 6 illustrations showing a father crying during different stages of his life"
+                             data-title="Every Time My Dad Cried"
+                             data-context="Academic Project · #Illustration #VisualDesign"
+                             data-overview="Six hand-drawn illustrations for the multi-narrative short story 'Every Time My Dad Cried,' depicting the father character crying at different stages of his life.">
+                        <!-- Additional images for this project — shown as thumbnails in the lightbox -->
+                        <img class="etc-extra-img" src="img/etc-images/dad-dried-2.webp" width="998" height="1270" alt="illustration of the main character's dad crying while holding an injured cat">
+                        <img class="etc-extra-img" src="img/etc-images/dad-dried-3.webp" width="1172" height="1084" alt="illustration of the main character's dad crying while falling from a skateboard during his childhood">
+                        <img class="etc-extra-img" src="img/etc-images/dad-dried-4.webp" width="962" height="1126" alt="illustration of the main character's dad tearing up during his wedding while holding his wife">
+                        <img class="etc-extra-img" src="img/etc-images/dad-dried-5.webp" width="996" height="1262" alt="illustration of the main character's dad grieving the death of his mother">
+                        <img class="etc-extra-img" src="img/etc-images/dad-dried-6.webp" width="1000" height="1294" alt="illustration of the main character's dad crying while chopping an onion">
+                        <img class="etc-extra-img" src="img/etc-images/dad-dried-7.webp" width="926" height="1208" alt="illustration of the main character's dad tearing up while playing with his daughter">
+                    </div>
+                    <div class="etc-item-meta">
+                        <span class="etc-item-title">Every Time My Dad Cried</span>
+                        <span class="etc-item-tag">#Illustration</span>
+                    </div>
+                </div>
+
+                <!-- do-3 app -->
+                <div class="etc-item" data-index="2">
+                    <div class="etc-item-inner">
+                        <img class="etc-cover" src="img/etc-images/do3-app-1.webp" loading="lazy" width="2200" height="2000"
+                             alt="DO-3 app icon shown on a phone screen"
+                             data-title="DO-3 App"
+                             data-context="Graduation Project · #ProductDesign #Branding"
+                             data-overview="Application icon design for Do-3, a productivity mobile app designed and developed as part of my graduation project.">
+                        <!-- Additional images for this project — shown as thumbnails in the lightbox -->
+                        <img class="etc-extra-img" src="img/etc-images/do3-app-2.webp" width="2200" height="1467" alt="DO-3 app icon shown at the bottom of a phone screen">
+                        <img class="etc-extra-img" src="img/etc-images/do3-app-3.webp" width="2200" height="1467" alt="UI of the DO-3 app shown on a phone screen">
+                    </div>
+                    <div class="etc-item-meta">
+                        <span class="etc-item-title">DO-3 App</span>
+                        <span class="etc-item-tag">#Branding</span>
+                    </div>
+                </div>
+
+                <!-- eunoia hackathon project -->
+                <div class="etc-item" data-index="3">
+                    <div class="etc-item-inner">
+                        <img class="etc-cover" src="img/etc-images/eunoia-hackathon-1.webp" loading="lazy" width="2200" height="1650"
+                             alt="Eunoia Hackathon's poster design"
+                             data-title="Eunoia Hackathon"
+                             data-context="Eunoia Hackathon 2023 · #VisualDesign #ArtDirection #Branding"
+                             data-overview="Art direction and brand identity for the Eunoia UX hackathon, developed over a 6-month period — posters and banners, plus merch design for lanyards, tote bags, and shirts.">
+                        <!-- Additional images for this project — shown as thumbnails in the lightbox -->
+                        <img class="etc-extra-img" src="img/etc-images/eunoia-hackathon-2.webp" width="2200" height="1650" alt="Eunoia Hackathon — branding assets projected on a wall">
+                        <img class="etc-extra-img" src="img/etc-images/eunoia-hackathon-3.webp" width="2200" height="1467" alt="Eunoia Hackathon — design of tote bag merchandise">
+                        <img class="etc-extra-img" src="img/etc-images/eunoia-hackathon-4.webp" width="2200" height="1467" alt="Eunoia Hackathon — final design of tote bags on the day of the hackathon">
+                        <img class="etc-extra-img" src="img/etc-images/eunoia-hackathon-5.webp" width="2000" height="1429" alt="Eunoia Hackathon — promotional posters for the hackathon">
+                        <img class="etc-extra-img" src="img/etc-images/eunoia-hackathon-6.webp" width="2200" height="1467" alt="Eunoia Hackathon — top view photo depicting day of the hackathon with tote bags and posters on a table, and participants wearing the designed t-shirts">
+                        <img class="etc-extra-img" src="img/etc-images/eunoia-hackathon-7.webp" width="2200" height="1564" alt="Eunoia Hackathon — lanyard design">
+                        <img class="etc-extra-img" src="img/etc-images/eunoia-hackathon-8.webp" width="2200" height="1467" alt="Eunoia Hackathon's stickers on the surface of a MacBook laptop">
+                        <img class="etc-extra-img" src="img/etc-images/eunoia-hackathon-9.webp" width="2200" height="1467" alt="a group photo of the eunoia hackathon's internal organizing team.">
+                    </div>
+                    <div class="etc-item-meta">
+                        <span class="etc-item-title">Eunoia Hackathon</span>
+                        <span class="etc-item-tag">#ArtDirection</span>
+                    </div>
+                </div>
+
+                <!-- eunoia t shirt design -->
+                <div class="etc-item" data-index="4">
+                    <div class="etc-item-inner">
+                        <img class="etc-cover" src="img/etc-images/eunoia-shirt-1.webp" loading="lazy" width="2200" height="2200"
+                             alt="Eunoia Hackathon shirt design, modeled"
+                             data-title="Eunoia Hackathon — Shirt"
+                             data-context="Eunoia Hackathon 2023 · #VisualDesign #ArtDirection #Branding"
+                             data-overview="Shirt design created as part of the hackathon's merchandise line, featuring the names of the internal and external organizing team members.">
+                        <!-- Additional images for this project — shown as thumbnails in the lightbox -->
+                        <img class="etc-extra-img" src="img/etc-images/eunoia-shirt-2.webp" width="2200" height="1540" alt="Model wearing the Eunoia Hackathon shirt, close-up on the front graphic and the organizing team's names">
+                        <img class="etc-extra-img" src="img/etc-images/eunoia-shirt-3.webp" width="1493" height="1997" alt="Eunoia Hackathon shirt held up flat, showing the full front design and organizing team's names">
+                    </div>
+                    <div class="etc-item-meta">
+                        <span class="etc-item-title">Eunoia Hackathon — Shirt</span>
+                        <span class="etc-item-tag">#VisualDesign</span>
+                    </div>
+                </div>
+
+                <!-- eunoia sticker design -->
+                <div class="etc-item" data-index="5">
+                    <div class="etc-item-inner">
+                        <img class="etc-cover" src="img/etc-images/eunoia-sticker-0.webp" loading="lazy" width="1389" height="1757"
+                             alt="Eunoia Hackathon sticker sheet design"
+                             data-title="Eunoia Hackathon — Stickers"
+                             data-context="Eunoia Hackathon 2023 · #VisualDesign #Merchandise"
+                             data-overview="Sticker sheets for Eunoia Hackathon participants, illustrated with the same modular components that shape the hackathon's overall art direction.">
+                        <!-- Additional images for this project — shown as thumbnails in the lightbox -->
+                        <img class="etc-extra-img" src="img/etc-images/eunoia-sticker-1.webp" width="2200" height="1237" alt="Eunoia Hackathon stickers shown on a MacBook laptop">
+                        <img class="etc-extra-img" src="img/etc-images/eunoia-sticker-2.webp" width="1966" height="2200" alt="Eunoia Hackathon stickers applied to a phone case">
+                        <img class="etc-extra-img" src="img/etc-images/eunoia-sticker-3.webp" width="2200" height="2200" alt="Eunoia Hackathon stickers shown on a set of dark grey headphones">
+                        <img class="etc-extra-img" src="img/etc-images/eunoia-sticker-4.webp" width="2200" height="1352" alt="Eunoia Hackathon stickers shown on a set of white headphones">
+                    </div>
+                    <div class="etc-item-meta">
+                        <span class="etc-item-title">Eunoia Hackathon — Stickers</span>
+                        <span class="etc-item-tag">#VisualDesign</span>
+                    </div>
+                </div>
+
+                <!-- SIAT Frosh Instagram posts -->
+                <div class="etc-item" data-index="6">
+                    <div class="etc-item-inner">
+                        <img class="etc-cover" src="img/etc-images/frosh-ig-1.webp" loading="lazy" width="2200" height="1650"
+                             alt="Series of Instagram posts designed for the SIAT Frosh event"
+                             data-title="SIAT Frosh — Instagram"
+                             data-context="SIAT Frosh 2025 · #VisualDesign #SocialMedia"
+                             data-overview="Instagram posts for SIAT Frosh, SFU's largest first-year event, designed to promote the event and build excitement within the incoming student community.">
+                        <!-- Additional images for this project — shown as thumbnails in the lightbox -->
+                        <img class="etc-extra-img" src="img/etc-images/frosh-ig-2.webp" width="2200" height="1650" alt="Instagram countdown post for the SIAT Frosh event">
+                        <img class="etc-extra-img" src="img/etc-images/frosh-ig-3.webp" width="1920" height="1347" alt="Instagram post promoting the SIAT Frosh event">
+                        <img class="etc-extra-img" src="img/etc-images/frosh-ig-4.webp" width="1920" height="1347" alt="Instagram post thanking SIAT Frosh sponsors and attendees">
+                        <img class="etc-extra-img" src="img/etc-images/frosh-ig-5.webp" width="1920" height="1347" alt="Full set of SIAT Frosh Instagram posts shown on the official SIAT Instagram page">
+                    </div>
+                    <div class="etc-item-meta">
+                        <span class="etc-item-title">SIAT Frosh — Instagram</span>
+                        <span class="etc-item-tag">#SocialMedia</span>
+                    </div>
+                </div>
+
+                <!-- SIAT Frosh Merch -->
+                <div class="etc-item" data-index="7">
+                    <div class="etc-item-inner">
+                        <img class="etc-cover" src="img/etc-images/frosh-merch-1.webp" loading="lazy" width="2200" height="1833"
+                             alt="Series of invitation cards designed for the SIAT Frosh event, inspired by Squid Game"
+                             data-title="SIAT Frosh — Merch"
+                             data-context="SIAT Frosh 2025 · #VisualDesign #Merchandise"
+                             data-overview="Merch for SIAT Frosh — team cards, workbooks, and stickers — inspired by the event's Squid Game theme.">
+                        <!-- Additional images for this project — shown as thumbnails in the lightbox -->
+                        <img class="etc-extra-img" src="img/etc-images/frosh-merch-2.webp" width="2200" height="1467" alt="Workbook design for the SIAT Frosh event, including a bingo page">
+                        <img class="etc-extra-img" src="img/etc-images/frosh-merch-3.webp" width="2200" height="1467" alt="Close-up of the bingo page inside the SIAT Frosh workbook">
+                        <img class="etc-extra-img" src="img/etc-images/frosh-merch-4.webp" width="2200" height="1467" alt="Sticker design for the SIAT Frosh event, shown on a MacBook laptop">
+                        <img class="etc-extra-img" src="img/etc-images/frosh-merch-5.webp" width="2200" height="1833" alt="All 6 versions of the SIAT Frosh invitation cards, used to divide participants into teams">
+                    </div>
+                    <div class="etc-item-meta">
+                        <span class="etc-item-title">SIAT Frosh — Merch</span>
+                        <span class="etc-item-tag">#ArtDirection</span>
+                    </div>
+                </div>
+
+                <!-- SIAT Frosh Poster -->
+                <div class="etc-item" data-index="8">
+                    <div class="etc-item-inner">
+                        <img class="etc-cover" src="img/etc-images/frosh-poster.webp" loading="lazy" width="1961" height="2200"
+                             alt="SIAT Frosh promotional poster"
+                             data-title="SIAT Frosh — Poster"
+                             data-context="SIAT Frosh 2025 · #VisualDesign #ArtDirection"
+                             data-overview="Promotional poster for SIAT Frosh, blending childhood playfulness with the visual world of Squid Game.">
+                    </div>
+                    <div class="etc-item-meta">
+                        <span class="etc-item-title">SIAT Frosh — Poster</span>
+                        <span class="etc-item-tag">#VisualDesign</span>
+                    </div>
+                </div>
+
+                <!-- Google developers club project -->
+                <div class="etc-item" data-index="9">
+                    <div class="etc-item-inner">
+                        <img class="etc-cover" src="img/etc-images/gdsc-banners.webp" loading="lazy" width="2200" height="1467"
+                             alt="Banners designed for the monthly newsletter of the Google Developer Student Clubs (GDSC) at Simon Fraser University"
+                             data-title="GDSC Newsletter Banners"
+                             data-context="Google Developer Student Clubs SFU · #VisualDesign"
+                             data-overview="Monthly newsletter banners for Google Developer Student Clubs at SFU, following its established visual branding while reflecting each month's theme.">
+                    </div>
+                    <div class="etc-item-meta">
+                        <span class="etc-item-title">GDSC Newsletter Banners</span>
+                        <span class="etc-item-tag">#VisualDesign</span>
+                    </div>
+                </div>
+
+                <!-- Blown up fan project -->
+                <div class="etc-item" data-index="10">
+                    <div class="etc-item-inner">
+                        <img class="etc-cover" src="img/etc-images/blown-up-fan.webp" loading="lazy" width="1920" height="1080"
+                             alt="Exploded-view model of a handheld electric fan and a breakdown of its components"
+                             data-title="Exploded View Product Diagram"
+                             data-context="Academic Project · #VisualDesign #MaterialStudy"
+                             data-overview="An exploded-view diagram of a handheld electric fan, breaking down its components, internal structure, and materials as part of a study on product design and materiality.">
+                    </div>
+                    <div class="etc-item-meta">
+                        <span class="etc-item-title">Exploded View Product Diagram</span>
+                        <span class="etc-item-tag">#VisualDesign</span>
+                    </div>
+                </div>
+
+                <!-- Speculative Design Process book -->
+                <div class="etc-item" data-index="11">
+                    <div class="etc-item-inner">
+                        <img class="etc-cover" src="img/etc-images/booklet-1.webp" loading="lazy" width="2200" height="1468"
+                             alt="Cover design of the 'Intersection of Death and Morality' book"
+                             data-title="Design Process Workbook"
+                             data-context="Academic Project · #SpeculativeDesign #VisualDesign"
+                             data-overview="'Intersection of Death and Morality' is a semester-long process book documenting the research, ideation, and development of a senior speculative design project on death, grief, and morality.">
+                        <!-- Additional images for this project — shown as thumbnails in the lightbox -->
+                        <img class="etc-extra-img" src="img/etc-images/booklet-2.webp" width="2200" height="1467" alt="Interior spreads of the 'Intersection of Death and Morality' book">
+                        <img class="etc-extra-img" src="img/etc-images/booklet-3.webp" width="2200" height="1467" alt="Front and back cover design of the 'Intersection of Death and Morality' book">
+                        <img class="etc-extra-img" src="img/etc-images/booklet-4.webp" width="2200" height="1467" alt="Top-down view of interior spreads in the 'Intersection of Death and Morality' book">
+                        <img class="etc-extra-img" src="img/etc-images/booklet-5.webp" width="2200" height="1468" alt="Additional interior spreads of the 'Intersection of Death and Morality' book">
+                    </div>
+                    <div class="etc-item-meta">
+                        <span class="etc-item-title">Design Process Workbook</span>
+                        <span class="etc-item-tag">#SpeculativeDesign</span>
+                    </div>
+                </div>
+
+                <!-- Listerine project -->
+                <div class="etc-item" data-index="12">
+                    <div class="etc-item-inner">
+                        <img class="etc-cover" src="img/etc-images/listerine-1.webp" loading="lazy" width="1112" height="680"
+                             alt="Listerine Full Meal + advertisement on a lit-up billboard on a dark city street"
+                             data-title="Listerine Full Meal +"
+                             data-context="Academic Project · #SpeculativeDesign #VisualDesign"
+                             data-overview="A speculative food product imagining a 2050 future shaped by crop extinction. The concept reimagines Listerine strips as meal replacements, flavored like foods that no longer exist.">
+                        <!-- Additional images for this project — shown as thumbnails in the lightbox -->
+                        <img class="etc-extra-img" src="img/etc-images/listerine-2.webp" width="1705" height="1907" alt="Listerine Full Meal + advertisement in a supermarket aisle stocked entirely with processed, packaged food — no fresh produce in sight">
+                        <img class="etc-extra-img" src="img/etc-images/listerine-3.webp" width="2200" height="1219" alt="Poster for the avocado flavor of Listerine Full Meal +, describing avocados as extinct by 2050">
+                        <img class="etc-extra-img" src="img/etc-images/listerine-4.webp" width="2200" height="1219" alt="Poster for the banana flavor of Listerine Full Meal +, describing bananas as extinct by 2050">
+                        <img class="etc-extra-img" src="img/etc-images/listerine-5.webp" width="2200" height="1219" alt="Poster for the chocolate flavor of Listerine Full Meal +, describing chocolate as extinct by 2050">
+                        <img class="etc-extra-img" src="img/etc-images/listerine-6.webp" width="2200" height="1219" alt="Poster for the coffee flavor of Listerine Full Meal +, describing coffee as extinct by 2050">
+                        <img class="etc-extra-img" src="img/etc-images/listerine-7.webp" width="2200" height="1219" alt="Poster for the honey flavor of Listerine Full Meal +, describing honey as extinct by 2050">
+                        <img class="etc-extra-img" src="img/etc-images/listerine-8.webp" width="1467" height="2200" alt="Delivery truck with a Listerine Full Meal + advertisement on its side">
+                        <img class="etc-extra-img" src="img/etc-images/listerine-9.webp" width="2200" height="1650" alt="Listerine Full Meal + advertisement inside an empty subway car">
+                    </div>
+                    <div class="etc-item-meta">
+                        <span class="etc-item-title">Listerine Full Meal +</span>
+                        <span class="etc-item-tag">#SpeculativeDesign</span>
+                    </div>
+                </div>
+
+                <!-- Service design Persona project -->
+                <div class="etc-item" data-index="13">
+                    <div class="etc-item-inner">
+                        <img class="etc-cover" src="img/etc-images/persona-1.webp" loading="lazy" width="2200" height="1267"
+                             alt="Three persona cards designed as lanyards, illustrating different staff archetypes for a service design project"
+                             data-title="UX Research Personas"
+                             data-context="Collaborative Service Design Project · #UXResearch #Illustration"
+                             data-overview="Illustrated persona cards developed from interviews and ethnographic research with Bamboozled Escape Games staff, capturing archetypes and pain points. No real people's likenesses or names are used.">
+                        <!-- Additional images for this project — shown as thumbnails in the lightbox -->
+                        <img class="etc-extra-img" src="img/etc-images/persona-2.webp" width="2200" height="1307" alt="The Dedicated Worker persona, with an illustration of the archetype and a description of their behavior and pain points">
+                        <img class="etc-extra-img" src="img/etc-images/persona-3.webp" width="2200" height="1307" alt="The Overworked Manager persona, with an illustration of the archetype and a description of their behavior and pain points">
+                        <img class="etc-extra-img" src="img/etc-images/persona-4.webp" width="2200" height="1307" alt="The Newbie Employee persona, with an illustration of the archetype and a description of their behavior and pain points">
+                        <img class="etc-extra-img" src="img/etc-images/persona-5.webp" width="2200" height="1306" alt="Initial sketches of the Dedicated Worker persona next to the final digital illustration">
+                        <img class="etc-extra-img" src="img/etc-images/persona-6.webp" width="2200" height="1306" alt="Initial sketches of the Overworked Manager persona next to the final digital illustration">
+                        <img class="etc-extra-img" src="img/etc-images/persona-7.webp" width="2200" height="1306" alt="Initial sketches of the Newbie Employee persona next to the final digital illustration">
+                    </div>
+                    <div class="etc-item-meta">
+                        <span class="etc-item-title">UX Research Personas</span>
+                        <span class="etc-item-tag">#Illustration</span>
+                    </div>
+                </div>
+
+                <!-- X Ergo Y posters project -->
+                <div class="etc-item" data-index="14">
+                    <div class="etc-item-inner">
+                        <img class="etc-cover" src="img/etc-images/x-ergo-y-1.webp" loading="lazy" width="2200" height="1467"
+                             alt="X Ergo Y exhibition poster design"
+                             data-title="X Ergo Y — Exhibition Posters"
+                             data-context="Academic Project · #VisualDesign #ArtDirection"
+                             data-overview="Poster series inspired by Tony Oursler's X Ergo Y exhibition at the Stedelijk Museum, designed in interchangeable light and dark modes and later extended into an interactive microsite.">
+                        <!-- Additional images for this project — shown as thumbnails in the lightbox -->
+                        <img class="etc-extra-img" src="img/etc-images/x-ergo-y-2.webp" width="2200" height="1467" alt="Light version of the X Ergo Y poster on a building's exterior wall">
+                        <img class="etc-extra-img" src="img/etc-images/x-ergo-y-3.webp" width="2200" height="1467" alt="Dark version of the X Ergo Y poster on a building's exterior wall">
+                        <img class="etc-extra-img" src="img/etc-images/x-ergo-y-4.webp" width="2200" height="1614" alt="Mockup of the X Ergo Y poster design applied to a building exterior">
+                        <img class="etc-extra-img" src="img/etc-images/x-ergo-y-5.webp" width="1488" height="1086" alt="X Ergo Y poster shown on a digital stand in a public space">
+                        <img class="etc-extra-img" src="img/etc-images/x-ergo-y-6.webp" width="1875" height="1202" alt="Dark and light versions of the X Ergo Y poster at the base of an escalator">
+                        <img class="etc-extra-img" src="img/etc-images/x-ergo-y-7.webp" width="1875" height="1207" alt="Light version of the X Ergo Y poster on a subway station wall">
+                    </div>
+                    <div class="etc-item-meta">
+                        <span class="etc-item-title">X Ergo Y — Exhibition Posters</span>
+                        <span class="etc-item-tag">#VisualDesign</span>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.etc-grid -->
+
+        </section>
+    </main>
+
+    <!-- ── ETC OVERLAY ─────────────────────────────────────────────
+         Left panel: image + thumbnails (when the project has more
+         than one image)
+         Right panel: info sidebar (title, context, overview)
+         The overlay stops before the site's fixed sidebar nav.        -->
+    <div id="etc-overlay" role="dialog" aria-modal="true" aria-label="Project viewer">
+
+        <button id="etc-close" aria-label="Close viewer">Close</button>
+
+        <!-- Project title — sits first in document order so it appears
+             above the image on the mobile/top-nav tier (title, image,
+             context, overview). On the desktop sidebar tier, CSS grid
+             areas reposition this to sit above the info panel as part
+             of one continuous side column. -->
+        <div id="etc-title-block">
+            <p class="etc-info-label">Project</p>
+            <p id="etc-info-title">—</p>
+        </div>
+
+        <div id="etc-img-panel">
+            <div id="etc-image-stage">
+                <!-- #etc-image-frame shrink-wraps to the image's own
+                     rendered size (not the whole stage) and centers the
+                     counter under it, rather than lining up with the
+                     stage's edges. -->
+                <div id="etc-image-frame">
+                    <img id="etc-overlay-img" src="" alt="">
+
+                    <!-- "image N of the project's total" — only
+                         meaningful once a project has more than one
+                         image; collapses via :empty otherwise. -->
+                    <p class="etc-counter" id="etc-counter"></p>
+                </div>
+            </div>
+
+            <!-- Populated by JS only when the open project has more than
+                 one image. Clicking a thumbnail swaps the image above
+                 without changing the title/context/overview. There's no
+                 cross-project navigation inside the overlay anymore —
+                 close it and pick another tile from the grid. -->
+            <div id="etc-thumbs" aria-label="More images for this project"></div>
+        </div>
+
+        <!-- Context + Overview. Mobile/top-nav tier: renders as a dark
+             transparent strip directly under the image. Desktop sidebar
+             tier: becomes the lower half of the side info column
+             (positioned right under #etc-title-block via grid areas). -->
+        <div id="etc-info-panel">
+            <div class="etc-info-divider"></div>
+
+            <div id="etc-info-details">
+                <div>
+                    <p class="etc-info-label">Context</p>
+                    <p id="etc-info-context">—</p>
+                </div>
+
+                <div>
+                    <p class="etc-info-label">Overview</p>
+                    <p id="etc-info-overview">—</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Design and code by yours truly.</p>
+        <p>Copyright &copy; 2026, Sahar Babaei</p>
+    </footer>
+</div>
+
+<script>
+/**
+ * etc-gallery.js (inline — keeps the logic close to the markup it controls)
+ *
+ * Opens the overlay when any .etc-item cover image is clicked.
+ * Escape or the Close button closes the overlay. There's no
+ * cross-project navigation inside the overlay — close it and pick a
+ * different tile from the grid.
+ *
+ * Each project can carry extra images (.etc-extra-img, hidden in the
+ * grid) in addition to its cover image. When the open project has
+ * more than one image: a thumbnail strip appears (click one to swap
+ * the main image in place), a counter shows position within that
+ * project's image set, and ←/→ keys cycle through them. Projects with
+ * only one image show none of that — same as before this feature
+ * existed.
+ *
+ * All data is read from attributes already in the HTML — no separate
+ * data file needed. A project's title/context/overview always come
+ * from its cover image (the one with data-title etc.); extra images
+ * only contribute their src + alt.
+ */
+(function () {
+    // Group each .etc-item into a project: { title, context, overview, images: [...] }
+    const projects = Array.from(document.querySelectorAll('.etc-item')).map(function (item) {
+        const cover  = item.querySelector('.etc-cover');
+        const extras = Array.from(item.querySelectorAll('.etc-extra-img'));
+        const images = [cover].concat(extras).map(function (im) {
+            return { src: im.src, alt: im.alt || cover.alt };
+        });
+        return {
+            title:    cover.dataset.title    || cover.alt,
+            context:  cover.dataset.context  || '—',
+            overview: cover.dataset.overview || '—',
+            images:   images
+        };
+    });
+
+    let current    = 0; // index into projects
+    let currentImg = 0; // index into projects[current].images
+
+    const overlay    = document.getElementById('etc-overlay');
+    const img         = document.getElementById('etc-overlay-img');
+    const imageStage  = document.getElementById('etc-image-stage');
+    const thumbsWrap  = document.getElementById('etc-thumbs');
+    const titleEl     = document.getElementById('etc-info-title');
+    const ctxEl       = document.getElementById('etc-info-context');
+    const ovEl        = document.getElementById('etc-info-overview');
+    const counter     = document.getElementById('etc-counter');
+    const closeBtn    = document.getElementById('etc-close');
+    const imgPanel    = document.getElementById('etc-img-panel');
+
+    // #etc-overlay-img deliberately has no width/height hint of any
+    // kind (no HTML attributes, no JS-set size) — tried adding one, to
+    // avoid a possible flash of no-size/wrong-size while a newly-shown
+    // image decodes, and hit a genuine browser bug instead: once this
+    // element's aspect ratio is known UP FRONT (from width/height
+    // attributes, or a plain CSS aspect-ratio — tried both) rather than
+    // learned only once the image actually decodes, this flex item's
+    // max-width:100% and vh-based max-height, together with
+    // object-fit:contain, stopped jointly solving for the ratio-
+    // preserving fit and instead clamped each axis independently —
+    // producing a box shaped nothing like its content (visible as
+    // solid-color bars down the sides). Measured how long the "flash"
+    // this was meant to prevent actually lasts for a real click here —
+    // reusing an already-visible, already-decoded grid thumbnail's src,
+    // not a fresh network fetch — and it's ~12ms, under a single frame,
+    // not worth reintroducing a real rendering bug to avoid. If this
+    // gets revisited, that's the trade-off to re-measure against, not
+    // just an assumption.
+    function renderImage() {
+        const im = projects[current].images[currentImg];
+        img.src = im.src;
+        img.alt = im.alt;
+    }
+
+    function renderThumbs() {
+        const images = projects[current].images;
+        thumbsWrap.innerHTML = '';
+        if (images.length < 2) return; // #etc-thumbs:empty hides the strip via CSS
+
+        images.forEach(function (im, i) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'etc-thumb' + (i === currentImg ? ' active' : '');
+            btn.dataset.imgIndex = String(i);
+            btn.setAttribute('aria-label', 'Show image ' + (i + 1) + ' of ' + images.length);
+
+            const thumbImg = document.createElement('img');
+            thumbImg.src = im.src;
+            thumbImg.alt = '';
+            thumbImg.loading = 'lazy';
+
+            btn.appendChild(thumbImg);
+            thumbsWrap.appendChild(btn);
+        });
+    }
+
+    function renderCounter() {
+        const total = projects[current].images.length;
+        // Only meaningful once there's more than one image to count through.
+        counter.textContent = total > 1 ? `${currentImg + 1} / ${total}` : '';
+    }
+
+    function setActiveThumb() {
+        Array.from(thumbsWrap.children).forEach(function (el, i) {
+            el.classList.toggle('active', i === currentImg);
+        });
+    }
+
+    // Swap the main image to a different image within the current project
+    function selectImage(index) {
+        const images = projects[current].images;
+        currentImg = (index + images.length) % images.length;
+        renderImage();
+        setActiveThumb();
+        renderCounter();
+    }
+
+    // Open a project fresh (resets to its first/cover image)
+    function show(index) {
+        current    = (index + projects.length) % projects.length;
+        currentImg = 0;
+        const p = projects[current];
+        titleEl.textContent = p.title;
+        ctxEl.textContent   = p.context;
+        ovEl.textContent    = p.overview;
+        renderImage();
+        renderThumbs();
+        renderCounter();
+    }
+
+    function open(index) {
+        show(index);
+        overlay.classList.add('etc-open');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+    }
+
+    function close() {
+        overlay.classList.remove('etc-open');
+        document.body.style.overflow = '';
+    }
+
+    // Click on any gallery cover image
+    document.getElementById('etc-grid').addEventListener('click', function (e) {
+        const imgEl = e.target.closest('.etc-item .etc-cover');
+        if (!imgEl) return;
+        const itemEl = imgEl.closest('.etc-item');
+        const allItems = Array.from(document.querySelectorAll('.etc-item'));
+        const index = allItems.indexOf(itemEl);
+        if (index !== -1) open(index);
+    });
+
+    // Click a thumbnail to swap the main image
+    thumbsWrap.addEventListener('click', function (e) {
+        const btn = e.target.closest('.etc-thumb');
+        if (!btn) return;
+        selectImage(parseInt(btn.dataset.imgIndex, 10));
+    });
+
+    closeBtn.addEventListener('click', close);
+
+    // Click backdrop (the panel itself or the empty space around the
+    // image within the stage) but not the image or thumbs.
+    imgPanel.addEventListener('click', function (e) {
+        if (e.target === imgPanel || e.target === imageStage) close();
+    });
+
+    // Keyboard: ←/→ cycle through the open project's images (if it has
+    // more than one), Escape closes.
+    document.addEventListener('keydown', function (e) {
+        if (!overlay.classList.contains('etc-open')) return;
+        if (e.key === 'ArrowLeft')  selectImage(currentImg - 1);
+        if (e.key === 'ArrowRight') selectImage(currentImg + 1);
+        if (e.key === 'Escape')     close();
+    });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reachability — Redesigning iPhone's One-Handed Mode — Sahar Babaei</title>
+    <meta name="description" content="An HCI research project redesigning Apple's Reachability feature — grounded in thumb-zone ergonomics research, proposing a full-time one-handed control system for iOS.">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Sahar Babaei" />
+    <link rel="manifest" href="img/favicon/site.webmanifest" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-Regular-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-RegularItalic-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-Medium-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-light.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/breakpoints.css">
+    <link rel="stylesheet" href="css/casestudy-extra.css">
+    <script src="js/nav.js" defer></script>
+    <script src="js/lightbox.js" defer></script>
+    <script src="js/cursor.js" defer></script>
+    <script src="js/video-lazy.js" defer></script>
+</head>
+<body class="vu-page">
+<div class="main-wrapper">
+    <header id="site-header" class="nav-section"></header>
+
+    <main>
+
+        <!-- ══ HERO ══════════════════════════════════════════════ -->
+        <div class="vu-hero vu-hero--split">
+            <div class="vu-hero-inner">
+                <a href="Projects.html" class="vu-hero-back">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 8H1M1 8L6.5 2.5M1 8L6.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Back to projects
+                </a>
+
+                <div class="vu-hero-grid">
+                    <div class="vu-hero-text">
+                        <h2>Beyond Reachability — Limitations of iPhone's One-Handed Mode</h2>
+                        <p class="vu-hero-sub">I used HCI research and hand ergonomics literature to examine where Apple's existing one-handed features fall short, then explored a way to turn one-handed interactions into a full-time mode rather than a temporary accommodation.</p>
+                    </div>
+                    <div class="vu-meta-row">
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Role</span>
+                            <p class="vu-meta-value">HCI Research | Interaction Design</p>
+                        </div>
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Tools</span>
+                            <p class="vu-meta-value">Figma</p>
+                        </div>
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Timeline</span>
+                            <p class="vu-meta-value">6 weeks</p>
+                        </div>
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Context</span>
+                            <p class="vu-meta-value">Academic team project</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lightbox-zone vu-hero-img-wrap">
+                <img class="vu-full-img" src="img/reachability-hero.png" width="2965" height="1430"
+                     alt="Apple's native Reachability feature next to the proposed full-time one-handed control panel"
+                     data-fullscreen-description="The final concept: a one-handed control panel embedded directly in the iOS keyboard, extending Reachability into a full-time interaction system.">
+                <p class="vu-img-caption">Apple's Reachability (left) vs. the proposed full-time control panel (right).</p>
+            </div>
+        </div>
+
+
+        <!-- ══ CONTEXT ══════════════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Context</p>
+                <h3 class="vu-section-title">Larger screens make one-handed use more difficult.</h3>
+                <p class="vu-section-body">Larger iPhones make complex tasks easier by showing more content at once. But as screens grow, more of the interface moves beyond comfortable thumb reach, and it gets harder to operate the phone with only one hand.</p>
+
+                <p class="vu-h4-label vu-mt-xl">Why is one-handed accommodation necessary?</p>
+                <p class="vu-section-body">One-handed interactions are not just an edge case. Many people use their phones one-handedly out of necessity and require accessibility accommodations for doing so.</p>
+                <div class="vu-opps-grid vu-cols-2 vu-mt-lg">
+                    <div class="vu-opp-card vu-card-grey">
+                        <span class="vu-opp-emoji">♿</span>
+                        <p class="vu-opp-title">Upper-extremity impairments</p>
+                        <p class="vu-opp-body">For some users, using a second hand is not a reliable option at all, rather than simply being inconvenient.</p>
+                    </div>
+                     <div class="vu-opp-card vu-card-grey">
+                        <span class="vu-opp-emoji">🤹</span>
+                        <p class="vu-opp-title">Multitasking with one hand occupied</p>
+                        <p class="vu-opp-body">Multitasking while holding a phone can make one-handed use situational rather than optional.</p>
+                    </div>
+                    <div class="vu-opp-card vu-card-grey">
+                        <span class="vu-opp-emoji">✋</span>
+                        <p class="vu-opp-title">Smaller hands</p>
+                        <p class="vu-opp-body">Thumb reach is a physical constraint that makes phone use more difficult for users with smaller hands.</p>
+                    </div>
+                    <div class="vu-opp-card vu-card-grey">
+                        <span class="vu-opp-emoji">🔧</span>
+                        <p class="vu-opp-title">Reliance on accessibility features</p>
+                        <p class="vu-opp-body">For some people, one-handed use is part of how they operate their phone, not an occasional convenience.</p>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+
+
+        <!-- ══ PROBLEM / MISSION ═══════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <div class="vu-problem-solution-grid">
+                    <div class="vu-ps-block">
+                        <p class="vu-ps-label problem">The Problem</p>
+                        <p class="vu-ps-statement">Existing one-handed modes behave more like temporary reachability accommodations than permanent solutions to one-handed use.</p>
+                        
+                    </div>
+                    <div class="vu-ps-block">
+                        <p class="vu-ps-label solution">The Mission</p>
+                        <p class="vu-ps-statement">Propose a solution that supports continuous one-handed use without limiting the screen space.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ CURRENT SHORTFALLS ═══════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Current shortfalls</p>
+                <h3 class="vu-section-title">Limitations of iPhone's one-handed features</h3>
+                <p class="vu-section-body">iOS offers Reachability and a one-handed keyboard as accessibility features aimed at improving one-handed use of bigger phones. But these features don't work together to offer a comprehensive solution to one-handed use.</p>
+
+
+                <div class="vu-feature-block vu-issue-block vu-mt-lg">
+                    <div>
+                        <p class="vu-measured-label vu-mb-sm">Issue 01</p>
+                        <h4>Reachability requires repeated activation and hides half the screen space</h4>
+                        <p class="vu-opp-body">Reachability drops the interface toward the bottom of the screen so the thumb can reach the upper half, but it also hides the lower half of the interface, and requires repeated activation.</p>
+                    </div>
+                    
+                    <div class="lightbox-zone">
+                        <video poster="https://res.cloudinary.com/dmsnrcusf/video/upload/so_0,f_auto,q_auto/v1788663299/wider_reachability_b9lkyb.jpg" class="vid-class-noside"  controlslist="nodownload" disablepictureinpicture playsinline muted autoplay loop src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_auto,q_auto/v1788663299/wider_reachability_b9lkyb.mp4"></video>
+                    </div>
+                </div>
+                
+
+                <div class="vu-feature-block vu-issue-block vu-mt-lg">
+                    <div>
+                        <p class="vu-measured-label vu-mb-sm">Issue 02</p>
+                        <h4>The keyboard moves but other UI controls don't</h4>
+                        <p class="vu-opp-body">The iOS keyboard has the option to shift the keys toward the thumb, but other UI controls such as the predictive text remain difficult to reach.</p>
+                    </div>
+                    <div class="lightbox-zone">
+                        <video poster="https://res.cloudinary.com/dmsnrcusf/video/upload/so_0,f_auto,q_auto/v1788663301/wider-keyboardmp4_q3bsxa.jpg" class="vid-class-noside"  controlslist="nodownload" disablepictureinpicture playsinline muted autoplay loop src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_auto,q_auto/v1788663301/wider-keyboardmp4_q3bsxa.mp4"></video>
+                    </div>
+                </div>
+               
+
+                <div class="vu-feature-block vu-issue-block vu-mt-lg">
+                    <div>
+                        <p class="vu-measured-label vu-mb-sm">Issue 03</p>
+                        <h4>Two-finger gestures can't be performed when holding the phone one-handedly</h4>
+                        <p class="vu-opp-body">Pinch-to-zoom and other two-finger interactions simply can't be performed when gripping the phone one-handedly.</p>
+                    </div>
+                    <div class="lightbox-zone">
+                        <video poster="https://res.cloudinary.com/dmsnrcusf/video/upload/so_0,f_auto,q_auto/v1788663299/wider_zoom_zvmdcn.jpg" class="vid-class-noside"  controlslist="nodownload" disablepictureinpicture playsinline muted autoplay loop src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_auto,q_auto/v1788663299/wider_zoom_zvmdcn.mp4"></video>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Competitive analysis</p>
+                 <h3 class="vu-section-title">How do other phones handle reachability and one-handed mode?</h3>
+                <p class="vu-section-body">I compared how major phone models such as Samsung, Google Pixel, and Huawei approached one-handed mode and whether they offered any alternative solutions. </p>
+
+                <div class="vu-opps-grid vu-mt-md">
+                    <div class="vu-vid-card">
+                        <span class="vu-compare-tag grey">Samsung / Huawei</span>
+                        <!-- <p class="vu-measured-label">Samsung / Huawei</p> -->
+                        <p class="vu-part-label">Shrink the entire interface</p>
+                         <div class="lightbox-zone vu-mt-sm">
+                            <video poster="https://res.cloudinary.com/dmsnrcusf/video/upload/so_0,f_auto,q_auto/v1788658643/shrink-sep5_jmz3jx.jpg" class="vid-class-noside"  controlslist="nodownload" disablepictureinpicture playsinline muted autoplay loop src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_auto,q_auto/v1788658643/shrink-sep5_jmz3jx.mp4"></video>
+                        </div>
+  
+                        <p class="vu-opp-body">The entire interface becomes a smaller, draggable window. This improves reachability, but reduces the effective screen size.</p>
+                       
+                    </div>
+                    <div class="vu-vid-card">
+                        <span class="vu-compare-tag grey">Google Pixel</span>
+                        
+                        <!-- <p class="vu-measured-label">Google Pixel</p> -->
+                        <p class="vu-part-label">Shift down the interface</p>
+                        <div class="lightbox-zone vu-mt-sm">
+                            <video poster="https://res.cloudinary.com/dmsnrcusf/video/upload/so_0,f_auto,q_auto/v1788658644/dropdown-sep5_ggqjo2.jpg" class="vid-class-noside"  controlslist="nodownload" disablepictureinpicture playsinline muted autoplay loop src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_auto,q_auto/v1788658644/dropdown-sep5_ggqjo2.mp4"></video>
+                        </div>
+                                                
+  
+                        <p class="vu-opp-body">The interface shifts to the bottom and stays there until the user decides to exit this mode. This solves reachability, but hides half of the screen.</p>
+
+                    </div>
+                    
+                </div>
+                <div class="vu-key-insight">
+                        <span class="vu-key-insight-icon">💡</span>
+                        <div>
+                            <p class="vu-key-insight-label">Insight</p>
+                            <p class="vu-key-insight-body">All current solutions come at the cost of losing valuable screen space.</p>
+                        </div>
+                </div>
+
+                
+            </div>
+        </div>
+
+
+        <!-- ══ RESEARCH: LITERATURE + AUDIT ═══════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Research</p>
+        
+                <h3 class="vu-section-title">Thumb ergonomics: understanding the thumb's role in one-handed modes</h3>
+                
+                <p class="vu-section-body">To understand what a continuous one-handed solution needed to support, I looked beyond screen size and thumb reach. <a href="https://www.uxmatters.com/mt/archives/2017/03/design-for-fingers-touch-and-people-part-1.php" target="_blank" rel="noopener" class="vu-link-green">Steven Hoober's research</a> combines field observations, usability studies, and a review of existing research to examine how people hold, touch, and interact with mobile devices. I used the findings from his study to identify the interaction constraints the solution needed to address.</p>
+
+                <div class="vu-feature-block vu-research-block vu-mt-lg">
+                    <div class="lightbox-zone">
+                        <figure>
+                            <img class="vu-full-img vu-rounded-img" src="img/HCI-different-grips-usage.png" width="3327" height="2614" alt="Graph showing the usage of different grips while doing different tasks">
+                            <figcaption class="vu-img-caption">Usage of different grips while doing different tasks.</figcaption>
+                        </figure>
+                     </div>
+                    <div>
+                        <p class="vu-measured-label vu-mb-sm ">Hoober's finding 01</p>
+                        <p class="vu-part-label vu-mb-sm ">Users switch grips often due to different tasks requiring different grips.</p>
+                        <p class="vu-opp-body vu-mb-md">Hoober observed over 1300 people interacting with their phones and found that people change their grip depending on the interaction they're performing.</p>
+                        <div class="vu-tldr vu-tldr-v2">
+                            <span class="vu-tldr-label-green">Design implication</span>
+                            <p class="vu-tldr-body-light">The solution should allow users to perform all tasks of different natures comfortably in one-handed mode.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vu-feature-block vu-research-block vu-mt-lg">
+                    <div class="lightbox-zone">
+                        <figure>
+                            <img class="vu-full-img vu-rounded-img" src="img/HCI-grip-stability.png" width="2703" height="1992" alt="Thumb-reach zones for a stable one-handed grip versus a less stable grip, colored from easy (green) to hard to reach (red)">
+                            <figcaption class="vu-img-caption">A more stable grip trades reach for stability.</figcaption>
+                        </figure>
+                     </div>
+                    <div>
+                        <p class="vu-measured-label vu-mb-sm ">Hoober's finding 02</p>
+                        <p class="vu-part-label vu-mb-sm ">Switching grip can help with thumb reach but reduces stability.</p>
+                        <p class="vu-opp-body vu-mb-md">People adjust their grip to change the area their thumb can reach, but doing so changes the stability of the grip holding the phone.</p>
+                        <div class="vu-tldr vu-tldr-v2">
+                            <span class="vu-tldr-label-green">Design implication</span>
+                            <p class="vu-tldr-body-light">Many users who use one-handed modes cannot risk losing grip stability, so the design should avoid patterns that force grip shifts.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="vu-feature-block vu-research-block vu-mt-lg">
+                    <div class="lightbox-zone">
+                        <figure>
+                            <img class="vu-full-img vu-rounded-img" src="img/HCI-touch-accuracy.png" width="2690" height="1992" alt="Comparison of touch accuracy between the hold-and-tap grip and the one-handed grip, shown as accuracy ellipses across the screen">
+                            <figcaption class="vu-img-caption">One-handed taps miss more near the corners.</figcaption>
+                        </figure>
+                     </div>
+                    <div>
+                        <p class="vu-measured-label vu-mb-sm ">Hoober's finding 03</p>
+                        <p class="vu-part-label vu-mb-sm ">Touch accuracy gets reduced near the far edges of the screen.</p>
+                        <p class="vu-opp-body vu-mb-md">Hoober's analysis found that touch becomes more accurate toward the center and less accurate near the edges and corners.</p>
+                        <div class="vu-tldr vu-tldr-v2">
+                            <span class="vu-tldr-label-green">Design implication</span>
+                            <p class="vu-tldr-body-light">One-handed interaction should avoid requiring precise thumb taps at distant edges.</p>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+
+
+                <div class="vu-key-insight">
+                        <span class="vu-key-insight-icon">💡</span>
+                        <div>
+                            <p class="vu-key-insight-label">Guiding Insight 01</p>
+                            <p class="vu-key-insight-body">Instead of moving the interface toward the thumb, could the thumb control the interface from a fixed, reachable area?</p>
+                        </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ══ constraints ═══════════════════════════════════════ -->
+        <!-- <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Constraints</p>
+                <h3 class="vu-section-title">Constraints that shaped every decision</h3>
+                <p class="vu-section-body">The thumb needed to stay in a stable zone while controlling the full interface, raising the question of where that control system could live. During the ideation phase, each decision was checked against key HCI constraints to ensure the solution remained effective.</p>
+
+
+                <div class="vu-opps-grid">
+                     <div class="vu-persona-card">
+                        <span class="vu-opp-emoji">⚠️</span>
+                        <p class="vu-opp-title vu-mt-sm  vu-mb-sm ">Designing to prevent cognitive overload</p>
+                         
+                        <p class="vu-persona-row-body vu-mb-md ">The solution should be well integrated into the existing iOS system. Each new control has to remove more friction than it adds, or it won't make the cut.</p>
+                            
+    
+                        <div class="vu-persona-row">
+                            <span class="vu-finding-evidence-label">Design decision:</span>
+                            <p class="vu-persona-row-body">House the control system in the keyboard area as it's easily reachable and already supports one-handed use.</p>
+                        </div>
+                    </div>
+
+                    <div class="vu-persona-card">
+                        <span class="vu-opp-emoji">📱</span>
+                        <p class="vu-opp-title vu-mt-sm  vu-mb-sm ">Taking an additive design approach</p>
+                        <p class="vu-persona-row-body vu-mb-md ">The solution should be built on top of the one-handed keyboard and Reachability instead of removing them to introduce something new to learn.</p>
+    
+                        <div class="vu-persona-row">
+                            <span class="vu-finding-evidence-label">Design decision:</span>
+                            <p class="vu-persona-row-body">The control system should be accessible through Reachability and the keyboard rather than a whole separate gesture.</p>
+                         </div>
+                    </div>
+
+                    <div class="vu-persona-card">
+                        <span class="vu-opp-emoji">🧠</span>
+                        <p class="vu-opp-title vu-mt-sm  vu-mb-sm ">Leveraging users' existing mental models</p>
+
+                        <p class="vu-persona-row-body vu-mb-md" >The solution should borrow from interaction models and concepts that users are already familiar with, and ensure the solution feels intuitive to use.</p>
+    
+                        <div class="vu-persona-row">
+                            <span class="vu-finding-evidence-label">Design decision:</span>
+                            <p class="vu-persona-row-body">Borrow from common interface control systems such as mice, keyboards, trackpads, and game controllers.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="vu-key-insight">
+                        <span class="vu-key-insight-icon">💡</span>
+                        <div>
+                            <p class="vu-key-insight-label">Guiding Insight 02</p>
+                            <p class="vu-key-insight-body">The keyboard area is an ideal place for an integrated control system.</p>
+                        </div>
+                </div>
+            </div>
+        </div> -->
+
+                <!-- ══ IDEATION ═════════════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Ideation</p>
+                <h3 class="vu-section-title">What should the control system look like and where should it be placed?</h3>
+
+
+                <p class="vu-section-body">The thumb needed to stay in a stable zone while controlling the full interface, raising the question of where that control system could live. During the ideation phase, each decision was checked against key HCI principles to ensure the solution remained effective.</p>
+
+                <!-- <p class="vu-h4-label vu-mt-xl "> Constraints that shaped concept ideation </p> -->
+                <p class="vu-limitation-title vu-mt-xl">Constraints that shaped concept ideation</p>
+                 <div class="vu-opps-grid">
+                     <div class="vu-persona-card">
+                        <span class="vu-opp-emoji">⚠️</span>
+                        <p class="vu-opp-title vu-mt-sm  vu-mb-sm ">House the control system in the keyboard area</p>
+                         
+                        <p class="vu-persona-row-body vu-mb-md ">The solution should be housed in the iOS keyboard area as it is easily reachable, and already supports one-handed use while maintaining a minimal and intuitive design.</p>
+                            
+    
+                        <!-- <div class="vu-persona-row">
+                            <span class="vu-finding-evidence-label">Design decision:</span>
+                            <p class="vu-persona-row-body">House the control system in the keyboard areas it's easily reachable and already supports one-handed use.</p>
+                        </div> -->
+                        
+                        <!-- <div class="vu-rf-implication">
+                            <p class="vu-rf-implication-label">Guiding Principle:</p>
+                            <p class="vu-rf-implication-body">Designing to prevent cognitive overload</p>
+                        </div> -->
+                        <div class="vu-tldr vu-tldr-v2">
+                            <span class="vu-tldr-label-green">Guiding Principle:</span>
+                            <p class="vu-tldr-body-light">Designing to prevent cognitive overload.</p>
+                        </div>
+                        
+                    </div>
+
+                    <div class="vu-persona-card">
+                        <span class="vu-opp-emoji">📱</span>
+                        <p class="vu-opp-title vu-mt-sm  vu-mb-sm ">Design on top of the existing system</p>
+                        <p class="vu-persona-row-body vu-mb-md ">The solution should be built on top of Reachability and the one-handed keyboard instead of removing or replacing them; it should also be accessed through these features.</p>
+    
+                        <!-- <div class="vu-persona-row">
+                            <span class="vu-finding-evidence-label">Design decision:</span>
+                            <p class="vu-persona-row-body">The control system should be accessible through Reachability and the keyboard rather than a whole separate gesture.</p>
+                         </div> -->
+                        <!-- <div class="vu-rf-implication">
+                            <p class="vu-rf-implication-label">Guiding Principle:</p>
+                            
+                            <p class="vu-rf-implication-body">Taking an additive design approach</p>
+                        </div> -->
+                        <div class="vu-tldr vu-tldr-v2">
+                            <span class="vu-tldr-label-green">Guiding Principle:</span>
+                            <p class="vu-tldr-body-light">Taking an additive design approach.</p>
+                        </div>
+                    </div>
+
+                    <div class="vu-persona-card">
+                        <span class="vu-opp-emoji">🧠</span>
+                        <p class="vu-opp-title vu-mt-sm  vu-mb-sm ">Borrow from existing interface control models</p>
+
+                        <p class="vu-persona-row-body vu-mb-md" >The solution should borrow from interaction models and concepts that users are already familiar with, such as mice, keyboards, trackpads, and game controllers.</p>
+    
+                        <!-- <div class="vu-persona-row">
+                            <span class="vu-finding-evidence-label">Design decision:</span>
+                            <p class="vu-persona-row-body">Borrow from common interface control systems such as mice, keyboards, trackpads, and game controllers.</p>
+                        </div> -->
+
+                        <!-- <div class="vu-rf-implication">
+                            <p class="vu-rf-implication-label">Guiding Principle:</p>
+                            <p class="vu-rf-implication-body">Leveraging users' existing mental models</p>
+                        </div> -->
+                        <div class="vu-tldr vu-tldr-v2">
+                            <span class="vu-tldr-label-green">Guiding Principle:</span>
+                            <p class="vu-tldr-body-light">Leveraging users' existing mental models.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- <p class="vu-h4-label vu-mt-xxl "> Initial concepts </p> -->
+                <p class="vu-limitation-title vu-mt-xxl">Initial concepts</p>
+                <p class="vu-section-body">Two control metaphors were explored: a trackpad and a joystick, both integrated into the keyboard area to control the entire interface.</p>
+
+
+                <div class="vu-compare-grid vu-mt-md">
+                    <div class="vu-compare-card">
+                        <span class="vu-compare-tag grey">Direction 1</span>
+                        <p class="vu-compare-title">A laptop style trackpad</p>
+                        <p class="vu-compare-body">A trackpad-like surface is added to the keyboard area to allow the thumb to move a cursor around the screen and control the interface.</p>
+                        <div class="lightbox-zone">
+                            <video poster="https://res.cloudinary.com/dmsnrcusf/video/upload/so_0,f_auto,q_auto/v1788658644/dropdown-sep5_ggqjo2.jpg" class="vid-class-noside"  controlslist="nodownload" disablepictureinpicture playsinline muted autoplay loop src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_auto,q_auto/v1788658644/dropdown-sep5_ggqjo2.mp4"></video>
+                        </div>
+
+                        
+                        
+
+                        <div class="vu-rf-implication">
+                            <p class="vu-rf-implication-label">Pros <span class="vu-check-yes">✓</span></p>
+                            <p class="vu-rf-implication-body">Trackpads are one of the most common and popular interface control models.</p>
+                        </div>
+                        <div class="vu-rf-implication red">
+                            <p class="vu-rf-implication-label red">Cons <span class="vu-check-no">✗</span></p>
+                            <p class="vu-rf-implication-body">Difficult to operate with a thumb as trackpads are usually operated with pointer fingers. Actions like scrolling and zooming still require two fingers.</p>
+
+                        </div>
+                        
+                    </div>
+                    <div class="vu-compare-card">
+                        <span class="vu-compare-tag grey">Direction 2</span>
+                        <p class="vu-compare-title">A game controller joystick</p>
+                        <p class="vu-compare-body">The flat surface is replaced with a joystick inspired by modern game controllers such as the Nintendo Switch, rather than the bulkier traditional joysticks seen in arcades.</p>
+                        <div class="lightbox-zone">
+                            <video poster="https://res.cloudinary.com/dmsnrcusf/video/upload/so_0,f_auto,q_auto/v1788658644/dropdown-sep5_ggqjo2.jpg" class="vid-class-noside"  controlslist="nodownload" disablepictureinpicture playsinline muted autoplay loop src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_auto,q_auto/v1788658644/dropdown-sep5_ggqjo2.mp4"></video>
+                        </div>
+
+                        <div class="vu-rf-implication">
+                            <p class="vu-rf-implication-label">Pros <span class="vu-check-yes">✓</span></p>
+                            <p class="vu-rf-implication-body">The joystick maps naturally to a thumb's range of motion, and uses a familiar thumb-operated interaction model that many people are familiar with.</p>
+                            
+                        </div>
+                        <div class="vu-rf-implication red">
+                            <p class="vu-rf-implication-label red">Cons <span class="vu-check-no">✗</span></p>
+                            <p class="vu-rf-implication-body">Additional controls are needed for actions such as scrolling or zooming.</p>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- ══ FINAL DESIGN ═══════════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Final concept</p>
+                <h3 class="vu-section-title">A flexible control panel built into the one-handed keyboard</h3>
+                <p class="vu-section-body"> The joystick became the foundation for the final concept. This final concept sits within the keyboard's one-handed options and can also be activated through Reachability. It lets users quickly access the one-handed keyboard when typing and provides a reachable set of controls for navigating the full interface.</p>
+
+
+
+                <div class="vu-feature-block vu-issue-block vu-mt-lg">
+                    <div>
+                        <p class="vu-measured-label vu-mb-sm">01 - Activation</p>
+                        <h4>Reuse the existing activation gesture.</h4>
+                        <p class="vu-opp-body">The panel opens with the same swipe-down gesture used by Reachability. To deactivate, a visible collapse control returns either to the keyboard or the full screen depending on the context.</p>
+                    </div>
+                    
+                    <div class="lightbox-zone">
+                        <video poster="https://res.cloudinary.com/dmsnrcusf/video/upload/so_0,f_auto,q_auto/v1788663299/wider_reachability_b9lkyb.jpg" class="vid-class-noside" controlslist="nodownload" disablepictureinpicture="" playsinline="" muted="" autoplay="" loop="" src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_auto,q_auto/v1788663299/wider_reachability_b9lkyb.mp4"></video>
+                    </div>
+                </div>
+
+                <div class="vu-feature-block vu-issue-block vu-mt-lg">
+                    <div>
+                        <p class="vu-measured-label vu-mb-sm">02 - Cursor Control</p>
+                        <h4>Control the screen with a joystick.</h4>
+                        <p class="vu-opp-body">The joystick moves an on-screen cursor across the full interface. Tap-and-hold allows the user to select or drag content that would otherwise require a distant reach.</p>
+                    </div>
+                    
+                    <div class="lightbox-zone">
+                        <video poster="https://res.cloudinary.com/dmsnrcusf/video/upload/so_0,f_auto,q_auto/v1788663299/wider_reachability_b9lkyb.jpg" class="vid-class-noside" controlslist="nodownload" disablepictureinpicture="" playsinline="" muted="" autoplay="" loop="" src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_auto,q_auto/v1788663299/wider_reachability_b9lkyb.mp4"></video>
+                    </div>
+                </div>
+
+                <div class="vu-feature-block vu-issue-block vu-mt-lg">
+                    <div>
+                        <p class="vu-measured-label vu-mb-sm">03 - Editing</p>
+                        <h4>Keep text actions within reach.</h4>
+                        <p class="vu-opp-body">Long-pressing the joystick exposes familiar cut, copy, paste, and look-up actions above the keyboard. The actions remain within the one-handed working area instead of appearing only where the original tap occurred.</p>
+                    </div>
+                    
+                    <div class="lightbox-zone">
+                        <video poster="https://res.cloudinary.com/dmsnrcusf/video/upload/so_0,f_auto,q_auto/v1788663299/wider_reachability_b9lkyb.jpg" class="vid-class-noside" controlslist="nodownload" disablepictureinpicture="" playsinline="" muted="" autoplay="" loop="" src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_auto,q_auto/v1788663299/wider_reachability_b9lkyb.mp4"></video>
+                    </div>
+                </div>
+
+                <div class="vu-feature-block vu-issue-block vu-mt-lg">
+                    <div>
+                        <p class="vu-measured-label vu-mb-sm">04 - Scrolling</p>
+                        <h4>Give scrolling its own dedicated control.</h4>
+                        <p class="vu-opp-body">As the joystick needs to stay focused on precise cursor movement, a separate vertical control handles scrolling so the two actions do not compete for the same input.</p>
+                    </div>
+                    
+                    <div class="lightbox-zone">
+                        <video poster="https://res.cloudinary.com/dmsnrcusf/video/upload/so_0,f_auto,q_auto/v1788663299/wider_reachability_b9lkyb.jpg" class="vid-class-noside" controlslist="nodownload" disablepictureinpicture="" playsinline="" muted="" autoplay="" loop="" src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_auto,q_auto/v1788663299/wider_reachability_b9lkyb.mp4"></video>
+                    </div>
+                </div>
+
+                <div class="vu-feature-block vu-issue-block vu-mt-lg">
+                    <div>
+                        <p class="vu-measured-label vu-mb-sm">05 - Zooming</p>
+                        <h4>Zoom without requiring a second finger.</h4>
+                        <p class="vu-opp-body">A zoom control changes the cursor into a rectangular magnifying glass. The thumb can move the magnifier across the screen to inspect content without using pinch-to-zoom.</p>
+                    </div>
+                    
+                    <div class="lightbox-zone">
+                        <video poster="https://res.cloudinary.com/dmsnrcusf/video/upload/so_0,f_auto,q_auto/v1788663299/wider_reachability_b9lkyb.jpg" class="vid-class-noside" controlslist="nodownload" disablepictureinpicture="" playsinline="" muted="" autoplay="" loop="" src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_auto,q_auto/v1788663299/wider_reachability_b9lkyb.mp4"></video>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <!-- ══ LIMITATIONS ══════════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Limitations & Recommendations</p>
+                <h3 class="vu-section-title">A research-driven concept, not a user validated solution.</h3>
+                <p class="vu-section-body">Most of the six week timeline of this project went into research about validating the problem, thumb-zone mapping, and supporting the case for treating one-handed mode as a full time system, before committing to a full built solution. As a result of this, the proposed solution came with a few limitations.</p>
+
+                <div class="vu-opps-grid vu-mt-lg">
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">🔬</span>
+                        <p class="vu-opp-title">Validated by literature, but not users</p>
+                        <p class="vu-opp-body">The design is grounded in published research, but the concept of the joystick and control panel still need to be tested with real users.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">🕹️</span>
+                        <p class="vu-opp-title">The joystick concept is still an assumption</p>
+                        <p class="vu-opp-body">Game controller familiarity supports this concept, but phone tasks are more varied than the tasks a game controller normally handles.</p>
+                    </div>
+                    <!-- <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">📱</span>
+                        <p class="vu-opp-title">Scoped to a single device platform</p>
+                        <p class="vu-opp-body">Due to a limited timeline, this project only focused on a solution for iOS phones, not iPads, other form factors, or other phone platforms. </p>
+                    </div> -->
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">📱</span>
+                        <p class="vu-opp-title">Low-fidelity prototypes</p>
+                        <p class="vu-opp-body">With most of the timeline dedicated to research, the prototype had to stay rough as a proof of concept, with no time to refine visuals or explore edge cases.</p>
+                    </div>
+                </div>
+
+                <!-- <p class="vu-limitation-title vu-mt-xl"> Recommended Next steps</p>
+
+                <div class="vu-numbered-list">
+                    <div class="vu-numbered-item">
+                        <span class="vu-numbered-num">01</span>
+                        <div>
+                            <p class="vu-numbered-title">Interview users who use the current existing one-handed modes</p>
+                            <p class="vu-numbered-body">Interview people who already use Reachability or the one-handed keyboard to surface frustrations that literature and competitive analysis cannot reveal. </p>
+                        </div>
+                    </div>
+                    <div class="vu-numbered-item">
+                        <span class="vu-numbered-num">02</span>
+                        <div>
+                            <p class="vu-numbered-title">Test the joystick concept with a diverse group</p>
+                            <p class="vu-numbered-body">Usability-test the prototype across hand sizes, motor abilities, phone-usage patterns, and prior familiarity with joysticks or game controllers. </p>
+                        </div>
+                    </div>
+                    <div class="vu-numbered-item">
+                        <span class="vu-numbered-num">03</span>
+                        <div>
+                            <p class="vu-numbered-title">Iterate based on evidence.</p>
+                            <p class="vu-numbered-body">Refine the interaction based on the results of the user testing. If testing does not support the joystick, revisit the concept rather than designing around a predetermined answer. </p>
+                        </div>
+                    </div>
+                </div> -->
+                <p class="vu-h4-label vu-mt-xl">Recommended next steps</p>
+                <div class="vu-numbered-list">
+                    <div class="vu-numbered-item">
+                        <span class="vu-numbered-num">01</span>
+                        <div><p class="vu-numbered-body">Run user interviews with current Reachability users to surface frustrations that literature cannot reveal. </p></div>
+                    </div>
+                    <div class="vu-numbered-item">
+                        <span class="vu-numbered-num">02</span>
+                        <div><p class="vu-numbered-body">Usability-test the joystick concept with a diverse group of hand sizes, motor abilities, and controller experience.</p></div>
+                    </div>
+                    <div class="vu-numbered-item">
+                        <span class="vu-numbered-num">03</span>
+                        <div><p class="vu-numbered-body">Don't force the concept to feel justified. Be ready to revise the concept if testing doesn't support it.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- ══ REFLECTION ═══════════════════════════════════════════ -->
+        <div class="vu-reflection">
+            <div class="vu-reflection-inner">
+                <p class="vu-section-eyebrow">Reflection</p>
+                <h3 class="vu-section-title">Research can establish a direction, but not validate an experience.</h3>
+                
+
+                <p class="vu-h4-label">On research-first design</p>
+                <p class="vu-section-body">Without access to real users, published research helped identify the physical problem and support the interaction direction. It could not, however, establish whether the joystick concept would feel natural to users or whether the additional controls would introduce new friction.</p>
+
+                <p class="vu-h4-label">Designing additively for accessibility</p>
+                <p class="vu-section-body">The constraint that mattered most in hindsight was staying additive. Rather than replacing the existing features that support one-handed mode, I guided the solution to build on top of them. This kept the concept grounded in the existing system and reduced the risk of creating a new barrier for people who already rely on the current features.</p>
+            </div>
+        </div>
+
+
+        <!-- ══ UP NEXT ══════════════════════════════════════════════ -->
+        <div class="vu-up-next">
+            <p class="up-next-label">Up next</p>
+            <div class="vu-up-next-grid">
+                <a href="notion-casestudy.html" class="up-next-card">
+                    <img src="img/Notion--project-card.png" width="2048" height="1139" alt="Notion slash commands controlled experiment case study">
+                    <div class="vu-project-card-badges">
+                        <span class="vu-project-card-badge">UX Research</span>
+                    </div>
+                    <div class="up-next-card-info">
+                        <p class="up-next-card-title">Notion Shortcut on mobile</p>
+                        <p class="up-next-card-tag">A study on efficiency of slash commands</p>
+                    </div>
+                </a>
+                <!-- Not yet published on the Projects page — plain div,
+                     no href, "Coming soon" badge (see .up-next-card-soon
+                     in casestudy-extra.css). -->
+                <div class="up-next-card up-next-card-soon">
+                    <div class="up-next-card-frame">
+                        <img src="img/goodreads-project-card-coming-soon.png" width="2048" height="1277" alt="Mockups of the proposed Goodreads app UI redesign">
+                        <div class="vu-project-card-badges">
+                            <span class="vu-project-card-badge">Coming soon</span>
+                        </div>
+                    </div>
+                    <div class="up-next-card-info">
+                        <p class="up-next-card-title">Goodreads feature overhaul</p>
+                        <p class="up-next-card-tag">Improving the UX of lists and book details</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Design and code by yours truly.</p>
+        <p>Copyright &copy; 2026, Sahar Babaei</p>
+    </footer>
+</div>
+</body>
+</html>

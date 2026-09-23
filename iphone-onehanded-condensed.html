@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reachability, Redesigning iPhone's One-Handed Mode, Condensed, Sahar Babaei</title>
+    <meta name="description" content="An HCI research project redesigning Apple's Reachability feature, grounded in thumb-zone ergonomics research, proposing a full-time one-handed control system for iOS.">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Sahar Babaei" />
+    <link rel="manifest" href="img/favicon/site.webmanifest" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-Regular-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-RegularItalic-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-Medium-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-light.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/breakpoints.css">
+    <link rel="stylesheet" href="css/casestudy-extra.css">
+    <script src="js/nav.js" defer></script>
+    <script src="js/lightbox.js" defer></script>
+    <script src="js/cursor.js" defer></script>
+</head>
+<body class="vu-page">
+<div class="main-wrapper">
+    <header id="site-header" class="nav-section"></header>
+
+    <main>
+
+        <!-- ══ HERO ══════════════════════════════════════════════ -->
+        <div class="vu-hero vu-hero--split">
+            <div class="vu-hero-inner">
+                <a href="Projects.html" class="vu-hero-back">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 8H1M1 8L6.5 2.5M1 8L6.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Back to projects
+                </a>
+
+                <div class="vu-hero-grid">
+                    <div class="vu-hero-text">
+                        <h2>Reachability, Redesigning iPhone's One-Handed Mode</h2>
+                        <p class="vu-hero-sub">Reachability is Apple's built-in accommodation for one-handed use: a swipe down the home bar temporarily drops the interface so a thumb can reach the top of a large screen. It's a clever fix, but a temporary one. Drawing on HCI research methods and the ergonomics literature on single-handed device interaction, I evaluated how well Reachability actually holds up against the way people hold and use their phones, then proposed a control system, built into the keyboard, that extends one-handed use into full-time cursor control, zoom, scroll, and text editing.</p>
+                    </div>
+                    <div class="vu-meta-row">
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Timeline</span>
+                            <p class="vu-meta-value">6 weeks, Fall 2023</p>
+                        </div>
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Role</span>
+                            <p class="vu-meta-value">HCI Researcher &amp; Interaction Designer</p>
+                        </div>
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Team</span>
+                            <p class="vu-meta-value">4, with Pocholo, James &amp; Lin</p>
+                        </div>
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Type</span>
+                            <p class="vu-meta-value">Academic Project</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lightbox-zone vu-hero-img-wrap">
+                <img class="vu-full-img" src="img/iphone-final-architecture.jpg" width="1400" height="714"
+                     alt="Mockup of the proposed one-handed iOS keyboard, showing a joystick-style mouse controller, zoom toggle, scroll buttons, and layout setting embedded in the keyboard area"
+                     data-fullscreen-description="The final concept: a one-handed control panel embedded directly in the iOS keyboard, extending Reachability into a full-time interaction system.">
+                <p class="vu-img-caption">Caption. The redesigned concept: a full-time one-handed control panel built into the iOS keyboard itself.</p>
+            </div>
+        </div>
+
+
+        <!-- ══ LONG STORY SHORT ══════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Long story short</p>
+                <h3 class="vu-section-title">iOS ships two disconnected one-handed fixes. I designed the full-time system that should sit between them.</h3>
+                <p class="vu-section-body">Reachability and the one-handed keyboard solve different halves of the same problem and don't know the other exists. Grounded in ergonomics research and a competitive audit, I proposed a joystick-based control panel, built into the keyboard, that extends one-handed use into cursor control, zoom, scroll, and text editing full-time.</p>
+
+                <div class="vu-lss-grid">
+                    <div class="vu-lss-card">
+                        <span class="vu-lss-num">01</span>
+                        <p class="vu-lss-title">The gap</p>
+                        <p class="vu-lss-body">Reachability has to be re-triggered on every reach. The one-handed keyboard does nothing for zoom, scroll, or text selection.</p>
+                    </div>
+                    <div class="vu-lss-card">
+                        <span class="vu-lss-num">02</span>
+                        <p class="vu-lss-title">The evidence</p>
+                        <p class="vu-lss-body">~85% of phone use is one-handed or cradled (Hoober, 2013), this isn't an edge case, it's most real-world use.</p>
+                    </div>
+                    <div class="vu-lss-card">
+                        <span class="vu-lss-num">03</span>
+                        <p class="vu-lss-title">The concept</p>
+                        <p class="vu-lss-body">A joystick-based control panel replaces the temporary screen shift, staying in the thumb zone for an entire task, not one reach.</p>
+                    </div>
+                    <div class="vu-lss-card">
+                        <span class="vu-lss-num">04</span>
+                        <p class="vu-lss-title">The scope</p>
+                        <p class="vu-lss-body">A research-driven concept, additive to Reachability rather than a replacement, validated by literature, not yet by users.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ CONTEXT ══════════════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Context</p>
+                <h3 class="vu-section-title">Bigger iPhone screens improve the content experience, but they reintroduce old physical-interaction problems</h3>
+                <p class="vu-section-body">Apple's own lineup, from the compact SE up to the six-plus-inch Pro Max, treats screen size as a spectrum rather than a solved question. Research from the Nielsen Norman Group has found that people gravitate toward larger screens for complex or important tasks: more content fits into a single screenful, and there's less anxiety about typos on tasks that matter. But that size comes at a cost. Even on Apple's regular and Max-sized phones, a thumb is regularly asked to cover more of the screen than it can comfortably reach, which is why Reachability isn't a rarely-used accessibility toggle. It's something most iPhone owners already reach for.</p>
+
+                <p class="vu-h4-label vu-mt-xl">Who actually reaches for Reachability</p>
+                <p class="vu-section-body">Four groups depend on some version of one-handed use, for very different reasons.</p>
+                <div class="vu-opps-grid vu-cols-2 vu-mt-lg">
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">✋</span>
+                        <p class="vu-opp-title">Users with smaller hands</p>
+                        <p class="vu-opp-body">Thumb reach is a fixed physical constraint that scales worse every time screen size increases.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">♿</span>
+                        <p class="vu-opp-title">Users with upper-extremity impairments</p>
+                        <p class="vu-opp-body">A second hand may not be a reliable option at all, not just an inconvenient one.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">🤹</span>
+                        <p class="vu-opp-title">Users multitasking with one hand occupied</p>
+                        <p class="vu-opp-body">Holding a coffee, a railing, or a child makes one-handed use situational rather than optional.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">🔧</span>
+                        <p class="vu-opp-title">Users relying on accessibility features</p>
+                        <p class="vu-opp-body">Reachability is often a load-bearing part of how these users operate their phone at all, not an occasional convenience.</p>
+                    </div>
+                </div>
+
+                <p class="vu-h4-label vu-mt-xl">Two features that were never designed to work together</p>
+                <p class="vu-section-body">iOS ships two separate answers: Reachability, which temporarily drops the interface down, and a one-handed keyboard, which shifts the keys to one side. Neither knows the other exists, and neither does anything for zooming, scrolling, or text selection. Apple has one of the strongest accessibility reputations in the industry, which is exactly why that gap is worth noticing.</p>
+            </div>
+        </div>
+
+
+        <!-- ══ PROBLEM / MISSION ═══════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <div class="vu-problem-solution-grid">
+                    <div class="vu-ps-block">
+                        <p class="vu-ps-label problem">The Problem</p>
+                        <p class="vu-ps-statement">Existing one-handed modes on iPhone behave more like temporary accommodations than full-time interaction systems.</p>
+                        <p class="vu-ps-detail">Reachability has to be re-triggered every single time a thumb can't reach, and it borrows against the rest of the screen while it's active. The one-handed keyboard only solves half its own problem. The next section breaks down exactly where each of these falls short.</p>
+                    </div>
+                    <div class="vu-ps-block">
+                        <p class="vu-ps-label solution">The Mission</p>
+                        <p class="vu-ps-statement">Build a real, full-time control system into the one-handed keyboard, not another temporary accommodation to re-trigger.</p>
+                        <p class="vu-ps-detail">A joystick-style controller maps cursor movement, zoom, scroll, and tap-and-hold onto a single thumb-reachable area, designed around thumb-zone ergonomics research rather than a shrunken screen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ CURRENT SHORTFALLS ═══════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Current shortfalls</p>
+                <h3 class="vu-section-title">Three specific ways today's one-handed modes fall short</h3>
+
+                <div class="vu-feature-block vu-mt-lg">
+                    <div>
+                        <h4>Less usable screen, every time</h4>
+                        <p>Reachability solves a reach by dropping the interface down, costing screen space at the exact moment a user needs to see more of it, not less.</p>
+                    </div>
+                    <div class="vu-placeholder vu-placeholder-med"></div>
+                </div>
+                <p class="vu-img-caption">Caption. Gif needed, Reachability activating and the resulting loss of visible screen area.</p>
+
+                <div class="vu-feature-block vu-mt-lg">
+                    <div>
+                        <h4>Predictive text stuck in the hardest corner to reach</h4>
+                        <p>iOS shifts the keyboard letters for one-handed typing, but predictive-text suggestions stay put, often in the diagonal corner Karlson et al. (2006) found hardest for a thumb to reach.</p>
+                    </div>
+                    <div class="vu-placeholder vu-placeholder-med"></div>
+                </div>
+                <p class="vu-img-caption">Caption. Gif needed, the keyboard shifting while the predictive-text bar stays fixed.</p>
+
+                <div class="vu-feature-block vu-mt-lg">
+                    <div>
+                        <h4>Nowhere for two-finger gestures to go</h4>
+                        <p>Pinch-to-zoom needs a second hand, which by definition isn't available during one-handed use.</p>
+                    </div>
+                    <div class="vu-placeholder vu-placeholder-med"></div>
+                </div>
+                <p class="vu-img-caption">Caption. Gif needed, a one-handed pinch-to-zoom attempt failing without a second finger.</p>
+            </div>
+        </div>
+
+
+        <!-- ══ RESEARCH: LITERATURE + AUDIT ═══════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Research</p>
+                <h3 class="vu-section-title">Grounding the redesign in ergonomics research and a competitive audit</h3>
+
+                <p class="vu-part-label">Part 1, HCI and ergonomics literature on single-handed interaction</p>
+                <div class="vu-two-col-text">
+                    <div>
+                        <p class="vu-section-body">Karlson, Bederson, and Contreras-Vidal (2006) found diagonal thumb movement toward a screen's far corner is the hardest motion for a right-handed thumb to make. That explains a real gap in iOS: when the keyboard shifts for one-handed typing, the predictive-text bar above it doesn't move with it.</p>
+                        <div class="lightbox-zone">
+                            <img class="vu-full-img vu-rounded-img" src="img/iphone-thumbzone.png" width="1100" height="568" alt="Diagram of natural, stretch, and hard thumb zones mapped across different iPhone screen sizes" data-fullscreen-description="Thumb-zone research applied across iPhone screen sizes, dividing the screen into natural, stretch, and hard-to-reach zones based on Hoober's (2013) ergonomic study.">
+                            <p class="vu-img-caption">Caption. Thumb-zone mapping across iPhone screen sizes. The 6s Plus zone shape became this interface's reference.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="vu-section-body">Steven Hoober's 2013 study found roughly 49% of users hold their phone one-handed, and another 36% use a cradled grip that still depends almost entirely on the thumb, about 85% of real-world use iOS's tools weren't built to support full-time.</p>
+                        <div class="vu-placeholder vu-placeholder-med"></div>
+                        <p class="vu-img-caption">Caption. Chart needed, the roughly 49% one-handed / 36% cradled / 15% two-handed split of phone grips, from Hoober's study.</p>
+                    </div>
+                </div>
+
+                <p class="vu-part-label">Part 2, Auditing how major platforms support one-handed use</p>
+                <p class="vu-section-body">Three platforms already ship some version of a one-handed accommodation. None treat it as a full-time system, and none touch cursor precision, zoom, or scroll.</p>
+
+                <div class="lightbox-zone vu-two-img-grid vu-mt-lg">
+                    <figure>
+                        <img class="vu-full-img vu-rounded-img" src="img/iphone-samsung-onehand.jpg" width="900" height="1018" alt="Samsung Galaxy phone's one-handed mode, showing the interface scaled down into a smaller draggable window">
+                        <figcaption class="vu-img-caption">Samsung scales the whole interface down into a smaller, draggable window.</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="vu-full-img vu-rounded-img" src="img/iphone-pixel-onehand.jpg" width="900" height="506" alt="Google Pixel phone's reachability feature, showing the interface shifted to the bottom of the screen">
+                        <figcaption class="vu-img-caption">Pixel shifts the interface down, then snaps back after one tap, same mechanic as iOS, re-triggered on every reach.</figcaption>
+                    </figure>
+                </div>
+                <p class="vu-section-body vu-mt-lg">iPhone's own Reachability works the same way: a swipe drops the interface down, then snaps back once the tap lands, so reaching for the same button twice means re-triggering it twice. Any fix here has to work inside Apple's own interaction language, and go further than the other two by solving cursor precision, zoom, and scroll as well.</p>
+            </div>
+        </div>
+
+
+        <!-- ══ HCI PERSPECTIVES ═══════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">HCI framing</p>
+                <h3 class="vu-section-title">Grounding the proposed solution in the four waves of Human-Computer Interaction</h3>
+                <p class="vu-section-body">HCI research is often described in three broad waves, each shaped by a different discipline, plus a newer interest in accessibility and inclusion. Checking this concept against each was a way to confirm a "solved" feature like Reachability actually holds up physically, culturally, and ethically.</p>
+
+                <div class="vu-opps-grid vu-mt-lg">
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">👆</span>
+                        <p class="vu-opp-title">Human factors &amp; ergonomics</p>
+                        <p class="vu-opp-body">Where the thumb-zone research lives. Every measurement, from Hoober's reach zones to joystick placement, treats physical reach as a hard constraint, not a guess.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">🕹️</span>
+                        <p class="vu-opp-title">Everyday usability &amp; culture</p>
+                        <p class="vu-opp-body">Why the concept leans on a mental model people already carry: how a thumb operates a game controller, rather than teaching something new.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">♿</span>
+                        <p class="vu-opp-title">Accessibility &amp; inclusion</p>
+                        <p class="vu-opp-body">The anchor of the project. For upper-extremity impairment, Reachability is often the only way to operate the phone at all, nothing here removes that option, it only adds to it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ WHY IT MATTERS ═══════════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Why it matters</p>
+                <h3 class="vu-section-title">Why one-handed mode deserves more than a quick fix</h3>
+
+                <div class="vu-impact-grid">
+                    <div class="vu-impact-block">
+                        <span class="vu-impact-emoji">✊</span>
+                        <p class="vu-impact-title">Accessibility as the starting point</p>
+                        <p class="vu-impact-body">Designing first for upper-extremity impairment tends to produce better solutions for everyone, the same way curb cuts built for wheelchairs ended up helping strollers too.</p>
+                    </div>
+                    <div class="vu-impact-block">
+                        <span class="vu-impact-emoji">📈</span>
+                        <p class="vu-impact-title">A case for investment, not a nice-to-have</p>
+                        <p class="vu-impact-body">With ~85% of users holding their phone one-handed or cradled, solving this properly turns larger screens into an advantage instead of a reachability tax.</p>
+                    </div>
+                    <div class="vu-impact-block">
+                        <span class="vu-impact-emoji">🧭</span>
+                        <p class="vu-impact-title">Even a design leader has room to grow</p>
+                        <p class="vu-impact-body">Reachability shipping, and getting widely copied, doesn't mean one-handed use is solved. It means the bar was set low enough that few have questioned it since.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ CONSTRAINTS ══════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Constraints</p>
+                <h3 class="vu-section-title">Constraints that shaped every decision</h3>
+                <p class="vu-section-body">Adding one-handed capability risked packing the keyboard with enough new controls to overwhelm the exact users it was meant to help. Every decision below was weighed against that trade-off, and against staying inside Apple's own design language rather than introducing something unfamiliar.</p>
+
+                <div class="vu-opps-grid vu-mt-lg">
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">⚠️</span>
+                        <p class="vu-opp-title">Designing to prevent cognitive overload</p>
+                        <p class="vu-opp-body">iOS already has a dense set of interactive features. Each new control had to remove more friction than it added, or it didn't make the cut.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">📱</span>
+                        <p class="vu-opp-title">Staying within iOS's existing design language</p>
+                        <p class="vu-opp-body">The concept reuses Apple's existing Reachability gesture and visual style instead of introducing something new to learn, and stays scoped to iOS to keep six weeks realistic.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">🧠</span>
+                        <p class="vu-opp-title">Leveraging users' existing mental models</p>
+                        <p class="vu-opp-body">Anyone who has used a game controller already understands how a joystick should behave, so that familiarity does most of the onboarding work for free.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ FINAL DESIGN ═══════════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Ideation to final concept</p>
+                <h3 class="vu-section-title">A flexible control panel built into the one-handed keyboard</h3>
+                <p class="vu-section-body">The guiding principle was to stay additive: whatever we proposed had to sit on top of Reachability, not replace it. A trackpad direction worked, but a trackpad is a mental model people associate with a separate hand. A joystick maps naturally onto a single thumb's range of motion and borrows a mental model most people already carry from game controllers, so that's the direction that shaped the final concept.</p>
+
+                <div class="lightbox-zone vu-two-img-grid vu-mt-lg">
+                    <figure>
+                        <img class="vu-full-img vu-rounded-img" src="img/iphone-prototype-iterations.png" width="884" height="1354" alt="Early prototype comparing a trackpad-style surface for one-handed cursor control">
+                        <figcaption class="vu-img-caption">Direction 1, trackpad. Worked, but needed a second finger for click-and-hold or scroll.</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="vu-full-img vu-rounded-img" src="img/iphone-prototype-iterations.png" width="884" height="1354" alt="Early prototype comparing a joystick-style controller for one-handed cursor control">
+                        <figcaption class="vu-img-caption">Direction 2, joystick. Familiar from game controllers, and what the final concept builds on.</figcaption>
+                    </figure>
+                </div>
+
+                <p class="vu-section-body vu-mt-lg">The final design keeps iOS's existing activation gesture, but changes what happens after. Instead of a temporary screen shift, one-handed mode slides a control panel into the keyboard, staying in the natural thumb zone for an entire task, texting, browsing, or filling out a form, instead of one single reach.</p>
+
+                <div class="vu-feature-block vu-compact-img vu-mt-lg">
+                    <div>
+                        <h4>Turning the control panel on and off</h4>
+                        <p>The panel opens with the same swipe-down gesture iOS already uses for Reachability, so there's nothing new to learn just to turn it on. A visible collapse control folds it back into the standard keyboard the moment a task calls for regular two-handed typing.</p>
+                    </div>
+                    <div class="vu-placeholder vu-placeholder-tall"></div>
+                </div>
+                <p class="vu-img-caption">Caption. [Placeholder: gif showing the swipe-down gesture opening the control panel, and the collapse button folding it back into the standard keyboard.]</p>
+
+                <div class="vu-feature-block vu-compact-img vu-mt-lg">
+                    <div>
+                        <h4>Cursor control, borrowed from a mouse, not a trackpad</h4>
+                        <p>A central joystick moves an on-screen cursor the same way a desktop mouse would, with click and hold-to-drag built into the same motion. It solves the exact case Reachability was built for, reaching the upper half of a large screen, but without shrinking the interface or re-triggering anything first.</p>
+                    </div>
+                    <div class="lightbox-zone"><img class="vu-rounded-img" src="img/iphone-mouse-control.jpg" width="700" height="1416" alt="Mockup showing the joystick controller in the center of the one-handed keyboard, controlling an on-screen cursor"></div>
+                </div>
+
+                <div class="vu-feature-block vu-compact-img vu-mt-lg">
+                    <div>
+                        <h4>Context menus that follow the keyboard, not the original tap</h4>
+                        <p>Long-pressing the central joystick brings up the same cut, copy, paste, and look-up bar users already expect, positioned above the keyboard on whichever side the one-handed layout is set to, left or right handed, instead of floating wherever the original tap happened to land. That's the same shifting problem the predictive-text bar has today, solved for good this time.</p>
+                    </div>
+                    <div class="lightbox-zone"><img class="vu-rounded-img" src="img/iphone-tap-hold.jpg" width="700" height="1416" alt="Mockup showing a long-press on the joystick bringing up a bar of tap-and-hold options like cut, copy, and paste"></div>
+                </div>
+                <p class="vu-img-caption">Caption. [Placeholder: iphone-layout-setting.jpg currently shows only the keyboard width changing; replace with a screenshot of the context-menu bar shifting to match the chosen one-handed layout side.]</p>
+
+                <div class="vu-feature-block vu-compact-img vu-mt-lg">
+                    <div>
+                        <h4>Zoom, without a second finger</h4>
+                        <p>Pinch-to-zoom needs two fingers, which a single thumb can't provide. A switchable zoom toggle turns the cursor into a small rectangular magnifying glass that can be dragged across the screen to zoom into whatever it passes over.</p>
+                    </div>
+                    <div class="lightbox-zone"><img class="vu-rounded-img" src="img/iphone-zoom-toggle.jpg" width="700" height="1416" alt="Mockup showing the zoom toggle transforming the cursor into a rectangular magnifying glass"></div>
+                </div>
+
+                <div class="vu-feature-block vu-compact-img vu-mt-lg">
+                    <div>
+                        <h4>A dedicated scroll control</h4>
+                        <p>The joystick's main job is moving the cursor precisely, so loading scrolling onto the same control risked overwhelming it and causing accidental scrolls mid-task. Scrolling was given its own vertical swipe control instead, keeping the joystick focused on one job.</p>
+                    </div>
+                    <div class="lightbox-zone"><img class="vu-rounded-img" src="img/iphone-scroll.jpg" width="700" height="1416" alt="Mockup showing the scroll button being used to move a page up and down"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ LIMITATIONS & NEXT STEPS ════════════════════════════ -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Limitations &amp; what's next</p>
+                <h3 class="vu-section-title">Where this concept still needs real-world evidence</h3>
+                <p class="vu-section-body">This phase was research and literature driven, establishing whether the problem was real and the joystick a workable answer, before investing in a built, testable prototype. What exists today is a proof of concept, the visuals, animations, and UI still need real design work.</p>
+
+                <div class="vu-opps-grid vu-mt-lg">
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">🔬</span>
+                        <p class="vu-opp-title">Validated by literature, not users</p>
+                        <p class="vu-opp-body">Every decision is defensible against published research. The next test is whether it holds up against real hands and real patience.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">🕹️</span>
+                        <p class="vu-opp-title">An assumed mental model</p>
+                        <p class="vu-opp-body">The joystick borrows console-controller familiarity, but a phone's varied everyday tasks could surface issues a controller never had to handle.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">📱</span>
+                        <p class="vu-opp-title">Scoped to a single platform</p>
+                        <p class="vu-opp-body">Scoped to iOS phones to keep six weeks realistic. Android and other form factors would each need their own study.</p>
+                    </div>
+                </div>
+
+                <p class="vu-h4-label vu-mt-xl">Recommended next steps</p>
+                <div class="vu-numbered-list">
+                    <div class="vu-numbered-item">
+                        <span class="vu-numbered-num">01</span>
+                        <div><p class="vu-numbered-body">Run one-on-one interviews with current Reachability users to surface frustrations this research phase didn't catch.</p></div>
+                    </div>
+                    <div class="vu-numbered-item">
+                        <span class="vu-numbered-num">02</span>
+                        <div><p class="vu-numbered-body">Usability-test the joystick prototype with a genuinely diverse group of hand sizes, motor abilities, and controller experience.</p></div>
+                    </div>
+                    <div class="vu-numbered-item">
+                        <span class="vu-numbered-num">03</span>
+                        <div><p class="vu-numbered-body">Revisit the concept itself if testing doesn't support it, the goal is the best solution, not proving the joystick right.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ REFLECTION ═══════════════════════════════════════════ -->
+        <div class="vu-reflection">
+            <div class="vu-reflection-inner">
+                <p class="vu-section-eyebrow">Reflection</p>
+                <h3 class="vu-section-title">Designing without access to real users</h3>
+
+                <p class="vu-h4-label">On research-first design</p>
+                <p class="vu-section-body">Every claim had to be earned from published research instead of a conversation with a real user. That was a useful exercise in a distinction I now watch closely: a decision well-supported by research isn't the same as one validated by the people who'll actually use it. They answer different questions, and this project could only answer one.</p>
+
+                <p class="vu-h4-label">On staying additive</p>
+                <p class="vu-section-body">The constraint that mattered most in hindsight was staying additive, never asking Apple or the user to give up Reachability, only adding to it. That discipline came from noticing how narrow the margin for error is in accessibility work, where starting from a blank page often assumes the current system has nothing worth keeping.</p>
+            </div>
+        </div>
+
+
+        <!-- ══ UP NEXT ══════════════════════════════════════════════ -->
+        <div class="vu-up-next">
+            <p class="up-next-label">Up next</p>
+            <div class="vu-up-next-grid">
+                <a href="brainstreams-condensed.html" class="up-next-card">
+                    <img src="img/bcbia-project-card-long.jpg" width="1641" height="865" alt="Brainstreams BC Brain Injury Association case study project">
+                    <div class="vu-project-card-badges">
+                        <span class="vu-project-card-badge">UX Research</span>
+                    </div>
+                    <div class="up-next-card-info">
+                        <p class="up-next-card-title">Brainstreams, BC Brain Injury Association</p>
+                        <p class="up-next-card-tag">UX Research / Usability Testing</p>
+                    </div>
+                </a>
+                <a href="goodreadsnew.html" class="up-next-card">
+                    <img src="img/goodreads-project-card-long.png" width="1641" height="863" alt="Goodreads case study project">
+                    <div class="vu-project-card-badges">
+                        <span class="vu-project-card-badge">UX Research</span>
+                    </div>
+                    <div class="up-next-card-info">
+                        <p class="up-next-card-title">Goodreads Feature Redesign</p>
+                        <p class="up-next-card-tag">UX Research / UI Design</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Design and code by yours truly.</p>
+        <p>Copyright &copy; 2026, Sahar Babaei</p>
+    </footer>
+</div>
+</body>
+</html>

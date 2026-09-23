@@ -1,0 +1,5416 @@
+/* ================================================================
+   casestudy-extra.css
+   Extra styles for: lightbox, cursor follower, active nav pill,
+   "up next" section, Vu-style case study, image captions,
+   and the etc. gallery page.
+
+   FONT SIZE RULE: nothing below 0.95rem except labels/eyebrows/
+   captions/tags, which are intentionally small UI chrome, not
+   reading content. Anything meant to be read at length is 0.95rem+.
+   ================================================================ */
+
+
+/* "Selected works" label above the homepage project cards */
+.selected-works-heading {
+    font-family: "abc-diatype-round", sans-serif;
+    color: var(--secondary-bodycopy-color);
+    font-weight: 300;
+    font-style: normal;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* Row that holds the "Selected works" heading and the "More projects"
+   link side by side — link pinned to the far right, both vertically
+   centered on the same baseline-ish row. */
+.selected-works-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* "More projects" link — plain text link (green, turns purple on
+   hover/focus) matching the style of the inline links on the about
+   page's bio section, rather than a pill button. */
+.vu-more-projects-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex: 0 0 auto;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-top: 2rem;
+    transition: color 0.15s ease;
+}
+
+.selected-works-header .vu-more-projects-link {
+    margin-top: 0;
+}
+
+.vu-more-projects-link svg {
+    width: 0.8rem;
+    height: 0.8rem;
+    transition: transform 0.15s ease;
+}
+
+.vu-more-projects-link:hover,
+.vu-more-projects-link:focus-visible {
+    color: var(--selection-color);
+}
+
+.vu-more-projects-link:hover svg {
+    transform: translateX(0.2rem);
+}
+
+/* "More projects" — homepage version. */
+.vu-nav-style-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 0 0 auto;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-decoration: none;
+    border: 0.16rem solid var(--primary-color);
+    border-radius: 10rem;
+    padding: 0.55rem 1.1rem;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.vu-nav-style-link:hover,
+.vu-nav-style-link:focus-visible {
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+}
+
+.vu-nav-style-link svg {
+    width: 0.8rem;
+    height: 0.8rem;
+    transition: transform 0.15s ease;
+}
+
+.vu-nav-style-link:hover svg {
+    transform: translateX(0.2rem);
+}
+
+/* Slightly tighter padding on the homepage "More projects" pill below
+   720px, so it takes up less room next to the "Selected works" heading
+   on narrower screens. */
+@media (max-width: 719px) {
+    .vu-nav-style-link {
+        padding: 0.4rem 0.85rem;
+    }
+}
+
+/* Matches the hyperlink treatment on about.html (.bio-container a):
+   green by default, purple on hover/focus — overrides the site-wide
+   red link color from main.css for this specific link. */
+.vu-link-green {
+    color: var(--primary-color);
+}
+
+.vu-link-green:hover,
+.vu-link-green:focus {
+    color: var(--selection-color);
+}
+
+/* ── Vu-page wrapper utilities (replace former inline styles) ──────
+   Standard inner content wrapper used repeatedly to align text/images
+   to the page's 58rem reading column with side padding. */
+.vu-inner-wrap {
+    max-width: 58rem;
+    margin: 0 auto;
+    /* Mobile default matches .main-section's mobile padding (used on
+       index/about/etc/works), so case studies don't feel unusually
+       cramped-in-the-middle on phones. Restored to the original,
+       roomier value at 30rem+ below — same breakpoint main-section
+       itself moves off its own flat mobile padding, so tablet/desktop
+       are completely unaffected by this. */
+    padding: 0 0.95rem;
+}
+
+@media (min-width: 30rem) {
+    .vu-inner-wrap {
+        padding: 0 2rem;
+    }
+}
+
+/* Full-width section backgrounds — light grey vs white alternation
+   used between sections for visual rhythm (no black, per site rules).
+   The card is capped to the SAME max-width as .vu-inner-wrap inside
+   it (58rem, 64rem at the big breakpoint) and centered with margin:
+   auto. Its own 2rem side padding, plus .vu-inner-wrap's own 2rem
+   side padding, stack to give 4rem of breathing room between the
+   card's edge and the text — matching the original design (this
+   used to happen via a separate ".vu-section" rule accidentally
+   overriding this one — see the specificity note below — the 2rem
+   here restores that original padding directly, on purpose).
+   Margin creates breathing room between adjacent sections — without
+   it, a grey section sitting right after the (near-identical-toned)
+   hero, or two same-color sections in a row, visually fuse together
+   with no visible seam. Sibling margins collapse normally here, so
+   this doesn't stack into double gaps between two vu-section blocks.
+
+   Selectors below are written as ".vu-section.vu-section-bg-grey"
+   (both classes) rather than just ".vu-section-bg-grey" — these
+   elements always carry both classes in the markup, and the plain
+   ".vu-section" rule further down this file (max-width: 58rem;
+   padding: 3.5rem 2rem; margin: 0 auto) sets the exact same three
+   properties. Two single-class selectors have equal specificity, so
+   whichever is later in the file wins — meaning ".vu-section" was
+   silently overriding max-width/padding/margin here regardless of
+   what values were set on this rule. Combining both classes into one
+   selector bumps specificity above ".vu-section" alone, so this rule
+   reliably wins no matter where either rule sits in the file.
+
+   Side padding is 0 here (mobile default) rather than the 2rem
+   restored at 30rem+ below: this is the OUTER card, and it used to
+   carry its own unconditional 2rem side padding regardless of
+   viewport, stacking on top of the nested .vu-inner-wrap's own side
+   padding inside it (0.95rem on mobile, matching .vu-hero and
+   .main-section — see .vu-inner-wrap above). That's 2.95rem of
+   combined side padding on a phone screen where hero/etc/about all
+   sit at 0.95rem — the actual bug being fixed here. Zeroing this
+   layer on mobile leaves .vu-inner-wrap's own padding as the only
+   side padding, matching everywhere else on mobile; 30rem+ restores
+   this card's own 2rem layer, which combined with .vu-inner-wrap's
+   2rem there, reproduces the original wider-screen 4rem breathing
+   room the "matching original design" note above describes.
+
+   border-radius: 0 on grey specifically (mobile default, restored to
+   1.5rem at 30rem+) is the other half of the same mobile fix: with
+   side padding removed, the grey card's background now reaches the
+   viewport edges — rounded corners at that point would clip visibly
+   rather than read as a rounded card, so they come off entirely
+   rather than just shrinking. White has no border-radius to begin
+   with, so it doesn't need this — going edge-to-edge with a square
+   corner is a no-op for a background that already has no radius. */
+.vu-section.vu-section-bg-grey {
+    background: #f7f7f5;
+    max-width: 58rem;
+    /* Top/bottom padding also reduced on mobile (3.5rem -> 2.5rem),
+       restored at 30rem+ below alongside the side padding — a
+       smaller, later addition to the same mobile fix, not tied to
+       the side-padding bug above (this one's just a density/taste
+       call for phones). */
+    padding: 2.5rem 0;
+    border-radius: 0;
+    margin: 3.5rem auto;
+}
+
+.vu-section.vu-section-bg-white {
+    background: white;
+    max-width: 58rem;
+    padding: 2.5rem 0;
+    margin: 3.5rem auto;
+}
+
+@media (min-width: 30rem) {
+    .vu-section.vu-section-bg-grey {
+        padding: 3.5rem 2rem;
+        border-radius: 1.5rem;
+    }
+
+    .vu-section.vu-section-bg-white {
+        padding: 3.5rem 2rem;
+    }
+}
+
+/* 480px–598px: the 2rem side padding restored above on
+   .vu-section-bg-grey/-white, plus .vu-inner-wrap's own 2rem side
+   padding right below it, combine to the usual 4rem of side margin
+   (see the big comment above .vu-section.vu-section-bg-grey for how
+   those two layers stack). In this specific range that combined
+   margin gets to feel disproportionately wide relative to the
+   viewport, so both layers are halved here (2rem → 1rem each,
+   4rem → 2rem combined) — about half the normal side margin — then
+   revert back to the full 2rem/2rem at 598px and up. */
+@media (min-width: 480px) and (max-width: 598px) {
+    .vu-section.vu-section-bg-grey,
+    .vu-section.vu-section-bg-white {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .vu-inner-wrap {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Same-color sections landing back-to-back (whether by content order
+   or by accidentally missing an alternation) are the one case where
+   the margin above isn't enough — two identically-toned cards with
+   only a thin gap read as one continuous, "touching" block, since
+   there's no color change to make the seam obvious. Bumping the gap
+   specifically for that adjacency guarantees a seam you can't miss,
+   regardless of how the two sections got next to each other. */
+.vu-section.vu-section-bg-grey + .vu-section.vu-section-bg-grey,
+.vu-section.vu-section-bg-white + .vu-section.vu-section-bg-white {
+    margin-top: 5rem;
+}
+
+/* A block's own bottom margin can collapse straight through a plain
+   wrapper like .vu-inner-wrap (no padding/border to stop it), landing
+   as extra, inconsistent space between the last element and the
+   section's bottom padding. Zeroing it keeps every section's trailing
+   gap equal to the section's own padding — no more, no less. */
+.vu-inner-wrap > *:last-child {
+    margin-bottom: 0;
+}
+
+/* When a section is split into multiple stacked .vu-inner-wrap "mini
+   sections" (e.g. Designing the Study's intro/hypotheses/structure
+   split), the plain .vu-mt-xl utility (2.5rem) reads as too tight for
+   a real mini-section break — bumped higher here, scoped to inner-wrap
+   so the base .vu-mt-xl utility elsewhere is unaffected. */
+.vu-inner-wrap.vu-mt-xl {
+    margin-top: 4rem;
+}
+
+/* Research method mini-cards grid + card */
+.vu-method-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.vu-method-card {
+    padding: 1.2rem;
+    border-radius: 0.6rem;
+    background: #f8f8f6;
+    border-top: 3px solid var(--primary-color);
+}
+
+.vu-method-card-title {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #111;
+    margin-bottom: 0.3rem;
+}
+
+.vu-method-card-body {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Affinity-diagram (and similar single full-width) image block.
+   margin-top so it doesn't sit flush against whatever body copy/list
+   precedes it — needed because most preceding elements (paragraphs,
+   .vu-numbered-list's last item, etc.) carry zero bottom margin by
+   design and rely on the next element to provide the gap. */
+.vu-single-img-section {
+    /* background: white; */
+    margin-top: 2rem;
+    /* padding-bottom: 1rem; */
+}
+
+.vu-rounded-img {
+    border-radius: 0.5rem;
+}
+
+
+@media (min-width: 57.5rem) {
+    nav a[aria-current="page"] {
+        background-color: var(--navbar-text-color);  /* white bg */
+        color: var(--navbar-color);                  /* green text */
+        text-decoration: none;
+    }
+}
+@media (max-width: 57.49rem) {
+    nav a[aria-current="page"] {
+        text-decoration: underline;
+    }
+}
+
+
+/* ── IMAGE LIGHTBOX ──────────────────────────────────────────────
+   #lb-overlay: the full-screen backdrop
+   #lb-img-wrap: centers the image + caption
+   #lb-close: X button top-right
+   .lb-open: added by JS to show the overlay
+   .lb-body-lock: added to <body> to prevent background scroll      */
+
+#lb-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+#lb-overlay.lb-open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.lb-body-lock {
+    overflow: hidden;
+}
+
+#lb-img-wrap {
+    max-width: min(90vw, 80vh * 1.6);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+#lb-img {
+    /* max-width, not width:100% + height:auto — this combination
+       (matching #etc-overlay-img's own pattern on Archive.html) is what
+       actually avoids a real browser bug: a portrait-enough image at
+       a wide-enough (short relative to its width) viewport needs both
+       this max-width AND max-height to bind at once, and width:100%
+       specifically was what made the browser resolve each axis
+       against its own cap independently instead of jointly solving
+       for the ratio-preserving fit — producing a box shaped nothing
+       like its content. Confirmed by testing this exact swap against
+       every image that previously showed the bug, before also
+       confirming (separately, on Archive.html) that this max-width-only
+       pattern holds even under a deliberately extreme synthetic test
+       case, not just the images currently on the site.
+       One real behavior change from the old width:100%: a smaller-
+       than-available image is no longer upscaled to fill the space —
+       it displays at its natural size instead. Nothing currently in a
+       .lightbox-zone is small enough for this to matter, but it would
+       for a future one. */
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 0.25rem;
+    display: block;
+}
+
+/* Full-screen description — distinct from a permanent on-page image
+   caption (.img-caption / .vu-img-caption). This text only appears
+   while the image is shown enlarged in this overlay. */
+/* Full-screen description — distinct from a permanent on-page image
+   caption (.img-caption / .vu-img-caption). This text only appears
+   inside this overlay, describing whatever image is currently shown
+   fullscreen. Note it's not a visible label the way the rest of this
+   comment block's siblings are.
+   width:0; min-width:100% (not just width:100%, and not left
+   unset) is what keeps this caption's rendered width matched to
+   #lb-img's own — deliberately, not an accident of two unrelated
+   properties both happening to resolve the same way. #lb-img-wrap
+   has no definite width of its own (only a max-width cap), so its
+   actual rendered width is normally "fit-content": driven by
+   whichever child asks for the most space. This description's own
+   text is long enough that, left unconstrained, it would ask for
+   the full max-width cap on its own — regardless of what the image
+   next to it actually needs — pulling the wrap (and so the caption)
+   wider than the image. width:0 removes this element from that
+   "which child wants the most space" contest entirely (a width:0
+   element asks for nothing), so the wrap's fit-content sizing is
+   then driven by the image alone; min-width:100% then expands this
+   element back out to match whatever the wrap resolved to *from
+   that* — which, with this element no longer contributing, is
+   exactly the image's own width. Confirmed empirically at several
+   viewport widths (matches to a fraction of a pixel) and that
+   wrapping still happens correctly within that width, not overflow. */
+#lb-fullscreen-description {
+    color: rgba(255, 255, 255, 0.75);
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+    width: 0;
+    min-width: 100%;
+}
+
+#lb-close {
+    position: fixed;
+    top: 1.2rem;
+    right: 1.4rem;
+    background: none;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    color: white;
+    font-size: 1rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+    z-index: 9001;
+}
+
+#lb-close:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+.lightbox-zone img {
+    cursor: zoom-in;
+}
+
+
+/* ── IMAGE CAPTIONS (below images in case study pages) ────────────
+   These sit directly under full-width images. Fix: no extra
+   indentation/padding — caption starts exactly where the image starts. */
+.img-caption {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--secondary-bodycopy-color);
+    margin: 0.4rem 0 1rem 0;
+    padding: 0;
+}
+
+figure {
+    margin: 0;
+}
+figure figcaption {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--secondary-bodycopy-color);
+    margin: 0.4rem 0 1.2rem 0;
+    padding: 0;
+}
+
+
+/* ── CUSTOM CURSOR FOLLOWER ──────────────────────────────────────
+   Default state: small filled circle (not just an outline).
+   On any hoverable element (a, button): shrinks slightly, stays filled.
+   On a .project-card / .vu-project-card / .etc-item / any
+   [data-cursor-label] element: morphs into a rounded-rect pill with
+   custom text, dropping straight down from the pointer.
+   Positioning (centered dot ↔ pill below the pointer, wall-clamped to
+   the viewport) is computed entirely in cursor.js from the ring's own
+   measured size every frame, and eased rather than snapped — see the
+   POSITIONING / SMOOTHING and VIEWPORT WALL-CLAMP notes at the top of
+   that file. Pill WIDTH is also set from JS as an explicit pixel
+   value (see cursor.js) rather than left as `width: auto` here —
+   browsers can't smoothly transition to/from `auto`, so animating
+   between two real pixel widths is what actually makes the dot → pill
+   grow smoothly instead of snapping. */
+#cursor-ring {
+    position: fixed;
+    top: 0; left: 0;
+    width: 28px;
+    height: 28px;
+    background: transparent;
+    border: 1.5px solid var(--primary-color);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 8000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                height 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                padding 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                border-radius 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                background 0.2s ease, border-color 0.2s ease;
+    will-change: transform;
+}
+
+/* Smaller filled circle on generic hoverable elements (links, buttons) */
+#cursor-ring.cursor-on-hoverable {
+    height: 9px;
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Over a background dark enough that the brand-green ring/dot would
+   lose contrast against it (the green nav bar, green hover buttons),
+   or directly on top of brand-green label text (case-study tags,
+   links) — swap to white instead. cursor.js decides this by actually
+   reading the computed background/text color under the pointer each
+   time the hover target changes, rather than a fixed list of
+   selectors, so it keeps working if a new green surface gets added
+   later. The pill/card state doesn't need this: its rounded-rect
+   keeps its own green background with white text regardless of
+   what's underneath it. */
+#cursor-ring.cursor-on-dark {
+    border-color: white;
+}
+
+#cursor-ring.cursor-on-dark.cursor-on-hoverable {
+    background: white;
+    border-color: white;
+}
+
+/* Fully hidden over elements that show their own on-element hover
+   label (the homepage callout chips) — see cursor.js SUPPRESS_SELECTOR. */
+#cursor-ring.cursor-suppressed {
+    opacity: 0;
+}
+
+/* Opacity/scale are driven directly from cursor.js every frame, tied
+   to the same pill-progress value used for sizing/positioning (see
+   the LABEL VISIBILITY note in cursor.js) — not a CSS transition on
+   the class toggle. That guarantees the text only starts appearing
+   once the pill shape is most of the way grown, instead of being
+   readable while the rounded-rect is still small. Font size stays
+   fixed at its final value always, rather than animating 0 → 0.96rem,
+   so the text itself doesn't reflow narrower/wider mid-transition. */
+#cursor-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.96rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: white;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    text-align: center;
+    line-height: 1;
+}
+
+/* Pill hover — elevated rounded-rectangle, distinct from the
+   fully-pill-shaped nav buttons (which use border-radius:10rem).
+   This uses a much smaller radius + shadow + bigger text so it reads
+   as a floating UI element, not "another nav button". Height stays a
+   fixed rem value (safe to CSS-transition on its own); width is
+   managed from cursor.js as an explicit pixel target every time the
+   label text changes, so it comfortably fits short labels ("view
+   project") and longer ones ("See my visual design work") alike. */
+#cursor-ring.cursor-on-card {
+    height: 3.1rem;
+    padding: 0 1.3rem;
+    border-radius: 0.6rem;
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+}
+
+@media (hover: none) {
+    #cursor-ring { display: none; }
+}
+
+
+/* ── Homepage callout — six preset layouts ────────────────────────
+   Six hand-authored line-break layouts (see the .callout-tier1..6
+   <p> blocks in index.html), one per breakpoint tier, each shown only
+   within its own tier's viewport range (rules below). Within a tier,
+   .callout-lead's font-size is set in cqw (relative to .main-section's
+   real rendered width — see container-type there), so the whole
+   paragraph scales as a uniform zoom of its reference-width design:
+   line breaks stay exactly as authored and the chip-vs-gutter fit
+   doesn't drift until the browser swaps to the next tier's preset.
+   Chip widths below are per-color defaults; each tier overrides them
+   (further down this file) to whatever width makes that tier's chip
+   reach the right gutter. Chip height is pinned to roughly the
+   surrounding text's cap-height (plus a flat 0.5rem so they read
+   clearly at every size); vertical-align: middle plus a small `top`
+   nudge keeps them centered on the text instead of hanging low off
+   the baseline. */
+.callout-lead {
+    line-height: 1.16;
+}
+
+/* Below 920px (top-nav range — see breakpoints.css, .main-wrapper
+   switches from row/sidebar to column/top-bar at 57.5rem), the
+   callout gets noticeably taller line-height. Bigger text (per the
+   earlier top-nav-range font-size bump) plus tall inline chip pills
+   need more breathing room between lines at this range than the
+   desktop 1.16 default. */
+@media (max-width: 57.4375rem) {
+    .callout-lead {
+        line-height: 1.32;
+    }
+}
+
+/* Wraps a chip together with the word(s) immediately before/after it
+   that must never be separated from it — e.g. "visual [blue chip]
+   design." at the end of the sentence, where "design." has nothing
+   after it to fall back on if orphaned. white-space:nowrap means the
+   browser can only ever break *before* the whole span, never inside
+   it, so this always moves as one unit between lines. */
+.callout-atomic {
+    white-space: nowrap;
+}
+
+.callout-chip {
+    position: relative;
+    top: -0.1em;
+    display: inline-block;
+    box-sizing: border-box;
+    height: calc(0.72em + 0.5rem);
+    width: 1.7em;
+    margin: 0 0.1em;
+    vertical-align: middle;
+    border-radius: 999em;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+.callout-chip:focus-visible {
+    outline: 0.18rem solid var(--primary-color);
+    outline-offset: 0.1em;
+}
+
+.callout-chip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Hover feedback lives here now, not on the chip's own box — no
+       shadow, no lift, just the photo itself zooming in/out inside
+       its fixed, unmoving pill. Scaling the *image* rather than the
+       bordered/clipped/radius'd chip element avoids the hairline gap
+       that shows up when you scale an overflow:hidden+border-radius
+       box directly (the clip edge and the content round to slightly
+       different sub-pixel boundaries in some browsers). */
+    transform: scale(1);
+    transition: transform 0.35s ease;
+}
+
+.callout-chip:hover img,
+.callout-chip:focus-visible img {
+    transform: scale(1.12);
+}
+
+/* Plain alpha-blended colour wash — flat, muted tint at rest (not a
+   duotone blend), matching the exact colours/opacity from the
+   reference. On hover/focus it swaps to the more saturated version —
+   a deliberate, visible change that signals "this is interactive"
+   without needing to touch the crop or shape. z-index keeps it above
+   the (zooming) image but below the hint label below. */
+.callout-chip::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    transition: background 0.2s ease;
+}
+
+.callout-chip-green { width: 3.2em; }
+.callout-chip-yellow { width: 6.4em; }
+.callout-chip-blue { width: 6.4em; }
+
+.callout-chip-green::after { background: rgba(174, 184, 132, 0.7); }
+.callout-chip-yellow::after { background: rgba(254, 208, 123, 0.7); }
+.callout-chip-blue::after { background: rgba(186, 205, 209, 0.7); }
+
+/* Border uses the same saturated colour as the hover overlay, so the
+   chip's "hover colour" is visible as an accent even at rest. Fixed
+   rem width (not em) so it matches the side-nav buttons' / "More
+   projects" button's border weight (0.18rem) exactly at every
+   breakpoint, rather than scaling up with the huge callout text. */
+.callout-chip-green { border: 0.18rem solid rgba(22, 135, 79, 0.8); }
+.callout-chip-yellow { border: 0.18rem solid rgba(230, 163, 40, 0.8); }
+.callout-chip-blue { border: 0.18rem solid rgba(93, 101, 214, 0.8); }
+
+.callout-chip-green:hover,
+.callout-chip-green:focus-visible { border-color: rgba(22, 135, 79, 1); }
+.callout-chip-yellow:hover,
+.callout-chip-yellow:focus-visible { border-color: rgba(230, 163, 40, 1); }
+.callout-chip-blue:hover,
+.callout-chip-blue:focus-visible { border-color: rgba(93, 101, 214, 1); }
+
+.callout-chip-green:hover::after,
+.callout-chip-green:focus-visible::after { background: rgba(15, 92, 54, 0.78); }
+.callout-chip-yellow:hover::after,
+.callout-chip-yellow:focus-visible::after { background: rgba(178, 122, 22, 0.78); }
+.callout-chip-blue:hover::after,
+.callout-chip-blue:focus-visible::after { background: rgba(58, 65, 156, 0.78); }
+
+/* Per-photo crop focus, so the interesting part of each source image
+   (a face, a UI element, a poster) survives being squeezed into a
+   short, wide pill. */
+.callout-chip-green img { object-position: 50% 44%; }
+.callout-chip-yellow img { object-position: 14% 27%; }
+.callout-chip-blue img { object-position: 68% 55%; }
+
+/* In tiers where "a Vancouver..." wraps to its own line right after the
+   green chip (marked with .callout-lead-chip-break — tiers 1, 2, 4, 6),
+   the chip reads as more of a standalone portrait rather than a small
+   inline accent, so it's worth zooming in on the face a bit more than
+   the default wide crop above. Tiers where the chip and the following
+   words stay on the same line (3 and 5) keep the original, wider crop —
+   there's less visual weight on the chip itself there. Same
+   object-position as the default crop, just scaled up, so the framing
+   only zooms rather than also shifting. */
+.callout-lead-chip-break .callout-chip-green img {
+    transform: scale(1.25);
+}
+
+.callout-lead-chip-break .callout-chip-green:hover img,
+.callout-lead-chip-break .callout-chip-green:focus-visible img {
+    transform: scale(1.68);
+}
+
+/* ── Chip hover hint — "version 2" of the interaction ────────────
+   Instead of the custom mouse cursor showing the label (see
+   cursor.js — project cards still use that), these chips show their
+   own label directly on top of themselves on hover. z-index: 2 keeps
+   it above both the zooming image AND the ::after colour wash (z-index
+   1), which is what was making the text unreadable before — the wash
+   was painting on top of the label, not under it. No JS involved:
+   pure opacity/transform transition. Sized as a fraction of the
+   chip's own font-size so it scales with everything else. */
+.callout-chip-hint {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    padding: 0 0.4em;
+    font-family: "abc-diatype-round", sans-serif;
+    font-weight: 500;
+    font-size: clamp(0.8rem, 0.24em, 1.35rem);
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+    color: white;
+    text-shadow: 0 0.05em 0.15em rgba(0,0,0,0.35);
+    opacity: 0;
+    transform: translateY(0.15em);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+}
+
+.callout-chip:hover .callout-chip-hint,
+.callout-chip:focus-visible .callout-chip-hint {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Thin arrow icon at the end of the hover-hint text — replaces the
+   plain "→" character so the stroke weight is actually adjustable
+   (text glyphs have no stroke-width). Same path as the site's other
+   arrow icons (.vu-project-card-go, "More projects"). */
+.callout-chip-arrow {
+    width: 0.85em;
+    height: 0.85em;
+    flex-shrink: 0;
+    margin-left: 0.35em;
+    vertical-align: -0.08em;
+}
+
+/* Overrides the inline stroke-width="0.9" from the markup — same fix
+   as .vu-project-card-go svg path below: a bare (unitless) SVG
+   stroke-width attribute is in viewBox user-units, so at this icon's
+   tiny rendered size (well under the 16x16 viewBox), most of any
+   change you make to it gets scaled away to a sub-pixel difference
+   that's effectively invisible. Setting it here instead, in real CSS
+   rem, renders as an actual, visible line weight regardless of the
+   icon's rendered size. */
+.callout-chip-arrow path {
+    stroke-width: 0.13rem;
+}
+
+/* 630px and under is phone/tablet territory — no hover at all, so the
+   label can never actually be shown. */
+@media (max-width: 630px) {
+    .callout-chip-hint {
+        display: none;
+    }
+}
+
+/* ── Six preset callout layouts, one per breakpoint tier ───────────
+   Each tier is only ever shown within its own viewport range; the
+   other five stay display:none. Font-size is in cqw so the whole
+   paragraph — text and chips together, since chip widths are in em —
+   scales as a uniform zoom of the reference-width design throughout
+   the tier's range, without re-wrapping.
+
+   Tier boundaries were chosen so no tier straddles the 920px (57.5rem)
+   sidebar breakpoint, where .main-section's own width formula jumps
+   discontinuously (94%-of-viewport below it, 88%-of-a-narrower-main
+   above it) — straddling that jump would throw off the cqw scaling
+   mid-tier. Elsewhere, boundaries sit at the midpoint between two
+   consecutive reference widths.
+
+   cqw ratios below = (reference font-size ÷ .callout-lead's measured
+   width at that reference viewport) × 100, so at the exact reference
+   width each tier reproduces the font-size it was designed at. */
+.callout-lead { display: none; }
+
+/* Tier 1 — reference 362px */
+@media (max-width: 497px) {
+    .callout-tier1 { display: block; font-size: 6.55cqw; }
+    .callout-tier1 .callout-chip-green  { width: 4em; }
+    .callout-tier1 .callout-chip-yellow { width: 8.92em; }
+    .callout-tier1 .callout-chip-blue   { width: 6.87em; }
+}
+
+/* Tier 2 — reference 634px */
+@media (min-width: 498px) and (max-width: 719px) {
+    .callout-tier2 { display: block; font-size: 6.65cqw; }
+    .callout-tier2 .callout-chip-green  { width: 3.2em; }
+    .callout-tier2 .callout-chip-yellow { width: 8.95em; }
+    .callout-tier2 .callout-chip-blue   { width: 6.92em; }
+}
+
+/* Tier 3 — reference 806px */
+@media (min-width: 720px) and (max-width: 919px) {
+    .callout-tier3 { display: block; font-size: 5.17cqw; }
+    .callout-tier3 .callout-chip-green  { width: 3.2em; }
+    .callout-tier3 .callout-chip-yellow { width: 7.6em; }
+    .callout-tier3 .callout-chip-blue   { width: 5.95em; }
+}
+
+/* Tier 4 — reference 1020px (first tier past the 920px sidebar) */
+@media (min-width: 920px) and (max-width: 1171px) {
+    .callout-tier4 { display: block; font-size: 6.62cqw; }
+    .callout-tier4 .callout-chip-green  { width: 3.2em; }
+    .callout-tier4 .callout-chip-yellow { width: 8.88em; }
+    .callout-tier4 .callout-chip-blue   { width: 6.91em; }
+}
+
+/* Tier 5 — reference 1324px */
+@media (min-width: 1172px) and (max-width: 1425px) {
+    .callout-tier5 { display: block; font-size: 5.65cqw; }
+    .callout-tier5 .callout-chip-green  { width: 3.2em; }
+    .callout-tier5 .callout-chip-yellow { width: 5.9em; }
+    .callout-tier5 .callout-chip-blue   { width: 4.27em; }
+}
+
+/* Tier 6 — reference 1528px. Range capped at 1849px, handing off to
+   Tier 7 (below) for indefinite growth beyond that with its own
+   3-line layout.
+
+   font-size is capped at 3.7rem — NOT decorative, this is a
+   continuity fix: 3.7rem/59.2px is what Tier 7's own formula
+   (4.2484cqw) evaluates to at the 1850px handoff point. Left
+   uncapped, Tier 6 keeps growing under 5.23cqw all the way to
+   72.8px at 1849px, then Tier 7 starts at 59.2px at 1850px — an
+   ~18% font-size cliff plus a ~130px paragraph-height cliff (4-line
+   layout collapsing to 3-line) in a single pixel of viewport width.
+   Capping here means Tier 6 plateaus at the same size Tier 7 begins
+   at, so crossing 1850px only changes line count (4→3), not scale —
+   the one abrupt jump this range used to have.
+
+   Chosen deliberately over the bigger uncapped version below: at
+   this size the sentence stays readable as a sentence (word-by-word
+   fixation kicks in on the uncapped version at typical laptop
+   fullscreen widths, since legible-as-a-glance and legible-as-prose
+   have different comfortable size ceilings). See the commented-out
+   alternative immediately below for the full reasoning either way. */
+@media (min-width: 1426px) and (max-width: 1849px) {
+    .callout-tier6 { display: block; font-size: min(5.23cqw, 3.7rem); }
+    .callout-tier6 .callout-chip-green  { width: 3.2em; }
+    .callout-tier6 .callout-chip-yellow { width: 7.54em; }
+    .callout-tier6 .callout-chip-blue   { width: 5.92em; }
+}
+
+/* Come back to this later — bigger, uncapped Tier 6 (font keeps
+   growing to fill the range like every other tier does, instead of
+   plateauing at 3.7rem partway through). Feels more consistent with
+   the rest of the tiers (all of which scale all the way through
+   their own range) and reaches further toward the parent container's
+   full width, at the cost of the sentence getting big enough on
+   common laptop-fullscreen widths (1440–1728px is squarely inside
+   this tier) that it reads word-by-word instead of as a flowing
+   sentence. Also note: Tier 7 is uncapped too and gets even bigger —
+   85.7px at 2560px, 118.6px at 3440px ultrawide — so if this version
+   ends up winning, Tier 7 probably needs the same reconsideration for
+   the system to be consistent about where (if anywhere) the ceiling
+   is, rather than Tier 6 being the only capped tier.
+
+@media (min-width: 1426px) and (max-width: 1849px) {
+    .callout-tier6 { display: block; font-size: 5.23cqw; }
+    .callout-tier6 .callout-chip-green  { width: 3.2em; }
+    .callout-tier6 .callout-chip-yellow { width: 7.54em; }
+    .callout-tier6 .callout-chip-blue   { width: 5.92em; }
+}
+*/
+
+/* Tier 7 — reference 1850px. Deliberately only 3 lines (vs. 4 in tiers
+   3/5/6) so the callout doesn't keep taking up more vertical space as
+   it's asked to keep growing indefinitely rightward — this tier has no
+   upper bound and no font-size cap, unlike tier 6. The third line ends
+   with a deliberate ~1/6-of-line-width gap after "design" (chip width
+   tuned for that gap specifically, not a flush gutter fit) per the
+   reference layout. */
+@media (min-width: 1850px) {
+    .callout-tier7 { display: block; font-size: 4.2484cqw; }
+    .callout-tier7 .callout-chip-green  { width: 6.2em; }
+    .callout-tier7 .callout-chip-yellow { width: 5.71em; }
+    .callout-tier7 .callout-chip-blue   { width: 7.10em; }
+}
+
+
+/* ── Project cards (homepage "Selected works" + Works page) ─────────
+   .vu-project-card-link wraps a real, clickable card; .vu-project-card
+   is the card shell itself, reused as-is (minus the link and hover
+   states) for the "Coming soon" placeholders further down.
+
+   Hover is calibrated to match the "Up Next" cards elsewhere on the
+   site: a small lift + a soft, low-opacity shadow — nothing louder. */
+.vu-project-card-link { display:block; text-decoration:none; }
+
+.vu-project-card {
+    position: relative;
+    background: var(--card-bg-color);
+    border: 0.122rem solid #e5e5e2;
+    border-radius: 0.9rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vu-project-card-link:hover .vu-project-card,
+.vu-project-card-link:focus .vu-project-card {
+    /* transform: translateY(-0.2rem); */
+    /* box-shadow: 0 0.5rem 1.4rem rgba(0,0,0,0.08); */
+    box-shadow: 0 12px 28px rgba(17,17,17,0.08);
+}
+
+.vu-project-card-frame {
+    position: relative;
+    border-radius: 0.85rem 0.85rem 0 0;
+    overflow: hidden;
+}
+
+.vu-project-card-frame img {
+    width: 100%;
+    /* Grows past this fixed height at wider breakpoints — see the
+       clamp() override in breakpoints.css's 774px block. */
+    height: 14rem;
+    object-fit: cover;
+    display: block;
+}
+
+/* Positions the badge row as a whole (top-left corner of the frame);
+   individual .vu-project-card-badge chips are laid out in a flex row
+   inside it, so a card can carry one badge or several without the
+   chips overlapping. flex-wrap lets extra chips drop to their own
+   line rather than overflow the card on very narrow viewports.
+   Reused as-is on the "Up next" cards at the end of each case study
+   (.up-next-card, further down this file) — that card has no
+   .vu-project-card-frame wrapper, so .up-next-card itself carries
+   position:relative so this positions the same way relative to it. */
+.vu-project-card-badges {
+    position: absolute;
+    top: 0.8rem; left: 0.8rem;
+    right: 0.8rem;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.vu-project-card-badge {
+    background: rgba(255,255,255,0.92);
+    color: #3a3a3a;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.66rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.32rem 0.7rem;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+/* Arrow button — centered on the image's bottom edge (top: 14rem
+   matches .vu-project-card-frame img's fixed height exactly, then
+   translateY(-50%) straddles it half on the image, half below).
+   Also grows past 14rem at wider breakpoints — see the matching
+   clamp() override in breakpoints.css's 774px block, which must
+   stay numerically identical to the img height override or this
+   button drifts off the image's actual bottom edge.
+   The icon uses stroke="currentColor" in the markup, so it just
+   follows this button's own `color` — no separate SVG-color rule
+   needed, and no risk of the icon going invisible on hover. */
+.vu-project-card-go {
+    position: absolute;
+    right: 1rem;
+    top: 14rem;
+    transform: translateY(-50%);
+    width: 2.35rem; height: 2.35rem;
+    border-radius: 50%;
+    background: white;
+    border: 0.125rem solid var(--primary-color);
+    color: var(--primary-color);
+    z-index: 2;
+    display:flex; align-items:center; justify-content:center;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.vu-project-card-go svg { width:0.8rem; height:0.8rem; transition: transform 0.15s ease; }
+/* Overrides the inline stroke-width="1.5" from the markup — at this
+   icon's small rendered size that value reads as too thin, especially
+   next to the button's own 2px border. */
+.vu-project-card-go svg path { stroke-width: 0.1375rem; }
+
+.vu-project-card-link:hover .vu-project-card-go,
+.vu-project-card-link:focus .vu-project-card-go {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.vu-project-card-link:hover .vu-project-card-go svg,
+.vu-project-card-link:focus .vu-project-card-go svg {
+    transform: translateX(0.05rem);
+}
+
+.vu-project-card-caption { padding: 1.05rem 3.1rem 0.9rem 1.1rem; }
+
+.vu-project-card-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: #171717;
+    font-style: normal;
+    margin: 0;
+}
+
+/* Second line of the (two-line) card title — a lighter weight than
+   .vu-project-card-title above, so it reads as a description trailing
+   the name rather than a second half of equal emphasis. */
+.vu-project-card-tag {
+    font-family: "abc-diatype-round", sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    color: #696969;
+    margin: 0.1rem 0 0;
+}
+
+/* ── "Coming soon" project cards — featured but not yet clickable.
+   No .vu-project-card-link wrapper in the markup (so there's
+   genuinely nothing to navigate to, not just a visually-disabled
+   link), a slightly desaturated/dimmed thumbnail so it doesn't
+   compete with real cards, and no arrow button. Desktop relies on
+   the custom cursor swapping its label to "Coming soon" (see
+   cursor.js); the badge itself just reads "Coming soon" instead of a
+   category, so touch devices see the same signal with no extra
+   markup needed. */
+/* Vibrant at rest — the grayscale-on-hover treatment below is what
+   signals "not clickable yet"; full color at rest lets the thumbnail
+   itself still read normally when just scanning the grid. */
+.vu-project-card-soon .vu-project-card-frame img {
+    transition: filter 0.2s ease;
+}
+
+.vu-project-card-soon:hover .vu-project-card-frame img {
+    filter: grayscale(100%);
+}
+
+/* Light black wash over the thumbnail on hover, on top of the
+   grayscale — an ::after on the frame (not the image itself) so it
+   sits as its own layer above the image but below the badge, and
+   gets clipped to the frame's own rounded top corners by the frame's
+   existing overflow:hidden. */
+.vu-project-card-soon .vu-project-card-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.18);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.vu-project-card-soon:hover .vu-project-card-frame::after {
+    opacity: 1;
+}
+
+.vu-project-card-soon .vu-project-card-badge {
+    background: rgba(17,17,17,0.82);
+    color: white;
+}
+
+.vu-project-card-soon .vu-project-card-caption { padding-right: 1.1rem; }
+
+
+/* ── "UP NEXT" SECTION ───────────────────────────────────────────
+   Fix: cards keep their natural project-card styling instead of a
+   custom look — reuses .project-card-heading/.project-card-img rules. */
+.up-next-section {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1.5px solid var(--soft-accent-color);
+}
+
+.up-next-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--secondary-bodycopy-color);
+    margin-bottom: 1.2rem;
+}
+
+.up-next-grid {
+    display: grid;
+    /* auto-fit + minmax instead of a hard 1fr 1fr split — this guarantees
+       each card gets at least 19rem before a second column is attempted,
+       which is what was making "Goodreads Feature Redesign" wrap to 2 lines. */
+    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+    gap: 1.2rem;
+}
+
+@media (max-width: 48rem) {
+    .up-next-grid { grid-template-columns: 1fr; }
+}
+
+/* No custom card chrome here — .project-card (from main.css) already
+   provides background, hover lift, and image styling. We just reuse it. */
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   VU-STYLE CASE STUDY (goodreads-vu-style.html)
+   White background throughout — no dark sections.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.vu-page {
+    background-color: white;
+}
+
+.vu-page main {
+    background-color: white;
+    background-image: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Hero — "split" layout. Title + overview sit on the left; project
+   facts (role, tools, timeline...) sit as their own column on the
+   right at desktop widths, with a vertical divider between them. On
+   narrower viewports the split collapses and the facts become a
+   horizontal strip below the overview, stepping 1 column → 2 columns
+   as space allows. Sits on plain white (no grey panel) with a
+   full-bleed hairline at the bottom separating it from whatever
+   section follows.
+   ═══════════════════════════════════════════════════════════════════ */
+.vu-hero {
+    background: #fff;
+    color: #111;
+    padding: 3.25rem 0.95rem 2.5rem;
+    border-bottom: 1px solid #ecece6;
+    position: relative;
+}
+
+@media (min-width: 30rem) {
+    .vu-hero {
+        padding: 3.75rem 2rem 2.75rem;
+    }
+}
+
+/* "← Back to projects" — plain text + icon, not a pill/button, so it
+   reads as a quiet nav control. Purple-on-hover matches the About
+   page's Email/LinkedIn/Resume links (.bio-container a) — same brand
+   colors, applied to this nav control too. */
+.vu-hero-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-bottom: 4rem;
+}
+
+.vu-hero-back svg {
+    width: 0.85rem;
+    height: 0.85rem;
+    transition: transform 0.2s ease;
+}
+
+.vu-hero-back:hover {
+    color: var(--selection-color);
+}
+
+.vu-hero-back:hover svg {
+    transform: translateX(-2px);
+}
+
+/* Single inner wrapper constrains ALL hero content to the same 58rem
+   column so the back link, title and fact grid share one left edge.
+   At very large viewports (see the 107.5rem+ override far below)
+   this widens beyond regular sections' 58rem cap, so the hero — and
+   especially its image — reads bigger without ever touching the
+   edges, while ordinary laptop/desktop widths stay lined up with
+   every other section. */
+.vu-hero-inner {
+    max-width: 58rem;
+    margin: 0 auto;
+}
+
+/* Category tags — available for a case study that wants a small-caps
+   label row above the title (plain text with a dot between entries,
+   not pills). Unused by the current split layout, which relies on
+   the title alone for hierarchy, but kept as a ready-made option
+   rather than something to rebuild from scratch later. */
+.vu-hero-eyebrow {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.vu-hero-eyebrow span:not(:last-child)::after {
+    content: "·";
+    display: inline-block;
+    margin: 0 0.55rem;
+    color: #c7c7c0;
+    font-weight: 400;
+}
+
+/* Title carries the hero on its own — no left rule (a block-quote bar
+   reads more like a callout than a headline). */
+.vu-hero h2 {
+    font-family: "family", sans-serif;
+    font-size: clamp(1.9rem, 4.2vw, 2.85rem);
+    font-weight: 400;
+    font-style: normal;
+    color: #111;
+    letter-spacing: -0.01em;
+    line-height: 1.16;
+    margin-bottom: 2rem;
+    max-width: 40rem;
+}
+
+/* Mobile-default: overview stacks above the fact grid, full width. */
+.vu-hero-grid {
+    display: block;
+}
+
+.vu-hero-sub {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1.02rem;
+    font-weight: 300;
+    color: #444;
+    max-width: 42rem;
+    line-height: 1.7;
+    margin-bottom: 1.75rem;
+}
+
+/* Fact list — a wrapping row rather than a fixed-column grid at this
+   (pre-split) stage. Each fact keeps a floor width so short labels
+   never get squeezed; if the row runs out of room, whole facts wrap
+   to a new line instead of the text inside them wrapping awkwardly. */
+.vu-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #ecece6;
+}
+
+.vu-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-width: 8rem;
+    flex: 0 1 auto;
+}
+
+/* Hero image — gets visual weight (shadow + rounded corners) since
+   it's no longer sitting inside a grey panel; the shadow signals
+   "this is the featured shot". */
+.vu-hero-img-wrap {
+    max-width: 58rem;
+    margin: 0 auto;
+    padding: 2rem 0 0;
+}
+
+.vu-hero-img-wrap .vu-full-img {
+    border-radius: 0.75rem;
+    box-shadow: 0 30px 60px -30px rgba(20, 20, 15, 0.28);
+}
+
+.vu-hero-img-wrap .vu-img-caption {
+    padding: 1rem 0 0;
+    /* Override .vu-img-caption's own max-width/auto-margin centering —
+       that rule assumes it sits inside a 58rem-capped wrapper. The
+       hero image wrapper is wider than that at large breakpoints (see
+       the 107.5rem+ override below), so without this the caption
+       stayed centered at the old 58rem width while the image above it
+       kept growing, drifting the caption's left edge away from the
+       image's left edge. */
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.vu-meta-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    /* Darker than the value below it — the label is the thing you
+       scan for, the value is what you read once you've found it. */
+    color: #242420;
+}
+
+.vu-meta-value {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.96rem;
+    font-weight: 400;
+    line-height: 1.45;
+    color: #6b6b64;
+    margin: 0;
+    padding: 0;
+}
+
+/* Metadata body copy — a step down from .vu-section-body's own
+   1.02rem/0.98rem body-paragraph size, since at split-layout widths
+   (75rem+) this sits in a comparatively narrow, fixed-width column
+   next to a much bigger headline; the smaller size keeps it reading
+   as secondary information rather than competing with the title/
+   overview column for visual weight. */
+.vu-hero--split .vu-meta-value {
+    font-size: 0.88rem;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* Multiple stacked <p class="vu-meta-value"> inside one fact — lets a
+   fact be authored as a short list (one team member, one tool per
+   line) instead of a single comma/pipe-joined string. */
+.vu-meta-value + .vu-meta-value {
+    margin-top: 0.2rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   .vu-hero--split — metadata as a column to the right of the title/
+   overview, divided by a vertical rule. On narrower viewports the
+   split collapses and the metadata becomes its own horizontal strip
+   below the overview, stepping 1 column → 2×2 as space allows (see
+   the container query near the bottom of this block). Applied via an
+   extra modifier class on the same .vu-hero element every case study
+   uses — the shared parts (back link, title, image) fall through to
+   the base .vu-hero rules above; only the grid/meta layout differs
+   here.
+
+   Dividers use a "gap reveals background" technique instead of
+   per-item borders: the grid container is painted the divider color
+   and each cell is painted the page background, so the 1px gap
+   between cells is the only place the container's color shows
+   through. This draws every internal division — between columns AND
+   between rows — from a single declaration on the container, with no
+   nth-child bookkeeping and no risk of a cell-level border losing a
+   cascade fight at a different breakpoint.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.vu-hero--split .vu-hero-sub {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #3a3a3a;
+    max-width: 38rem;
+    margin: 0;
+}
+
+.vu-hero--split .vu-hero-grid {
+    display: block;
+    /* Establishes the sizing context the container query below (fact
+       grid: 1 column → 2 columns) measures against — its own rendered
+       width, not the viewport, so it stays correct even once the
+       fixed side nav has narrowed the content column. */
+    container-type: inline-size;
+}
+
+/* Title + overview. Set up so the title and paragraph keep a minimum
+   gap between them, but if this column ends up taller than its own
+   content needs (it stretches to match the metadata column's height
+   at desktop widths — see align-self: stretch in the 75rem block
+   below), the extra space is added between them rather than sitting
+   as dead space below the paragraph: title stays pinned to the top,
+   paragraph gets pushed toward the bottom. That's flexbox's gap +
+   justify-content: space-between working together. In the stacked/
+   mobile layout there's no extra height to distribute, so this simply
+   behaves like a normal fixed 2rem gap there. */
+.vu-hero--split .vu-hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.vu-hero--split .vu-hero-text h2 {
+    /* The flex gap above handles title-to-paragraph spacing now; the
+       base .vu-hero h2 rule's own margin-bottom would otherwise add
+       on top of it, since margins don't collapse into a flex gap the
+       way they do in normal block flow. */
+    margin-bottom: 0;
+}
+
+/* Base state — narrowest: one column, one fact per row. Every cell is
+   flush with the title above it (no horizontal cell padding), since
+   with a single column every cell is both first and last. */
+.vu-hero--split .vu-meta-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    padding: 0;
+    background-color: #ecece6;
+    border-top: 1px solid #ecece6;
+    border-bottom: 1px solid #ecece6;
+    margin-top: 1.5rem;
+}
+
+.vu-hero--split .vu-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1rem 0;
+    background-color: #fff;
+}
+
+/* Container query rather than a viewport media query, deliberately:
+   this is about the fact grid's own available width (which the fixed
+   side nav eats into at 57.5rem+), not the viewport as a whole. Steps
+   to 2 columns once there's roughly enough room for two facts side by
+   side without their values wrapping; the nth-child padding creates
+   breathing room between the two columns, since the divider technique
+   above only draws dividers in the row gap, not between columns at
+   this stage. */
+@container (min-width: 42rem) {
+    .vu-hero--split .vu-meta-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .vu-hero--split .vu-meta-item:nth-child(odd) {
+        padding-right: 1.25rem;
+    }
+    .vu-hero--split .vu-meta-item:nth-child(even) {
+        padding-left: 1.25rem;
+    }
+}
+
+/* Split view — title/overview on the left with a vertical divider,
+   metadata as a single vertical column on the right. Only meaningful
+   once there's enough room for both a comfortable reading column AND
+   a side column at the same time — 75rem keeps this well clear of the
+   fixed side nav (which starts eating into content width at 57.5rem),
+   so the split never reintroduces a cramped-column problem.
+
+   Selectors here double up the class (.vu-hero.vu-hero--split, both
+   already on the element) purely to outrank the container-query rule
+   above: same file, so on equal specificity the later rule (this one)
+   already wins at any width where both could apply — the doubled
+   class is extra insurance against that ever becoming reliant on
+   source order alone if this file gets reorganized later. */
+@media (min-width: 75rem) {
+    .vu-hero.vu-hero--split .vu-hero-grid {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.75rem;
+    }
+    .vu-hero.vu-hero--split .vu-hero-text {
+        /* flex: 1 1 auto (not a ratio like 1.6 vs meta-row's 1) is
+           what makes the overview column absorb 100% of any extra
+           width the hero gains. Pairing this with a frozen width on
+           .vu-meta-row below (rather than its own flex:1) is what
+           makes that actually happen: if both columns were flexible,
+           trimming this column's own padding just gives .vu-meta-row's
+           flex:1 more room to immediately claim — the free space goes
+           to whichever column is still flexible, not to whichever one
+           you shrank. Freezing the metadata column's width removes it
+           from that competition entirely, so every extra pixel the
+           hero gains has nowhere to go but here. */
+        flex: 1 1 auto;
+        min-width: 0;
+        margin-bottom: 0;
+        padding-right: 3.5rem;
+        align-self: stretch;
+    }
+    .vu-hero.vu-hero--split .vu-meta-row {
+        /* Fixed width (not flex: 1) — this column does not grow as
+           the hero widens; see the comment on .vu-hero-text above for
+           why that's what lets the text column grow instead. 19rem is
+           17.5rem of content width plus the 1.5rem padding-left the
+           divider needs — narrowed from an earlier 23.5rem, which read
+           as too much visual weight for a secondary fact column,
+           especially between 1200–1720px before the hero itself gets
+           more room to work with at 107.5rem. */
+        flex: 0 0 19rem;
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+        margin-top: 0;
+        /* Nudges the fact list down slightly so "ROLE" (small type)
+           visually lines up with the title's cap-height rather than
+           its taller line-box. */
+        padding-top: 0.6rem;
+        background-color: transparent;
+        border-top: none;
+        border-bottom: none;
+        align-self: stretch;
+        border-left: 1px solid #ecece6;
+        padding-left: 1.5rem;
+    }
+    .vu-hero.vu-hero--split .vu-hero-grid .vu-meta-item {
+        padding: 0;
+        background-color: transparent;
+    }
+}
+
+/* Hero widens past the regular 58rem section cap only on very large
+   screens — everywhere from mobile up through a typical laptop/
+   desktop, the hero lines up exactly with .vu-inner-wrap below it.
+   Past 1720px (107.5rem at the default 16px root) the hero's side
+   margins shrink a little relative to the rest of the page, so its
+   image reads bigger while still keeping real breathing room from the
+   viewport edge (never full-bleed). Regular sections widen a little
+   too at the same breakpoint (58rem → 64rem) so the whole page
+   loosens up slightly on huge screens, but stay narrower than the
+   hero so the hero still reads as the "bigger" element. The split
+   layout's own metadata column is already frozen at 23.5rem from
+   75rem up (see above), so the extra room here goes entirely to the
+   gap ahead of it and to the overview's own line length. */
+@media (min-width: 107.5rem) {
+    .vu-hero-inner,
+    .vu-hero-img-wrap {
+        max-width: 76rem;
+    }
+
+    .vu-hero h2 {
+        max-width: 48rem;
+    }
+
+    .vu-inner-wrap {
+        max-width: 64rem;
+    }
+
+    /* Section-bg card widens in lockstep with .vu-inner-wrap above, so
+       it keeps hugging its content with light padding instead of
+       drifting back out of sync at this breakpoint. */
+    .vu-section.vu-section-bg-grey,
+    .vu-section.vu-section-bg-white {
+        max-width: 64rem;
+    }
+
+    .vu-hero-sub {
+        max-width: 46rem;
+    }
+
+    .vu-hero.vu-hero--split .vu-hero-grid {
+        gap: 4rem;
+    }
+    .vu-hero.vu-hero--split .vu-hero-sub {
+        max-width: 46rem;
+    }
+}
+
+/* ── Section containers ── */
+.vu-section {
+    padding: 3.5rem 2rem;
+    max-width: 58rem;
+    margin: 0 auto;
+}
+
+.vu-section-eyebrow {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    margin-bottom: 0.7rem;
+}
+
+/* Fix: no italic anywhere in titles */
+.vu-section-title {
+    font-family: "family", sans-serif;
+    font-style: normal;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 400;
+    color: #111;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+}
+
+.vu-section-body {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.98rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #333;
+    max-width: 42rem;
+    margin: 0;
+}
+
+/* ── Long story short — numbered colored cards ── */
+.vu-lss-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+@media (min-width: 40.75rem) {
+    .vu-lss-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.vu-lss-card {
+    border-radius: 0.75rem;
+    padding: 1.4rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.vu-lss-card:nth-child(1) { background: #dff2ea; }
+.vu-lss-card:nth-child(2) { background: #e8e4f9; }
+.vu-lss-card:nth-child(3) { background: #fff0d6; }
+.vu-lss-card:nth-child(4) { background: #fde8e8; }
+
+.vu-lss-num {
+    font-family: "family", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: rgba(0,0,0,0.2);
+    line-height: 1;
+}
+
+.vu-lss-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0;
+}
+
+.vu-lss-body {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #444;
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* ── HMW callout ── */
+.vu-hmw {
+    background: var(--primary-color);
+    color: white;
+    border-radius: 0.75rem;
+    padding: 1.8rem 2rem;
+    margin: 2.5rem 0;
+    font-family: "family", sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-weight: 300;
+    font-style: italic;   /* this one is a deliberate pull-quote, kept */
+    line-height: 1.4;
+}
+
+/* ── User insight / quote cards (Speaking to users) ──────────────
+   Redesigned for editorial impact: a large decorative quotation mark,
+   the quote itself set larger in the display typeface (not italic
+   body copy), and the theme label moved below as a caption rather
+   than a small caps tag above — so the quote is the first thing read,
+   not the label. ── */
+/* Locked to exactly 2 columns (not auto-fit) — at wide breakpoints
+   auto-fit would happily expand to 3+ columns since each card only
+   needs a 16rem minimum, which reads too dense/loses the quote's
+   line length. Stacks to 1 column below 40.75rem for mobile. */
+.vu-insights-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+@media (min-width: 40.75rem) {
+    .vu-insights-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.vu-insight-card {
+    background: white;
+    border-radius: 0.9rem;
+    padding: 1.8rem 1.6rem 1.5rem;
+    border: 1px solid #ececea;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.vu-insight-mark {
+    font-family: "family", sans-serif;
+    font-size: 2.6rem;
+    line-height: 0.6;
+    color: var(--primary-color);
+    opacity: 0.35;
+}
+
+.vu-insight-quote {
+    font-family: "family", sans-serif;
+    font-size: 1.15rem;
+    font-style: normal;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1.45;
+    margin: 0;
+}
+
+.vu-insight-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--secondary-bodycopy-color);
+    margin: 0;
+    padding-top: 0.6rem;
+    border-top: 1px solid #ececea;
+}
+
+/* ── The Problem / The Solution ──────────────────────────────────
+   Two-column statement section, styled after Joann Vu's case study
+   format: a bold problem statement opposite a bold solution statement,
+   each followed by a shorter supporting detail paragraph. */
+.vu-problem-solution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+}
+
+@media (max-width: 45rem) {
+    .vu-problem-solution-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+.vu-ps-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.vu-ps-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.25rem;
+    width: fit-content;
+}
+
+.vu-ps-label.problem  { background: #fde8e8; color: #c0392b; }
+.vu-ps-label.solution { background: #dff2ea; color: #16874F; }
+.vu-ps-label.neutral   { background: #ececea; color: #555; }
+
+.vu-ps-statement {
+    font-family: "family", sans-serif;
+    font-style: normal;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #111;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.vu-ps-detail {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #555;
+    line-height: 1.65;
+    margin: 0;
+}
+
+.vu-ps-block.narrow {
+    max-width: 32rem;
+}
+
+/* ── Hypothesis pair (H1 / H0) — a tight, compact alternative to using
+   .vu-h4-label + .vu-section-body for this specific case, so the two
+   hypotheses read as small bound units rather than floating apart with
+   generic paragraph spacing. Sits inside a .vu-ps-block. ── */
+.vu-hypo-list {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.vu-hypo-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.vu-hypo-tag {
+    display: inline-block;
+    width: fit-content;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    background: #dff2ea;
+    padding: 0.18rem 0.55rem;
+    border-radius: 0.25rem;
+}
+
+.vu-hypo-tag.null {
+    color: #777;
+    background: #ececea;
+}
+
+.vu-hypo-tag.dv {
+    color: #1d6fa5;
+    background: #e3f0f8;
+}
+
+.vu-hypo-statement {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.98rem;
+    font-weight: 400;
+    color: #222;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+
+/* ── Opportunity / emoji blocks ── */
+.vu-opps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Explicit 2-column modifier, for grids of exactly 4 cards where the
+   auto-fit default would otherwise wrap into 3+1 on wider screens. */
+.vu-opps-grid.vu-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 40.75rem) {
+    .vu-opps-grid.vu-cols-2 { grid-template-columns: 1fr; }
+    
+}
+
+.vu-opp-card {
+    background: white;
+    border: 1px solid #ececea;
+    border-radius: 0.75rem;
+    padding: 1.4rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.vu-vid-card {
+    background: white;
+    border: 1px solid #ececea;
+    border-radius: 1rem;
+    padding: 1.4rem  1.4rem  1rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Grey-background variant of .vu-opp-card — same card, same type
+   sizes (title/body untouched), just swaps the white fill for a
+   soft grey so it reads distinctly on a white section background. */
+.vu-opp-card.vu-card-grey {
+    background: #f7f7f5;
+    border-color: #e5e5e2;
+}
+
+.vu-opp-emoji {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.vu-opp-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0;
+}
+
+.vu-opp-body {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ── Before / After comparison ── */
+.vu-before-after {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+@media (max-width: 40rem) {
+    .vu-before-after { grid-template-columns: 1fr; }
+}
+
+.vu-ba-block {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.vu-ba-label {
+    display: inline-block;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.6rem;
+}
+
+.vu-ba-label.before { background: #fde8e8; color: #c0392b; }
+.vu-ba-label.after  { background: #dff2ea; color: #16874F; }
+
+.vu-ba-block p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: #444;
+}
+
+.vu-ba-placeholder {
+    background: #ebebeb;
+    border: 2px dashed #ccc;
+    border-radius: 0.5rem;
+    min-height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #aaa;
+    margin-top: 0.5rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* ── Impact blocks — light, not dark ── */
+.vu-impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.vu-impact-block {
+    background: #f7f7f5;
+    border: 1px solid #e5e5e2;
+    color: #111;
+    border-radius: 0.75rem;
+    padding: 1.4rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.vu-impact-emoji {
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.vu-impact-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0;
+}
+
+.vu-impact-body {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #555;
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* ── Full-bleed images — caption fix: no side padding, starts at image edge ── */
+.vu-full-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
+.vu-img-caption {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.8rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--secondary-bodycopy-color);
+    padding: 0;
+    margin: 0.5rem auto 0;
+    max-width: 58rem;
+}
+/* When this caption sits inside a padded wrapper (max-width:58rem; padding:0 2rem)
+   it already aligns with the image above it — no extra horizontal padding needed. */
+
+/* ── Prototype video row — fix: videos were tiny with a dead gap.
+   Now video takes more width than text, and fills its column. ── */
+.vu-video-row {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 50rem) {
+    .vu-video-row { grid-template-columns: 1fr; }
+}
+
+.vu-video-text h4 {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111;
+    margin-bottom: 0.5rem;
+}
+
+.vu-video-text p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* The vid-container/vid-class rules come from main.css. Per request,
+   scale the video down to 0.65x — it was rendering too large in the
+   wider Vu-style column. max-width caps it; width:100% inside that
+   cap keeps it responsive on narrower screens. */
+.vu-video-row .vid-container {
+    width: 65%;
+    max-width: 65%;
+    margin: 0 auto;
+}
+
+@media (max-width: 50rem) {
+    .vu-video-row .vid-container {
+        width: 65%;
+        max-width: 20rem; /* don't let it get tiny on small mobile widths */
+        margin: 0 auto;
+    }
+}
+
+.vu-video-row .vid-class {
+    width: 100%;
+}
+
+/* ── Reflection — light, not dark ── */
+.vu-reflection {
+    background: #f4f4f2;
+    color: #111;
+    padding: 3.5rem 0;
+    border-top: 1px solid #e5e5e2;
+    margin-top: 2.5rem;
+}
+
+/* Flush modifier — for contexts where .vu-reflection sits directly
+   under a usage note rather than a preceding full case-study section
+   (e.g. on the section-library reference page), so it doesn't get a
+   redundant top border + margin floating in white space. */
+.vu-reflection.flush {
+    margin-top: 0;
+    border-top: none;
+}
+
+.vu-reflection-inner {
+    max-width: 58rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.vu-reflection .vu-section-eyebrow {
+    color: var(--primary-color);
+}
+
+.vu-reflection .vu-section-title {
+    color: #111;
+    /* Match .vu-section-body's reading column width — otherwise a
+       long title can stretch wider than the paragraphs beneath it,
+       throwing off the left/right balance of the block. */
+    max-width: 40rem;
+}
+
+.vu-reflection .vu-section-body {
+    color: #444;
+}
+
+/* ── Up next (Vu style) ── */
+.vu-up-next {
+    padding: 3rem 2rem;
+    max-width: 58rem;
+    margin: 0 auto;
+}
+
+/* Up Next cards — ONE shared, universal style used on every case study
+   page (standard pages + Vu-style page). Clean, minimal: no thick green
+   border / cream bg from the homepage .project-card, which read as an
+   odd, mismatched "underline" in context here. */
+.vu-up-next-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+    gap: 1.2rem;
+}
+
+@media (max-width: 48rem) {
+    .vu-up-next-grid { grid-template-columns: 1fr; }
+}
+
+.up-next-card {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid #e5e5e2;
+    background: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.up-next-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    text-decoration: none;
+}
+
+/* "Coming soon" up-next card — mirrors .vu-project-card-soon's
+   treatment (vibrant at rest, grayscale on hover, dark "Coming soon"
+   badge) but for the up-next grid, where the card is a plain div (no
+   href) rather than an .vu-project-card-link-wrapped anchor. No hover
+   lift/shadow, since there's nothing to click through to yet. */
+.up-next-card-soon {
+    cursor: default;
+}
+
+.up-next-card-soon:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Wraps the image + badge for -soon cards only (regular up-next
+   cards have no such wrapper — the img sits directly in .up-next-card,
+   which is fine there since nothing needs to be layered over just the
+   image). position:relative here is what scopes the hover overlay
+   below to the image area specifically, rather than the whole card
+   including the caption text beneath it. */
+.up-next-card-frame {
+    position: relative;
+    overflow: hidden;
+}
+
+.up-next-card-soon img {
+    transition: filter 0.2s ease;
+}
+
+.up-next-card-soon:hover img {
+    filter: grayscale(100%);
+}
+
+/* Same light black wash as .vu-project-card-soon on hover, on top of
+   the grayscale. */
+.up-next-card-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.18);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.up-next-card-soon:hover .up-next-card-frame::after {
+    opacity: 1;
+}
+
+.up-next-card-soon .vu-project-card-badge {
+    background: rgba(17,17,17,0.82);
+    color: white;
+}
+
+.up-next-card img {
+    width: 100%;
+    height: 11rem;
+    object-fit: cover;
+    display: block;
+}
+
+.up-next-card-info {
+    padding: 1rem 1.1rem;
+}
+
+.up-next-card-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0 0 0.2rem 0;
+}
+
+/* Second line of the (two-line) up-next card title — same treatment
+   as .vu-project-card-tag above (lighter weight, muted color, small
+   top gap), sized relative to .up-next-card-title's own 0.98rem the
+   same way .vu-project-card-tag's 1rem relates to .vu-project-card-
+   title's 1.05rem (roughly a 5% step down), rather than reusing
+   1rem outright — these cards run smaller throughout, so an identical
+   absolute size would land bigger than the title above it instead of
+   reading as secondary to it. */
+.up-next-card-tag {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.93rem;
+    font-weight: 300;
+    color: #696969;
+    margin: 0.1rem 0 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   SHARED RESEARCH/DATA COMPONENTS
+   Ported from the old standalone "sl-"/"notion-" system (formerly
+   duplicated in section-library.css) so every case study can use the
+   same patterns from the same file. Built for the Notion case study
+   originally; reused here for any project with quantitative findings.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Bigger subsection heading — for labelled sub-parts of a section
+   (e.g. "Part 1 — ...", "Part 2 — ...") that need to visibly outrank
+   the smaller card/feature-block titles nested underneath them. ── */
+.vu-part-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #111;
+    /* margin: 2.5rem 0 0.8rem; */
+    margin-top: 0.2rem;
+}
+
+/* White-background variant of .vu-feature-block, for use on grey
+   section backgrounds where the default light-green tint blends in
+   too much with the surrounding grey. ── */
+.vu-feature-block.vu-bg-white {
+    background: #fff;
+    border: 1px solid #e5e5e2;
+}
+
+/* Compact-image variant — scales the image column down so it reads
+   at roughly the same visual size as the video mockups used
+   elsewhere, instead of filling the whole column. ── */
+.vu-feature-block.vu-compact-img img {
+    max-width: 68%;
+    margin: 0 auto;
+    display: block;
+}
+
+@media (max-width: 45rem) {
+    .vu-feature-block.vu-compact-img img { max-width: 100%; }
+}
+
+/* Two-column text grid — for paired research paragraphs (e.g. two
+   cited studies side by side), each with its own image underneath. ── */
+.vu-two-col-text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 45rem) {
+    .vu-two-col-text { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+.vu-two-col-text .vu-placeholder-med { min-height: 12rem; margin-top: 1rem; }
+
+/* ── Small bold inline subheading (e.g. "H1 — Alternative hypothesis",
+   "On study design") — sits between a paragraph and the next one,
+   not a full section title. ── */
+.vu-h4-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #111;
+    margin: 1.2rem 0 0.3rem;
+}
+
+/* ── Smaller secondary body copy — for caveats/asides under a main
+   paragraph. Still 0.95rem+ per the no-tiny-reading-text rule below
+   that threshold; this is a touch smaller than .vu-section-body. ── */
+.vu-text-sm {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--secondary-bodycopy-color);
+    line-height: 1.6;
+}
+
+/* ── Quick numbers row (e.g. "8 participants / 5 tasks / 2 conditions"
+   or a post-survey "100% said X") — big figure, small label under it.
+   Reused for both raw counts and percentages.
+
+   Fixed 4-column grid (rather than the old auto-fit/minmax version)
+   on purpose: auto-fit lets the browser fit as many columns as the
+   container allows, so on the way down from 4 columns it dropped to
+   3 first — leaving 3 items on the top row and only the 4th wrapping
+   alone to a second row, an uneven 3+1 split. Explicit column counts
+   at each step below skip straight from 4 → 2 → 1, so the four
+   stat blocks always wrap as two even pairs, never a lone odd one
+   out. ── */
+.vu-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+    padding: 1.5rem 0;
+    border-top: 1px solid #e5e5e2;
+    border-bottom: 1px solid #e5e5e2;
+}
+
+/* 4 across starts feeling tight here — jump straight to a 2x2 pair
+   grid instead of letting a 3rd column hang on and force an
+   uneven 3+1 wrap. */
+@media (max-width: 45rem) {
+    .vu-stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Even a pair gets cramped on very narrow phones — collapse to a
+   single column. */
+@media (max-width: 20rem) {
+    .vu-stat-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.vu-stat-block {
+    text-align: center;
+}
+
+.vu-stat-number {
+    font-family: "family", sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 400;
+    color: var(--primary-color);
+    margin: 0 0 0.2rem;
+    line-height: 1;
+}
+
+.vu-stat-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--secondary-bodycopy-color);
+    margin: 0;
+}
+
+/* ── Two side-by-side images with captions — for paired reference
+   figures/screenshots that aren't a before/after comparison. ── */
+.vu-two-img-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+@media (max-width: 40.75rem) {
+    .vu-two-img-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Generic placeholder box — dashed border, italic grey note.
+   Same look as the existing before/after placeholder, with size
+   modifiers for different contexts (hero vs. in-section). ── */
+.vu-placeholder {
+    background: #ebebeb;
+    border: 2px dashed #ccc;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b3b3b3;
+}
+
+.vu-placeholder::before {
+    content: "🖼";
+    font-size: 2rem;
+    opacity: 0.6;
+}
+
+.vu-placeholder-med  { min-height: 16rem; }
+.vu-placeholder-tall { min-height: 24rem; }
+
+/* ── Numbered task/step list — a vertical list (not a card grid) for
+   walking through an ordered sequence, e.g. study tasks. ── */
+.vu-numbered-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.vu-numbered-item {
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid #ececea;
+}
+
+.vu-numbered-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* ── Limitation rows — a horizontal-card modifier on .vu-numbered-list
+   for content that needs more room to breathe than a 3-up card grid
+   allows (e.g. Limitations). Emoji instead of a number, and a title
+   styled like a small .vu-section-title (the "family" headline font)
+   rather than the default numbered-item's body-weight title, so each
+   limitation reads with the same weight as a mini section heading. ── */
+.vu-limitation-list .vu-numbered-item {
+    gap: 1.25rem;
+    padding-bottom: 1.75rem;
+}
+
+.vu-limitation-icon {
+    width: 2.2rem;
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    line-height: 1.3;
+}
+
+.vu-limitation-title {
+    font-family: "family", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: #111;
+    margin: 0 0 0.4rem;
+    line-height: 1.3;
+}
+
+.vu-numbered-num {
+    font-family: "family", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--primary-color);
+    flex-shrink: 0;
+    width: 1.8rem;
+}
+
+.vu-numbered-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0 0 0.3rem;
+}
+
+.vu-numbered-body {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #555;
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* Small inline tag — complexity/category labels next to a title */
+.vu-tag {
+    font-family: "abc-diatype-round", sans-serif;
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 0.25rem;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+
+}
+
+.vu-tag.low  { background: #dff2ea; color: #16874F; }
+.vu-tag.high { background: #fde8e8; color: #c0392b; }
+.vu-tag.med { background: #fff0d6; color: #9a6b00; }
+.vu-tag.grey { background: #ececea; color: #777; }
+.vu-tag.orange { background: #F9E8DC; color: #CA7A35; }
+
+/* ── Condition A vs. Condition B comparison — two description blocks
+   with a "vs" divider, for studies comparing two test conditions. ── */
+.vu-condition-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 40.75rem) {
+    .vu-condition-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.vu-condition-block {
+    background: #f7f7f5;
+    border-radius: 0.75rem;
+    padding: 1.4rem 1.4rem;
+}
+
+.vu-condition-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.vu-condition-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0 0 0.5rem;
+    line-height: 1.4;
+}
+
+/* "Measured:" line inside a condition card — reads as a small label
+   introducing the line beneath it, not as a regular body sentence. */
+.vu-measured-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #888;
+    margin: 0;
+}
+
+.vu-condition-vs {
+    font-family: "family", sans-serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: #aaa;
+    text-align: center;
+}
+
+/* ── Result comparison cards — a labeled metric measured under two
+   conditions, with a significance badge and plain-language note. ── */
+.vu-result-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+}
+
+.vu-result-card {
+    background: white;
+    border: 1px solid #ececea;
+    border-radius: 0.75rem;
+    padding: 1.4rem;
+}
+
+.vu-result-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: #555;
+    margin: 0 0 1rem;
+}
+
+.vu-result-compare {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.vu-result-platform {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: #888;
+    margin: 0 0 0.2rem;
+}
+
+.vu-result-value {
+    font-family: "family", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #111;
+    margin: 0;
+}
+
+.vu-result-unit {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: #999;
+    margin-left: 0.3rem;
+}
+
+.vu-result-arrow {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.vu-result-badge {
+    display: inline-block;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #16874F;
+    background: #dff2ea;
+    border-radius: 0.25rem;
+    padding: 0.3rem 0.6rem;
+    margin-bottom: 0.7rem;
+}
+
+.vu-result-note {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: #777;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ── Per-row significance results — compact list with a color-coded
+   pill: .sig (green, real difference) / .partial (amber, weak signal)
+   / .ns (grey, not significant). ── */
+.vu-stat-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin: 1.5rem 0;
+}
+
+.vu-stat-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0.9rem 1.1rem;
+    background: #f7f7f5;
+    border-radius: 0.6rem;
+}
+
+.vu-stat-row.white  { background: white; }
+
+
+.vu-stat-row.total {
+    background: #eef6f1;
+    border: 1px solid #c9e6d8;
+}
+
+.vu-stat-row-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0;
+}
+
+.vu-stat-row-sub {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: #777;
+    margin: 0.1rem 0 0;
+}
+
+.vu-stat-pill {
+    display: inline-block;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 0.3rem;
+    padding: 0.3rem 0.7rem;
+    white-space: nowrap;
+}
+
+.vu-stat-pill.sig     { background: #dff2ea; color: #16874F; }
+.vu-stat-pill.partial { background: #fff0d6; color: #9a6b00; }
+.vu-stat-pill.ns      { background: #ececea; color: #777; }
+
+/* ── Highlight stat pair — one filled "headline" card + one plain
+   "secondary" card, for a primary result and its supporting metric. ── */
+.vu-highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+}
+
+.vu-highlight-card {
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid #ececea;
+}
+
+.vu-highlight-card.featured {
+    background: var(--primary-color);
+    border: none;
+    color: white;
+}
+
+.vu-highlight-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #777;
+    margin: 0 0 0.4rem;
+}
+
+.vu-highlight-card.featured .vu-highlight-label { color: rgba(255,255,255,0.7); }
+
+.vu-highlight-value {
+    font-family: "family", sans-serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--primary-color);
+    margin: 0 0 0.5rem;
+}
+
+.vu-highlight-card.featured .vu-highlight-value { color: white; }
+
+.vu-highlight-detail {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.vu-highlight-card.featured .vu-highlight-detail { color: rgba(255,255,255,0.85); }
+
+/* ── Significance threshold table — a small reference list of p-value
+   bands and whether each was met. ── */
+.vu-threshold-table {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem 0;
+    border-top: 1px solid #ececea;
+}
+
+.vu-threshold-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #ececea;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.9rem;
+}
+
+.vu-threshold-label {
+    font-weight: 500;
+    color: #111;
+    min-width: 6rem;
+}
+
+.vu-threshold-meaning {
+    color: #777;
+    flex: 1;
+}
+
+.vu-threshold-check {
+    color: #16874F;
+    font-weight: 500;
+}
+.vu-threshold-red {
+    color: rgb(192, 57, 43);
+    font-weight: 500;
+}
+.vu-threshold-grey {
+    color: #777;
+    font-weight: 500;
+}
+
+/* ── Findings list — a label/title pair on the left, a short
+   "implication" note on the right, one row per finding. ── */
+.vu-finding-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.vu-finding-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1.5rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid #ececea;
+}
+
+@media (max-width: 40.75rem) {
+    .vu-finding-row { grid-template-columns: 1fr; }
+}
+
+.vu-finding-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #777;
+    margin: 0 0 0.4rem;
+}
+
+.vu-finding-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0;
+    line-height: 1.45;
+}
+
+.vu-finding-evidence-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    margin: 0 0 0.4rem;
+}
+
+.vu-finding-evidence  {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.98rem;
+    font-weight: 300;
+    color: #555;
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* ── Recommendations / next-steps grid — a numbered action list next
+   to a freeform commentary column. ── */
+.vu-actions-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 48.35rem) {
+    .vu-actions-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+.vu-actions-col h4,
+.vu-actions-grid > div h4 {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0 0 1rem;
+}
+
+.vu-action-item {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.vu-action-num {
+    font-family: "family", sans-serif;
+    font-size: 1rem;
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.vu-action-text {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: #444;
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* ── Reflection — optional two-column variant with a supporting image
+   alongside the text, for reflections with a reference figure. The
+   plain single-column .vu-reflection-inner (no image) still works
+   unchanged for simpler reflections. ── */
+.vu-reflection-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    max-width: 58rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+@media (max-width: 48.35rem) {
+    .vu-reflection-grid { grid-template-columns: 1fr; }
+}
+
+.vu-reflection-grid .vu-h4-label:first-child { margin-top: 0; }
+
+/* ── Simple responsive gallery grid for multiple same-format images
+   (e.g. a poster/campaign set) — not a before/after comparison. ── */
+.vu-poster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   ETC. PAGE — gallery + overlay
+   ═══════════════════════════════════════════════════════════════════ */
+
+.etc-intro {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.98rem;
+    font-weight: 300;
+    color: var(--secondary-bodycopy-color);
+    margin-bottom: 2rem;
+    max-width: 38rem;
+}
+
+/* Fix: 1 column on mobile (2-col was too cramped). More breathing room
+   between items. 3-col only kicks in at the existing 76.5rem breakpoint
+   used elsewhere on the site, instead of an early custom one. */
+.etc-grid {
+    columns: 1;
+    column-gap: 2.6rem;
+}
+
+@media (min-width: 48.35rem) {
+    .etc-grid { columns: 2; }
+}
+
+@media (min-width: 76.5rem) {
+    .etc-grid { columns: 3; }
+}
+
+.etc-item {
+    break-inside: avoid;
+    margin-bottom: 2.6rem;
+    cursor: pointer;
+}
+
+.etc-item-inner {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.4rem;
+    /* Grey backdrop so transparent PNGs (no background) don't look like
+       broken images sitting on the page's white/off-white background */
+    background-color: var(--main-bg-color);
+}
+
+.etc-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Rounded here too, not just on the .etc-item-inner parent that
+       clips it — a transformed child (the hover zoom below) can
+       render outside a parent's border-radius clip in some browsers
+       (Safari in particular) once it's promoted to its own
+       compositing layer. Rounding both keeps the corners honest
+       throughout the animation instead of only at rest. */
+    border-radius: 0.4rem;
+    transition: transform 0.35s ease;
+    cursor: zoom-in;
+}
+
+.etc-item:hover img {
+    transform: scale(1.03);
+}
+
+/* Extra images live in the grid markup so their data is easy to find/
+   edit next to the cover image, but only the cover image is shown in
+   the grid itself — the extras only surface as lightbox thumbnails. */
+.etc-item-inner .etc-extra-img {
+    display: none;
+}
+
+.etc-item-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.5rem 0 0.2rem;
+}
+
+.etc-item-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--main-bodycopy-color);
+}
+
+/* Tag stays small — it's a UI label, not reading content */
+.etc-item-tag {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: var(--secondary-bodycopy-color);
+}
+
+/* ── ETC overlay ─────────────────────────────────────────────────
+   Two genuinely different layouts, switching at 64rem (1024px) — a
+   bit wider than the site's own 57.5rem (920px) nav breakpoint, on
+   purpose, so the overlay holds onto its full-screen layout a little
+   longer as the viewport narrows. The overlay's background is opaque
+   at every width, so this doesn't need to line up with the real
+   sidebar's breakpoint the way it once did. Built with CSS Grid +
+   named areas so the same 3 DOM elements (title, image, info) can be
+   freely rearranged per tier without duplicating markup or relying on
+   fragile flex-order/margin hacks.
+
+   TIER A — below 1024px: single column, stacked in order — title,
+   image, info. Image fills most of the viewport. Context/Overview
+   render as a transparent dark strip directly under the image (not a
+   separate white side panel).
+
+   TIER B — 1024px+: two-column grid. Left column (20rem) stacks title
+   above info, forming one continuous side column with a light
+   background. Right column is the image, filling the rest of the
+   screen. */
+
+#etc-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 8500;
+    display: grid;
+    /* TIER A (default, below 1024px): single column.
+       Order: title, info, image — info above image so context is
+       read before the image. The image row gets 1fr (title/info stay
+       auto-sized) so the image centers in whatever vertical space is
+       left, rather than just trailing wherever the text above happens
+       to end. */
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+        "title"
+        "info"
+        "image";
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    overflow-y: auto;
+    background: #0b0b0b;
+}
+
+#etc-overlay.etc-open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#etc-title-block { grid-area: title; }
+#etc-img-panel   { grid-area: image; }
+#etc-info-panel  { grid-area: info; }
+
+/* Text-label pill, not an icon — kept intentionally dark/opaque enough
+   to read on top of anything the overlay ever shows (dark backdrop,
+   light sidebar corner, or an image edge), so it needs no separate
+   light/dark variant per breakpoint the way the old icon button did. */
+#etc-close {
+    position: fixed;
+    top: 1.2rem;
+    right: 1.4rem;
+    background: rgba(0,0,0,0.78);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 0.6rem 1.15rem;
+    border-radius: 999px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+    z-index: 20;
+}
+
+#etc-close:hover {
+    background: rgba(120, 120, 120, 0.75);
+}
+
+/* Title block — plain text above the image on Tier A (transparent,
+   white text, sits on the same dark background as the rest of the
+   overlay — not a separate panel). */
+#etc-title-block {
+    padding: 2.4rem 1.5rem 1.1rem;
+    color: white;
+}
+
+#etc-title-block .etc-info-label {
+    color: rgba(255,255,255,0.55);
+}
+
+/* #etc-info-title is a <p>, and the site's global `p { color: ... }`
+   rule targets it directly — a direct rule always wins over an
+   inherited value, regardless of the ancestor's specificity. So the
+   white color above never actually reached this element without an
+   explicit override here. */
+#etc-title-block #etc-info-title {
+    color: white;
+}
+
+/* #etc-img-panel holds two children: #etc-image-stage (the main
+   image) and #etc-thumbs (per-project thumbnail strip, only
+   populated when a project has more than one image). Tier A stacks
+   them vertically (thumbs as a horizontal row under the image);
+   Tier B (see media query below) lays them out side by side (thumbs
+   as a vertical column along the right edge). */
+#etc-img-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.9rem;
+    padding: 1rem 1.5rem 1.5rem;
+    min-height: 0;
+    /* Grid items default to min-width:auto too (same underlying issue
+       as the flex children inside it) — without this, its content's
+       natural width becomes a floor that can push it past the grid
+       track's actual (viewport-constrained) width. */
+    min-width: 0;
+}
+
+#etc-image-stage {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+    /* Flex items default to min-width:auto (their content's natural
+       size as a floor), which silently overrides max-width:100% on
+       the image inside and let this stretch past the viewport on
+       narrow screens. min-width:0 lets it actually shrink to fit. */
+    min-width: 0;
+    display: flex;
+    /* align-items left at its default (stretch, not "center") on
+       purpose: it gives #etc-image-frame a definite height equal to
+       this stage's own (already shrink-constrained) height, so the
+       frame's children can flex-shrink against a real number instead
+       of free-floating at their natural size and overflowing past the
+       stage's box — which is what let the image + counter bleed down
+       on top of the thumbnail strip below when the title/info text
+       left little room. */
+    justify-content: center;
+}
+
+/* Frame around the image + counter. Centers both directly (rather
+   than left-aligning and relying on the frame's auto-width exactly
+   matching the image's rendered width) — that match broke down for
+   taller/portrait images, where the frame's shrink-to-fit width is
+   resolved before the image's max-height cap fully takes effect,
+   leaving the frame wider than the image and the (left-pinned) image
+   sitting off-center in the stage. Centering here keeps the image
+   visually centered regardless, with the counter as a centered
+   caption underneath it. */
+#etc-image-frame {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    max-width: 100%;
+    min-height: 0;
+}
+
+#etc-overlay-img {
+    max-width: 100%;
+    max-height: 60vh;
+    /* Lets the image actually shrink below 60vh (and below its own
+       intrinsic size) when the frame doesn't have that much room —
+       flex items default to a content-based automatic minimum height,
+       which otherwise overrides max-height here the same way
+       min-width:auto overrides max-width elsewhere in this file. */
+    min-height: 0;
+    object-fit: contain;
+    border-radius: 0.25rem;
+    display: block;
+    /* Same grey backdrop as the grid tiles (.etc-item-inner) — without
+       this, a transparent PNG here would sit directly on the overlay's
+       dark background and look like it has a black background. */
+    background-color: var(--main-bg-color);
+}
+
+/* "image N of the project's total" — sits directly under the image,
+   bottom-left. :empty collapses it (and its flex gap) entirely for
+   single-image projects, so they look exactly like they did before
+   this feature existed. flex-shrink: 0 keeps its own line height
+   protected — if space gets tight, the image above gives up the room
+   (see #etc-overlay-img), not this label. */
+.etc-counter {
+    color: rgba(255,255,255,0.55);
+    flex-shrink: 0;
+}
+
+.etc-counter:empty {
+    display: none;
+}
+
+/* ── Thumbnail strip ────────────────────────────────────────────
+   Populated by JS with one .etc-thumb button per image belonging to
+   the currently open project. Empty (no extra images for that
+   project) collapses to nothing via :empty, so single-image projects
+   look exactly like they did before this feature existed.
+   Tier A: horizontal row under the image, centered when it doesn't
+   fill the full width (Tier B below re-sets this to flex-start since
+   it's a vertical column pinned under the Close button there). */
+#etc-thumbs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex: 0 0 auto;
+    /* Same min-width:auto flex default as #etc-image-stage above —
+       without this, the row's natural content width (all thumbnails
+       laid out unwrapped) becomes a hard floor, which is exactly what
+       was defeating overflow-x:auto below and pushing the whole
+       overlay wider than the screen. */
+    min-width: 0;
+    gap: 0.6rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.1rem 0.1rem 0.2rem;
+    -webkit-overflow-scrolling: touch;
+}
+
+#etc-thumbs:empty {
+    display: none;
+}
+
+.etc-thumb {
+    flex: 0 0 auto;
+    width: 3.6rem;
+    height: 3.6rem;
+    padding: 0;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-radius: 0.3rem;
+    overflow: hidden;
+    background-color: var(--main-bg-color);
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.etc-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.etc-thumb:hover {
+    opacity: 0.85;
+}
+
+.etc-thumb.active {
+    opacity: 1;
+    border-color: rgba(255,255,255,0.9);
+}
+
+/* Info panel — Tier A: a transparent dark strip directly under the
+   image, white text, no separate background panel. Top padding kept
+   tight so "Context" sits close to the title above it; bottom padding
+   does the heavier lifting for breathing room before the image. */
+#etc-info-panel {
+    background: transparent;
+    padding: 0.25rem 1.5rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#etc-info-panel .etc-info-label {
+    color: rgba(255,255,255,0.5);
+}
+
+/* Caps line length on wide phones/tablets in landscape, where this
+   strip can otherwise stretch edge-to-edge and get hard to read.
+   780px ≈ 48.75rem. */
+#etc-info-context,
+#etc-info-overview {
+    color: rgba(255,255,255,0.85);
+    max-width: 48.75rem;
+}
+
+#etc-info-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.etc-info-divider {
+    display: none; /* not needed on the dark transparent strip */
+}
+
+
+/* ── TIER B: 64rem+ (1024px) — a bit wider than the site's own
+   57.5rem (920px) sidebar breakpoint on purpose, so this overlay
+   holds onto the full-screen/stacked layout a little longer while
+   narrower desktop and tablet-landscape widths shrink toward it.
+   Grid is reflowed into two columns: a 20rem sidebar column (title
+   stacked above info) and an image column that fills the rest of the
+   screen. ── */
+@media (min-width: 64rem) {
+    #etc-overlay {
+        grid-template-columns: 21rem 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "title  image"
+            "info   image";
+        background: rgba(0,0,0,0.92);
+    }
+
+    #etc-title-block {
+        background: #f8f8f6;
+        padding: 3rem 1.85rem 1rem;
+        color: inherit;
+    }
+
+    #etc-title-block .etc-info-label {
+        color: var(--secondary-bodycopy-color);
+    }
+
+    #etc-title-block #etc-info-title {
+        color: #111;
+    }
+
+    #etc-img-panel {
+        height: 100%;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 1.4rem;
+        padding: 2rem;
+    }
+
+    #etc-image-stage {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    #etc-overlay-img {
+        max-height: 85vh;
+    }
+
+    /* Thumbs move from a bottom row to a right-hand column, matching
+       the reference behavior — same #etc-thumbs element, no markup
+       duplication, just a flex-direction flip at this breakpoint.
+       margin-top keeps the first thumbnail clear of the fixed Close
+       button in the corner; flex stretch automatically shrinks the
+       column's height to account for it. */
+    #etc-thumbs {
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 5.5rem;
+        max-height: 85vh;
+        margin-top: 3.5rem;
+        /* Pulls the thumbnail column rightward out of #etc-img-panel's
+           2rem right padding so its right edge (after its own 0.2rem
+           padding) lines up with #etc-close's right edge (right: 1.4rem):
+           2rem + 0.2rem − 1.4rem = 0.8rem. */
+        margin-right: -0.8rem;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 0.2rem;
+    }
+
+    .etc-thumb {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    #etc-info-panel {
+        background: #f8f8f6;
+        padding: 0 1.85rem 2rem;
+        overflow-y: auto;
+        gap: 1.2rem;
+    }
+
+    #etc-info-panel .etc-info-label {
+        color: var(--secondary-bodycopy-color);
+    }
+
+    #etc-info-context,
+    #etc-info-overview {
+        color: #444;
+    }
+
+    .etc-info-divider {
+        display: block;
+        height: 1px;
+        background: #ddd;
+    }
+
+    #etc-info-details {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+
+    /* #etc-close intentionally keeps its dark pill styling from the
+       base rules here — it sits fixed over the image column (never
+       the light sidebar), so it doesn't need a light-mode variant. */
+}
+
+.etc-info-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+}
+
+#etc-info-title {
+    font-family: "family", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    line-height: 1.25;
+}
+
+#etc-info-context,
+#etc-info-overview {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.etc-counter {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 300;
+    margin: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   SECTION LIBRARY COMPONENTS — PART 1: ported from the old standalone
+   "sl-" demo system into real, reusable "vu-" classes so every pattern
+   in section-library.html is now directly copy-pasteable into an
+   actual case study. (Previously these lived only in the deprecated
+   section-library.css under a parallel naming convention.)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Big bold statement — a single oversized sentence, with room for
+   an inline <strong> emphasis. For a section that's mostly punctuation,
+   not paragraphs — the "headline" of a case study's opening. ── */
+.vu-statement {
+    font-family: "family", sans-serif;
+    font-style: normal;
+    font-size: clamp(1.3rem, 3.2vw, 1.9rem);
+    font-weight: 400;
+    color: #222;
+    line-height: 1.45;
+    max-width: 46rem;
+    margin: 0;
+}
+
+.vu-statement strong {
+    color: #111;
+    font-weight: 500;
+    background: linear-gradient(transparent 70%, #dff2ea 70%);
+}
+
+/* ── Three-column statement grid — same vu-ps-block component as
+   Problem/Solution, just three blocks instead of two (e.g. Problem /
+   Mission / Solution, or to leave a 3rd column as breathing room on
+   wide screens). Use .vu-ps-label.neutral for blocks that aren't a
+   strict problem/solution pair. ── */
+.vu-pms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 40rem) {
+    .vu-pms-grid { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 75rem) {
+    .vu-pms-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+/* ── Colored feature block — text + image side by side on a soft
+   tinted background, for worldbuilding/context paragraphs that want
+   a bit more visual weight than plain body copy. ── */
+.vu-feature-block {
+    background: #eef6f1;
+    border-radius: 1.2rem;
+    padding: 1.5rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+
+
+@media (max-width: 45rem) {
+    .vu-feature-block {
+        grid-template-columns: 1fr;
+        padding: 1.5rem
+    }
+}
+
+.vu-feature-block h4 {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0 0 0.6rem;
+}
+
+/* .vu-feature-block p {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #444;
+    line-height: 1.6;
+    margin: 0;
+} */
+
+
+
+.vu-feature-block img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.6rem;
+    display: block;
+}
+
+/* ── "Current shortfalls" mini sections — tighter, top-aligned
+   variant of .vu-feature-block. Keeps the left padding (so the
+   issue label/title still line up with the rest of the section)
+   but trims top, bottom, and right padding, and top-aligns the
+   content instead of vertically centering it. ── */
+.vu-feature-block.vu-issue-block {
+    padding: 1.9rem 2.2rem;
+    align-items: center;
+
+}
+
+
+
+@media (max-width: 45rem) {
+    .vu-feature-block.vu-issue-block {
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* ── "Research" mini sections — same green tint, but padding made
+   consistent on all four sides (the default 1.5rem/2.5rem split made
+   the image look like it had extra space on its right). ── */
+.vu-feature-block.vu-research-block {
+    padding: 2rem;
+}
+
+/* ── Pull quote — a single oversized standout quote with citation,
+   for one quote that deserves more visual weight than the insight
+   card grid (e.g. the one line that defines the whole project). ── */
+.vu-pullquote {
+    border-left: 3px solid var(--primary-color);
+    padding: 1rem 0 1rem 1.5rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-family: "family", sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: #111;
+    line-height: 1.4;
+    max-width: 42rem;
+}
+
+.vu-pullquote-cite {
+    font-family: "abc-diatype-round", sans-serif;
+    font-style: normal;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--secondary-bodycopy-color);
+}
+
+/* ── Comparison table — plain before/after or option-comparison table.
+   Wrap in .vu-table-wrap for horizontal scroll on small screens. ── */
+.vu-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+}
+
+.vu-table {
+    width: 100%;
+    min-width: 30rem;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+}
+
+/* Fixed proportional widths so columns hold a consistent, spread-out
+   position regardless of content length — the table equivalent of a
+   flexbox space-between row, rather than each column shrinking to
+   fit its own content. */
+.vu-table th:nth-child(1), .vu-table td:nth-child(1) { width: 46%; }
+.vu-table th:nth-child(2), .vu-table td:nth-child(2) { width: 27%; }
+.vu-table th:nth-child(3), .vu-table td:nth-child(3) { width: 27%; }
+
+.vu-table th {
+    text-align: left;
+    font-weight: 500;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--secondary-bodycopy-color);
+    padding: 0.6rem 1rem 0.6rem 0;
+    border-bottom: 2px solid #e5e5e2;
+}
+
+.vu-table td {
+    padding: 0.8rem 1rem 0.8rem 0;
+    border-bottom: 1px solid #ececea;
+    color: #333;
+    line-height: 1.45;
+    vertical-align: top;
+}
+
+.vu-table td:first-child {
+    font-weight: 300;
+    color: #111;
+}
+
+.vu-table td:first-child strong {
+    font-weight: 600;
+}
+
+/* Last column (Observation) reads as a right-aligned result/verdict
+   column — padding flips so text hugs the table's right edge instead
+   of the (now unused) right gutter used by the other columns. */
+.vu-table th:last-child,
+.vu-table td:last-child {
+    text-align: right;
+    padding-right: 0;
+    padding-left: 1rem;
+}
+
+/* .vu-tag normally carries margin-left: 0.5rem for its usual inline
+   context (sitting right after a heading/title). Inside a table cell
+   it's the only thing in the cell, so that margin just pushes it out
+   of alignment with the column header above it. */
+.vu-table .vu-tag {
+    margin-left: 0;
+}
+
+.vu-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* ── Table — "card" variant. Same markup, same .vu-tag/.vu-threshold
+   elements inside (untouched) — just a calmer, more spacious frame:
+   a single bordered rounded card instead of fixed-width columns and
+   a right-aligned last column. Column widths fall back to natural
+   auto-sizing here instead of the fixed 46/27/27 split above, and
+   every column reads left-aligned, top to bottom. Add "card" to both
+   .vu-table-wrap and .vu-table to use it. */
+.vu-table-wrap.card {
+    border: 1px solid #ececea;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.vu-table.card {
+    min-width: 34rem;
+    table-layout: auto;
+}
+
+.vu-table.card th:nth-child(1),
+.vu-table.card td:nth-child(1),
+.vu-table.card th:nth-child(2),
+.vu-table.card td:nth-child(2) {
+    width: auto;
+}
+
+.vu-table.card th {
+    background: #f7f7f5;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid #ececea;
+}
+
+.vu-table.card td {
+    padding: 0.8rem 1.25rem;
+    border-bottom: 1px solid #f0f0ee;
+}
+
+/* Last column (Observation) — shrink-wrapped to its content and
+   pushed flush to the table's right edge, WITHOUT right-aligning the
+   text inside it. With table-layout:auto + width:100% on the table,
+   browsers distribute any leftover width across all columns
+   (including this one), which left it stretched with dead space
+   after the text instead of sitting snugly at the right edge. The
+   classic fix: width:1% + white-space:nowrap forces this column down
+   to its minimum content width and pushes any surplus space onto the
+   other (unset-width) columns instead — text stays left-aligned. */
+.vu-table.card th:last-child,
+.vu-table.card td:last-child {
+    width: 1%;
+    white-space: nowrap;
+    text-align: left;
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+}
+
+.vu-table.card tr:last-child td {
+    border-bottom: none;
+}
+
+/* ── Annotated screenshot — numbered circular badges paired with a
+   callout list beside a single large image, for walking through a UI
+   in more depth than a before/after pair allows. ── */
+.vu-annotated-wrap {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 45rem) {
+    .vu-annotated-wrap { grid-template-columns: 1fr; }
+}
+
+.vu-annotated-wrap img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.6rem;
+    display: block;
+}
+
+.vu-annotation-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.vu-annotation-item {
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+}
+
+.vu-annotation-item p {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #333;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.vu-annotation-num {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: white;
+    background: var(--primary-color);
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+/* ── Split image grid — one big image, two smaller ones below it.
+   For a quick visual roundup (a poster set, a team's work) that
+   doesn't need individual captions on each piece. ── */
+.vu-img-grid-split {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.vu-img-grid-split > img {
+    width: 100%;
+    border-radius: 0.6rem;
+    display: block;
+}
+
+.vu-img-grid-split-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.vu-img-grid-split-row img {
+    width: 100%;
+    border-radius: 0.6rem;
+    display: block;
+}
+
+/* ── Role / contribution cards — like .vu-method-card but with a
+   leading icon glyph, for "who did what" or "what I contributed"
+   summaries rather than research-methodology explanations. ── */
+.vu-role-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.vu-role-card {
+    background: #f7f7f5;
+    border-radius: 0.75rem;
+    padding: 1.3rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.vu-role-icon { font-size: 1.4rem; line-height: 1; }
+
+.vu-role-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0;
+}
+
+.vu-role-body {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ── Design decision cards — a dark header (problem/decision title)
+   over a white body explaining the "why" and the "decision" — good
+   for showing reasoning without writing a full essay per choice. ── */
+.vu-decision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.vu-decision-card {
+    border: 1px solid #e5e5e2;
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.vu-decision-header {
+    background: var(--primary-color);
+    padding: 1rem 1.2rem;
+    display: flex;
+    gap: 0.8rem;
+    align-items: baseline;
+}
+
+.vu-decision-num {
+    font-family: "family", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    flex-shrink: 0;
+}
+
+.vu-decision-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: white;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.vu-decision-body {
+    padding: 1.1rem 1.2rem;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.vu-decision-why-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--secondary-bodycopy-color);
+    margin: 0 0 0.15rem;
+}
+
+.vu-decision-why {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #333;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ── What worked / what I'd change — a green-dot column next to a
+   red-dot column, for an honest two-sided retrospective. ── */
+.vu-worked-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 40rem) {
+    .vu-worked-grid { grid-template-columns: 1fr; }
+}
+
+.vu-worked-heading {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+}
+
+.vu-worked-heading.good   { color: var(--primary-color); }
+.vu-worked-heading.change { color: #c0392b; }
+
+.vu-worked-item {
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+    padding: 0.7rem 0;
+    /* border-bottom: 1px solid #ececea; */
+}
+
+.vu-worked-item:last-child { border-bottom: none; }
+
+.vu-worked-item p {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #333;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.vu-worked-dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0.45rem;
+}
+
+.vu-worked-dot.good   { background: var(--primary-color); }
+.vu-worked-dot.change { background: #c0392b; }
+
+/* ── Two-image concept grid with individual captions — for paired
+   reference figures that each need their own caption, as opposed to
+   .vu-two-img-grid's shared-context pairing. Functionally similar;
+   kept as a <figure>-based alternative when individual captions read
+   better than one combined sentence. ── */
+.vu-concept-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 40.75rem) {
+    .vu-concept-grid { grid-template-columns: 1fr; }
+}
+
+.vu-concept-grid img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+}
+
+/* ── Process timeline — vertical dotted line with week/phase markers.
+   For a project's chronological process, when a horizontal flow (see
+   .vu-flow-steps below) doesn't fit the available width. ── */
+.vu-timeline {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    position: relative;
+}
+
+.vu-timeline-step {
+    display: flex;
+    gap: 1.2rem;
+    padding-bottom: 1.8rem;
+    position: relative;
+}
+
+.vu-timeline-step:last-child { padding-bottom: 0; }
+
+.vu-timeline-step:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 0.3rem;
+    top: 1rem;
+    bottom: -0.5rem;
+    width: 1px;
+    background: #ddd;
+}
+
+.vu-timeline-dot {
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: 50%;
+    background: var(--primary-color);
+    flex-shrink: 0;
+    margin-top: 0.3rem;
+    z-index: 1;
+}
+
+.vu-timeline-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    margin: 0 0 0.3rem;
+}
+
+.vu-timeline-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0 0 0.3rem;
+}
+
+.vu-timeline-body {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #555;
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* ── Study structure — numbered columns, read left-to-right instead
+   of top-to-bottom (a more editorial, less "process-y" alternative
+   to .vu-timeline for a study's 2–4 phases). No divider line — the
+   number itself, sized closer to the title, carries the sequence. ── */
+.vu-study-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 40.75rem) {
+    .vu-study-steps {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+.vu-study-step {
+    background: white;
+    border: 1px solid #ececea;
+    border-radius: 0.85rem;
+    padding: 1.5rem 1.4rem;
+}
+
+.vu-study-step-num {
+    display: block;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #999;
+    margin-bottom: 0.4rem;
+}
+
+.vu-study-step-title {
+    font-family: "family", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: #111;
+    margin: 0 0 0.5rem;
+    line-height: 1.3;
+}
+
+.vu-study-step-body {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #555;
+    line-height: 1.55;
+    margin: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   REFLECTION — three layout variants (item 12). All three keep the
+   same .vu-reflection outer wrapper, eyebrow, and title treatment —
+   only the body layout changes. Pick whichever fits the available
+   supporting material and delete the markup for the other two.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Variant A: vu-reflection-grid + vu-reflection-img-side already
+   exist above (text left, single supporting image right, with its
+   own caption underneath — see .vu-img-caption). No new CSS needed,
+   just make sure the image always has a caption paired with it. */
+
+/* Variant B: three paragraphs stacked in one column, with a single
+   full-width image underneath all of them. */
+.vu-reflection-stacked {
+    max-width: 42rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.vu-reflection-stacked .vu-reflection-img-full {
+    margin-top: 0.8rem;
+}
+
+/* Variant C: two paragraphs side by side, full-width image spanning
+   both columns underneath. */
+.vu-reflection-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+}
+
+@media (max-width: 40.75rem) {
+    .vu-reflection-two-col { grid-template-columns: 1fr; }
+}
+
+.vu-reflection-img-full {
+    width: 100%;
+    border-radius: 0.6rem;
+    display: block;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   SECTION LIBRARY COMPONENTS — PART 2: twelve new editorial layouts,
+   designed specifically so a reader can scan a case study and follow
+   the story without reading every paragraph. Each is meant to either
+   compress a lot of information into one glance, or signal clearly
+   which parts of a section are skippable detail.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── 1. TL;DR banner — a single neutral (not green) callout summarising
+   a whole section in one sentence, for placing at the TOP of a long
+   section so a skimmer can decide whether to keep reading. Distinct
+   from .vu-hmw (which is always a question, always green/branded) —
+   this is a flat statement of fact. ── */
+.vu-tldr {
+    background: #f7f7f5;
+    border-left: 3px solid #111;
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding: 1rem 1.4rem;
+    margin: 0 0 1.5rem;
+    display: flex;
+    gap: 0.8rem;
+    align-items: baseline;
+}
+
+.vu-tldr.white {background: white;}
+
+/* ── Restyled "Design implication" variant — label stacks above the
+   body instead of sitting inline with it. Old .vu-tldr rules above
+   are untouched; this just overrides layout/spacing for this
+   specific version. ── */
+.vu-tldr.vu-tldr-v2 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    padding:  1rem;
+    background-color: white;
+    border-left: 3px solid var(--primary-color);
+    /* margin-top: 1.25rem; */
+    margin: 0;
+}
+
+.vu-tldr-label-green {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+}
+
+/* Selector deliberately scoped as ".vu-tldr-v2 .vu-tldr-body-light"
+   (two classes) rather than the bare class alone — the pre-existing
+   ".vu-tldr p" rule further down (one class + one element) has
+   higher specificity than a single class selector and was silently
+   winning, which is why the lighter/less-bold color wasn't taking
+   effect. This combined selector outranks it regardless of source
+   order. */
+.vu-tldr-v2 .vu-tldr-body-light {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ── Key insight callout — for a single standout finding worth
+   pulling out of the body copy, distinct from the neutral .vu-tldr
+   banner above (which summarises, rather than highlights). Solid
+   portfolio-green background with white text — the strongest-
+   contrast callout on the page, reserved for the one statement per
+   section worth making unmissable. Body copy set in the site's abc
+   font (not the "family" headline serif) so it still reads as a
+   statement, not a display headline. ── */
+.vu-key-insight {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: var(--primary-color);
+    border-radius: 0.85rem;
+    padding: 1.5rem 1.75rem;
+    margin: 2rem 0;
+}
+
+.vu-key-insight.on-white {
+    background: var(--primary-color);
+}
+
+.vu-key-insight-icon {
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.vu-key-insight-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    margin: 0 0 0.5rem;
+}
+
+/* Deliberately its own class rather than a bare ".vu-key-insight p"
+   element selector — the label above is ALSO a <p>, and an element
+   selector combined with a class (".vu-key-insight p", specificity
+   0,1,1) actually outranks a class-only selector like
+   ".vu-key-insight-label" (0,1,0), regardless of source order. That
+   mismatch was silently forcing the label to inherit this rule's
+   font-size instead of its own — hence it still looking "huge" after
+   change. Giving the body its own explicit class sidesteps the
+   specificity math entirely. Set in the site's "family" display font
+   (not the label's abc font) so body and label read as two clearly
+   different levels of hierarchy. */
+.vu-key-insight-body {
+    font-family: "family", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.45;
+    color: white;
+    margin: 0;
+}
+
+.vu-tldr-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #777;
+    flex-shrink: 0;
+}
+
+.vu-tldr p {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.98rem;
+    font-weight: 400;
+    color: #111;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ── 2. Persona snapshot cards — a quick, scannable summary of a
+   research participant or user type: name/role, their goal, their
+   frustration, and one representative quote — all visible without
+   reading a paragraph. ── */
+.vu-persona-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.vu-persona-card {
+    background: white;
+    border: 1px solid #ececea;
+    border-radius: 0.9rem;
+    padding: 1.4rem;
+}
+
+/* Highlighter-marker effect for calling out a phrase inline within
+   body copy — light green wash rather than a solid fill, and
+   box-decoration-break so the "highlight" still looks continuous if
+   the phrase happens to wrap onto a second line. */
+/* Line-height doesn't actually control a background's painted height
+   on an inline element (that's tied to font metrics, not line-height)
+   — so instead of relying on that, the "highlight" is a flat-color
+   background-image sized to a percentage of the line box. That gives
+   direct, reliable control over how tall the highlight looks. */
+.vu-highlight-green {
+    background-image: linear-gradient(rgba(22, 135, 79, 0.22), rgba(22, 135, 79, 0.22));
+    background-repeat: no-repeat;
+    background-size: 100% 70%;
+    background-position: 0 55%;
+    padding: 0 0.2em;
+    border-radius: 0.2em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+.vu-persona-name {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0 0 0.2rem;
+}
+
+.vu-persona-role {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: var(--secondary-bodycopy-color);
+    margin: 0 0 1rem;
+}
+
+.vu-persona-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.8rem 0;
+    border-top: 1px solid #ececea;
+}
+
+.vu-persona-row-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #999;
+}
+
+.vu-persona-row-body  {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: #333;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.vu-persona-quote {
+    font-style: italic;
+    color: #555 !important;
+}
+
+/* ── 3. Confidence tags — small inline badges next to any claim,
+   signalling at a glance how strongly the evidence supports it.
+   Different from .vu-stat-pill (which is specifically a statistical
+   significance result) — this is for qualitative confidence on any
+   sentence, research-backed or not. ── */
+.vu-confidence-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid #ececea;
+}
+
+.vu-confidence-row:last-child { border-bottom: none; }
+
+.vu-confidence-row p {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #333;
+    line-height: 1.55;
+    margin: 0;
+    flex: 1;
+}
+
+.vu-confidence-tag {
+    display: inline-block;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    border-radius: 0.3rem;
+    padding: 0.25rem 0.6rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.vu-confidence-tag.high   { background: #dff2ea; color: #16874F; }
+.vu-confidence-tag.medium { background: #fff0d6; color: #9a6b00; }
+.vu-confidence-tag.low    { background: #ececea; color: #777; }
+
+/* ── 4. Horizontal process flow — compact arrow-connected steps, for
+   a quick "this is the order things happened in" overview that's
+   faster to scan than the vertical .vu-timeline. Plain text step
+   label (not a filled circular badge — that clipped/mis-rendered the
+   number in some contexts) + regular-weight body text keeps each
+   step feeling like a calm read, not a shouted instruction — and the
+   tighter min-width lets 5+ steps sit on one line at the 58rem
+   content width instead of wrapping after 4. ── */
+.vu-flow-steps {
+    display: flex;
+    align-items: stretch;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.vu-flow-step {
+    background: white;
+    border: 1px solid #ececea;
+    border-radius: 0.6rem;
+    padding: 0.9rem 1rem;
+    flex: 1;
+    min-width: 7.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.vu-flow-step.white {
+    background: #f7f7f5;
+    border-color: #f7f7f5;
+}
+
+.vu-flow-step-num {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    letter-spacing: 0.08em;
+}
+
+.vu-flow-step-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: #333;
+    line-height: 1.4;
+    margin: 0.3rem 0 0;
+}
+
+.vu-flow-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    font-size: 1rem;
+    padding: 0 0.15rem;
+    flex-shrink: 0;
+}
+
+@media (max-width: 40.75rem) {
+    .vu-flow-steps { flex-direction: column; }
+    .vu-flow-arrow { transform: rotate(90deg); padding: 0.2rem 0; }
+}
+
+/* ── 4b. Horizontal process flow — v2 (section library only, not used
+   on the live case studies). A more elevated take on the flow above:
+   a green top-accent bar + subtle shadow card instead of a flat
+   border, an uppercase "STEP N" label above a slightly larger title,
+   and an SVG chevron arrow (not a text glyph) so it scales cleanly
+   at any size. Reach for this when a flow should feel a bit more
+   "finished"/higher-contrast than the default. ── */
+.vu-flow-steps-v2 {
+    display: flex;
+    align-items: stretch;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.vu-flow-step-v2 {
+    background: white;
+    border-top: 3px solid var(--primary-color);
+    border-radius: 0.6rem;
+    padding: 1.1rem 1.25rem;
+    flex: 1;
+    min-width: 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0 1px 2px rgba(17,17,17,0.04), 0 4px 10px rgba(17,17,17,0.05);
+}
+
+.vu-flow-step-v2-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+}
+
+.vu-flow-step-v2-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #222;
+    line-height: 1.45;
+    margin: 0;
+}
+
+.vu-flow-arrow-v2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    padding: 0 0.4rem;
+    flex-shrink: 0;
+}
+
+.vu-flow-arrow-v2 svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+@media (max-width: 40.75rem) {
+    .vu-flow-steps-v2 { flex-direction: column; }
+    .vu-flow-arrow-v2 { transform: rotate(90deg); padding: 0.3rem 0; }
+}
+
+/* ── Userflow heading — small platform label that introduces a
+   .vu-flow-steps group ("Task 4 userflow on desktop:"). Sized and
+   weighted as a real subheading — not an uppercase eyebrow label —
+   since it's introducing a subsection, not tagging metadata. ── */
+.vu-userflow-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: normal;
+    text-transform: none;
+    color: #111;
+    margin: 2.5rem 0 0.25rem;
+}
+
+.vu-userflow-heading .vu-userflow-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+/* ── 5. Two-tone split statement — problem (dark) and solution (light)
+   side by side, full-bleed within the section, for a higher-impact
+   visual alternative to .vu-problem-solution-grid when a project's
+   problem/solution deserves more visual drama. ── */
+.vu-split-statement {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 40.75rem) {
+    .vu-split-statement { grid-template-columns: 1fr; }
+}
+
+.vu-split-half {
+    padding: 2rem 1.8rem;
+}
+
+.vu-split-half.dark {
+    background: #16341f;
+    color: white;
+}
+
+.vu-split-half.light {
+    background: #eef6f1;
+    color: #111;
+}
+
+.vu-split-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 0.8rem;
+    opacity: 0.7;
+}
+
+.vu-split-half p.vu-split-text {
+    font-family: "family", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ── 6. Sticky-note affinity cluster — a CSS-only stand-in for a real
+   affinity diagram, for projects without a photographed Miro/FigJam
+   board. Rotated colored notes grouped under a theme label. ── */
+.vu-sticky-cluster {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.vu-sticky-group-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--secondary-bodycopy-color);
+    margin: 0 0 0.8rem;
+}
+
+.vu-sticky-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.vu-sticky-note {
+    background: #fff7d6;
+    border-radius: 0.2rem;
+    padding: 0.9rem 1rem;
+    width: 11rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #3a3320;
+    line-height: 1.4;
+}
+
+.vu-sticky-note:nth-child(2n)  { background: #dff2ea; color: #1c3d2c; transform: rotate(-1.2deg); }
+.vu-sticky-note:nth-child(3n)  { background: #fde8e8; color: #4a2424; transform: rotate(1deg); }
+.vu-sticky-note:nth-child(4n)  { background: #e6e9fb; color: #28304a; transform: rotate(-0.6deg); }
+.vu-sticky-note:nth-child(5n)  { transform: rotate(0.8deg); }
+
+/* ── 7. Tag / keyword chip cloud — a loose grid of theme keywords
+   summarising a research synthesis at a glance before the prose
+   explains each one in depth. ── */
+.vu-chip-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.2rem;
+}
+
+.vu-chip {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #333;
+    background: #f0f0ee;
+    border-radius: 10rem;
+    padding: 0.45rem 1rem;
+}
+
+.vu-chip.accent {
+    background: #dff2ea;
+    color: #16874F;
+    font-weight: 500;
+}
+
+/* ── 8. Checklist comparison grid — a simple ✓/✗ feature matrix
+   across two or three options, for comparing competitors or design
+   alternatives without a full data table. ── */
+.vu-check-grid {
+    display: grid;
+    grid-template-columns: 1.4fr repeat(2, 1fr);
+    gap: 0;
+    margin-top: 1.5rem;
+    border-top: 1px solid #ececea;
+}
+
+/* For a 3rd comparison column, change the rule above to
+   `grid-template-columns: 1.4fr repeat(3, 1fr);` and add a 4th
+   element to each .vu-check-row. The column count must be fixed
+   (not auto-fit) since display:contents rows don't carry their own
+   track sizing — auto-fit was previously misaligning columns between
+   rows that didn't all start in the same place. */
+.vu-check-row {
+    display: contents;
+}
+
+.vu-check-row > * {
+    padding: 0.8rem 0.8rem 0.8rem 0;
+    border-bottom: 1px solid #ececea;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.9rem;
+}
+
+.vu-check-row .vu-check-feature {
+    color: #111;
+    font-weight: 500;
+}
+
+.vu-check-row .vu-check-col-label {
+    color: var(--secondary-bodycopy-color);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.vu-check-yes, .vu-check-no {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.vu-check-yes { color: #16874F; opacity: 0.6; }
+.vu-check-no  { color: #c0392b; opacity: 0.6; }
+
+/* ── 9. Short / long paired rows — a bolded one-line takeaway
+   immediately followed by a lighter detail sentence, repeated per
+   row. Lets a skimmer read just the bold lines and still get the
+   whole section's gist. ── */
+.vu-shortlong-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.2rem;
+}
+
+.vu-shortlong-row {
+    padding: 1rem 0;
+    border-bottom: 1px solid #ececea;
+}
+
+.vu-shortlong-row:last-child { border-bottom: none; }
+
+.vu-shortlong-short {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0 0 0.3rem;
+}
+
+.vu-shortlong-long {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: #666;
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* ── 10. Quick facts strip — an inline icon+label+value recap, for
+   restating key project facts (role, duration, tools) partway through
+   a long page so a returning reader doesn't have to scroll back to
+   the hero to remember them. ── */
+.vu-facts-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    background: #f7f7f5;
+    border-radius: 0.75rem;
+    padding: 1.2rem 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.vu-fact {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.vu-fact-icon { font-size: 1.1rem; }
+
+.vu-fact-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #888;
+    display: block;
+}
+
+.vu-fact-value {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0;
+}
+
+/* ── 11. Q&A pairs — for FAQ-style content or addressing likely
+   reader questions directly (e.g. "why this method", "why this
+   constraint") without forcing it into narrative prose. ── */
+.vu-qa-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    margin-top: 1.5rem;
+}
+
+.vu-qa-question {
+    display: flex;
+    gap: 0.6rem;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0 0 0.4rem;
+}
+
+.vu-qa-question::before {
+    content: "Q.";
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.vu-qa-answer {
+    display: flex;
+    gap: 0.6rem;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: #555;
+    line-height: 1.55;
+    margin: 0;
+    padding-left: 0.05rem;
+}
+
+.vu-qa-answer::before {
+    content: "A.";
+    color: #bbb;
+    flex-shrink: 0;
+}
+
+/* ── 12. Glossary list — term + short plain-language definition, for
+   explaining jargon inline (e.g. "p-value", "within-subjects") right
+   where it's first used, without sending the reader elsewhere. ── */
+.vu-glossary-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.2rem;
+}
+
+.vu-glossary-row {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #ececea;
+}
+
+@media (max-width: 35rem) {
+    .vu-glossary-row { grid-template-columns: 1fr; gap: 0.3rem; }
+}
+
+.vu-glossary-term {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: #111;
+}
+
+.vu-glossary-def {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   SECTION LIBRARY PAGE CHROME — only used on section-library.html
+   itself, never inside a real case study. Wraps each demo in a
+   labeled block so it's clear what the pattern is for and where it's
+   already used on the live site.
+   ═══════════════════════════════════════════════════════════════════ */
+.vu-lib-intro {
+    max-width: 58rem;
+    margin: 0 auto;
+    padding: 3rem 2rem 1rem;
+}
+
+.vu-lib-intro h2 {
+    font-family: "family", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #111;
+}
+
+.vu-lib-intro p {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.98rem;
+    font-weight: 300;
+    color: #444;
+    line-height: 1.6;
+    max-width: 42rem;
+}
+
+/* Category divider — a full-width section break introducing a group
+   of related layouts (e.g. "Research & Findings", "Reflection"). */
+.vu-lib-category {
+    background: #16341f;
+    color: white;
+    padding: 2.5rem 2rem;
+    margin-top: 1rem;
+}
+
+.vu-lib-category-inner {
+    max-width: 58rem;
+    margin: 0 auto;
+}
+
+.vu-lib-category h3 {
+    font-family: "family", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: white;
+    margin: 0 0 0.5rem;
+}
+
+.vu-lib-category p {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+    margin: 0;
+    max-width: 42rem;
+}
+
+.vu-lib-block {
+    border-top: 1px solid #e5e5e2;
+    padding: 3.5rem 0;
+}
+
+.vu-lib-block-inner {
+    max-width: 58rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.vu-lib-block-tag {
+    display: inline-block;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    background: #eef6f1;
+    padding: 0.25rem 0.7rem;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.vu-lib-block-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #111;
+    margin-bottom: 0.5rem;
+}
+
+/* Usage note — sits between the block title and the demo itself,
+   stating where this exact pattern is already live on the site and/or
+   when to reach for it instead of a similar-looking alternative. */
+.vu-lib-usage {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--secondary-bodycopy-color);
+    margin-bottom: 1.6rem;
+    max-width: 42rem;
+    line-height: 1.5;
+}
+
+.vu-lib-usage strong {
+    font-style: normal;
+    font-weight: 500;
+    color: #555;
+}
+
+
+
+.ed-story {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: 1.6rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid #e5e5e2;
+  border-bottom: 1px solid #e5e5e2;
+}
+
+@media (min-width: 34rem) {
+  .ed-story {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.ed-story-item {
+  display: block;
+  font-family: "abc-diatype-round", sans-serif;
+  font-weight: 400;
+  font-size: 0.92rem;
+  margin-bottom: 0.35rem;
+  color: #111;
+}
+
+.ed-story-item strong {
+  display: block;
+  font-family: "abc-diatype-round", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+  color: #111;
+}
+
+.ed-story-item span {
+  font-family: "abc-diatype-round", sans-serif;
+  font-weight: 300;
+  color: var(--secondary-bodycopy-color);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+
+
+/* ── Layout 36: Tagged Comparison Cards — a labeled pill identifies
+   which named option each card represents (competitor, direction,
+   variant), sitting above its own image. ── */
+.vu-compare-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.vu-compare-card {
+    background: white;
+    border: 1px solid #ececea;
+    border-radius: 0.85rem;
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.vu-compare-tag {
+    align-self: flex-start;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    background: #eef6f1;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+}
+
+.vu-compare-tag.grey  { background: #ececea; color: #777; }
+.vu-compare-tag.yellow  { background: #fff0d6; color: #9a6b00; }
+.vu-compare-tag.red  { background: #fde8e8; color: #c0392b; }
+.vu-compare-tag.orange  { background: #F9E8DC; color: #CA7A35; }
+
+
+.vu-compare-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0;
+}
+
+.vu-compare-body {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ── Layout 37 (v2): Research Finding + Design Implication Rows —
+   full-width rows (not a 2-col grid) so each finding gets room to
+   breathe: image on one side, a short header + body + a clearly
+   set-apart implication callout on the other. ── */
+.vu-rf-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    margin-top: 1.5rem;
+}
+
+.vu-rf-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 1.8rem;
+    align-items: start;
+    background: white;
+    border: 1px solid #ececea;
+    border-radius: 0.85rem;
+    padding: 1.6rem;
+}
+
+@media (max-width: 48rem) {
+    .vu-rf-card { grid-template-columns: 1fr; }
+}
+
+.vu-rf-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 0.6rem;
+}
+
+.vu-rf-num {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.69rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    /* color: var(--primary-color); */
+    color: #888;
+}
+
+.vu-rf-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0;
+    line-height: 1.35;
+}
+
+.vu-rf-body {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #444;
+    line-height: 1.55;
+    margin: 0 0 1.5rem;
+}
+
+.vu-rf-media { display: flex; flex-direction: column; }
+
+.vu-rf-implication {
+    background: #eef6f1;
+    border-radius: 0.5rem;
+    padding: 0.9rem 1rem;
+}
+
+.vu-rf-implication.red   { background: #fde8e8; }
+
+
+.vu-rf-implication-label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    margin: 0 0 0.4rem;
+}
+.vu-rf-implication-label.red{color:#c0392b;}
+
+.vu-rf-implication-body {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.vu-rf-card.no-media { grid-template-columns: 1fr; }
+
+/* ── Layout 40: Next-Step Cards — a lighter, forward-looking
+   companion to the Limitation Ledger: cards instead of rows, with a
+   green top-accent bar signalling "here's what to do about it." ── */
+.vu-step-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.vu-step-card {
+    background: white;
+    border: 1px solid #ececea;
+    border-top: 3px solid var(--primary-color);
+    border-radius: 0.6rem;
+    padding: 1.3rem 1.2rem;
+}
+
+.vu-step-num {
+    font-family: "family", sans-serif;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.vu-step-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111;
+    margin: 0 0 0.4rem;
+}
+
+.vu-step-body {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ── Layout 43: Editorial Note — a neutral, warm-toned aside for
+   meta-commentary or a caveat about the work itself (e.g. "here's why
+   an earlier claim was corrected"). Deliberately NOT green — that
+   color is reserved for affirmative insights via .vu-key-insight, so
+   a caveat needs a visually distinct, more neutral treatment. ── */
+.vu-editorial-note {
+    background: #f2f1ec;
+    border: 1px solid #e2e0d8;
+    border-radius: 0.85rem;
+    padding: 1.4rem 1.6rem;
+    margin: 1.5rem 0;
+}
+
+.vu-editorial-note-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8a8578;
+    margin: 0 0 0.5rem;
+}
+
+.vu-editorial-note-lead {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: #171717;
+    line-height: 1.45;
+    margin: 0 0 0.6rem;
+}
+
+.vu-editorial-note-body {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #625f54;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.vu-compare-card.selected {
+    background: #eef6f1;
+    border-color: var(--primary-color);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SPACING UTILITIES
+   Deliberately placed at the very end of the file. These are reused
+   on top of component classes that often set their own shorthand
+   `margin` (e.g. .vu-section-body { margin: 0 }) — CSS only respects
+   *source order* between selectors of equal specificity, so a utility
+   class defined earlier in the file than the component it modifies
+   will silently lose. Keeping every utility below every component
+   guarantees these always win. Don't move this block back up.
+   ═══════════════════════════════════════════════════════════════════ */
+.vu-mt-xs  { margin-top: 0.25rem; }
+.vu-mt-sm  { margin-top: 0.5rem; }
+.vu-mt-md  { margin-top: 1.2rem; }
+.vu-mt-lg  { margin-top: 2rem; }
+.vu-mt-xl  { margin-top: 2.5rem; }
+.vu-mt-xxl  { margin-top: 4rem; }
+
+.vu-mb-xs  { margin-bottom: 0.25rem; }
+.vu-mb-sm  { margin-bottom: 0.5rem; }
+.vu-mb-md  { margin-bottom: 1.2rem; }
+.vu-mb-lg  { margin-bottom: 2rem; }
+

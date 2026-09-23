@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Notion Slash Commands Study — Sahar Babaei</title>
+    <meta name="description" content="A controlled experiment testing whether Notion's slash commands let users complete tasks faster than tapping through mobile UI. UX research by Sahar Babaei.">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Sahar Babaei" />
+    <link rel="manifest" href="img/favicon/site.webmanifest" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-Regular-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-RegularItalic-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-Medium-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-light.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/breakpoints.css">
+    <link rel="stylesheet" href="css/case-study.css">
+    <script src="js/nav.js" defer></script>
+    <script src="js/lightbox.js" defer></script>
+    <script src="js/cursor.js" defer></script>
+</head>
+<body class="cs-page">
+<div class="main-wrapper">
+    <header id="site-header" class="nav-section"></header>
+
+    <main>
+
+        <!-- ══ HERO ══════════════════════════════════════════════ -->
+        <section class="cs-hero">
+            <div class="cs-container-wide">
+                <a href="Projects.html" class="cs-hero-back">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 8H1M1 8L6.5 2.5M1 8L6.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Back to projects
+                </a>
+
+                <p class="cs-hero-tags">UX Research · Experiment Design</p>
+                <h2>Notion Slash Commands Study</h2>
+                <p class="cs-hero-sub">Notion's slash command shortcut only works on desktop. I ran an 8-person timed experiment comparing it against the mobile "+" button to measure whether that gap actually costs users time and accuracy.</p>
+
+                <div class="cs-fact-strip">
+                    <div>
+                        <p class="cs-fact-label">Duration</p>
+                        <p class="cs-fact-value">2 weeks</p>
+                    </div>
+                    <div>
+                        <p class="cs-fact-label">Role</p>
+                        <p class="cs-fact-value">Researcher, sole author</p>
+                    </div>
+                    <div>
+                        <p class="cs-fact-label">Method</p>
+                        <p class="cs-fact-value">Within-subjects experiment, 8 participants</p>
+                    </div>
+                    <div>
+                        <p class="cs-fact-label">Tools</p>
+                        <p class="cs-fact-value">Notion, Excel, paired T-test analysis</p>
+                    </div>
+                </div>
+
+                <div class="cs-hero-image">
+                    <div class="cs-placeholder" style="aspect-ratio: 21/9;">Hero image, split screen of Notion's desktop slash command menu next to the mobile "+" button flow</div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ══ THE SHORT VERSION ═══════════════════════════════════ -->
+        <section class="cs-section">
+            <div class="cs-container">
+                <p class="cs-eyebrow">The short version</p>
+                <h3 class="cs-headline">Mobile users took 60% longer than desktop users to do the exact same Notion tasks.</h3>
+                <p class="cs-body">On desktop, typing "/" and a keyword builds a Notion block instantly. On mobile, the same action means tapping a "+" button, scrolling a menu, and tapping again. I had 8 existing Notion users build the same page twice, once with each method, and timed every step.</p>
+
+                <div class="cs-stat-row">
+                    <div>
+                        <p class="cs-stat-number">103s → 166s</p>
+                        <p class="cs-stat-label">average time per task, desktop versus mobile</p>
+                    </div>
+                    <div>
+                        <p class="cs-stat-number">2x</p>
+                        <p class="cs-stat-label">more errors made on mobile than on desktop</p>
+                    </div>
+                    <div>
+                        <p class="cs-stat-number">8 / 8</p>
+                        <p class="cs-stat-label">participants were faster on desktop, no exceptions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ══ CONTEXT ══════════════════════════════════════════════ -->
+        <section class="cs-section cs-section-tinted">
+            <div class="cs-container-wide">
+                <div class="cs-split">
+                    <div class="cs-split-text">
+                        <p class="cs-eyebrow">Context</p>
+                        <h3 class="cs-headline">Notion's signature shortcut exists on desktop only, and nobody seemed to be asking why.</h3>
+                        <p class="cs-body">Typing "/" followed by a keyword, like /page or /todo, is Notion's defining feature: it builds a block instantly with no mouse required. That shortcut is available on desktop and web. On the iOS and Android apps, the same block types exist, but only behind a "+" button and a scrollable menu. The keyboard shortcut never made the jump to touch.</p>
+                        <p class="cs-body">I couldn't find any public discussion of this gap from Notion or its users, which made it worth measuring rather than assuming it was harmless.</p>
+                    </div>
+                    <div class="cs-split-media">
+                        <div class="cs-figure">
+                            <div class="cs-placeholder">Side by side, desktop slash command menu vs. mobile "+" button menu</div>
+                            <p class="cs-caption">Two paths to the same block: one keystroke on desktop, three taps on mobile.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ══ METHOD ══════════════════════════════════════════════ -->
+        <section class="cs-section">
+            <div class="cs-container-wide">
+                <div class="cs-split cs-split-text-first">
+                    <div class="cs-split-text">
+                        <p class="cs-eyebrow">How I tested it</p>
+                        <h3 class="cs-headline">Each of the 8 participants completed the same 5 tasks twice, once per input method.</h3>
+                        <p class="cs-body">Every participant already used Notion regularly, so the study measured input method, not learning curve. Each person completed 5 tasks, creating pages, headings, lists, embeds, and quote blocks, first with slash commands on desktop, then again with the mobile UI. Half the group started on desktop and half on mobile, to rule out practice effects.</p>
+                        <p class="cs-body">3 of the 5 tasks required switching between typing and tapping mid-task, which is the exact friction slash commands are built to remove.</p>
+                    </div>
+                    <div class="cs-split-media">
+                        <div class="cs-figure">
+                            <div class="cs-placeholder">The identical task instruction sheet given to every participant</div>
+                            <p class="cs-caption">The same task sheet and shortcut reference guide, used in both conditions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cs-stat-row">
+                    <div>
+                        <p class="cs-stat-number">75%</p>
+                        <p class="cs-stat-label">of participants didn't know slash commands existed, despite regular Notion use</p>
+                    </div>
+                    <div>
+                        <p class="cs-stat-number">87.5%</p>
+                        <p class="cs-stat-label">already used Notion primarily on desktop before the study</p>
+                    </div>
+                    <div>
+                        <p class="cs-stat-number">5</p>
+                        <p class="cs-stat-label">tasks per person, chosen to mirror everyday Notion use</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ══ RESULTS ═════════════════════════════════════════════ -->
+        <section class="cs-section cs-section-tinted">
+            <div class="cs-container-wide">
+                <p class="cs-eyebrow">What I found</p>
+                <h3 class="cs-headline cs-headline-wide">The slower a task was on mobile, the more mode-switching it required.</h3>
+                <p class="cs-body cs-body-wide">Simple, single-step tasks barely differed between desktop and mobile. Tasks that forced someone to pause typing and go find a button showed the largest gap in both time and errors. A paired T-test on the full data set confirmed both differences were statistically significant, not chance: p = 0.0007 for time, p = 0.0006 for errors.</p>
+
+                <div class="cs-beat">
+                    <div class="cs-figure">
+                        <div class="cs-placeholder" style="aspect-ratio: 21/9;">Chart, grouped bar chart of per-task completion time, desktop vs. mobile, across all 5 tasks</div>
+                        <p class="cs-caption">Per-task completion time, desktop versus mobile. The gap widens on the 3 tasks that required mode-switching.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ══ WHAT PEOPLE SAID ════════════════════════════════════ -->
+        <section class="cs-section">
+            <div class="cs-container">
+                <p class="cs-eyebrow">What people said</p>
+                <h3 class="cs-headline">Every participant preferred typing the command. Most hadn't known it was there.</h3>
+                <p class="cs-body">In the post-test interview, 100% of participants said desktop let them work faster, and 87.5% called the keyboard shortcut more comfortable and intuitive than tapping through the menu. Half said, unprompted, that they wished slash commands worked on mobile too.</p>
+
+                <div class="cs-quote">
+                    <p>"I didn't even know this was a thing. I've been using Notion for two years."</p>
+                    <cite>Study participant, primarily a mobile Notion user</cite>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ══ LIMITATIONS & NEXT STEPS ════════════════════════════ -->
+        <section class="cs-section cs-section-tinted">
+            <div class="cs-container">
+                <p class="cs-eyebrow">Limitations &amp; what's next</p>
+                <h3 class="cs-headline">8 participants is enough to see a pattern, not enough to build a feature on.</h3>
+                <p class="cs-body">Mobile's higher error rate likely inflated its completion times too, since fixing a mistake takes time of its own, so the study can't yet fully separate slower input from error recovery. The sample also leaned toward existing desktop users, and forcing a hard choice between input methods doesn't reflect how people actually mix keyboard, mouse, and touch day to day.</p>
+
+                <div class="cs-list">
+                    <div class="cs-list-item">
+                        <div>
+                            <p class="cs-list-marker">01</p>
+                            <p class="cs-list-title">Isolate input method from platform</p>
+                        </div>
+                        <p class="cs-list-body">Run both conditions on mobile only, a Bluetooth keyboard against the "+" button, so platform is no longer a variable.</p>
+                    </div>
+                    <div class="cs-list-item">
+                        <div>
+                            <p class="cs-list-marker">02</p>
+                            <p class="cs-list-title">Recruit a mobile-first sample</p>
+                        </div>
+                        <p class="cs-list-body">This group leaned desktop already. A mobile-native group of Notion users may show an even larger gap, or a smaller one.</p>
+                    </div>
+                    <div class="cs-list-item">
+                        <div>
+                            <p class="cs-list-marker">03</p>
+                            <p class="cs-list-title">Design for fewer pauses, not a literal slash</p>
+                        </div>
+                        <p class="cs-list-body">The value isn't the "/" character itself, it's skipping the menu. A mobile equivalent just needs to cut how often someone has to stop typing to find a button.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ══ REFLECTION ═══════════════════════════════════════════ -->
+        <section class="cs-reflection">
+            <div class="cs-container">
+                <p class="cs-eyebrow">Reflection</p>
+                <h3 class="cs-headline">The most useful outcome of this project was learning to design the study itself.</h3>
+                <p class="cs-body">The real lesson wasn't really about Notion, it was how much a study's design shapes what it's able to prove. Counterbalancing the task order and giving every participant the same reference sheet were both deliberate attempts to stop ordinary noise from being mistaken for a real result. If I ran this again, I'd test both input methods on the same platform from the start, so the finding needed no caveats about desktop familiarity at all.</p>
+            </div>
+        </section>
+
+
+        <!-- ══ UP NEXT ══════════════════════════════════════════════ -->
+        <section class="cs-up-next">
+            <div class="cs-container-wide">
+                <p class="cs-up-next-label">Up next</p>
+                <div class="cs-up-next-grid">
+                    <a href="brainstreams-condensed.html" class="cs-up-next-card">
+                        <img src="img/bcbia-project-card-long.jpg" width="1641" height="865" alt="">
+                        <h4>Brainstreams Redesign</h4>
+                        <p>UX Research / UI Design</p>
+                    </a>
+                    <a href="goodreads-vu-style.html" class="cs-up-next-card">
+                        <img src="img/goodreads-project-card-long.png" width="1641" height="863" alt="">
+                        <h4>Goodreads Feature Redesign</h4>
+                        <p>UX Research / UI Design</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Design and code by yours truly.</p>
+        <p>Copyright &copy; 2026, Sahar Babaei</p>
+    </footer>
+</div>
+</body>
+</html>

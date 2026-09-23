@@ -1,417 +1,462 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Goodreads</title>
-
-	<!-- Favicon -->
-	<link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96" />
-	<link rel="icon" type="image/svg+xml" href="img/favicon/favicon.svg" />
-	<link rel="shortcut icon" href="img/favicon/favicon.ico" />
-	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png" />
-	<meta name="apple-mobile-web-app-title" content="Sahar Babaei Portfolio" />
-	<link rel="manifest" href="img/favicon/site.webmanifest" />
-
-
-	<!-- Preload essential abc-diatype-round fonts -->
-	<link rel="preload" href="fonts/ABCDiatypeRounded-Regular-Trial.woff2" as="font" type="font/woff2"
-		crossorigin="anonymous" />
-	<link rel="preload" href="fonts/ABCDiatypeRounded-RegularItalic-Trial.woff2" as="font" type="font/woff2"
-		crossorigin="anonymous" />
-
-	<link rel="preload" href="fonts/ABCDiatypeRounded-Medium-Trial.woff2" as="font" type="font/woff2"
-		crossorigin="anonymous" />
-	<link rel="preload" href="fonts/ABCDiatypeRounded-MediumItalic-Trial.woff2" as="font" type="font/woff2"
-		crossorigin="anonymous" />
-
-	<link rel="preload" href="fonts/ABCDiatypeRounded-Bold-Trial.woff2" as="font" type="font/woff2"
-		crossorigin="anonymous" />
-	<link rel="preload" href="fonts/ABCDiatypeRounded-BoldItalic-Trial.woff2" as="font" type="font/woff2"
-		crossorigin="anonymous" />
-
-	<!-- Preload essential family fonts -->
-	<link rel="preload" href="fonts/test-family-light.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-	<link rel="preload" href="fonts/test-family-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-	<link rel="preload" href="fonts/test-family-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-
-	<link rel="preload" href="fonts/test-family-light-italic.woff2" as="font" type="font/woff2"
-		crossorigin="anonymous" />
-	<link rel="preload" href="fonts/test-family-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-	<link rel="preload" href="fonts/test-family-bold-italic.woff2" as="font" type="font/woff2"
-		crossorigin="anonymous" />
-
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="stylesheet" href="css/breakpoints.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Goodreads UX Redesign — Sahar Babaei</title>
+    <meta name="description" content="A UX research and UI redesign case study for Goodreads, improving the shelving system and book details page to make reading tracking faster, clearer, and more user-friendly.">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Sahar Babaei" />
+    <link rel="manifest" href="img/favicon/site.webmanifest" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-Regular-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-RegularItalic-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-Medium-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-light.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/breakpoints.css">
+    <link rel="stylesheet" href="css/casestudy-extra.css">
+    <script src="js/nav.js" defer></script>
+    <script src="js/lightbox.js" defer></script>
+    <script src="js/cursor.js" defer></script>
+    <script src="js/video-lazy.js" defer></script>
 </head>
-
-<body>
-
-	<div class="main-wrapper">
-
-		<!-- navigation bar at top/side -->
-		<header class="nav-section">
-			<a href="index.html" class="my-brand-link">
-				<div class="my-brand">
-					<picture>
-						<source class="smiley-logo" media="(max-width:57.45rem)" srcset="img/small-logo.png">
-						<img class="smiley-logo" src="img/logo.png" height="336" width="336"
-							alt="a smiley with a u shape smile">
-					</picture>
-					<h1>
-						<span class="logotype"> SAHAR BABAEI</span>
-						<span class="short-logotype"> S.B. </span>
-					</h1>
-				</div>
-			</a>
-
-			<div class="space-fixer-div">
-			</div>
-
-
-			<nav>
-				<!-- <a href="works.html">work</a> -->
-				<a href="index.html">work</a>
-				<a href="about.html">about</a>
-				<!-- <a href="etc.html">etc.</a> -->
-			</nav>
-
-			<div class="space-fixer-div">
-			</div>
-
-
-			<div class="side-footer">
-				<p> Design and code by yours truly. </p>
-				<p> Copyright &copy; 2026, Sahar Babaei </p>
-			</div>
-		</header>
-
-
-
-		<!-- main section starts here -->
-		<main>
-			<section class="main-section">
-				<h2> Goodreads: UX research and UI redesign proposal </h2>
-				<p> Launched in 2007, Goodreads is a free platform where book lovers can discover and discuss books,
-					track reading activities, contribute reviews, and interact with the community. Throughout this
-					academic project I conducted UX research and utilized UX methods such as user interviews, affinity
-					mapping and userflows to identify points of frustration within the Goodreads iOS app. This was
-					followed by a UI redesign proposal aimed at improving the organization of book-related information
-					within the app and enhancing the app's book tracking function. </p>
-
-				<picture>
-					<!-- <source class="project-hero-img" media="(max-width: 57.5rem)" srcset="img/goodreads-hero-small-clear.png"> -->
-					<source class="project-hero-img" media="(max-width: 52rem)"
-						srcset="img/goodreads-hero-small-clear.png">
-
-					<img class="project-hero-img" src="img/goodreads-hero-big-clear.png" width="2122" height="1084"
-						alt="mock ups of the UI redesign of the book details page and readings lists">
-				</picture>
-
-
-				<!-- section a: Project overview -->
-				<section class="project-overview-sec project-sec">
-
-					<!-- heading and divider -->
-					<div class="sec-divider">
-						<h3> Project Overview</h3>
-						<div class="divider-line"> </div>
-					</div>
-
-					<div class="section-margin-control">
-
-						<div class="overview-grid overview-subsec">
-							<h4> Goal </h4>
-							<p>To conduct UX research and propose a User Interface redesign for one of the most used
-								features within the Goodreads iOS app </p>
-						</div>
-
-						<div class="overview-grid overview-subsec">
-							<h4> Context </h4>
-							<p> 3 week long academic project (Feb, 2024) </p>
-						</div>
-
-						<div class="overview-grid overview-subsec">
-							<h4> Team </h4>
-							<p> Sahar Babaei (me, myself and I) </p>
-						</div>
-
-						<div class="overview-grid overview-subsec">
-							<h4> Tools used </h4>
-							<p> Figma / Figjam / ProtoPie </p>
-						</div>
-
-						<div class="overview-grid overview-subsec no-border">
-							<h4> My contributions </h4>
-							<p> UX research / User interviews / Affinity mapping / Userflows/ Heuristic evaluation /
-								Wireframes / UI mockups / Interactive prototypes</p>
-						</div>
-
-					</div>
-
-				</section>
-
-				<!-- section b: project body -->
-				<section class=" project-sec">
-
-					<div class="sec-divider">
-						<h3> UI + UX Research </h3>
-						<div class="divider-line"> </div>
-					</div>
-
-					<div class="section-margin-control">
-
-						<div class="overview-subsec no-border">
-							<h4> 01 - Evaluating the app's user interface and interactions </h4>
-							<p> I started off by studying the visual and interaction design patterns within the
-								Goodreads app interface.</p>
-
-							<img class="project-body-img" src="img/goodreads-curr-ui-1.png" width="2337" height="909"
-								alt="Visual design patterns in the interface of the goodreads app">
-							<img class="project-body-img" src="img/goodreads-curr-ui-2.png" width="2337" height="909"
-								alt="Visual design patterns in the interface of the goodreads app">
-						</div>
-
-
-
-						<div class="overview-subsec no-border">
-							<h4> 02 - Learning about users and their frustrations </h4>
-
-							<h5>
-								Survey with 20 participants
-							</h5>
-							<p> To better understand the app’s users and learn about their most used features, the areas
-								they find frustrating and the functionalities that matter most to them, i conducted a
-								survey with 20 participants who were regular users of the goodreads app. </p>
-
-							<h5>
-								Interview with 2 users
-							</h5>
-							<p> I conducted two user interviews with users from my social circle. Each interview took
-								fifteen minutes. In each interview the user walked me through how they use the app to
-								achieve their goals and explained their favorite and least favorite aspects of the app.
-							</p>
-
-							<h5>
-								App reviews & online forums
-							</h5>
-							<p> To gain more insight, I read and analyzed discussions about the app on online platforms
-								where users discussed their frustrations with certain parts of the app. I also read and
-								took note of all app reviews from the past year for both Android and iOS versions.
-							</p>
-
-
-
-
-
-
-						</div>
-
-
-						<div class="overview-subsec no-border">
-							<h4> 03 - Deriving insights from research data </h4>
-							<img class="project-body-img" src="img/goodreads-affinity.png" width="2688" height="1417"
-								alt="Visual design patterns in the interface of the goodreads app">
-
-						</div>
-
-
-					</div>
-
-				</section>
-
-				<!-- section b: project body -->
-				<section class=" project-sec">
-
-					<div class="sec-divider">
-						<h3> Proposed redesign</h3>
-						<div class="divider-line"> </div>
-					</div>
-
-					<div class="section-margin-control">
-
-
-						<div class="video-section">
-							<div class="vid-descrip">
-								<h4> Match in visual and interaction patterns </h4>
-								<p> The proposed feature utilizes the same Interaction patterns as the rest of the app.
-									New pages slide in from the right and when you want to go to a previous page, the
-									current page slides out towards the right side. Similarly, the iconography used for
-									the four tabs follow the default style and interactions as the existing app
-									features.</p>
-							</div>
-
-							<div class="vid-container">
-								<video class="vid-class" controls controlslist="nodownload" disablepictureinpicture=""
-									playsinline="" muted="" autoplay="" loop=""
-									src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_mp4/v1755058218/goodreads-1-open_q3vc2a.mov"></video>
-
-								<img class="img-overlay" src="img/phone-overlay.png" width="864" height="1769"
-									alt="border for phone">
-							</div>
-						</div>
-
-						<div class="video-section">
-							<div class="vid-descrip">
-								<h4> Swiping between tabs + Tapping on them </h4>
-								<p> To allow better user control and accommodate different preferences, users can switch
-									between tabs by either swiping or tapping on the correlated tab at the top. The
-									Active tab’s icon turn black to help indicate it as the “current” tab. </p>
-							</div>
-
-							<div class="vid-container">
-								<video class="vid-class" controls controlslist="nodownload" disablepictureinpicture=""
-									playsinline="" muted="" autoplay="" loop=""
-									src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_mp4/v1755058219/goodreads-2-swipe_iwudt3.mov"></video>
-
-
-								<img class="img-overlay" src="img/phone-overlay.png" width="864" height="1769"
-									alt="border for phone">
-							</div>
-						</div>
-
-						<div class="video-section">
-							<div class="vid-descrip">
-								<h4> Easy selection and update of book status </h4>
-								<p> By tapping on the drop down arrow on the button, users are provided with a drop down
-									menu that allows them to quickly select and update the book’s status. The button’s
-									color changes to reflect the meaning of the book status. This provides users with a
-									fast and easy way of updating the book status. </p>
-							</div>
-
-							<div class="vid-container">
-								<video class="vid-class" controls controlslist="nodownload" disablepictureinpicture=""
-									playsinline="" muted="" autoplay="" loop=""
-									src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_mp4/v1755058224/goodreads-3-lists_ggb9oz.mov"></video>
-
-
-								<img class="img-overlay" src="img/phone-overlay.png" width="864" height="1769"
-									alt="border for phone">
-							</div>
-						</div>
-
-						<div class="video-section">
-							<div class="vid-descrip">
-								<h4> Adding books to lists </h4>
-								<p> The flow for adding books to lists have been improved to take less steps. All lists
-									are consolidated in the same page and books can be easily added to multiple lists.
-									The status of the book can be selected or changed from the same page as well.
-									Lastly, this mock ups introduced the possibility of making booklists public or
-									private. This is indicated by the small lock icon next to the list name.</p>
-							</div>
-
-
-							<div class="vid-container">
-								<video class="vid-class" controls controlslist="nodownload" disablepictureinpicture=""
-									playsinline="" muted="" autoplay="" loop=""
-									src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_mp4/v1755058220/goodreads-4-status_vsbfvi.mov"></video>
-								<img class="img-overlay" src="img/phone-overlay.png" width="864" height="1769"
-									alt="border for phone">
-							</div>
-
-						</div>
-
-
-
-
-
-					</div>
-
-				</section>
-
-
-
-
-				<!-- section c: constraints -->
-				<section class=" project-sec">
-
-					<div class="sec-divider">
-						<h3> Challenges</h3>
-						<div class="divider-line"> </div>
-					</div>
-
-					<div class="section-margin-control">
-						<h4> 01 - Balance between UX research and UI design</h4>
-						<p> Due to the limited timeline of this project, I needed to ensure to manage and distribute my
-							time very carefully between the UX research and UI redesign stages of this project. This was
-							difficult to manage because jumping too early into the redesign stage would lead to a design
-							solution that is not backed up by proper UX research. On the other hand, spending too much
-							time on UX research meant that i only had one week to come up with, design and prototype an
-							effective UI redesgin. </p>
-
-						<h4> 02 - Match between the proposed redesign and the existing visual design of the app </h4>
-						<p> Another challenge i faced while working on this project was ensuring that my proposed UI
-							redesign fully matched the existing visual and interaction design patterns in the Goodreads
-							app. As tempting as it was to change certain viusal elements and color palettes that looked
-							outdated, i refrained from doing so because i knew any changes to the visual design and
-							interaction design pattern of the app would drastically impact the branding of the app. I
-							had to keep in mind that changing the app's visual language and brand identity did not fit
-							into the scope of this project. </p>
-
-					</div>
-
-				</section>
-
-
-				<!-- section d: constraints -->
-				<section class=" project-sec">
-
-					<div class="sec-divider">
-						<h3> Reflection</h3>
-						<div class="divider-line"> </div>
-					</div>
-
-					<div class="section-margin-control">
-						<p>
-							Shifting from group projects to working independently as a solo designer on this project was
-							a unique experience. I found myself missing the fresh and unique presepectives that other
-							designers bring into a project. At times I wished I had teammates to exchange ideas with and
-							ask for feedback from.
-
-							This project reminded me of the importance of teamwork within the field of design while also
-							helping me overcome my Imposter syndrom. Having to go through every step of this project on
-							my own made me realize that I am a capable and well rounded designer. While I'll always
-							appreciate working in team dynamics, I believe that working independently on this project
-							was a valuable and necessary experience for me. Not only did it help me further develop my
-							design skills, it also helped me trust in my own abilities as a designer.
-						</p>
-
-
-
-
-						<!-- 
-	As much as I enjoy working in team dynamics, i believe that working alone on this project was an important experience that has helped me further develop my design skills and my trust in my own design skills.  
-								since It has helped me refine my design skills and build confidence in my abilities. 
-							Working on this project as a solo designer was a strange experience. Throughout my academic journey, i have been working in groups along with other designers almost all the time. Having to go through every step of this project on my own made me realize how important team work is within the field of design. 
-							by making me realize that that I'm a well rounded designer, fully capable of 
-							However my overral experience working alone was positive.   
-							Working as the sole designer on this project helped me overcome my Imposter Syndrom by making me realize that I am a well rounded UX designer. It also made me realize the importance of teamwork within the field of design. During this project 
-							overcome my imposter syndrome -->
-
-
-					</div>
-
-				</section>
-
-
-
-
-
-			</section>
-		</main>
-
-
-
-
-		<footer>
-			<p> Design and code by yours truly. </p>
-			<p> Copyright &copy; 2026, Sahar Babaei </p>
-		</footer>
-
-	</div>
+<body class="vu-page">
+<div class="main-wrapper">
+    <header id="site-header" class="nav-section"></header>
+
+    <main>
+
+        <!-- ══ HERO ══════════════════════════════════════════════ -->
+        <div class="vu-hero vu-hero--split">
+            <div class="vu-hero-inner">
+                <a href="Projects.html" class="vu-hero-back">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 8H1M1 8L6.5 2.5M1 8L6.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Back to projects
+                </a>
+
+                <div class="vu-hero-grid">
+                    <div class="vu-hero-text">
+                        <h2>Goodreads — UX Research &amp; Feature Redesign</h2>
+                        <p class="vu-hero-sub">Goodreads is the world's largest platform for book lovers — but its most-used features have significant usability gaps. I conducted end-to-end UX research and proposed a UI redesign targeting the two areas users found most frustrating: the shelving and reading status system, and the book details page.</p>
+                    </div>
+                    <div class="vu-meta-row">
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Timeline</span>
+                            <p class="vu-meta-value">3 weeks, Feb 2024</p>
+                        </div>
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Role</span>
+                            <p class="vu-meta-value">Solo UX Researcher &amp; UX/UI Designer</p>
+                        </div>
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Tools</span>
+                            <p class="vu-meta-value">Figma / FigJam / ProtoPie</p>
+                        </div>
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Type</span>
+                            <p class="vu-meta-value">Academic Project</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lightbox-zone vu-hero-img-wrap">
+                <picture>
+                    <source class="vu-full-img" media="(max-width: 52rem)" srcset="img/goodreads-hero-small-clear.png">
+                    <img class="vu-full-img" src="img/goodreads-hero-big-clear.png" width="2122" height="1084"
+                         alt="Mockups of the proposed Goodreads redesign for the book details page and reading lists"
+                         data-fullscreen-description="Overview of both redesigns — the revamped shelving system and the new tab-based book details page.">
+                </picture>
+                <p class="vu-img-caption">Caption. Overview of both redesigns — the revamped shelving system and the new tab-based book details page.</p>
+            </div>
+        </div>
+
+
+        <!-- ══ LONG STORY SHORT ═══════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Long story short</p>
+                <h3 class="vu-section-title">Goodreads' most-used features were quietly losing users — so I redesigned the two causing the most friction</h3>
+                <p class="vu-section-body">I leveraged user research — surveys, interviews, heuristic evaluation, and forum analysis — to find out exactly where Goodreads' shelving and book details features were failing readers, then designed two targeted fixes that stay true to the app's existing design language.</p>
+
+                <div class="vu-lss-grid">
+                    <div class="vu-lss-card">
+                        <span class="vu-lss-num">01</span>
+                        <p class="vu-lss-title">Research</p>
+                        <p class="vu-lss-body">Audited the app, surveyed 20 users, interviewed 2, and cross-checked patterns against App Store reviews and forums to find the real friction points.</p>
+                    </div>
+                    <div class="vu-lss-card">
+                        <span class="vu-lss-num">02</span>
+                        <p class="vu-lss-title">Shelving Redesign</p>
+                        <p class="vu-lss-body">Reduced friction and improved clarity when managing books — separating reading status from personal lists and adding the "Did Not Finish" status users had been asking for.</p>
+                    </div>
+                    <div class="vu-lss-card">
+                        <span class="vu-lss-num">03</span>
+                        <p class="vu-lss-title">Book Details Redesign</p>
+                        <p class="vu-lss-body">Helped users access different types of book information quickly — replacing one long scroll with four-tab navigation, so ratings, genre, and similar titles are one tap away.</p>
+                    </div>
+                    <div class="vu-lss-card">
+                        <span class="vu-lss-num">04</span>
+                        <p class="vu-lss-title">Constraint</p>
+                        <p class="vu-lss-body">Every change had to align with Goodreads' current typography, color palette, and layout conventions — pushing the focus toward structure over aesthetics.</p>
+                    </div>
+                </div>
+
+                <div class="vu-hmw">
+                    💭 &nbsp; How might we improve the efficiency, clarity, and usability of Goodreads' shelving and book details features, without abandoning the app's existing design language?
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ PROBLEM / GOAL ═════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <div class="vu-problem-solution-grid">
+                    <div class="vu-ps-block">
+                        <p class="vu-ps-label problem">The Problem</p>
+                        <p class="vu-ps-statement">The shelving system requires too many steps for common actions, uses unclear visual language that conflates reading status with personal lists, and the book details page buries important information behind excessive scrolling.</p>
+                        <p class="vu-ps-detail">These weren't dramatic failures on their own — but together, they shaped how people felt about using the app at all, and several survey respondents had simply stopped using custom shelves entirely.</p>
+                    </div>
+                    <div class="vu-ps-block">
+                        <p class="vu-ps-label solution">The Goal</p>
+                        <p class="vu-ps-statement">Leverage user research to improve the efficiency, clarity, and usability of Goodreads' shelving and book details features — while staying true to the app's existing design language.</p>
+                        <p class="vu-ps-detail">That meant two targeted redesigns grounded entirely in research, not assumption: a clearer, faster shelving system, and a book details page that respects how readers actually look for information.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ RESEARCH APPROACH ══════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Research approach</p>
+                <h3 class="vu-section-title">Auditing, asking, listening, and validating before designing anything</h3>
+                <p class="vu-section-body">Before speaking to any users, I audited the Goodreads app itself against Nielsen Norman Group's 10 usability heuristics, surfacing early violations in visibility of system status, consistency, efficiency, and error prevention. From there, I gathered evidence from four more sources before synthesizing.</p>
+
+                <div class="vu-method-grid">
+                    <div class="vu-method-card">
+                        <p class="vu-method-card-title">Heuristic Evaluation</p>
+                        <p class="vu-method-card-body">Documented Goodreads' existing visual design language and interaction patterns to understand what I could and couldn't change.</p>
+                    </div>
+                    <div class="vu-method-card">
+                        <p class="vu-method-card-title">Survey — 20 participants</p>
+                        <p class="vu-method-card-body">Asked regular Goodreads users about their most-used features, biggest frustrations, and the changes they most wanted.</p>
+                    </div>
+                    <div class="vu-method-card">
+                        <p class="vu-method-card-title">Semi-structured Interviews — 2</p>
+                        <p class="vu-method-card-body">Think-aloud sessions where users completed common tasks while narrating their thoughts — surfacing hesitation the survey alone couldn't.</p>
+                    </div>
+                    <div class="vu-method-card">
+                        <p class="vu-method-card-title">App Reviews &amp; Forums</p>
+                        <p class="vu-method-card-body">Cross-checked findings against recent App Store and Google Play reviews, Reddit threads, and Goodreads' own forums.</p>
+                    </div>
+                    <div class="vu-method-card">
+                        <p class="vu-method-card-title">Synthesizing findings</p>
+                        <p class="vu-method-card-body">Used affinity diagramming in FigJam to cluster insights into themes, then an impact-effort matrix to prioritize within a 3-week scope.</p>
+                    </div>
+                </div>
+
+                <div class="lightbox-zone vu-two-img-grid">
+                    <figure>
+                        <img class="vu-full-img vu-rounded-img" src="img/goodreads-curr-ui-1.png" width="2337" height="909"
+                             alt="Documentation of Goodreads' current visual design patterns and color usage">
+                        <figcaption class="vu-img-caption">Caption. Documenting Goodreads' current visual design language and color usage.</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="vu-full-img vu-rounded-img" src="img/goodreads-curr-ui-2.png" width="2337" height="1053"
+                             alt="Documentation of Goodreads' current interaction patterns and UI components">
+                        <figcaption class="vu-img-caption">Caption. Documenting Goodreads' current interaction patterns and UI components.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <div class="lightbox-zone vu-single-img-section">
+            <div class="vu-inner-wrap">
+                <img class="vu-full-img vu-rounded-img" src="img/goodreads-affinity.png" width="2688" height="1416"
+                     alt="Affinity diagram clustering user research findings into themes"
+                     data-fullscreen-description="Affinity diagram — clustering insights across all research sources into underlying problem themes, before applying an impact-effort matrix to prioritize.">
+                <p class="vu-img-caption">Caption. Affinity diagram clustering research findings into themes — used with an impact-effort matrix to prioritize what was worth solving in 3 weeks.</p>
+            </div>
+        </div>
+
+
+        <!-- ══ KEY INSIGHTS ═══════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Key insights</p>
+                <h3 class="vu-section-title">Five patterns surfaced consistently across every research source</h3>
+                <p class="vu-section-body">Survey responses, interviews, and forum threads all converged on the same five problems — regardless of platform or user type.</p>
+
+                <div class="vu-insights-grid">
+                    <div class="vu-insight-card">
+                        <span class="vu-insight-mark">&ldquo;</span>
+                        <p class="vu-insight-quote">I never bother with custom shelves anymore. It's just too many taps to get there.</p>
+                        <p class="vu-insight-label">Too many steps</p>
+                    </div>
+                    <div class="vu-insight-card">
+                        <span class="vu-insight-mark">&ldquo;</span>
+                        <p class="vu-insight-quote">I never really knew if I was filing a book or just marking it.</p>
+                        <p class="vu-insight-label">Conceptual confusion</p>
+                    </div>
+                    <div class="vu-insight-card">
+                        <span class="vu-insight-mark">&ldquo;</span>
+                        <p class="vu-insight-quote">I have like fifteen books just sitting in 'Currently Reading' that I'm never going to finish. It's embarrassing.</p>
+                        <p class="vu-insight-label">Missing status</p>
+                    </div>
+                    <div class="vu-insight-card">
+                        <span class="vu-insight-mark">&ldquo;</span>
+                        <p class="vu-insight-quote">I have to scroll forever just to find what genre the book even is.</p>
+                        <p class="vu-insight-label">Buried information</p>
+                    </div>
+                    <div class="vu-insight-card">
+                        <span class="vu-insight-mark">&ldquo;</span>
+                        <p class="vu-insight-quote">I want to write something like 'this hit different the second time' but I don't want to post it publicly.</p>
+                        <p class="vu-insight-label">No private space</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ OPPORTUNITIES ══════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Opportunities</p>
+                <h3 class="vu-section-title">Five problems, two redesigns</h3>
+                <p class="vu-section-body">Using an impact-effort matrix, I mapped the five research findings to two main design opportunities — the areas where a targeted intervention would have the broadest positive effect.</p>
+
+                <div class="vu-opps-grid vu-mt-lg">
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">📚</span>
+                        <p class="vu-opp-title">Clearer shelving system</p>
+                        <p class="vu-opp-body">Separate reading status from personal lists — two things users kept confusing for each other.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">✅</span>
+                        <p class="vu-opp-title">Did Not Finish status</p>
+                        <p class="vu-opp-body">Give abandoned books a proper home — not a hacked workaround shelf labeled "DNF."</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">⚡</span>
+                        <p class="vu-opp-title">Fewer steps to organize</p>
+                        <p class="vu-opp-body">Consolidate the multi-modal shelving flow into a single screen with one clear action.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">🗂️</span>
+                        <p class="vu-opp-title">Navigable book details</p>
+                        <p class="vu-opp-body">Replace one long scroll page with tab navigation — get to ratings or genre in one tap.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">📓</span>
+                        <p class="vu-opp-title">Private reading diary</p>
+                        <p class="vu-opp-body">Give readers a dedicated space for personal notes, separate from the public review system.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ REDESIGN 1 — SHELVING SYSTEM ═══════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Redesign 01</p>
+                <h3 class="vu-section-title">Revamped shelving system &amp; reading status</h3>
+                <p class="vu-section-body"><strong>Objective:</strong> Reduce friction and improve clarity when managing books — directly addressing insights 1, 2, and 3.</p>
+
+                <div class="vu-before-after lightbox-zone">
+                    <div class="vu-ba-block">
+                        <span class="vu-ba-label before">Before</span>
+                        <div class="vu-placeholder vu-placeholder-med"></div>
+                        <p class="vu-img-caption">Caption. Before screenshot — replace with your image.</p>
+                        <p class="vu-lss-body vu-mt-sm">Reading status and personal lists were visually indistinguishable — both styled as tags with no hierarchy. Adding a book to a non-default shelf required multiple taps and modal screens.</p>
+                    </div>
+                    <div class="vu-ba-block">
+                        <span class="vu-ba-label after">After</span>
+                        <div class="vu-placeholder vu-placeholder-med"></div>
+                        <p class="vu-img-caption">Caption. After screenshot — replace with your image.</p>
+                        <p class="vu-lss-body vu-mt-sm">Book Status and Lists are now clearly separated into two distinct sections. A "Did Not Finish" status is added directly to the status menu. The modal and shelf page now share unified visual styling.</p>
+                    </div>
+                </div>
+
+                <div class="vu-video-row">
+                    <div class="vu-video-text">
+                        <h4>Consistent visual and interaction patterns</h4>
+                        <p>The redesigned shelving feature follows the same interaction conventions as the rest of the app — new pages slide in from the right, iconography matches the existing system. This addresses the heuristic violation of consistency and standards identified in the audit: users shouldn't have to relearn behaviors for an updated feature.</p>
+                    </div>
+                    <div class="vid-container">
+                        <video class="vid-class" controls controlslist="nodownload" disablepictureinpicture playsinline muted autoplay loop src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_mp4/v1755058218/goodreads-1-open_q3vc2a.mov"></video>
+                        <img class="img-overlay" src="img/phone-overlay.png" width="864" height="1769" alt="Phone frame border">
+                    </div>
+                </div>
+
+                <div class="vu-video-row vu-mt-xl">
+                    <div class="vu-video-text">
+                        <h4>Easy selection and update of reading status</h4>
+                        <p>Tapping the dropdown arrow opens a menu for quickly selecting or changing a book's status — including the new "Did Not Finish" option (insight 3). The button's color updates to reflect the chosen status, providing immediate visual confirmation. This directly fixes the multi-tap friction from insight 1.</p>
+                    </div>
+                    <div class="vid-container">
+                        <video class="vid-class" controls controlslist="nodownload" disablepictureinpicture playsinline muted autoplay loop src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_mp4/v1755058224/goodreads-3-lists_ggb9oz.mov"></video>
+                        <img class="img-overlay" src="img/phone-overlay.png" width="864" height="1769" alt="Phone frame border">
+                    </div>
+                </div>
+
+                <div class="vu-video-row vu-mt-xl">
+                    <div class="vu-video-text">
+                        <h4>Adding books to lists in fewer steps</h4>
+                        <p>All lists are consolidated on a single screen, so users can add a book to multiple lists without navigating between pages. Status selection is available from the same screen — replacing the multi-modal process that users described as the reason they'd stopped organizing their libraries (insight 1). A public/private toggle for lists is also introduced, indicated by a lock icon next to the list name.</p>
+                    </div>
+                    <div class="vid-container">
+                        <video class="vid-class" controls controlslist="nodownload" disablepictureinpicture playsinline muted autoplay loop src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_mp4/v1755058220/goodreads-4-status_vsbfvi.mov"></video>
+                        <img class="img-overlay" src="img/phone-overlay.png" width="864" height="1769" alt="Phone frame border">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ REDESIGN 2 — BOOK DETAILS ══════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Redesign 02</p>
+                <h3 class="vu-section-title">Book details navigation</h3>
+                <p class="vu-section-body"><strong>Objective:</strong> Help users access different types of book information quickly — directly addressing insights 4 and 5.</p>
+
+                <div class="vu-before-after lightbox-zone vu-mt-lg">
+                    <div class="vu-ba-block">
+                        <span class="vu-ba-label before">Before</span>
+                        <div class="vu-placeholder vu-placeholder-med"></div>
+                        <p class="vu-img-caption">Caption. Before screenshot — replace with your image.</p>
+                        <p class="vu-lss-body vu-mt-sm">Book details, ratings, genres, and recommendations were all on one long-scroll page with no navigation between sections. Ratings appeared before the plot summary, biasing first impressions. No space existed anywhere for personal notes.</p>
+                    </div>
+                    <div class="vu-ba-block">
+                        <span class="vu-ba-label after">After</span>
+                        <div class="vu-placeholder vu-placeholder-med"></div>
+                        <p class="vu-img-caption">Caption. After screenshot — replace with your image.</p>
+                        <p class="vu-lss-body vu-mt-sm">Four-tab navigation groups content by what users most commonly look for: Book Details, User Ratings, Book Diary, and Similar Books. Title and "Add to List" are anchored at the top. Ratings sit behind their own tab.</p>
+                    </div>
+                </div>
+
+                <div class="vu-video-row vu-mt-lg">
+                    <div class="vu-video-text">
+                        <h4>Swiping and tapping between tabs</h4>
+                        <p>Users can switch between tabs by swiping or tapping, accommodating different interaction preferences. The active tab's icon turns black — a clear visual indicator of current location that the original page completely lacked. The tab structure means users can jump directly to ratings or similar books without scrolling through content they didn't come for (insight 4).</p>
+                    </div>
+                    <div class="vid-container">
+                        <video class="vid-class" controls controlslist="nodownload" disablepictureinpicture playsinline muted autoplay loop src="https://res.cloudinary.com/dmsnrcusf/video/upload/f_mp4/v1755058219/goodreads-2-swipe_iwudt3.mov"></video>
+                        <img class="img-overlay" src="img/phone-overlay.png" width="864" height="1769" alt="Phone frame border">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ IMPACT ══════════════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Impact</p>
+                <h3 class="vu-section-title">What these changes could mean for Goodreads users</h3>
+
+                <div class="vu-impact-grid">
+                    <div class="vu-impact-block">
+                        <span class="vu-impact-emoji">⚡</span>
+                        <p class="vu-impact-title">Fewer steps to organize books</p>
+                        <p class="vu-impact-body">Adding a book to a custom list now happens from a single screen instead of navigating through multiple modals — removing the friction that was causing users to abandon the shelving feature entirely.</p>
+                    </div>
+                    <div class="vu-impact-block">
+                        <span class="vu-impact-emoji">🧠</span>
+                        <p class="vu-impact-title">Clearer distinction between status and lists</p>
+                        <p class="vu-impact-body">Separating Book Status from Lists removes a conceptual ambiguity that confused even experienced users, and creates a natural home for the "Did Not Finish" status they'd been asking for.</p>
+                    </div>
+                    <div class="vu-impact-block">
+                        <span class="vu-impact-emoji">🔍</span>
+                        <p class="vu-impact-title">Faster access to key book information</p>
+                        <p class="vu-impact-body">Tab navigation eliminates the excessive scrolling needed to find ratings, genres, and similar titles — and removes the bias that came from showing star ratings before the plot summary.</p>
+                    </div>
+                    <div class="vu-impact-block">
+                        <span class="vu-impact-emoji">📓</span>
+                        <p class="vu-impact-title">A private space alongside the public one</p>
+                        <p class="vu-impact-body">The Book Diary gives readers a dedicated place for personal notes and re-reading annotations — a feature users had been improvising with third-party apps — without disrupting the existing public review system.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ CHALLENGES ══════════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Challenges</p>
+                <h3 class="vu-section-title">Working within real constraints</h3>
+
+                <div class="vu-opps-grid vu-mt-lg">
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">01</span>
+                        <p class="vu-opp-title">Reducing steps without hiding features</p>
+                        <p class="vu-opp-body">Simplifying the shelving flow meant consolidating screens and removing intermediate steps — but advanced options like creating a new list or editing privacy settings still needed to be discoverable. I resolved this through careful hierarchy decisions: the most common action is immediately visible, while less-frequent options follow the app's existing secondary interaction patterns so nothing feels hidden.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">02</span>
+                        <p class="vu-opp-title">Designing within Goodreads' visual language</p>
+                        <p class="vu-opp-body">All proposed changes had to align with Goodreads' current typography, color palette, iconography, and layout conventions. Staying within these constraints meant I couldn't fix every visual problem I found — but it forced me to focus on what mattered most: structural and interaction improvements that feel like a natural evolution of the existing experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ REFLECTION (dark) ══════════════════════════════════ -->
+        <div class="vu-reflection">
+            <div class="vu-reflection-inner">
+                <p class="vu-section-eyebrow">Reflection</p>
+                <h3 class="vu-section-title">Working solo, and grounding decisions in data</h3>
+                <p class="vu-section-body vu-mb-md">Working as a solo designer on this project was genuinely different from the group dynamic I was used to. I missed having teammates to sanity-check ideas against — there were moments when I wasn't sure if a decision was well-reasoned or just familiar because I'd been staring at it too long. I compensated by going back to the research data whenever I felt uncertain: if I couldn't connect a decision to a specific finding, I reconsidered it.</p>
+                <p class="vu-section-body">The constraint of working within Goodreads' existing design language was, in retrospect, one of the most valuable parts of the project. It pushed me to focus on usability improvements rather than visual ones — and helped me realize how much design impact lives in structure, flow, and hierarchy rather than aesthetics. What I'd do differently: find a way to usability test the prototypes with real users before finalizing. The research grounded my decisions well, but direct feedback on the redesigned flows would have added another layer of confidence.</p>
+            </div>
+        </div>
+
+
+        <!-- ══ UP NEXT ════════════════════════════════════════════ -->
+        <div class="vu-up-next">
+            <p class="up-next-label">Up next</p>
+            <div class="vu-up-next-grid">
+                <a href="speculative-listerine.html" class="up-next-card">
+                    <img src="img/listerine-project-card-long.png" width="1641" height="865" alt="Listerine Full Meal + project">
+                    <div class="vu-project-card-badges">
+                        <span class="vu-project-card-badge">Speculative Design</span>
+                    </div>
+                    <div class="up-next-card-info">
+                        <p class="up-next-card-title">Listerine Full Meal +</p>
+                        <p class="up-next-card-tag">Speculative Design / Design Fiction</p>
+                    </div>
+                </a>
+                <a href="goodreads-vu-style.html" class="up-next-card">
+                    <img src="img/goodreads-project-card-long.png" width="1641" height="863" alt="Goodreads redesign Vu style">
+                    <div class="vu-project-card-badges">
+                        <span class="vu-project-card-badge">UX Research</span>
+                    </div>
+                    <div class="up-next-card-info">
+                        <p class="up-next-card-title">Goodreads — Vu Style</p>
+                        <p class="up-next-card-tag">UX Research / UI Design</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Design and code by yours truly.</p>
+        <p>Copyright &copy; 2026, Sahar Babaei</p>
+    </footer>
+</div>
 </body>
-
 </html>

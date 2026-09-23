@@ -145,57 +145,57 @@
 
 
 
-/*17- family black 600 italic  */
+/*17- family black 700 italic  */
 @font-face {
     font-display: swap; 
     font-family: 'family';
     font-style: italic;
-    font-weight: 600;
+    font-weight: 700;
     src: url('../fonts/test-family-black-italic.woff2') format('woff2');
 }
 
-/*18- family black 600   */
+/*18- family black 700   */
 @font-face {
     font-display: swap; 
     font-family: 'family';
     font-style: normal;
-    font-weight: 600;
+    font-weight: 700;
     src: url('../fonts/test-family-black.woff2') format('woff2');
 }
 
-/*19- family bold 400 italic  */
-@font-face {
-    font-display: swap; 
-    font-family: 'family';
-    font-style: italic;
-    font-weight: 400;
-    src: url('../fonts/test-family-bold-italic.woff2') format('woff2');
-}
-
-/*20- family bold 400   */
-@font-face {
-    font-display: swap; 
-    font-family: 'family';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/test-family-bold.woff2') format('woff2');
-}
-
-/*21- family heavy 500 italic  */
+/*19- family bold 500 italic  */
 @font-face {
     font-display: swap; 
     font-family: 'family';
     font-style: italic;
     font-weight: 500;
-    src: url('../fonts/test-family-heavy-italic.woff2') format('woff2');
+    src: url('../fonts/test-family-bold-italic.woff2') format('woff2');
 }
 
-/*22- family heavy 500   */
+/*20- family bold 500   */
 @font-face {
     font-display: swap; 
     font-family: 'family';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
+    src: url('../fonts/test-family-bold.woff2') format('woff2');
+}
+
+/*21- family heavy 600 italic  */
+@font-face {
+    font-display: swap; 
+    font-family: 'family';
+    font-style: italic;
+    font-weight: 600;
+    src: url('../fonts/test-family-heavy-italic.woff2') format('woff2');
+}
+
+/*22- family heavy 600   */
+@font-face {
+    font-display: swap; 
+    font-family: 'family';
+    font-style: normal;
+    font-weight: 600;
     src: url('../fonts/test-family-heavy.woff2') format('woff2');
 }
 
@@ -208,21 +208,21 @@
     src: url('../fonts/test-family-italic.woff2') format('woff2');
 }
 
-/*24- family light 100 italic  */
+/*24- family light 200 italic  */
 @font-face {
     font-display: swap; 
     font-family: 'family';
     font-style: italic;
-    font-weight: 100;
+    font-weight: 200;
     src: url('../fonts/test-family-light-italic.woff2') format('woff2');
 }
 
-/*25- family light 100   */
+/*25- family light 200   */
 @font-face {
     font-display: swap; 
     font-family: 'family';
     font-style: normal;
-    font-weight: 100;
+    font-weight: 200;
     src: url('../fonts/test-family-light.woff2') format('woff2');
 }
 

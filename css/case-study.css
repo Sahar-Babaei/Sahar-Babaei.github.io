@@ -1,0 +1,527 @@
+/* ============================================================
+   CASE STUDY — EDITORIAL SYSTEM
+   A single, reusable section template for every case study.
+   Priorities: generous whitespace, narrative headlines that
+   carry the story, and a small, disciplined component set.
+   Prefix: cs- (case study), kept separate from the old vu-
+   library so the two systems never collide.
+   ============================================================ */
+
+.cs-page {
+    background: #fff;
+}
+
+/* ── Shared layout primitives ───────────────────────────── */
+
+.cs-container {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 0 1.75rem;
+}
+
+.cs-container-wide {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 1.75rem;
+}
+
+.cs-section {
+    padding: 5rem 0;
+}
+
+.cs-section-tinted {
+    background: #f7f6f2;
+}
+
+.cs-eyebrow {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    margin: 0 0 1.25rem;
+}
+
+/* The narrative headline — does the storytelling work.
+   Full sentences, not topic labels. Matches the site's existing
+   voice: "family" typeface at a light weight, never bold. */
+.cs-headline {
+    font-family: "family", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+    line-height: 1.35;
+    color: #111;
+    margin: 0 0 1.5rem;
+    max-width: 36rem;
+}
+
+.cs-headline-wide {
+    max-width: 44rem;
+}
+
+/* Body copy — one measure, generous line-height, short by design */
+.cs-body {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: #3a3a3a;
+    max-width: 34rem;
+    margin: 0;
+}
+
+.cs-body + .cs-body {
+    margin-top: 1.1rem;
+}
+
+.cs-body-wide {
+    max-width: 40rem;
+}
+
+/* ── Hero ────────────────────────────────────────────────── */
+
+.cs-hero {
+    padding: 3.5rem 0 0;
+}
+
+.cs-hero-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.85rem;
+    color: var(--secondary-bodycopy-color);
+    text-decoration: none;
+    margin-bottom: 2.5rem;
+}
+
+.cs-hero-back svg {
+    width: 0.9rem;
+    height: 0.9rem;
+}
+
+.cs-hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.9rem;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--secondary-bodycopy-color);
+    margin-bottom: 1.5rem;
+}
+
+.cs-hero h2 {
+    font-family: "family", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: clamp(1.7rem, 3.6vw, 2.5rem);
+    line-height: 1.3;
+    color: var(--lighter-black);
+    max-width: 42rem;
+    margin: 0 0 2rem;
+}
+
+.cs-hero-sub {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #3a3a3a;
+    max-width: 38rem;
+    margin: 0 0 3rem;
+}
+
+/* Slim fact strip — replaces boxed meta cards with a plain,
+   divided row. Four facts max; if a project needs more, the
+   facts are wrong, not the layout. */
+.cs-fact-strip {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e5e5e0;
+    margin-bottom: 3rem;
+}
+
+.cs-fact-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--secondary-bodycopy-color);
+    margin: 0 0 0.35rem;
+}
+
+.cs-fact-value {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.98rem;
+    font-weight: 400;
+    color: #222;
+    margin: 0;
+}
+
+.cs-hero-image {
+    width: 100%;
+}
+
+.cs-hero-image img {
+    width: 100%;
+    display: block;
+}
+
+.lightbox-zone img {
+    cursor: zoom-in;
+}
+
+/* ── Custom cursor follower (shared with cursor.js) ─────── */
+#cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: -14px;
+    margin-left: -14px;
+    width: 28px;
+    height: 28px;
+    background: transparent;
+    border: 1.5px solid var(--primary-color);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 8000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.22s ease, height 0.22s ease,
+                margin 0.22s ease, border-radius 0.22s ease,
+                background 0.22s ease, border-color 0.22s ease;
+    will-change: transform;
+}
+
+#cursor-ring.cursor-on-hoverable {
+    width: 9px;
+    height: 9px;
+    margin-top: -4.5px;
+    margin-left: -4.5px;
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+#cursor-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0;
+    color: white;
+    font-weight: 400;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: font-size 0.2s ease;
+    text-align: center;
+    line-height: 1;
+}
+
+#cursor-ring.cursor-on-card {
+    width: 8.5rem;
+    height: 3.1rem;
+    margin-top: -1.55rem;
+    margin-left: -4.25rem;
+    border-radius: 0.6rem;
+    background: var(--primary-color);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+}
+
+#cursor-ring.cursor-on-card #cursor-label {
+    font-size: 0.96rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+}
+
+@media (hover: none) {
+    #cursor-ring { display: none; }
+}
+
+/* ── Figures & captions ─────────────────────────────────── */
+
+.cs-figure {
+    margin: 0;
+}
+
+.cs-figure img,
+.cs-figure video {
+    width: 100%;
+    display: block;
+    border-radius: 0.5rem;
+}
+
+.cs-caption {
+    font-family: "abc-diatype-round", sans-serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--secondary-bodycopy-color);
+    margin: 0.85rem 0 0;
+    max-width: 34rem;
+}
+
+.cs-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: #f0efeb;
+    border: 1px dashed #d5d5cf;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9c9c93;
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* ── Two-column editorial split ─────────────────────────── */
+/* Text on one side, a single supporting image on the other.
+   The workhorse layout for context / process sections. */
+.cs-split {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.cs-split-text-first .cs-split-media { order: 2; }
+.cs-split-text-first .cs-split-text { order: 1; }
+
+/* ── Full-width single image beat ───────────────────────── */
+.cs-beat {
+    margin-top: 3rem;
+}
+
+.cs-beat-heading {
+    font-family: "family", sans-serif;
+    font-weight: 500;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: #111;
+    margin: 0 0 0.5rem;
+}
+
+.cs-beat-body {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.98rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: #3a3a3a;
+    max-width: 34rem;
+    margin: 0 0 1.25rem;
+}
+
+/* ── Plain list ──────────────────────────────────────────
+   Replaces boxed "opportunity cards" — a hairline-divided
+   list instead of a grid of grey boxes. Used for findings,
+   controls, limitations, recommendations: anything that was
+   a card grid before. */
+.cs-list {
+    margin-top: 2.5rem;
+    border-top: 1px solid #e5e5e0;
+}
+
+.cs-list-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #e5e5e0;
+}
+
+.cs-list-marker {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.cs-list-title {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 1.02rem;
+    font-weight: 500;
+    color: #161616;
+    margin: 0;
+}
+
+.cs-list-body {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: #4a4a4a;
+    margin: 0;
+    max-width: 34rem;
+}
+
+/* ── Stat row ────────────────────────────────────────────
+   Plain numbers, no card chrome. */
+.cs-stat-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e5e5e0;
+}
+
+.cs-stat-number {
+    font-family: "family", sans-serif;
+    font-weight: 400;
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    color: var(--primary-color);
+    margin: 0 0 0.35rem;
+    line-height: 1;
+}
+
+.cs-stat-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #4a4a4a;
+    margin: 0;
+}
+
+/* ── Pull quote — used sparingly, for a real participant
+   quote or a single load-bearing line. ─────────────────── */
+.cs-quote {
+    max-width: 36rem;
+    margin: 3rem 0 0;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--primary-color);
+}
+
+.cs-quote p {
+    font-family: "family", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+    line-height: 1.5;
+    color: var(--primary-color);
+    margin: 0 0 0.6rem;
+}
+
+.cs-quote cite {
+    font-family: "abc-diatype-round", sans-serif;
+    font-style: normal;
+    font-size: 0.82rem;
+    color: var(--secondary-bodycopy-color);
+}
+
+/* ── Reflection / closing ───────────────────────────────── 
+   Same visual weight as every other section — this isn't the
+   "big finish," it's just the last stop. */
+.cs-reflection {
+    background: #f7f6f2;
+    padding: 5rem 0;
+    border-top: 1px solid #e5e5e0;
+}
+
+/* ── Up next ─────────────────────────────────────────────── */
+.cs-up-next {
+    padding: 4rem 0 5rem;
+}
+
+.cs-up-next-label {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--secondary-bodycopy-color);
+    margin: 0 0 1.5rem;
+}
+
+.cs-up-next-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.cs-up-next-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.cs-up-next-card img {
+    width: 100%;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.cs-up-next-card h4 {
+    font-family: "family", sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #111;
+    margin: 0 0 0.25rem;
+}
+
+.cs-up-next-card p {
+    font-family: "abc-diatype-round", sans-serif;
+    font-size: 0.85rem;
+    color: var(--secondary-bodycopy-color);
+    margin: 0;
+}
+
+/* ============================================================
+   BREAKPOINTS — aligned to the site's existing scale
+   ============================================================ */
+
+@media (min-width: 40.75rem) {
+    .cs-fact-strip {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .cs-stat-row {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 57.5rem) {
+    .cs-container,
+    .cs-container-wide {
+        padding: 0 2.5rem;
+    }
+
+    .cs-section {
+        padding: 7rem 0;
+    }
+
+    .cs-reflection {
+        padding: 7rem 0;
+    }
+
+    .cs-hero {
+        padding: 5rem 0 0;
+    }
+
+    .cs-split {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+
+    .cs-split-wide-media {
+        grid-template-columns: 0.85fr 1.15fr;
+    }
+
+    .cs-list-item {
+        grid-template-columns: 16rem 1fr;
+        align-items: baseline;
+        gap: 2rem;
+    }
+
+    .cs-up-next-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+    }
+}

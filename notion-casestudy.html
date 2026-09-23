@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Notion Slash Commands Study — Sahar Babaei</title>
+    <meta name="description" content="A controlled experiment testing whether Notion's slash commands allow users to complete tasks faster than UI buttons on mobile — UX research by Sahar Babaei.">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Sahar Babaei" />
+    <link rel="manifest" href="img/favicon/site.webmanifest" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-Regular-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-RegularItalic-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-Medium-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-light.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/breakpoints.css">
+    <link rel="stylesheet" href="css/casestudy-extra.css">
+    <script src="js/nav.js" defer></script>
+    <script src="js/lightbox.js" defer></script>
+    <script src="js/cursor.js" defer></script>
+</head>
+<body class="vu-page">
+<div class="main-wrapper">
+    <header id="site-header" class="nav-section"></header>
+
+    <main>
+        <!-- ══ HERO ══════════════════════════════════════════════ -->
+        <div class="vu-hero vu-hero--split">
+            <div class="vu-hero-inner">
+                <a href="Projects.html" class="vu-hero-back">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 8H1M1 8L6.5 2.5M1 8L6.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Back to projects
+                </a>
+
+                <div class="vu-hero-grid">
+                    <div class="vu-hero-text">
+                        <h2>Should Notion add shortcut commands to mobile? A controlled experiment.</h2>
+                        <p class="vu-hero-sub">I ran a controlled experiment to find out whether Notion's keyboard shortcuts actually give desktop users a measurable efficiency advantage over mobile, and whether it's worth considering adding such shortcuts to the mobile version of the platform.</p>
+                    </div>
+                    <div class="vu-meta-row">
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Role</span>
+                            <p class="vu-meta-value"> UX research | Data Analysis</p>
+                        </div>
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Methods</span>
+                            <p class="vu-meta-value">Within-subjects experiment | Paired T-test</p>
+                        </div>
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Tools</span>
+                            <p class="vu-meta-value">Figma | Excel | Google Forms </p>
+                        </div>
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Duration</span>
+                            <p class="vu-meta-value">3 week long, Solo Academic Project</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lightbox-zone vu-hero-img-wrap">
+                <img class="vu-full-img" src="img/Notion-hero.webp" width="2200" height="966"
+                     alt="Notion's desktop slash-command menu shown side by side with its mobile formatting toolbar">
+                <p class="vu-img-caption">Desktop's shortcut menu vs. mobile's tap-through menu.</p>
+            </div>
+        </div>
+
+
+
+        <!-- ══ CONTEXT / RESEARCH QUESTION / HYPOTHESIS ══════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+
+                <p class="vu-section-eyebrow">Context</p>
+                <h3 class="vu-section-title">Notion's mobile app lacks the valuable keyboard shortcuts available on desktop and web.</h3>
+                <p class="vu-section-body">Notion is a workspace for writing documents, organizing information, and managing projects. On desktop and web, users can type “/” followed by a keyword (/page, /todo, /quote) to quickly create or format content.  </p>
+                <p class="vu-section-body vu-mt-md">This is a beloved feature among the more experienced users of the platform as it increases their efficiency. However, on mobile, such shortcuts are unavailable, so users must open the “+” menu and scroll through a long list of options instead.</p>
+
+
+                <div class="lightbox-zone vu-two-img-grid vu-mt-lg">
+                    <figure>
+                        <img class="vu-full-img vu-rounded-img" src="img/Notion-input-desktop.webp" width="2048" height="1500" alt="Notion's slash-command menu open on desktop after typing “/lis”, showing list-type block options">
+                        <figcaption class="vu-img-caption">The shortcut slash commands shown on the desktop platform.</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="vu-full-img vu-rounded-img" src="img/Notion-input-mobile.webp" width="2048" height="1500" alt="Notion's mobile block-type menu opened from the “+” button, showing a scrollable grid of formatting options">
+                        <figcaption class="vu-img-caption">Mobile's "+" menu — tapped through instead of typed.</figcaption>
+                    </figure>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ══ PROBLEM / MISSION ═══════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <div class="vu-problem-solution-grid">
+                    <div class="vu-ps-block">
+                        <p class="vu-ps-label problem">Research Question</p>
+                        <p class="vu-ps-statement">Does using keyboard slash commands allow users to complete tasks faster than navigating Notion's mobile interface?</p>
+                        
+                    </div>
+                    <div class="vu-ps-block">
+                        <p class="vu-ps-label solution">The Mission</p>
+                        <p class="vu-ps-statement">To test whether slash (/) commands measurably improve efficiency, and whether adding them to Notion's mobile app is worth it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ STUDY DESIGN ══════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Designing the study</p>
+                <h3 class="vu-section-title">Comparing two workflows in a controlled experiment</h3>
+
+                <p class="vu-section-body">The study compared two ways of creating and formatting content: keyboard slash commands on desktop and UI controls on mobile. For each condition, task completion time and number of errors made were measured as dependent variables.</p>
+
+
+                <div class="vu-condition-grid vu-mt-lg">
+                    <div class="vu-condition-block">
+                        <p class="vu-condition-label">Condition A</p>
+                        <p class="vu-condition-title">Using keyboard slash commands on Desktop</p>
+                        <p class="vu-measured-label">Measured:</p>
+                        <p class="vu-text-sm">task completion time + number of errors</p>
+                        
+                    </div>
+                    <div class="vu-condition-vs">vs</div>
+                    <div class="vu-condition-block">
+                        <p class="vu-condition-label">Condition B</p>
+                        <p class="vu-condition-title">Using UI menus &amp; gestures on Mobile</p>
+                        <p class="vu-measured-label">Measured:</p>     
+                        <p class="vu-text-sm">task completion time + number of errors</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vu-inner-wrap vu-mt-xl">
+
+                <p class="vu-section-body">I chose a within-subjects quantitative controlled experiment to test whether the input method changes task efficiency. To prove my hypothesis, I had to find proof for rejecting the opposite of the hypothesis, which is called a null hypothesis. The null hypothesis provides the baseline for the statistical test: if the observed difference is unlikely to have occurred by chance, the null hypothesis can be rejected.</p>
+
+                <div class="ed-story">
+                     <div class="ed-story-item"><strong>Hypothesis</strong><span>When creating input blocks in Notion, slash commands will allow users to perform tasks faster than using UI buttons.</span></div>
+                    <div class="ed-story-item"><strong>Null Hypothesis</strong><span>When creating input blocks in Notion, slash commands will not allow users to perform tasks faster than using UI buttons.</span></div>
+                </div>
+
+            </div>
+
+            <div class="vu-inner-wrap vu-mt-xl">
+                <h3 class="vu-section-title">The Structure of the Study</h3>
+
+                <div class="vu-study-steps">
+                    <div class="vu-study-step">
+                        <span class="vu-study-step-num">01</span>
+                        <p class="vu-study-step-title">Pre-test questionnaire</p>
+                        <p class="vu-study-step-body">Established each participant's baseline familiarity with Notion and its keyboard shortcuts.</p>
+                    </div>
+                    <div class="vu-study-step">
+                        <span class="vu-study-step-num">02</span>
+                        <p class="vu-study-step-title">Controlled task session</p>
+                        <p class="vu-study-step-body">Participants performed the same five tasks under both conditions while screen sharing.</p>
+                    </div>
+                    <div class="vu-study-step">
+                        <span class="vu-study-step-num">03</span>
+                        <p class="vu-study-step-title">Post-test questionnaire</p>
+                        <p class="vu-study-step-body">Captured each participant's subjective preferences and reflections after the experiment.</p>
+                    </div>
+                </div>
+            </div>
+
+  
+
+        </div>
+
+
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+            <p class="vu-section-eyebrow">Participants</p>
+                <h3 class="vu-section-title">8 Notion users, recruited for prior experience</h3>
+                <p class="vu-section-body">The study involved 8 participants who used Notion in their day-to-day life and didn't need to be onboarded on its functionality. They also self-reported to be comfortable working with both keyboards and touchscreens.</p>
+
+
+                <div class="vu-highlight-grid">
+                    <div class="vu-highlight-card">
+                        <p class="vu-highlight-value">87.5%</p>
+                        <p class="vu-highlight-detail">Used desktop as their primary platform.</p>
+                    </div>
+                    <div class="vu-highlight-card">
+                        <p class="vu-highlight-value">75%</p>
+                        <p class="vu-highlight-detail">Were not familiar with slash commands despite regular Notion use.</p>
+                    </div>
+                     <div class="vu-highlight-card">
+                        <p class="vu-highlight-value">100%</p>
+                        <p class="vu-highlight-detail">Reported using Notion for note taking, productivity, and document keeping.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- ══ PARTICIPANTS ══════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            
+            
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Controls</p>
+                <h3 class="vu-section-title">Controlling for potential sources of bias</h3>
+                 <div class="vu-opps-grid vu-cols-2">
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">🎯</span>
+                        <p class="vu-opp-title">Choosing the right participants</p>
+                        <p class="vu-opp-body">All recruited participants were familiar with Notion. This was important because shortcuts are usually not targeted towards novice users.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">📋</span>
+                        <p class="vu-opp-title">Standardized instructions</p>
+                        <p class="vu-opp-body">All participants received identical instruction sheets containing 5 tasks, ensuring the same exact steps were performed across both conditions.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">📖</span>
+                        <p class="vu-opp-title">Reference guide provided</p>
+                        <p class="vu-opp-body">Participants were provided with a visual guide to keyboard slash commands and mobile UI controls to account for lack of prior shortcut knowledge.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">🔀</span>
+                        <p class="vu-opp-title">Counterbalancing Platform Order</p>
+                        <p class="vu-opp-body">Half of the participants started with mobile as their beginning platform, and the other half with desktop. This was done to reduce practice and fatigue bias.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">🐞</span>
+                        <p class="vu-opp-title">Defining and tracking errors</p>
+                        <p class="vu-opp-body">Typos, mis-clicks, and incorrect outputs were recorded as errors to account for time wasted. Slow typing or time spent thinking were not considered errors.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">🔁</span>
+                        <p class="vu-opp-title">Within subjects design</p>
+                        <p class="vu-opp-body">Every participant completed both conditions and acted as their own control to account for individual differences in typing speed and dexterity.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ══ THE TASKS ═════════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Choosing the right tasks</p>
+                <h3 class="vu-section-title">5 tasks, varying in complexity and mode-switching demand</h3>
+                <p class="vu-section-body">The instructed tasks in the study were designed to mirror how participants used Notion on a daily basis. The tasks were designed to have different complexities in order to produce more insightful data regarding the impact of input methods on task completion speed.</p>
+
+                <div class="vu-numbered-list vu-mt-xl vu-mb-xl ">
+                    <div class="vu-numbered-item">
+                        <span class="vu-numbered-num">01</span>
+                        <div>
+                            <p class="vu-numbered-title">Make a new page <span class="vu-tag grey">Low complexity</span></p>
+                            <p class="vu-numbered-body">Create a new page and give it a name.</p>
+                        </div>
+                    </div>
+                    <div class="vu-numbered-item">
+                        <span class="vu-numbered-num">02</span>
+                        <div>
+                            <p class="vu-numbered-title">Build a nested to-do list <span class="vu-tag orange">High complexity</span></p>
+                            <p class="vu-numbered-body">Create a toggle, add a to-do list, then add five items.</p>
+                        </div>
+                    </div>
+                    <div class="vu-numbered-item">
+                        <span class="vu-numbered-num">03</span>
+                        <div>
+                            <p class="vu-numbered-title">Create a heading <span class="vu-tag grey">Low complexity</span></p>
+                            <p class="vu-numbered-body">Create a Heading 2 and add “Meeting Agenda.”</p>
+                        </div>
+                    </div>
+                    <div class="vu-numbered-item">
+                        <span class="vu-numbered-num">04</span>
+                        <div>
+                            <p class="vu-numbered-title">Embed an image from a URL <span class="vu-tag orange">High complexity</span></p>
+                            <p class="vu-numbered-body">Create an embed using the provided URL.</p>
+                        </div>
+                    </div>
+                    <div class="vu-numbered-item">
+                        <span class="vu-numbered-num">05</span>
+                        <div>
+                            <p class="vu-numbered-title">Create a bold quote block <span class="vu-tag grey">Med complexity</span></p>
+                            <p class="vu-numbered-body">Create a quote block, enter text, select it, and apply bold.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lightbox-zone vu-single-img-section">
+                    <figure>
+                          <img class="vu-full-img vu-rounded-img" src="img/Notion-tasks.webp" width="2200" height="1555" alt="List of instructions provided to participants for both desktop and mobile platforms">
+                        <figcaption class="vu-img-caption">Desktop and mobile instructions provided to all participants.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ RESULTS ═══════════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Results</p>
+                <h3 class="vu-section-title">Using slash commands on desktop was faster and less error-prone across all 5 tasks.</h3>
+                <p class="vu-section-body">The average time it took to perform each task was always slower on mobile. Similarly, participants produced more than twice as many errors on mobile compared to desktop. This matters because errors can create additional completion time. A participant who mis-taps or enters the wrong content has to spend extra time recovering.</p>
+
+                <div class="vu-result-grid">
+                    <div class="vu-result-card">
+                        <p class="vu-result-title">Total time to complete all 5 tasks</p>
+                        <div class="vu-result-compare">
+                            <div>
+                                <p class="vu-result-platform">DESKTOP</p>
+                                <p class="vu-result-value">102.6<span class="vu-result-unit">s avg</span></p>
+                            </div>
+                            <span class="vu-result-arrow">&#8594;</span>
+                            <div>
+                                <p class="vu-result-platform">MOBILE</p>
+                                <p class="vu-result-value">165.5<span class="vu-result-unit">s avg</span></p>
+                            </div>
+                        </div>
+                        <!-- <div class="vu-result-badge">✓ Statistically significant, p &lt; 0.001</div> -->
+                        <p class="vu-result-note">Standard deviation was tighter on desktop (13.8 vs. 29.4) — meaning mobile performance wasn't just slower, it was far more inconsistent across participants.</p>
+                    </div>
+                    <div class="vu-result-card">
+                        <p class="vu-result-title">Total errors across all 5 tasks</p>
+                        <div class="vu-result-compare">
+                            <div>
+                                <p class="vu-result-platform">DESKTOP</p>
+                                <p class="vu-result-value">1.9<span class="vu-result-unit">avg errors</span></p>
+                            </div>
+                            <span class="vu-result-arrow">&#8594;</span>
+                            <div>
+                                <p class="vu-result-platform">MOBILE</p>
+                                <p class="vu-result-value">4.4<span class="vu-result-unit">avg errors</span></p>
+                            </div>
+                        </div>
+                        <!-- <div class="vu-result-badge">✓ Statistically significant, p &lt; 0.001</div> -->
+                        <p class="vu-result-note">Mobile produced more than double the errors on average. This is a confound I address directly in the Limitations section.</p>
+                    </div>
+                </div>
+
+                <div class="lightbox-zone vu-two-img-grid">
+                    <figure>
+                        <img class="vu-full-img vu-rounded-img" src="img/Notion-avg-time-chart.webp" width="2200" height="1438" alt="Chart showing average time it took for the 5 tasks in conditions A and B">
+                        <figcaption class="vu-img-caption">Desktop avg: 102.6s (SD 13.8). Mobile avg: 165.5s (SD 29.4).</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="vu-full-img vu-rounded-img" src="img/Notion-avg-error-chart.webp" width="2200" height="1438" alt="Chart showing average number of errors made in conditions A and B">
+                        <figcaption class="vu-img-caption">Desktop avg errors: 1.87. Mobile avg errors: 4.375 (SD 1.685).</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ STATISTICAL VALIDATION ════════════════════════════ -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Statistical validation</p>
+                <h3 class="vu-section-title">The observed difference was statistically significant.</h3>
+                <p class="vu-section-body">With only 8 people, a faster average on desktop could just mean I happened to recruit 8 fast typists. To rule that out, I ran a paired two-tailed T-test — a standard check that asks, “how likely is it that the observed difference happened by chance?” If the calculated P-value is below 0.001, then there is 0.1% or less chance that the observed difference was due to chance or randomness, and as a result, the null hypothesis can be rejected to provide evidence for the alternative hypothesis.</p>
+
+                <div class="vu-highlight-grid">
+                    <div class="vu-highlight-card featured">
+                        <p class="vu-highlight-label">Task time — T-test result</p>
+                        <p class="vu-highlight-value">P = 0.000657</p>
+                        <p class="vu-highlight-detail">Below 0.001. Meaning there is a 0.1% or less probability this difference is due to chance. Null hypothesis confidently rejected.</p>
+                    </div>
+                    <div class="vu-highlight-card">
+                        <p class="vu-highlight-label">Error rate — T-test result</p>
+                        <p class="vu-highlight-value">P = 0.000589</p>
+                        <p class="vu-highlight-detail">Also below 0.001. Slash commands were associated with significantly fewer errors too, although this wasn't the primary hypothesis.</p>
+                    </div>
+                </div>
+
+                <div class="vu-threshold-table">
+                    <div class="vu-threshold-row">
+                        <span class="vu-threshold-label">P &lt; 0.05</span>
+                        <span class="vu-threshold-meaning">Significant — 5% probability of chance</span>
+                        <span class="vu-threshold-check">Achieved ✓</span>
+                    </div>
+                    <div class="vu-threshold-row">
+                        <span class="vu-threshold-label">P &lt; 0.01</span>
+                        <span class="vu-threshold-meaning">Highly significant — 1% probability of chance</span>
+                        <span class="vu-threshold-check">Achieved ✓</span>
+                    </div>
+                    <div class="vu-threshold-row">
+                        <span class="vu-threshold-label">P &lt; 0.001</span>
+                        <span class="vu-threshold-meaning">Very highly significant — 0.1% probability of chance</span>
+                        <span class="vu-threshold-check">Achieved ✓</span>
+                    </div>
+
+
+                </div>
+
+               <div class="lightbox-zone vu-single-img-section">
+                    <figure>
+                        <img class="vu-full-img vu-rounded-img" src="img/Notion-t-test-table.webp" width="2200" height="640" alt="Per-task T-test breakdown showing each task's p-value and whether the null hypothesis was rejected at p < 0.05, 0.01, and 0.001; total p = 0.000657, confidently rejected at the 0.001 level">
+                        <figcaption class="vu-img-caption">Per-task T-test breakdown.</figcaption>
+                    </figure>
+                 </div>
+                
+            </div>
+        </div>
+
+
+        <!-- ══ Closer look atRESULTS ═══════════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Data Interpretation</p>
+                <h3 class="vu-section-title">The difference is the most significant for complex tasks.</h3>
+                <p class="vu-section-body">Looking at individual tasks revealed a more useful pattern. The strongest differences appeared when tasks involved multiple steps or mode switching. This suggests the advantage of slash commands scales with task complexity, rather than being a flat speed bonus.</p>
+
+                 <div class="lightbox-zone vu-single-img-section vu-mb-lg">
+                    <figure>
+                        <img class="vu-full-img vu-rounded-img" src="img/Notion-5-tasks-chart.webp" width="2200" height="830" alt="Graph showing the average time difference for each task between desktop and mobile.">
+                        <figcaption class="vu-img-caption">Graph showing the average time difference for each task.</figcaption>
+                    </figure>
+                 </div>
+
+                 <div class="vu-table-wrap card">
+                    <table class="vu-table card">
+                        <thead>
+                            <tr><th>Task</th><th>Complexity</th><th>Observation</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Task 1</strong> — Creating a new page </td><td><span class="vu-tag grey">Low complexity</span></td><td><span class="vu-threshold-grey">Not enough difference</span></td></tr>
+
+                            <tr><td><strong>Task 2</strong> — Building a nested to-do list </td><td><span class="vu-tag orange">High complexity</span></td><td><span class="vu-threshold-check">Significant difference ✓</span></td></tr>
+
+                            <tr><td><strong>Task 3</strong> — Creating a heading</td><td><span class="vu-tag grey">Low complexity</span></td><td><span class="vu-threshold-grey">No significant difference</span></td></tr>
+
+                            <tr><td><strong>Task 4</strong> — Embedding an image</td><td><span class="vu-tag orange">High complexity</span></td><td><span class="vu-threshold-check">Significant difference ✓</span></td></tr>
+
+                            <tr><td><strong>Task 5</strong> — Formatting a quote</td><td><span class="vu-tag grey">Med complexity</span></td><td><span class="vu-threshold-grey">Not enough difference</span></td></tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <!-- <div class="vu-stat-rows">
+                    <div class="vu-stat-row">
+                        <div>
+                            <p class="vu-stat-row-title">Task 1 — Low complexity</p>
+                            <p class="vu-stat-row-sub">Creating a new page (single step)</p>
+                        </div>
+ 
+                        <span class="vu-stat-pill partial">0.01 &lt; P &lt; 0.05 · No big difference</span>
+                    </div>
+                    <div class="vu-stat-row">
+                        <div>
+                            <p class="vu-stat-row-title">Task 2 — High complexity</p>
+                            <p class="vu-stat-row-sub">Building a nested to-do list (Multiple steps)</p>
+                        </div>
+
+                        <span class="vu-stat-pill sig">0.001 &lt; P &lt; 0.01 · Significant difference</span>
+                    </div>
+                    <div class="vu-stat-row">
+                        <div>
+                            <p class="vu-stat-row-title">Task 3 — Low complexity</p>
+                            <p class="vu-stat-row-sub">Creating a heading (single step)</p>
+                        </div>
+
+                        <span class="vu-stat-pill ns"> P &gt; 0.05 · Almost no difference</span>
+                    </div>
+                    <div class="vu-stat-row">
+                        <div>
+                            <p class="vu-stat-row-title">Task 4 — High complexity</p>
+                            <p class="vu-stat-row-sub">Embedding an image (Multiple steps)</p>
+                        </div>
+ 
+                        <span class="vu-stat-pill sig">P &lt; 0.001 · Significant difference</span>
+                    </div>
+                    <div class="vu-stat-row">
+                        <div>
+                            <p class="vu-stat-row-title">Task 5 — High complexity</p>
+                            <p class="vu-stat-row-sub">Formatting a quote (Multiple steps)</p>
+                        </div>
+
+                        <span class="vu-stat-pill partial">0.01 &lt; P &lt; 0.05 · No big difference</span>
+                    </div>
+
+                </div> -->
+
+                <p class="vu-section-body vu-mt-lg">Tasks 1 and 3, which were the simplest, had the smallest time difference gap. The largest gap appeared in Task 4, which involved embedding an image. For this task, users had to switch apps on their phone in order to copy the image link and paste it into Notion. They also made quite a few mistakes while doing so, which explains why this task had the longest duration.</p>
+
+                <p class="vu-userflow-heading"><span class="vu-userflow-icon">💻</span> Task 4 userflow on desktop</p>
+
+                 <div class="vu-flow-steps">
+                    <div class="vu-flow-step">
+                        <span class="vu-flow-step-num">STEP 1</span>
+                        <p class="vu-flow-step-title">Type /img to open embed</p>
+                    </div>
+                    <span class="vu-flow-arrow">→</span>
+                    <div class="vu-flow-step">
+                        <span class="vu-flow-step-num">STEP 2</span>
+                        <p class="vu-flow-step-title">Copy link from instruction sheet</p>
+                    </div>
+                    <span class="vu-flow-arrow">→</span>
+                    <div class="vu-flow-step">
+                        <span class="vu-flow-step-num">STEP 3</span>
+                        <p class="vu-flow-step-title">Paste link into embed box and press enter</p>
+                    </div>
+                </div>
+
+                 <p class="vu-userflow-heading"><span class="vu-userflow-icon">📱</span> Task 4 userflow on mobile</p>
+
+                 <div class="vu-flow-steps">
+                    <div class="vu-flow-step">
+                        <span class="vu-flow-step-num">STEP 1</span>
+                        <p class="vu-flow-step-title">Select embed option from the + menu</p>
+                    </div>
+                    <span class="vu-flow-arrow">→</span>
+                    <div class="vu-flow-step">
+                        <span class="vu-flow-step-num">STEP 2</span>
+                        <p class="vu-flow-step-title">Switch to external app to copy the image link</p>
+                    </div>
+                    <span class="vu-flow-arrow">→</span>
+                    <div class="vu-flow-step">
+                        <span class="vu-flow-step-num">STEP 3</span>
+                        <p class="vu-flow-step-title">Switch back to working Notion page</p>
+                    </div>
+                    <span class="vu-flow-arrow">→</span>
+                    <div class="vu-flow-step">
+                        <span class="vu-flow-step-num">STEP 4</span>
+                        <p class="vu-flow-step-title">Paste the link and tap embed</p>
+                    </div>
+                   
+                </div>
+
+                <div class="vu-key-insight">
+                    <span class="vu-key-insight-icon">💡</span>
+                    <div>
+                        <p class="vu-key-insight-label">Key insight</p>
+                        <p class="vu-key-insight-body">The value of continuous and uninterrupted input increases as the task becomes more complex and interaction-heavy.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!-- ══ WHAT PARTICIPANTS SAID ════════════════════════════ -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">What participants said</p>
+                <h3 class="vu-section-title">The data matched how participants felt</h3>
+                <p class="vu-section-body">The quantitative results matched what participants reported after the experiment.</p>
+
+                <div class="vu-stat-grid">
+                    <div class="vu-stat-block">
+                        <p class="vu-stat-number">100%</p>
+                        <p class="vu-stat-label">Said desktop platform felt more efficient</p>
+                    </div>
+                    <div class="vu-stat-block">
+                        <p class="vu-stat-number">100%</p>
+                        <p class="vu-stat-label">Said keyboard commands were more efficient</p>
+                    </div>
+                    <div class="vu-stat-block">
+                        <p class="vu-stat-number">87.5%</p>
+                        <p class="vu-stat-label">Found keyboard commands more comfortable/intuitive</p>
+                    </div>
+                    <div class="vu-stat-block">
+                        <p class="vu-stat-number">50%</p>
+                        <p class="vu-stat-label">Expressed a desire for slash commands on mobile</p>
+                    </div>
+                </div>
+
+                <div class="vu-insights-grid">
+                    <div class="vu-insight-card">
+                        <span class="vu-insight-mark">&ldquo;</span>
+                        <p class="vu-insight-quote">It's a lot easier to stick to typing rather than switch between keyboard and mouse and buttons and taps.</p>
+                        <p class="vu-insight-label">On staying in one mode</p>
+                    </div>
+                    <div class="vu-insight-card">
+                        <span class="vu-insight-mark">&ldquo;</span>
+                        <p class="vu-insight-quote">UI buttons are more intuitive as you can explore them on your own. But since I was told which keyboard commands to use, using them was easy and made tasks faster.</p>
+                        <p class="vu-insight-label">On discoverability vs speed</p>
+                    </div>
+                    <div class="vu-insight-card">
+                        <span class="vu-insight-mark">&ldquo;</span>
+                        <p class="vu-insight-quote">The hierarchy of the UI buttons is bad and there is no search button to quickly find the command I'm looking for.</p>
+                        <p class="vu-insight-label">On inefficiency of the mobile UI</p>
+                    </div>
+                    <div class="vu-insight-card">
+                        <span class="vu-insight-mark">&ldquo;</span>
+                        <p class="vu-insight-quote">I imagine once you learn to use slash commands on desktop, using them on mobile would feel intuitive.</p>
+                        <p class="vu-insight-label">On translation of slash commands to mobile</p>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+
+
+        <!-- ══ LIMITATIONS ══════════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Limitations</p>
+                <!-- <h3 class="vu-section-title">I can't fully separate "faster input" from "fewer mistakes"</h3>
+                <p class="vu-section-body">Mobile was both slower and more error-prone — participants made more typos and wrong taps there than on desktop. Fixing a mistake takes time. So when I say "mobile took longer," some of that extra time might really be "mobile caused more mistakes, and fixing mistakes takes time" — not the input method itself being slower. With only 8 people, I can't cleanly separate those two explanations from each other.</p> -->
+
+                <div class="vu-numbered-list vu-limitation-list">
+                    <div class="vu-numbered-item">
+                        <span class="vu-limitation-icon">🔗</span>
+                        <div>
+                            <p class="vu-limitation-title">Input speed and error rate were linked</p>
+                            <p class="vu-numbered-body">The perceived efficiency of the desktop platform could be due to the lower number of errors on desktop rather than the pure efficiency of the slash commands on desktop. However, I do not have enough data to support or deny this potential impact.</p>
+                        </div>
+                    </div>
+                    <div class="vu-numbered-item">
+                        <span class="vu-limitation-icon">🎛️</span>
+                        <div>
+                            <p class="vu-limitation-title">Both platform and input method were variable</p>
+                            <p class="vu-numbered-body">This study had two changing variables: platform type and input type. A cleaner experiment would keep the platform constant and only change input types. Due to time constraints, a mobile prototype for testing slash commands couldn't be built.</p>
+                        </div>
+                    </div>
+                    <div class="vu-numbered-item">
+                        <span class="vu-limitation-icon">🧭</span>
+                        <div>
+                            <p class="vu-limitation-title">User behavior outside of controlled experiments</p>
+                            <p class="vu-numbered-body">This study didn't reflect how people use Notion shortcuts in daily workflows. Users may use a combination of keyboard shortcuts, mouse inputs, UI buttons, etc. Such mixed input patterns can't be used in a controlled study.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ RECOMMENDATIONS ══════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Recommendations</p>
+                <h3 class="vu-section-title">So should Notion bring slash commands to mobile?</h3>
+
+                <div>
+                    <h4 class="vu-mb-sm">Not yet. But the result points to a problem worth solving.</h4>
+                    <p class="vu-section-body">The value of slash commands isn't the “/” itself. It's the ability to create and format content without having to switch input modes. This is especially important as many of Notion's functionalities involve typing. A mobile equivalent doesn't need to necessarily follow slash command, it just needs to cut how often users pause to navigate a menu. The question is what that looks like on the mobile platform.</p>
+                       
+                    </div>
+            </div>
+            <div class="vu-inner-wrap">
+              
+                <h3 class="vu-section-title vu-mt-lg">Recommended next steps</h3>
+
+                <div class="vu-opps-grid vu-mt-md">
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">01</span>
+                        <p class="vu-opp-title">Test both input methods on mobile.</p>
+                        <p class="vu-opp-body">Conduct a follow-up study that tests input methods on mobile only, comparing a test prototype using slash commands on mobile vs. the existing “+” menu to isolate input methods from platforms.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">02</span>
+                        <p class="vu-opp-title">Recruit a larger, more mobile-first sample.</p>
+                        <p class="vu-opp-body">I recommend recruiting a larger sample group who have more mobile-first experience, ensuring the group includes participants with varying backgrounds, motor abilities, and age ranges.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <!-- ══ REFLECTION ════════════════════════════════════════ -->
+        <div class="vu-reflection">
+            <div class="vu-reflection-inner">
+                
+                    <p class="vu-section-eyebrow">Reflection</p>
+                    <h3 class="vu-section-title">A good experiment is built around what could make the result wrong.</h3>
+
+                    
+                    <p class="vu-section-body">The most valuable lesson wasn't a finding about Notion. It was understanding how much a study's design shapes its results and conclusions.</p>
+
+                    
+                    <p class="vu-section-body">The many controls I considered did help with reducing different sources of bias. But the results revealed a limitation I hadn't fully isolated: by comparing desktop and mobile, I couldn't cleanly separate the effect of platform from the effect of input method.</p>
+
+                
+                    <p class="vu-section-body">Rather than treating a statistically significant result as the end of the research, I learned to ask what the experiment still couldn't tell me, and what the next study would need to isolate.</p>
+                
+             
+            </div>
+        </div>
+
+
+        <!-- ══ UP NEXT ════════════════════════════════════════════ -->
+        <div class="vu-up-next">
+            <p class="up-next-label">Up next</p>
+            <div class="vu-up-next-grid">
+                <a href="Reachability-casestudy.html" class="up-next-card">
+                    <img src="img/iphone-onehanded-project-card.png" width="2048" height="1277" alt="Apple's native Reachability feature next to the proposed full-time one-handed control panel">
+                    <div class="vu-project-card-badges">
+                        <span class="vu-project-card-badge">HCI Research</span>
+                    </div>
+                    <div class="up-next-card-info">
+                        <p class="up-next-card-title">Beyond reachability</p>
+                        <p class="up-next-card-tag">Redesigning iPhone's one handed mode</p>
+                    </div>
+                </a>
+                <!-- Not yet published on the Projects page — plain div,
+                     no href, "Coming soon" badge (see .up-next-card-soon
+                     in casestudy-extra.css). -->
+                <div class="up-next-card up-next-card-soon">
+                    <div class="up-next-card-frame">
+                        <img src="img/brainstreams-project-card-coming-soon.png" width="2048" height="1139" alt="Brainstreams — BC Brain Injury Association logo">
+                        <div class="vu-project-card-badges">
+                            <span class="vu-project-card-badge">Coming soon</span>
+                        </div>
+                    </div>
+                    <div class="up-next-card-info">
+                        <p class="up-next-card-title">Brainstreams website redesign</p>
+                        <p class="up-next-card-tag">UX research and web redesign for BCBIA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Design and code by yours truly.</p>
+        <p>Copyright &copy; 2026, Sahar Babaei</p>
+    </footer>
+</div>
+</body>
+</html>

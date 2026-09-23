@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Section Library — Sahar Babaei</title>
+    <meta name="description" content="A reference library of reusable case study section layouts for Sahar Babaei's UX portfolio.">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Sahar Babaei" />
+    <link rel="manifest" href="img/favicon/site.webmanifest" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-Regular-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-RegularItalic-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-Medium-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-light.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/breakpoints.css">
+    <link rel="stylesheet" href="css/casestudy-extra.css">
+    <script src="js/nav.js" defer></script>
+    <script src="js/lightbox.js" defer></script>
+    <script src="js/cursor.js" defer></script>
+</head>
+<body class="vu-page">
+<div class="main-wrapper">
+    <header id="site-header" class="nav-section"></header>
+
+    <main>
+        <div class="vu-lib-intro">
+            <h2>Section Library</h2>
+            <p>A working reference of reusable case study section layouts. Every pattern below uses the exact same "vu-" classes that the real case study pages use — copy the markup straight into a new case study and it'll just work, no separate stylesheet involved. Each block names what it's for and, where relevant, which live page already uses it.</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════
+             CATEGORY: HERO
+        ═══════════════════════════════════════════════════════════ -->
+        <div class="vu-lib-category">
+            <div class="vu-lib-category-inner">
+                <h3>Hero</h3>
+                <p>There is one canonical hero for the whole site — reuse it as-is rather than inventing a new one. Full markup reference: any real case study page, or casestudy-template.html.</p>
+            </div>
+        </div>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 01</span>
+                <p class="vu-lib-block-title">Hero</p>
+                <p class="vu-lib-usage">Used on every case study page. Classes: <strong>.vu-hero</strong>, <strong>.vu-hero--split</strong> (current variant — title/overview left, facts right at 75rem+), <strong>.vu-hero-inner</strong>, <strong>.vu-hero-back</strong>, <strong>.vu-hero-grid</strong>, <strong>.vu-hero-text</strong>, <strong>.vu-meta-row</strong>, <strong>.vu-hero-img-wrap</strong>. See casestudy-template.html for the full copy-paste block — it's long enough that repeating it here would just be a second copy to keep in sync.</p>
+            </div>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════════
+             CATEGORY: OPENING SUMMARY
+        ═══════════════════════════════════════════════════════════ -->
+        <div class="vu-lib-category">
+            <div class="vu-lib-category-inner">
+                <h3>Opening summary</h3>
+                <p>The first thing after the hero. Lets a reader get the whole story in 15 seconds before deciding whether to read on.</p>
+            </div>
+        </div>
+
+        <section class="vu-lib-block lightbox-zone">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 02</span>
+                <p class="vu-lib-block-title">Long Story Short</p>
+                <p class="vu-lib-usage">Used on every case study. Classes: <strong>.vu-lss-grid</strong>, <strong>.vu-lss-card</strong>. Fixed 2-column grid (not auto-fit) — keep it to 4 cards.</p>
+
+                <div class="vu-lss-grid">
+                    <div class="vu-lss-card">
+                        <span class="vu-lss-num">01</span>
+                        <p class="vu-lss-title">Research</p>
+                        <p class="vu-lss-body">Led 5 research methods across 20+ Goodreads users to surface the real friction points behind their most-used features.</p>
+                    </div>
+                    <div class="vu-lss-card">
+                        <span class="vu-lss-num">02</span>
+                        <p class="vu-lss-title">Shelving Redesign</p>
+                        <p class="vu-lss-body">Restructured reading status and custom lists into two clear systems, adding the "Did Not Finish" status users had been hacking with workarounds.</p>
+                    </div>
+                    <div class="vu-lss-card">
+                        <span class="vu-lss-num">03</span>
+                        <p class="vu-lss-title">Book Details Redesign</p>
+                        <p class="vu-lss-body">Replaced a single long-scroll page with four-tab navigation, moving ratings behind their own tab to remove bias.</p>
+                    </div>
+                    <div class="vu-lss-card">
+                        <span class="vu-lss-num">04</span>
+                        <p class="vu-lss-title">Constraint</p>
+                        <p class="vu-lss-body">All changes stayed within Goodreads' existing visual language — a constraint that focused the work on structure over aesthetics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 03</span>
+                <p class="vu-lib-block-title">How Might We</p>
+                <p class="vu-lib-usage">Used on Goodreads (Vu-style) and Notion case studies. Class: <strong>.vu-hmw</strong>. Always a question, always this green — for a flat statement instead, use the TL;DR banner in the Scanning Layouts category below.</p>
+
+                <div class="vu-hmw">
+                    💭 &nbsp; How might we make Goodreads' most-used features feel as effortless as the act of reading itself?
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 04</span>
+                <p class="vu-lib-block-title">Big Statement</p>
+                <p class="vu-lib-usage">New pattern, not yet used live. Class: <strong>.vu-statement</strong>. One oversized sentence — for an opening line that needs to land harder than regular body copy. Use &lt;strong&gt; for the highlighted phrase.</p>
+
+                <p class="vu-statement">Goodreads' two most-used features were quietly driving users away — not through bugs, but through <strong>friction so constant</strong> that people simply gave up and worked around them.</p>
+            </div>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════════
+             CATEGORY: PROBLEM, CONTEXT & FRAMING
+        ═══════════════════════════════════════════════════════════ -->
+        <div class="vu-lib-category">
+            <div class="vu-lib-category-inner">
+                <h3>Problem, context &amp; framing</h3>
+                <p>One flexible component — vu-ps-block — covers Problem/Solution, Research Question/Hypothesis, and Mission/Key Insight. Same shape, different label color and content. That's deliberate: reusing one pattern for several jobs is what keeps the whole site feeling unified.</p>
+            </div>
+        </div>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 05</span>
+                <p class="vu-lib-block-title">Two &amp; Three-Column Statement Blocks</p>
+                <p class="vu-lib-usage">Used on Goodreads (Vu-style) for Problem/Solution, and on the Notion study for Research Question/Hypothesis. Classes: <strong>.vu-problem-solution-grid</strong> (2-col) or <strong>.vu-pms-grid</strong> (2-col, becomes 3 on very wide screens) wrapping <strong>.vu-ps-block</strong> → <strong>.vu-ps-label</strong> (modifiers: <strong>.problem</strong> red / <strong>.solution</strong> green / <strong>.neutral</strong> grey) → <strong>.vu-ps-statement</strong> → <strong>.vu-ps-detail</strong>.</p>
+
+                <div class="vu-problem-solution-grid">
+                    <div class="vu-ps-block">
+                        <p class="vu-ps-label problem">The Problem</p>
+                        <p class="vu-ps-statement">Shelving a book took too many steps to feel worth it, and the book details page buried the information readers actually wanted.</p>
+                        <p class="vu-ps-detail">These weren't dramatic failures — but together they shaped how people felt about using the app at all.</p>
+                    </div>
+                    <div class="vu-ps-block">
+                        <p class="vu-ps-label solution">The Solution</p>
+                        <p class="vu-ps-statement">Reduce friction in Goodreads' two most-used features without asking the app to abandon what already works.</p>
+                        <p class="vu-ps-detail">Two targeted redesigns, grounded entirely in research findings rather than aesthetic preference.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 06</span>
+                <p class="vu-lib-block-title">Hypothesis Pair (H1 / H0)</p>
+                <p class="vu-lib-usage">Used on the Notion case study, nested inside a .vu-ps-block. Classes: <strong>.vu-hypo-list</strong> → <strong>.vu-hypo-item</strong> → <strong>.vu-hypo-tag</strong> (add <strong>.null</strong> for H0) → <strong>.vu-hypo-statement</strong>. Built specifically so two short hypotheses read as tight bound units instead of floating apart with generic paragraph spacing.</p>
+
+                <div class="vu-ps-block narrow">
+                    <p class="vu-ps-label neutral">Hypothesis</p>
+                    <div class="vu-hypo-list">
+                        <div class="vu-hypo-item">
+                            <span class="vu-hypo-tag">H1 — Alternative hypothesis</span>
+                            <p class="vu-hypo-statement">When creating inputs in Notion, slash commands let users complete tasks faster than UI buttons and gestures.</p>
+                        </div>
+                        <div class="vu-hypo-item">
+                            <span class="vu-hypo-tag null">H0 — Null hypothesis</span>
+                            <p class="vu-hypo-statement">They make no difference.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 07</span>
+                <p class="vu-lib-block-title">Two-Tone Split Statement</p>
+                <p class="vu-lib-usage">New pattern, not yet used live. Classes: <strong>.vu-split-statement</strong> → <strong>.vu-split-half</strong> (<strong>.dark</strong> / <strong>.light</strong>) → <strong>.vu-split-label</strong> + <strong>.vu-split-text</strong>. A higher-drama alternative to the standard Problem/Solution blocks for a project that wants more visual punch at the opening.</p>
+
+                <div class="vu-split-statement">
+                    <div class="vu-split-half dark">
+                        <p class="vu-split-label">The problem</p>
+                        <p class="vu-split-text">Shelving a book took too many steps to feel worth it.</p>
+                    </div>
+                    <div class="vu-split-half light">
+                        <p class="vu-split-label">The solution</p>
+                        <p class="vu-split-text">Two targeted redesigns, grounded entirely in research.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════════
+             CATEGORY: RESEARCH & METHODOLOGY
+        ═══════════════════════════════════════════════════════════ -->
+        <div class="vu-lib-category">
+            <div class="vu-lib-category-inner">
+                <h3>Research &amp; methodology</h3>
+                <p>Patterns for explaining how the research was done, and who did what — without turning it into a wall of process paragraphs.</p>
+            </div>
+        </div>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 08</span>
+                <p class="vu-lib-block-title">Research Method Cards</p>
+                <p class="vu-lib-usage">Used on Goodreads (Vu-style) and Goodreads (standard). Classes: <strong>.vu-method-grid</strong> → <strong>.vu-method-card</strong> → <strong>.vu-method-card-title</strong> + <strong>.vu-method-card-body</strong>. Always white cards — never the same grey as a .vu-section-bg-grey wrapper, or they disappear into the background.</p>
+
+                <div class="vu-method-grid">
+                    <div class="vu-method-card">
+                        <p class="vu-method-card-title">Heuristic Evaluation</p>
+                        <p class="vu-method-card-body">Documented the app's existing patterns against Nielsen Norman's 10 usability heuristics.</p>
+                    </div>
+                    <div class="vu-method-card">
+                        <p class="vu-method-card-title">Survey — 20 participants</p>
+                        <p class="vu-method-card-body">Asked regular users about their most-used features and biggest frustrations.</p>
+                    </div>
+                    <div class="vu-method-card">
+                        <p class="vu-method-card-title">Think-Aloud Interviews — 2</p>
+                        <p class="vu-method-card-body">Sessions where users narrated their thoughts while completing common tasks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 09</span>
+                <p class="vu-lib-block-title">Role &amp; Contribution Cards</p>
+                <p class="vu-lib-usage">New pattern, not yet used live. Classes: <strong>.vu-role-grid</strong> → <strong>.vu-role-card</strong> → <strong>.vu-role-icon</strong> + <strong>.vu-role-title</strong> + <strong>.vu-role-body</strong>. Looks similar to method cards but with a leading icon — use this for "who did what" / "what I contributed" rather than methodology explanations.</p>
+
+                <div class="vu-role-grid">
+                    <div class="vu-role-card">
+                        <span class="vu-role-icon">🔍</span>
+                        <p class="vu-role-title">Research</p>
+                        <p class="vu-role-body">Designed the survey and conducted think-aloud interviews.</p>
+                    </div>
+                    <div class="vu-role-card">
+                        <span class="vu-role-icon">🎨</span>
+                        <p class="vu-role-title">UI Design</p>
+                        <p class="vu-role-body">Produced wireframes and high-fidelity Figma mockups.</p>
+                    </div>
+                    <div class="vu-role-card">
+                        <span class="vu-role-icon">📱</span>
+                        <p class="vu-role-title">Prototyping</p>
+                        <p class="vu-role-body">Built interactive ProtoPie prototypes of both redesigned flows.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 10</span>
+                <p class="vu-lib-block-title">Process Timeline</p>
+                <p class="vu-lib-usage">New pattern, not yet used live. Classes: <strong>.vu-timeline</strong> → <strong>.vu-timeline-step</strong> → <strong>.vu-timeline-dot</strong> + <strong>.vu-timeline-label</strong> + <strong>.vu-timeline-title</strong> + <strong>.vu-timeline-body</strong>. Vertical, dotted connector line. For a more compact horizontal alternative, see the Process Flow layout further down.</p>
+
+                <div class="vu-timeline">
+                    <div class="vu-timeline-step">
+                        <div class="vu-timeline-dot"></div>
+                        <div>
+                            <p class="vu-timeline-label">Week 1</p>
+                            <p class="vu-timeline-title">Discovery &amp; Research</p>
+                            <p class="vu-timeline-body">Heuristic evaluation, survey design, and scheduling think-aloud interviews.</p>
+                        </div>
+                    </div>
+                    <div class="vu-timeline-step">
+                        <div class="vu-timeline-dot"></div>
+                        <div>
+                            <p class="vu-timeline-label">Week 2</p>
+                            <p class="vu-timeline-title">Synthesis &amp; Definition</p>
+                            <p class="vu-timeline-body">Affinity mapping, impact-effort prioritisation, defining the two core problem spaces.</p>
+                        </div>
+                    </div>
+                    <div class="vu-timeline-step">
+                        <div class="vu-timeline-dot"></div>
+                        <div>
+                            <p class="vu-timeline-label">Week 3</p>
+                            <p class="vu-timeline-title">Design &amp; Prototype</p>
+                            <p class="vu-timeline-body">Wireframes, high-fidelity mockups, and interactive prototypes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 11</span>
+                <p class="vu-lib-block-title">Study Design — Condition Comparison</p>
+                <p class="vu-lib-usage">Used on the Notion case study. Classes: <strong>.vu-condition-grid</strong> → <strong>.vu-condition-block</strong> → <strong>.vu-condition-label</strong> + <strong>.vu-condition-title</strong>, with <strong>.vu-condition-vs</strong> as the center divider. For a controlled experiment's A/B conditions.</p>
+
+                <div class="vu-condition-grid">
+                    <div class="vu-condition-block">
+                        <p class="vu-condition-label">Condition A</p>
+                        <p class="vu-condition-title">Perform tasks on desktop using keyboard slash commands</p>
+                    </div>
+                    <div class="vu-condition-vs">vs</div>
+                    <div class="vu-condition-block">
+                        <p class="vu-condition-label">Condition B</p>
+                        <p class="vu-condition-title">Perform tasks on mobile using UI buttons &amp; gestures</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 12</span>
+                <p class="vu-lib-block-title">Quick Numbers Row</p>
+                <p class="vu-lib-usage">Used on the Notion case study (twice — study design counts, and post-survey percentages). Classes: <strong>.vu-stat-grid</strong> → <strong>.vu-stat-block</strong> → <strong>.vu-stat-number</strong> + <strong>.vu-stat-label</strong>.</p>
+
+                <div class="vu-stat-grid">
+                    <div class="vu-stat-block">
+                        <p class="vu-stat-number">8</p>
+                        <p class="vu-stat-label">participants</p>
+                    </div>
+                    <div class="vu-stat-block">
+                        <p class="vu-stat-number">5</p>
+                        <p class="vu-stat-label">tasks per condition</p>
+                    </div>
+                    <div class="vu-stat-block">
+                        <p class="vu-stat-number">2</p>
+                        <p class="vu-stat-label">conditions per participant</p>
+                    </div>
+                    <div class="vu-stat-block">
+                        <p class="vu-stat-number">~15</p>
+                        <p class="vu-stat-label">minutes per session</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════════
+             CATEGORY: VOICES & EVIDENCE
+        ═══════════════════════════════════════════════════════════ -->
+        <div class="vu-lib-category">
+            <div class="vu-lib-category-inner">
+                <h3>Voices &amp; evidence</h3>
+                <p>Showcasing what users actually said, and connecting findings to the evidence behind them.</p>
+            </div>
+        </div>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 13</span>
+                <p class="vu-lib-block-title">User Quote Cards</p>
+                <p class="vu-lib-usage">Used on Goodreads (standard) and the Notion case study. Classes: <strong>.vu-insights-grid</strong> → <strong>.vu-insight-card</strong> → <strong>.vu-insight-mark</strong> (decorative quotation mark) + <strong>.vu-insight-quote</strong> + <strong>.vu-insight-label</strong> (theme, sits below the quote as a caption — not above it as a tag).</p>
+
+                <div class="vu-insights-grid">
+                    <div class="vu-insight-card">
+                        <span class="vu-insight-mark">&ldquo;</span>
+                        <p class="vu-insight-quote">I never bother with custom shelves anymore. It's just too many taps to get there.</p>
+                        <p class="vu-insight-label">Too many steps</p>
+                    </div>
+                    <div class="vu-insight-card">
+                        <span class="vu-insight-mark">&ldquo;</span>
+                        <p class="vu-insight-quote">I never really knew if I was filing a book or just marking it.</p>
+                        <p class="vu-insight-label">Conceptual confusion</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 14</span>
+                <p class="vu-lib-block-title">Standout Pull Quote</p>
+                <p class="vu-lib-usage">New pattern, not yet used live. Classes: <strong>.vu-pullquote</strong> + <strong>.vu-pullquote-cite</strong>. For one quote that deserves more visual weight than the card grid — the single line that defines the whole project.</p>
+
+                <blockquote class="vu-pullquote">
+                    "I never really knew if I was filing a book or just marking it. At some point I stopped caring."
+                    <cite class="vu-pullquote-cite">— Goodreads user, think-aloud interview</cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 15</span>
+                <p class="vu-lib-block-title">Finding + Evidence Rows</p>
+                <p class="vu-lib-usage">New pattern (CSS already existed, not yet used live). Classes: <strong>.vu-finding-list</strong> → <strong>.vu-finding-row</strong> → left side <strong>.vu-finding-label</strong> + <strong>.vu-finding-title</strong>, right side <strong>.vu-finding-evidence-label</strong> + <strong>.vu-finding-evidence</strong>. Pairs each finding with its supporting evidence — easy to scan, hard to dismiss.</p>
+
+                <div class="vu-finding-list">
+                    <div class="vu-finding-row">
+                        <div>
+                            <p class="vu-finding-label">Finding 01</p>
+                            <p class="vu-finding-title">Users abandoned custom shelves due to too many steps</p>
+                        </div>
+                        <div class="vu-finding-evidence">
+                            <p class="vu-finding-evidence-label">Evidence</p>
+                            <p>"I never bother with custom shelves anymore. It's just too many taps to get there."</p>
+                        </div>
+                    </div>
+                    <div class="vu-finding-row">
+                        <div>
+                            <p class="vu-finding-label">Finding 02</p>
+                            <p class="vu-finding-title">No visual distinction between status and lists</p>
+                        </div>
+                        <div class="vu-finding-evidence">
+                            <p class="vu-finding-evidence-label">Evidence</p>
+                            <p>Neither interviewee could reliably explain the difference without stopping to think.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 16</span>
+                <p class="vu-lib-block-title">Numbered Insight List</p>
+                <p class="vu-lib-usage">Used on the Notion case study for study tasks. Classes: <strong>.vu-numbered-list</strong> → <strong>.vu-numbered-item</strong> → <strong>.vu-numbered-num</strong> + <strong>.vu-numbered-title</strong> + <strong>.vu-numbered-body</strong>. Cleaner to scan than paragraphs, lighter-weight than a card grid.</p>
+
+                <div class="vu-numbered-list">
+                    <div class="vu-numbered-item">
+                        <span class="vu-numbered-num">01</span>
+                        <div>
+                            <p class="vu-numbered-title">The shelving flow required too many taps</p>
+                            <p class="vu-numbered-body">Survey respondents cited this as a reason they'd stopped organising their library.</p>
+                        </div>
+                    </div>
+                    <div class="vu-numbered-item">
+                        <span class="vu-numbered-num">02</span>
+                        <div>
+                            <p class="vu-numbered-title">A "Did Not Finish" status was the most-requested feature</p>
+                            <p class="vu-numbered-body">Mentioned unprompted across both interviews and multiple survey responses.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 17</span>
+                <p class="vu-lib-block-title">Significance Results (study-specific)</p>
+                <p class="vu-lib-usage">Used on the Notion case study. Classes: <strong>.vu-stat-rows</strong> → <strong>.vu-stat-row</strong> (add <strong>.total</strong> for an aggregate row) → <strong>.vu-stat-row-title</strong> + <strong>.vu-stat-row-sub</strong>, with <strong>.vu-stat-pill</strong> (<strong>.sig</strong> / <strong>.partial</strong> / <strong>.ns</strong>). Specifically for statistical significance results — for a general-purpose confidence indicator on any claim, use the Confidence Tags layout in the Scanning Layouts category instead.</p>
+
+                <div class="vu-stat-rows">
+                    <div class="vu-stat-row">
+                        <div>
+                            <p class="vu-stat-row-title">Task 2 — Toggle + to-do list</p>
+                            <p class="vu-stat-row-sub">Multi-step, mode switching</p>
+                        </div>
+                        <span class="vu-stat-pill sig">p = 0.003 · reject H0</span>
+                    </div>
+                    <div class="vu-stat-row">
+                        <div>
+                            <p class="vu-stat-row-title">Task 3 — Heading</p>
+                            <p class="vu-stat-row-sub">Single step, low complexity</p>
+                        </div>
+                        <span class="vu-stat-pill ns">p = 0.503 · can't reject H0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════════
+             CATEGORY: COMPARISONS, RESULTS & IMPACT
+        ═══════════════════════════════════════════════════════════ -->
+        <div class="vu-lib-category">
+            <div class="vu-lib-category-inner">
+                <h3>Comparisons, results &amp; impact</h3>
+                <p>Before/after pairs, outcome metrics, and design-decision reasoning.</p>
+            </div>
+        </div>
+
+        <section class="vu-lib-block lightbox-zone">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 18</span>
+                <p class="vu-lib-block-title">Before / After Comparison</p>
+                <p class="vu-lib-usage">Used on every redesign-based case study. Classes: <strong>.vu-before-after</strong> → <strong>.vu-ba-block</strong> → <strong>.vu-ba-label</strong> (<strong>.before</strong> / <strong>.after</strong>). Always pair a <strong>.vu-placeholder</strong> with a real <strong>.vu-img-caption</strong> underneath, exactly like a finished image — never put description text inside the placeholder box itself.</p>
+
+                <div class="vu-before-after">
+                    <div class="vu-ba-block">
+                        <span class="vu-ba-label before">Before</span>
+                        <div class="vu-placeholder vu-placeholder-med"></div>
+                        <p class="vu-img-caption">Caption. Before screenshot — replace with your image.</p>
+                    </div>
+                    <div class="vu-ba-block">
+                        <span class="vu-ba-label after">After</span>
+                        <div class="vu-placeholder vu-placeholder-med"></div>
+                        <p class="vu-img-caption">Caption. After screenshot — replace with your image.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 19</span>
+                <p class="vu-lib-block-title">Result Comparison Cards</p>
+                <p class="vu-lib-usage">Used on the Notion case study. Classes: <strong>.vu-result-grid</strong> → <strong>.vu-result-card</strong> → <strong>.vu-result-title</strong>, <strong>.vu-result-compare</strong> (with <strong>.vu-result-platform</strong> + <strong>.vu-result-value</strong> + <strong>.vu-result-unit</strong> on each side, <strong>.vu-result-arrow</strong> between), then <strong>.vu-result-badge</strong> + <strong>.vu-result-note</strong>.</p>
+
+                <div class="vu-result-grid">
+                    <div class="vu-result-card">
+                        <p class="vu-result-title">Total time to complete all 5 tasks</p>
+                        <div class="vu-result-compare">
+                            <div>
+                                <p class="vu-result-platform">DESKTOP</p>
+                                <p class="vu-result-value">102.6<span class="vu-result-unit">s avg</span></p>
+                            </div>
+                            <span class="vu-result-arrow">&#8594;</span>
+                            <div>
+                                <p class="vu-result-platform">MOBILE</p>
+                                <p class="vu-result-value">165.5<span class="vu-result-unit">s avg</span></p>
+                            </div>
+                        </div>
+                        <div class="vu-result-badge">✓ Statistically significant, p &lt; 0.001</div>
+                        <p class="vu-result-note">SD was also tighter on desktop — mobile was both slower and more inconsistent.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 20</span>
+                <p class="vu-lib-block-title">Highlight Stat Pair</p>
+                <p class="vu-lib-usage">Used on the Notion case study (T-test results). Classes: <strong>.vu-highlight-grid</strong> → <strong>.vu-highlight-card</strong> (add <strong>.featured</strong> for the filled green headline card) → <strong>.vu-highlight-label</strong> + <strong>.vu-highlight-value</strong> + <strong>.vu-highlight-detail</strong>.</p>
+
+                <div class="vu-highlight-grid">
+                    <div class="vu-highlight-card featured">
+                        <p class="vu-highlight-label">Task time — T-test result</p>
+                        <p class="vu-highlight-value">P = 0.000657</p>
+                        <p class="vu-highlight-detail">Below 0.001. Null hypothesis confidently rejected.</p>
+                    </div>
+                    <div class="vu-highlight-card">
+                        <p class="vu-highlight-label">Error rate — T-test result</p>
+                        <p class="vu-highlight-value">P = 0.000589</p>
+                        <p class="vu-highlight-detail">Also below 0.001 — a secondary, supporting result.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 21</span>
+                <p class="vu-lib-block-title">Significance Threshold Table</p>
+                <p class="vu-lib-usage">Used on the Notion case study. Classes: <strong>.vu-threshold-table</strong> → <strong>.vu-threshold-row</strong> → <strong>.vu-threshold-label</strong> + <strong>.vu-threshold-meaning</strong> + <strong>.vu-threshold-check</strong>. A small reference list of p-value bands and whether each was met.</p>
+
+                <div class="vu-threshold-table">
+                    <div class="vu-threshold-row">
+                        <span class="vu-threshold-label">P &lt; 0.001</span>
+                        <span class="vu-threshold-meaning">Very highly significant — 0.1% probability of chance</span>
+                        <span class="vu-threshold-check">Achieved ✓</span>
+                    </div>
+                    <div class="vu-threshold-row">
+                        <span class="vu-threshold-label">P &lt; 0.05</span>
+                        <span class="vu-threshold-meaning">Significant — 5% probability of chance</span>
+                        <span class="vu-threshold-check">Achieved ✓</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 22</span>
+                <p class="vu-lib-block-title">Comparison Table</p>
+                <p class="vu-lib-usage">New pattern, not yet used live. Classes: <strong>.vu-table-wrap</strong> → <strong>.vu-table</strong> (standard &lt;table&gt; markup). Scrolls horizontally on small screens automatically.</p>
+
+                <div class="vu-table-wrap">
+                    <table class="vu-table">
+                        <thead>
+                            <tr><th>Feature</th><th>Before</th><th>After</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Reading status &amp; lists</td><td>Styled identically</td><td>Clearly separated</td></tr>
+                            <tr><td>Custom shelf flow</td><td>3+ taps, multiple modals</td><td>One screen, one tap</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 23</span>
+                <p class="vu-lib-block-title">Design Decision Cards</p>
+                <p class="vu-lib-usage">New pattern, not yet used live. Classes: <strong>.vu-decision-grid</strong> → <strong>.vu-decision-card</strong> → <strong>.vu-decision-header</strong> (<strong>.vu-decision-num</strong> + <strong>.vu-decision-title</strong>) → <strong>.vu-decision-body</strong> with repeated <strong>.vu-decision-why-label</strong> + <strong>.vu-decision-why</strong> pairs. For showing the reasoning behind a choice without writing a full essay per decision.</p>
+
+                <div class="vu-decision-grid">
+                    <div class="vu-decision-card">
+                        <div class="vu-decision-header">
+                            <p class="vu-decision-num">01</p>
+                            <p class="vu-decision-title">Separated status from lists</p>
+                        </div>
+                        <div class="vu-decision-body">
+                            <div>
+                                <p class="vu-decision-why-label">Why</p>
+                                <p class="vu-decision-why">Research showed users couldn't tell the difference — both looked identical.</p>
+                            </div>
+                            <div>
+                                <p class="vu-decision-why-label">Decision</p>
+                                <p class="vu-decision-why">Two distinct UI sections, each with its own visual language.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 24</span>
+                <p class="vu-lib-block-title">Impact / Outcome Cards</p>
+                <p class="vu-lib-usage">Used on Goodreads (Vu-style and standard). Classes: <strong>.vu-impact-grid</strong> → <strong>.vu-impact-block</strong> → <strong>.vu-impact-emoji</strong> + <strong>.vu-impact-title</strong> + <strong>.vu-impact-body</strong>.</p>
+
+                <div class="vu-impact-grid">
+                    <div class="vu-impact-block">
+                        <span class="vu-impact-emoji">⚡</span>
+                        <p class="vu-impact-title">Fewer steps to organize</p>
+                        <p class="vu-impact-body">Adding a book to a custom list now happens from one screen instead of multiple modals.</p>
+                    </div>
+                    <div class="vu-impact-block">
+                        <span class="vu-impact-emoji">🧠</span>
+                        <p class="vu-impact-title">Reduced cognitive load</p>
+                        <p class="vu-impact-body">Separating status from lists removes the conceptual ambiguity that confused even experienced users.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 25</span>
+                <p class="vu-lib-block-title">Opportunities / Limitations / Challenges</p>
+                <p class="vu-lib-usage">Used across every case study (relabeled per context). Classes: <strong>.vu-opps-grid</strong> → <strong>.vu-opp-card</strong> → <strong>.vu-opp-emoji</strong> + <strong>.vu-opp-title</strong> + <strong>.vu-opp-body</strong>. Same card pattern works for Opportunities, Limitations, and Challenges — only the eyebrow label and icon meaning change.</p>
+
+                <div class="vu-opps-grid">
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">📚</span>
+                        <p class="vu-opp-title">Clearer shelving system</p>
+                        <p class="vu-opp-body">Separate reading status from personal lists — two things users kept confusing for each other.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">✅</span>
+                        <p class="vu-opp-title">Did Not Finish status</p>
+                        <p class="vu-opp-body">Give abandoned books a proper home instead of a hacked workaround shelf.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 26</span>
+                <p class="vu-lib-block-title">What Worked / What I'd Change</p>
+                <p class="vu-lib-usage">New pattern, not yet used live. Classes: <strong>.vu-worked-grid</strong> → <strong>.vu-worked-heading</strong> (<strong>.good</strong> / <strong>.change</strong>) → <strong>.vu-worked-item</strong> with <strong>.vu-worked-dot</strong> (<strong>.good</strong> / <strong>.change</strong>). An honest two-sided retrospective, more specific than a single Reflection paragraph.</p>
+
+                <div class="vu-worked-grid">
+                    <div>
+                        <p class="vu-worked-heading good">What worked well</p>
+                        <div class="vu-worked-item">
+                            <span class="vu-worked-dot good"></span>
+                            <p>Anchoring every decision to a specific research finding made the rationale airtight.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="vu-worked-heading change">What I'd do differently</p>
+                        <div class="vu-worked-item">
+                            <span class="vu-worked-dot change"></span>
+                            <p>Usability test the prototypes before finalising, not just rely on the upstream research.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 27</span>
+                <p class="vu-lib-block-title">Recommendations / Next Steps</p>
+                <p class="vu-lib-usage">Used on the Notion case study (second-last section, before Reflection). Classes: <strong>.vu-actions-grid</strong> → a numbered column (<strong>.vu-action-item</strong> → <strong>.vu-action-num</strong> + <strong>.vu-action-text</strong>) beside a freeform commentary column.</p>
+
+                <div class="vu-actions-grid">
+                    <div>
+                        <h4>Recommended next steps</h4>
+                        <div class="vu-action-item">
+                            <span class="vu-action-num">01</span>
+                            <p class="vu-action-text">Separate reading status from personal lists across the entire shelving system.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Design direction</h4>
+                        <p class="vu-section-body">A short paragraph of freeform commentary goes here, alongside the numbered list.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════════
+             CATEGORY: IMAGES & VISUAL ROUNDUPS
+        ═══════════════════════════════════════════════════════════ -->
+        <div class="vu-lib-category">
+            <div class="vu-lib-category-inner">
+                <h3>Images &amp; visual roundups</h3>
+                <p>Ways to present supporting screenshots, posters, and concept work beyond a single full-width figure.</p>
+            </div>
+        </div>
+
+        <section class="vu-lib-block lightbox-zone">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 28</span>
+                <p class="vu-lib-block-title">Two Images, Shared Caption</p>
+                <p class="vu-lib-usage">Used on Goodreads (standard) and the Notion case study. Class: <strong>.vu-two-img-grid</strong> wrapping two &lt;figure&gt; elements, each with its own &lt;figcaption&gt;. Use when one sentence of context covers both images together.</p>
+
+                <div class="vu-two-img-grid">
+                    <figure>
+                        <div class="vu-placeholder vu-placeholder-med"></div>
+                        <figcaption>Caption. Desktop task instruction sheet.</figcaption>
+                    </figure>
+                    <figure>
+                        <div class="vu-placeholder vu-placeholder-med"></div>
+                        <figcaption>Caption. Mobile task instruction sheet.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block lightbox-zone">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 29</span>
+                <p class="vu-lib-block-title">Concept Image Grid</p>
+                <p class="vu-lib-usage">New pattern, not yet used live. Class: <strong>.vu-concept-grid</strong>. Functionally close to the Two Images layout above — reach for this one specifically when each image needs its own distinct caption rather than one shared sentence.</p>
+
+                <div class="vu-concept-grid">
+                    <figure>
+                        <div class="vu-placeholder vu-placeholder-med"></div>
+                        <p class="vu-img-caption">Caption. Initial audit of the app's visual patterns.</p>
+                    </figure>
+                    <figure>
+                        <div class="vu-placeholder vu-placeholder-med"></div>
+                        <p class="vu-img-caption">Caption. Early interaction pattern mapping.</p>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block lightbox-zone">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 30</span>
+                <p class="vu-lib-block-title">Poster / Gallery Grid</p>
+                <p class="vu-lib-usage">Used on the Listerine case study. Class: <strong>.vu-poster-grid</strong>. For 3 or more same-format images (a poster series, a campaign set) that don't need individual before/after framing.</p>
+
+                <div class="vu-poster-grid">
+                    <div class="vu-placeholder vu-placeholder-med"></div>
+                    <div class="vu-placeholder vu-placeholder-med"></div>
+                    <div class="vu-placeholder vu-placeholder-med"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block lightbox-zone">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 31</span>
+                <p class="vu-lib-block-title">Split Image Grid — Big + Two Small</p>
+                <p class="vu-lib-usage">New pattern, not yet used live. Classes: <strong>.vu-img-grid-split</strong> with one full-width image, then a nested <strong>.vu-img-grid-split-row</strong> for the two smaller images below it. For a quick visual roundup that doesn't need individual captions per piece.</p>
+
+                <div class="vu-img-grid-split">
+                    <div class="vu-placeholder vu-placeholder-med"></div>
+                    <div class="vu-img-grid-split-row">
+                        <div class="vu-placeholder vu-placeholder-med"></div>
+                        <div class="vu-placeholder vu-placeholder-med"></div>
+                    </div>
+                </div>
+                <p class="vu-img-caption">Caption. A billboard concept, paired with two supporting detail shots below it.</p>
+            </div>
+        </section>
+
+        <section class="vu-lib-block lightbox-zone">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 32</span>
+                <p class="vu-lib-block-title">Colored Feature Block</p>
+                <p class="vu-lib-usage">New pattern, not yet used live. Classes: <strong>.vu-feature-block</strong> → <strong>.vu-feature-block</strong> &gt; h4 + p, plus an &lt;img&gt;. For a worldbuilding/context paragraph that wants more visual weight than plain body copy sitting next to a plain image.</p>
+
+                <div class="vu-feature-block">
+                    <div>
+                        <h4>Worldbuilding the concept</h4>
+                        <p>A short paragraph of context sits beside a supporting image, both on a soft tinted background.</p>
+                    </div>
+                    <div class="vu-placeholder vu-placeholder-med"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block lightbox-zone">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 33</span>
+                <p class="vu-lib-block-title">Annotated Screenshot</p>
+                <p class="vu-lib-usage">New pattern, not yet used live. Classes: <strong>.vu-annotated-wrap</strong> (image left, list right) → <strong>.vu-annotation-list</strong> → <strong>.vu-annotation-item</strong> → <strong>.vu-annotation-num</strong> (circular badge) + a plain &lt;p&gt;. For walking through a UI in more depth than a before/after pair allows.</p>
+
+                <div class="vu-annotated-wrap">
+                    <div class="vu-placeholder vu-placeholder-tall"></div>
+                    <div class="vu-annotation-list">
+                        <div class="vu-annotation-item">
+                            <span class="vu-annotation-num">01</span>
+                            <p>Title and "Add to List" anchored at top so they're always reachable.</p>
+                        </div>
+                        <div class="vu-annotation-item">
+                            <span class="vu-annotation-num">02</span>
+                            <p>Four tabs replace a single scroll — ratings sit behind their own tab.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════════
+             CATEGORY: REFLECTION — three variants
+        ═══════════════════════════════════════════════════════════ -->
+        <div class="vu-lib-category">
+            <div class="vu-lib-category-inner">
+                <h3>Reflection — three variants</h3>
+                <p>All three keep the same outer .vu-reflection wrapper, eyebrow, and title — only the body layout changes. Pick whichever fits the supporting material available and delete the markup for the other two.</p>
+            </div>
+        </div>
+
+        <section class="vu-lib-block lightbox-zone">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 34a</span>
+                <p class="vu-lib-block-title">Reflection — Side Image</p>
+                <p class="vu-lib-usage">Used on the Notion case study and the Listerine case study. Classes: <strong>.vu-reflection-grid</strong>, text column left, image column right. The image always needs its own <strong>.vu-img-caption</strong> underneath, exactly like any other image on the site.</p>
+            </div>
+            <div class="vu-reflection flush">
+                <div class="vu-reflection-grid">
+                    <div>
+                        <p class="vu-section-eyebrow">Reflection</p>
+                        <h3 class="vu-section-title">Designing a fair test was harder than running one</h3>
+                        <p class="vu-h4-label">On study design</p>
+                        <p class="vu-section-body">A paragraph of reflection text goes here, explaining what the process taught you.</p>
+                    </div>
+                    <div>
+                        <div class="vu-placeholder vu-placeholder-med"></div>
+                        <p class="vu-img-caption">Caption. The supporting image and what it shows.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block lightbox-zone">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 34b</span>
+                <p class="vu-lib-block-title">Reflection — Stacked Paragraphs + Image Below</p>
+                <p class="vu-lib-usage">New variant. Class: <strong>.vu-reflection-stacked</strong> — three (or more) paragraphs in one column, with a single full-width image underneath all of them via <strong>.vu-reflection-img-full</strong>. Use when the reflection has more to say than fits beside an image, and the image is more of a closing visual note than a referenced figure.</p>
+            </div>
+            <div class="vu-reflection flush">
+                <div class="vu-reflection-stacked">
+                    <p class="vu-section-eyebrow">Reflection</p>
+                    <h3 class="vu-section-title">From amusement to discomfort</h3>
+                    <p class="vu-section-body">First paragraph of reflection — what the experience was like in the room.</p>
+                    <p class="vu-section-body">Second paragraph — what it taught you about the work more broadly.</p>
+                    <p class="vu-section-body">Third paragraph — what you'd do differently next time.</p>
+                    <div class="vu-reflection-img-full vu-placeholder vu-placeholder-med"></div>
+                    <p class="vu-img-caption">Caption. A closing visual note — doesn't need to be referenced directly in the text above.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block lightbox-zone">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 34c</span>
+                <p class="vu-lib-block-title">Reflection — Two Columns + Full-Width Image</p>
+                <p class="vu-lib-usage">New variant. Class: <strong>.vu-reflection-two-col</strong> — two paragraphs side by side, then a <strong>.vu-reflection-img-full</strong> spanning both columns underneath. Good when there are exactly two distinct reflection threads (e.g. "on the process" / "on the outcome") that don't need a subheading each.</p>
+            </div>
+            <div class="vu-reflection flush">
+                <div class="vu-reflection-inner">
+                    <p class="vu-section-eyebrow">Reflection</p>
+                    <h3 class="vu-section-title">Two threads worth separating</h3>
+                    <div class="vu-reflection-two-col vu-mt-md">
+                        <p class="vu-section-body">First column of reflection — one complete thought, e.g. on the research process.</p>
+                        <p class="vu-section-body">Second column — a separate complete thought, e.g. on the outcome or what's next.</p>
+                    </div>
+                    <div class="vu-placeholder vu-placeholder-med vu-mt-lg"></div>
+                    <p class="vu-img-caption">Caption. A full-width closing image spanning both columns above.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════════
+             CATEGORY: SCANNING LAYOUTS — 12 new editorial patterns
+        ═══════════════════════════════════════════════════════════ -->
+        <div class="vu-lib-category">
+            <div class="vu-lib-category-inner">
+                <h3>Scanning layouts</h3>
+                <p>Twelve patterns built specifically so a reader can follow a case study's story by skimming — bold lines, icons, and short rows that don't require reading every paragraph to get the gist.</p>
+            </div>
+        </div>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Scan 01</span>
+                <p class="vu-lib-block-title">TL;DR Banner</p>
+                <p class="vu-lib-usage">Classes: <strong>.vu-tldr</strong> → <strong>.vu-tldr-label</strong> + a &lt;p&gt;. A flat, neutral one-sentence summary at the TOP of a long section, so a skimmer can decide whether to keep reading. Unlike .vu-hmw, this isn't a question and isn't always green-branded.</p>
+
+                <div class="vu-tldr">
+                    <span class="vu-tldr-label">TL;DR</span>
+                    <p>Desktop was faster than mobile for every participant, on every task — the gap was largest wherever the task required switching between typing and tapping.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Scan 02</span>
+                <p class="vu-lib-block-title">Persona Snapshot Cards</p>
+                <p class="vu-lib-usage">Classes: <strong>.vu-persona-grid</strong> → <strong>.vu-persona-card</strong> → <strong>.vu-persona-name</strong> + <strong>.vu-persona-role</strong>, then repeated <strong>.vu-persona-row</strong> (<strong>.vu-persona-row-label</strong> + a &lt;p&gt;, add <strong>.vu-persona-quote</strong> for an italic quote row). A participant or user type's goal, frustration, and quote — visible without reading a paragraph.</p>
+
+                <div class="vu-persona-grid">
+                    <div class="vu-persona-card">
+                        <p class="vu-persona-name">Maya, 24</p>
+                        <p class="vu-persona-role">Casual reader, uses Goodreads weekly</p>
+                        <div class="vu-persona-row">
+                            <span class="vu-persona-row-label">Goal</span>
+                            <p>Keep a simple record of what she's read without much fuss.</p>
+                        </div>
+                        <div class="vu-persona-row">
+                            <span class="vu-persona-row-label">Frustration</span>
+                            <p>Gave up on custom shelves — too many taps to be worth it.</p>
+                        </div>
+                        <div class="vu-persona-row">
+                            <span class="vu-persona-row-label">In her words</span>
+                            <p class="vu-persona-quote">"I just want to mark it and move on."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Scan 03</span>
+                <p class="vu-lib-block-title">Confidence Tags</p>
+                <p class="vu-lib-usage">Classes: <strong>.vu-confidence-row</strong> → a &lt;p&gt; + <strong>.vu-confidence-tag</strong> (<strong>.high</strong> / <strong>.medium</strong> / <strong>.low</strong>). A general-purpose qualitative confidence indicator next to any claim — not tied to formal statistics like .vu-stat-pill.</p>
+
+                <div class="vu-confidence-row">
+                    <p>Users want a "Did Not Finish" status added to the app.</p>
+                    <span class="vu-confidence-tag high">High confidence</span>
+                </div>
+                <div class="vu-confidence-row">
+                    <p>A mobile slash-command equivalent would meaningfully change behavior.</p>
+                    <span class="vu-confidence-tag medium">Medium confidence</span>
+                </div>
+                <div class="vu-confidence-row">
+                    <p>Users would pay extra for this feature.</p>
+                    <span class="vu-confidence-tag low">Low confidence</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Scan 04</span>
+                <p class="vu-lib-block-title">Process Flow (horizontal)</p>
+                <p class="vu-lib-usage">Classes: <strong>.vu-flow-steps</strong> → alternating <strong>.vu-flow-step</strong> (<strong>.vu-flow-step-num</strong> + <strong>.vu-flow-step-title</strong>) and <strong>.vu-flow-arrow</strong> elements. A faster-to-scan, more compact alternative to the vertical Process Timeline above — best for 3–5 short steps.</p>
+
+                <div class="vu-flow-steps">
+                    <div class="vu-flow-step">
+                        <span class="vu-flow-step-num">STEP 1</span>
+                        <p class="vu-flow-step-title">Recruit</p>
+                    </div>
+                    <span class="vu-flow-arrow">→</span>
+                    <div class="vu-flow-step">
+                        <span class="vu-flow-step-num">STEP 2</span>
+                        <p class="vu-flow-step-title">Run sessions</p>
+                    </div>
+                    <span class="vu-flow-arrow">→</span>
+                    <div class="vu-flow-step">
+                        <span class="vu-flow-step-num">STEP 3</span>
+                        <p class="vu-flow-step-title">Analyze</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Scan 05</span>
+                <p class="vu-lib-block-title">Process Flow (horizontal) — v2</p>
+                <p class="vu-lib-usage">An alternate, more elevated take on Scan 04's flow steps above. Classes: <strong>.vu-flow-steps-v2</strong> → alternating <strong>.vu-flow-step-v2</strong> (<strong>.vu-flow-step-v2-label</strong> + <strong>.vu-flow-step-v2-title</strong>) and <strong>.vu-flow-arrow-v2</strong> (an SVG chevron, not text, so it scales cleanly). A green top-accent bar and subtle shadow replace Scan 04's flat bordered card. Scan 04 itself stays the default in active use — reach for this version when a section wants a slightly higher-contrast, more "finished" feeling flow.</p>
+
+                <div class="vu-flow-steps-v2">
+                    <div class="vu-flow-step-v2">
+                        <span class="vu-flow-step-v2-label">Step 1</span>
+                        <p class="vu-flow-step-v2-title">Recruit</p>
+                    </div>
+                    <span class="vu-flow-arrow-v2"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <div class="vu-flow-step-v2">
+                        <span class="vu-flow-step-v2-label">Step 2</span>
+                        <p class="vu-flow-step-v2-title">Run sessions</p>
+                    </div>
+                    <span class="vu-flow-arrow-v2"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <div class="vu-flow-step-v2">
+                        <span class="vu-flow-step-v2-label">Step 3</span>
+                        <p class="vu-flow-step-v2-title">Analyze</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Scan 06</span>
+                <p class="vu-lib-block-title">Sticky-Note Affinity Cluster</p>
+                <p class="vu-lib-usage">Classes: <strong>.vu-sticky-cluster</strong> → <strong>.vu-sticky-group-label</strong> + <strong>.vu-sticky-row</strong> of <strong>.vu-sticky-note</strong> elements (colors auto-alternate). A CSS-only stand-in for a real affinity diagram when there's no photographed Miro/FigJam board to show.</p>
+
+                <div class="vu-sticky-cluster">
+                    <div>
+                        <p class="vu-sticky-group-label">Theme: Too many steps</p>
+                        <div class="vu-sticky-row">
+                            <div class="vu-sticky-note">"Too many taps to bother"</div>
+                            <div class="vu-sticky-note">Gave up on custom shelves</div>
+                            <div class="vu-sticky-note">Multiple modal screens</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Scan 07</span>
+                <p class="vu-lib-block-title">Tag / Keyword Chip Cloud</p>
+                <p class="vu-lib-usage">Classes: <strong>.vu-chip-cloud</strong> → <strong>.vu-chip</strong> (add <strong>.accent</strong> for the highlighted ones). A loose grid of theme keywords, for summarising a synthesis at a glance before the prose explains each one.</p>
+
+                <div class="vu-chip-cloud">
+                    <span class="vu-chip accent">Too many steps</span>
+                    <span class="vu-chip accent">Conceptual confusion</span>
+                    <span class="vu-chip">Missing status</span>
+                    <span class="vu-chip">Buried information</span>
+                    <span class="vu-chip">No private space</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Scan 08</span>
+                <p class="vu-lib-block-title">Checklist Comparison Grid</p>
+                <p class="vu-lib-usage">Classes: <strong>.vu-check-grid</strong> → repeated <strong>.vu-check-row</strong> (a feature label via <strong>.vu-check-feature</strong>, then <strong>.vu-check-yes</strong> / <strong>.vu-check-no</strong> per column). First row should use <strong>.vu-check-col-label</strong> for column headers. A simple ✓/✗ feature matrix without a full data table. Column count is fixed at 2 by default — to add a 3rd comparison column, update <strong>.vu-check-grid</strong>'s grid-template-columns in the CSS and add a 4th element to every row.</p>
+
+                <div class="vu-check-grid">
+                    <div class="vu-check-row">
+                        <span></span>
+                        <span class="vu-check-col-label">Before</span>
+                        <span class="vu-check-col-label">After</span>
+                    </div>
+                    <div class="vu-check-row">
+                        <span class="vu-check-feature">DNF status</span>
+                        <span class="vu-check-no">✗</span>
+                        <span class="vu-check-yes">✓</span>
+                    </div>
+                    <div class="vu-check-row">
+                        <span class="vu-check-feature">Tab navigation</span>
+                        <span class="vu-check-no">✗</span>
+                        <span class="vu-check-yes">✓</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Scan 09</span>
+                <p class="vu-lib-block-title">Short / Long Paired Rows</p>
+                <p class="vu-lib-usage">Classes: <strong>.vu-shortlong-list</strong> → <strong>.vu-shortlong-row</strong> → <strong>.vu-shortlong-short</strong> (bold one-liner) + <strong>.vu-shortlong-long</strong> (lighter detail). Lets a skimmer read just the bold lines and still get the section's gist.</p>
+
+                <div class="vu-shortlong-list">
+                    <div class="vu-shortlong-row">
+                        <p class="vu-shortlong-short">Desktop was faster on every task.</p>
+                        <p class="vu-shortlong-long">The gap ranged from a few seconds on simple tasks to over a minute on tasks requiring an app switch.</p>
+                    </div>
+                    <div class="vu-shortlong-row">
+                        <p class="vu-shortlong-short">Mobile produced more than double the errors.</p>
+                        <p class="vu-shortlong-long">Most errors were mis-taps during text selection, a known weak point of touch interfaces.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Scan 10</span>
+                <p class="vu-lib-block-title">Quick Facts Strip</p>
+                <p class="vu-lib-usage">Classes: <strong>.vu-facts-strip</strong> → <strong>.vu-fact</strong> → <strong>.vu-fact-icon</strong> + <strong>.vu-fact-label</strong> + <strong>.vu-fact-value</strong>. An inline recap of key project facts partway through a long page, so a returning reader doesn't have to scroll back to the hero.</p>
+
+                <div class="vu-facts-strip">
+                    <div class="vu-fact">
+                        <span class="vu-fact-icon">⏱️</span>
+                        <div>
+                            <span class="vu-fact-label">Duration</span>
+                            <p class="vu-fact-value">3 weeks</p>
+                        </div>
+                    </div>
+                    <div class="vu-fact">
+                        <span class="vu-fact-icon">👤</span>
+                        <div>
+                            <span class="vu-fact-label">Role</span>
+                            <p class="vu-fact-value">Solo researcher</p>
+                        </div>
+                    </div>
+                    <div class="vu-fact">
+                        <span class="vu-fact-icon">🛠️</span>
+                        <div>
+                            <span class="vu-fact-label">Tools</span>
+                            <p class="vu-fact-value">Figma, FigJam, ProtoPie</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Scan 11</span>
+                <p class="vu-lib-block-title">Q&amp;A Pairs</p>
+                <p class="vu-lib-usage">Classes: <strong>.vu-qa-list</strong> → <strong>.vu-qa-question</strong> (auto-prefixed "Q.") + <strong>.vu-qa-answer</strong> (auto-prefixed "A."). For addressing likely reader questions directly — "why this method", "why this constraint" — without forcing it into narrative prose.</p>
+
+                <div class="vu-qa-list">
+                    <div>
+                        <p class="vu-qa-question">Why a within-subjects design instead of between-subjects?</p>
+                        <p class="vu-qa-answer">It controls for individual differences in typing speed and tech comfort, since each participant is compared only against themselves.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Scan 12</span>
+                <p class="vu-lib-block-title">Glossary List</p>
+                <p class="vu-lib-usage">Classes: <strong>.vu-glossary-list</strong> → <strong>.vu-glossary-row</strong> → <strong>.vu-glossary-term</strong> + <strong>.vu-glossary-def</strong>. For explaining jargon inline (e.g. "p-value") right where it's first used, instead of sending the reader elsewhere.</p>
+
+                <div class="vu-glossary-list">
+                    <div class="vu-glossary-row">
+                        <span class="vu-glossary-term">p-value</span>
+                        <p class="vu-glossary-def">The probability a result happened by chance. Lower means more confident the effect is real.</p>
+                    </div>
+                    <div class="vu-glossary-row">
+                        <span class="vu-glossary-term">Within-subjects</span>
+                        <p class="vu-glossary-def">Every participant experiences every condition, rather than splitting people into separate groups.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Scan 13</span>
+                <p class="vu-lib-block-title">Numbered Insight List (dense research)</p>
+                <p class="vu-lib-usage">Same component as Layout 16 above (<strong>.vu-numbered-list</strong>) — included again here because it's one of the most broadly useful scanning patterns on the page: a clean numbered list for dense research findings, easier to scan than paragraphs, lighter than a full card grid.</p>
+
+                <div class="vu-numbered-list">
+                    <div class="vu-numbered-item">
+                        <span class="vu-numbered-num">01</span>
+                        <div>
+                            <p class="vu-numbered-title">Ratings before the synopsis created bias</p>
+                            <p class="vu-numbered-body">Both think-aloud participants read the star rating before the synopsis on every book page they visited.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Scan 14</span>
+                <p class="vu-lib-block-title">Key Insight Callout</p>
+                <p class="vu-lib-usage">Used on the Notion case study. Classes: <strong>.vu-key-insight</strong> → <strong>.vu-key-insight-icon</strong> + <strong>.vu-key-insight-label</strong> (small, abc font) + <strong>.vu-key-insight-body</strong> (larger, "family" font — the dominant element). Solid portfolio-green background with white text — the strongest-contrast callout on the page. Reserve it for the one finding per section that should be unmissable; for a flatter, lower-key summary at the top of a section, use the TL;DR Banner above instead.</p>
+
+                <div class="vu-key-insight">
+                    <span class="vu-key-insight-icon">💡</span>
+                    <div>
+                        <p class="vu-key-insight-label">Key insight</p>
+                        <p class="vu-key-insight-body">The value of continuous and uninterrupted input increases as the task becomes more complex and interaction-heavy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 36</span>
+                <p class="vu-lib-block-title">Tagged Comparison Cards</p>
+                <p class="vu-lib-usage">Used on the iPhone One-Handed Mode case study. Classes: <strong>.vu-compare-grid</strong> → <strong>.vu-compare-card</strong> → <strong>.vu-compare-tag</strong> (a small pill — competitor name, direction number, anything that labels which option this is) + placeholder/image + <strong>.vu-compare-title</strong> + <strong>.vu-compare-body</strong>. For comparing 2–4 named things side by side (competitor approaches, concept directions, alternative designs) where each one needs its own image, not just a text row.</p>
+
+                <div class="vu-compare-grid">
+                    <div class="vu-compare-card">
+                        <span class="vu-compare-tag">Direction 1</span>
+                        <div class="vu-placeholder vu-placeholder-med"></div>
+                        <p class="vu-compare-title">A short name for this option</p>
+                        <p class="vu-compare-body">What this direction does well, and its main tradeoff — a sentence or two.</p>
+                    </div>
+                    <div class="vu-compare-card">
+                        <span class="vu-compare-tag">Direction 2</span>
+                        <div class="vu-placeholder vu-placeholder-med"></div>
+                        <p class="vu-compare-title">A short name for this option</p>
+                        <p class="vu-compare-body">What this direction does well, and its main tradeoff — a sentence or two.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 40</span>
+                <p class="vu-lib-block-title">Next-Step Cards</p>
+                <p class="vu-lib-usage">Used on the iPhone One-Handed Mode case study. Classes: <strong>.vu-step-cards</strong> → <strong>.vu-step-card</strong> (green top-accent bar) → <strong>.vu-step-num</strong> + <strong>.vu-step-title</strong> + <strong>.vu-step-body</strong>. A lighter, more forward-looking companion to the Limitation Ledger above — cards instead of rows, signalling "here's what to do about it" after a heavier list of "here's what's wrong."</p>
+
+                <div class="vu-step-cards">
+                    <div class="vu-step-card">
+                        <span class="vu-step-num">01</span>
+                        <p class="vu-step-title">Name of the recommended next step</p>
+                        <p class="vu-step-body">What doing this would tell you that the current research can't.</p>
+                    </div>
+                    <div class="vu-step-card">
+                        <span class="vu-step-num">02</span>
+                        <p class="vu-step-title">Name of the recommended next step</p>
+                        <p class="vu-step-body">What doing this would tell you that the current research can't.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+            <div class="vu-lib-block-inner">
+                <span class="vu-lib-block-tag">Layout 43</span>
+                <p class="vu-lib-block-title">Editorial Note</p>
+                <p class="vu-lib-usage">Classes: <strong>.vu-editorial-note</strong> → <strong>.vu-editorial-note-label</strong> + <strong>.vu-editorial-note-lead</strong> (bold) + <strong>.vu-editorial-note-body</strong>. A neutral, warm-toned aside for meta-commentary about the work itself — a correction to an earlier draft, a caveat about a method, a note on what a visual should NOT claim. Deliberately not green: that color is reserved for affirmative findings via <strong>.vu-key-insight</strong>, so a caveat needs a visually distinct, lower-key treatment that doesn't read as "good news."</p>
+                <div class="vu-editorial-note">
+                    <p class="vu-editorial-note-label">Note</p>
+                    <p class="vu-editorial-note-lead">A bold one-line correction or caveat.</p>
+                    <p class="vu-editorial-note-body">Supporting explanation of why this matters or what changed.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="vu-lib-block">
+                <div class="vu-lib-block-inner">
+                    <span class="vu-lib-block-tag">Layout 44</span>
+                    <p class="vu-lib-block-title">Research Finding + Design Implication Cards</p>
+                    <p class="vu-lib-usage">Used on the iPhone One-Handed Mode case study. Classes: <strong>.vu-rf-grid</strong> (2-column) → <strong>.vu-rf-card</strong> → <strong>.vu-rf-num</strong> + <strong>.vu-rf-title</strong> + <strong>.vu-rf-body</strong> + optional <strong>.vu-rf-media</strong> (placeholder/image) + <strong>.vu-rf-implication</strong> (a highlighted inset box with <strong>.vu-rf-implication-label</strong> + <strong>.vu-rf-implication-body</strong>). For academic or literature findings that each need a clearly separated "so what does this mean for the design" takeaway — the inset box visually separates raw finding from design consequence so a skimmer can jump straight to the implication.</p>
+
+
+                    
+                    <div class="vu-rf-grid vu-mt-xl">
+                        <div class="vu-rf-card">
+                            <div class="vu-rf-media">
+                                <div class="vu-placeholder vu-placeholder-med"></div>
+                                    <p class="vu-img-caption">Placeholder — replace with: touch accuracy / screen map visualization.</p>
+                                </div>
+                            <div>
+                            <div class="vu-rf-header">
+                                <span class="vu-rf-num">Hoober's finding 03</span>
+                                <p class="vu-rf-title">Touch accuracy decreases toward the edges of the screen.</p>
+                            </div>
+                            <p class="vu-rf-body">Hoober's analysis found greater touch accuracy toward the center of the screen and lower accuracy near the edges and corners.</p>
+                            <div class="vu-rf-implication">
+                                <p class="vu-rf-implication-label">Design implication</p>
+                                <p class="vu-rf-implication-body">Reduce precise thumb input at distant edges. A one-handed interaction should avoid making the thumb repeatedly target small controls far from its natural working area.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vu-rf-card">
+                        <div class="vu-rf-media">
+                            <div class="vu-placeholder vu-placeholder-med"></div>
+                            <p class="vu-img-caption">Placeholder — replace with: grip change / stability illustration.</p>
+                        </div>
+                        <div>
+                            <div class="vu-rf-header">
+                                <span class="vu-rf-num">Hoober's finding 04</span>
+                                <p class="vu-rf-title">Changing grip can increase reach, but reduces stability.</p>
+                            </div>
+                            <p class="vu-rf-body">People can adjust their grip to extend thumb reach, but doing so changes how the phone is supported.</p>
+                            <div class="vu-rf-implication">
+                                <p class="vu-rf-implication-label">Design implication</p>
+                                <p class="vu-rf-implication-body">Don't make additional reach depend on changing the grip. The solution should provide access to distant controls while allowing the user to maintain a stable hold.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- </div>
+                </div> -->
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Design and code by yours truly.</p>
+        <p>Copyright &copy; 2026, Sahar Babaei</p>
+    </footer>
+</div>
+</body>
+</html>

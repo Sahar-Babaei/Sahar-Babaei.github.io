@@ -1,170 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title> Sahar Babaei's Portfolio </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sahar Babaei — UX Designer & Interdisciplinary Designer</title>
+    <meta name="description" content="Portfolio of Sahar Babaei, an interdisciplinary designer specializing in UX research, UI design, and visual design based in Vancouver, BC.">
 
-	<!-- Favicon -->
-	<link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96" />
-	<link rel="icon" type="image/svg+xml" href="img/favicon/favicon.svg" />
-	<link rel="shortcut icon" href="img/favicon/favicon.ico" />
-	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png" />
-	<meta name="apple-mobile-web-app-title" content="Sahar Babaei Portfolio" />
-	<link rel="manifest" href="img/favicon/site.webmanifest" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Sahar Babaei" />
+    <link rel="manifest" href="img/favicon/site.webmanifest" />
 
+    <!-- Preload essential abc-diatype-round fonts -->
+    <link rel="preload" href="fonts/ABCDiatypeRounded-Regular-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-RegularItalic-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-Medium-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-MediumItalic-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-Bold-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-BoldItalic-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <!-- Preload essential family fonts -->
+    <link rel="preload" href="fonts/test-family-light.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-light-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-bold-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 
-	<!-- Preload essential abc-diatype-round fonts -->
-	<link rel="preload" href="fonts/ABCDiatypeRounded-Regular-Trial.woff2" as="font" type="font/woff2"
-		crossorigin="anonymous" />
-	<link rel="preload" href="fonts/ABCDiatypeRounded-RegularItalic-Trial.woff2" as="font" type="font/woff2"
-		crossorigin="anonymous" />
-
-	<link rel="preload" href="fonts/ABCDiatypeRounded-Medium-Trial.woff2" as="font" type="font/woff2"
-		crossorigin="anonymous" />
-	<link rel="preload" href="fonts/ABCDiatypeRounded-MediumItalic-Trial.woff2" as="font" type="font/woff2"
-		crossorigin="anonymous" />
-
-	<link rel="preload" href="fonts/ABCDiatypeRounded-Bold-Trial.woff2" as="font" type="font/woff2"
-		crossorigin="anonymous" />
-	<link rel="preload" href="fonts/ABCDiatypeRounded-BoldItalic-Trial.woff2" as="font" type="font/woff2"
-		crossorigin="anonymous" />
-
-	<!-- Preload essential family fonts -->
-	<link rel="preload" href="fonts/test-family-light.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-	<link rel="preload" href="fonts/test-family-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-	<link rel="preload" href="fonts/test-family-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-
-	<link rel="preload" href="fonts/test-family-light-italic.woff2" as="font" type="font/woff2"
-		crossorigin="anonymous" />
-	<link rel="preload" href="fonts/test-family-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-	<link rel="preload" href="fonts/test-family-bold-italic.woff2" as="font" type="font/woff2"
-		crossorigin="anonymous" />
-
-
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="stylesheet" href="css/breakpoints.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/breakpoints.css">
+    <script src="js/nav.js" defer></script>
+    <link rel="stylesheet" href="css/casestudy-extra.css">
+    <script src="js/cursor.js" defer></script>
 </head>
-
 <body>
+    <div class="main-wrapper">
+        <header id="site-header" class="nav-section"></header>
 
-	<div class="main-wrapper">
+        <main class="home-main">
+            <section class="main-section">
 
-		<!-- navigation bar at top/side -->
-		<header class="nav-section">
-			<a href="index.html" class="my-brand-link">
-				<div class="my-brand">
-					<picture>
-						<source class="smiley-logo" media="(max-width:57.45rem)" srcset="img/small-logo.png">
-						<img class="smiley-logo" src="img/logo.png" height="336" width="336"
-							alt="a smiley with a u shape smile">
-					</picture>
-					<h1>
-						<span class="logotype"> SAHAR BABAEI</span>
-						<span class="short-logotype"> S.B. </span>
-					</h1>
-				</div>
-			</a>
+                <div class="callout-sec">
+                    <!-- Using h2 here to match the original styling exactly -->
+                    <h2>Hello there, welcome to my portfolio.</h2>
+                    <div class="callout">
+                        <!-- Six hand-authored preset layouts, one per breakpoint tier (like
+                             <picture> swapping image crops per breakpoint). Only one is ever
+                             visible at a time (see the .callout-tier* media queries in
+                             casestudy-extra.css); each scales fluidly via cqw units within its
+                             own tier range, so the manually-chosen line breaks and chip widths
+                             never re-wrap until the browser swaps to the next tier's preset. -->
+                        <p class="callout-lead callout-tier1 callout-lead-chip-break">
+                            This is Sahar
+                            <a href="about.html" class="callout-chip callout-chip-green" aria-label="more about me">
+                                <img src="img/sahar-chip-cropped.webp" alt="" loading="lazy">
+                                <span class="callout-chip-hint">more about me <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </a><br>
+                            a&nbsp;Vancouver based designer working<br>
+                            across Product design, UX&nbsp;design,<br>
+                            <a href="Projects.html" class="callout-chip callout-chip-yellow" aria-label="project case studies">
+                                <img src="img/Notion--project-card.png" alt="" loading="lazy">
+                                <span class="callout-chip-hint">project case studies <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </a> UX&nbsp;research,<br>
+                            and <span class="callout-atomic">Visual
+                                <a href="Archive.html" class="callout-chip callout-chip-blue" aria-label="visual design archive">
+                                    <img src="img/etc-images/x-ergo-y-6.webp" alt="" loading="lazy">
+                                    <span class="callout-chip-hint">visual design archive <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                </a> design.</span>
+                        </p>
 
-			<div class="space-fixer-div">
-			</div>
+                        <p class="callout-lead callout-tier2 callout-lead-chip-break">
+                            This is Sahar
+                            <a href="about.html" class="callout-chip callout-chip-green" aria-label="more about me">
+                                <img src="img/sahar-chip-cropped.webp" alt="" loading="lazy">
+                                <span class="callout-chip-hint">more about me <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </a><br>
+                            a&nbsp;Vancouver based designer working<br>
+                            across Product design, UX&nbsp;design,<br>
+                            <a href="Projects.html" class="callout-chip callout-chip-yellow" aria-label="project case studies">
+                                <img src="img/Notion--project-card.png" alt="" loading="lazy">
+                                <span class="callout-chip-hint">project case studies <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </a> UX&nbsp;research,<br>
+                            and <span class="callout-atomic">Visual
+                                <a href="Archive.html" class="callout-chip callout-chip-blue" aria-label="visual design archive">
+                                    <img src="img/etc-images/x-ergo-y-6.webp" alt="" loading="lazy">
+                                    <span class="callout-chip-hint">visual design archive <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                </a> design.</span>
+                        </p>
 
+                        <p class="callout-lead callout-tier3 callout-lead-chip-break">
+                            This is Sahar
+                            <a href="about.html" class="callout-chip callout-chip-green" aria-label="more about me">
+                                <img src="img/sahar-chip-cropped.webp" alt="" loading="lazy">
+                                <span class="callout-chip-hint">more about me <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </a><br>
+                            a&nbsp;Vancouver based designer working across<br>
+                            Product design, UX&nbsp;design,
+                            <a href="Projects.html" class="callout-chip callout-chip-yellow" aria-label="project case studies">
+                                <img src="img/Notion--project-card.png" alt="" loading="lazy">
+                                <span class="callout-chip-hint">project case studies <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </a><br>
+                            UX&nbsp;research, and <span class="callout-atomic">Visual
+                                <a href="Archive.html" class="callout-chip callout-chip-blue" aria-label="visual design archive">
+                                    <img src="img/etc-images/x-ergo-y-6.webp" alt="" loading="lazy">
+                                    <span class="callout-chip-hint">visual design archive <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                </a> design.</span>
+                        </p>
 
-			<nav>
-				<!-- <a href="works.html">work</a> -->
-				<a href="index.html">work</a>
-				<a href="about.html">about</a>
-				<!-- <a href="etc.html">etc.</a> -->
-			</nav>
+                        <p class="callout-lead callout-tier4 callout-lead-chip-break">
+                            This is Sahar
+                            <a href="about.html" class="callout-chip callout-chip-green" aria-label="more about me">
+                                <img src="img/sahar-chip-cropped.webp" alt="" loading="lazy">
+                                <span class="callout-chip-hint">more about me <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </a><br>
+                            a&nbsp;Vancouver based designer working<br>
+                            across Product design, UX&nbsp;design,<br>
+                            <a href="Projects.html" class="callout-chip callout-chip-yellow" aria-label="project case studies">
+                                <img src="img/Notion--project-card.png" alt="" loading="lazy">
+                                <span class="callout-chip-hint">project case studies <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </a> UX&nbsp;research,<br>
+                            and <span class="callout-atomic">Visual
+                                <a href="Archive.html" class="callout-chip callout-chip-blue" aria-label="visual design archive">
+                                    <img src="img/etc-images/x-ergo-y-6.webp" alt="" loading="lazy">
+                                    <span class="callout-chip-hint">visual design archive <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                </a> design.</span>
+                        </p>
 
-			<div class="space-fixer-div">
-			</div>
-			<!-- <div class="space-fixer-div">
-			</div> -->
+                        <p class="callout-lead callout-tier5 callout-lead-chip-break">
+                            This is Sahar
+                            <a href="about.html" class="callout-chip callout-chip-green" aria-label="more about me">
+                                <img src="img/sahar-chip-cropped.webp" alt="" loading="lazy">
+                                <span class="callout-chip-hint">more about me <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </a><br>
+                            a&nbsp;Vancouver based designer working across<br>
+                            Product design, UX&nbsp;design,
+                            <a href="Projects.html" class="callout-chip callout-chip-yellow" aria-label="project case studies">
+                                <img src="img/Notion--project-card.png" alt="" loading="lazy">
+                                <span class="callout-chip-hint">project case studies <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </a><br>
+                            UX&nbsp;research, and <span class="callout-atomic">Visual
+                                <a href="Archive.html" class="callout-chip callout-chip-blue" aria-label="visual design archive">
+                                    <img src="img/etc-images/x-ergo-y-6.webp" alt="" loading="lazy">
+                                    <span class="callout-chip-hint">visual design archive <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                </a> design.</span>
+                        </p>
 
-			<div class="side-footer">
-				<p> Design and code by yours truly. </p>
-				<p> Copyright &copy; 2026, Sahar Babaei </p>
-			</div>
-		</header>
+                        <p class="callout-lead callout-tier6 callout-lead-chip-break">
+                            This is Sahar
+                            <a href="about.html" class="callout-chip callout-chip-green" aria-label="more about me">
+                                <img src="img/sahar-chip-cropped.webp" alt="" loading="lazy">
+                                <span class="callout-chip-hint">more about me <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </a><br>
+                            a&nbsp;Vancouver based designer working across<br>
+                            Product design, UX&nbsp;design,
+                            <a href="Projects.html" class="callout-chip callout-chip-yellow" aria-label="project case studies">
+                                <img src="img/Notion--project-card.png" alt="" loading="lazy">
+                                <span class="callout-chip-hint">project case studies <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </a><br>
+                            UX&nbsp;research, and <span class="callout-atomic">Visual
+                                <a href="Archive.html" class="callout-chip callout-chip-blue" aria-label="visual design archive">
+                                    <img src="img/etc-images/x-ergo-y-6.webp" alt="" loading="lazy">
+                                    <span class="callout-chip-hint">visual design archive <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                </a> design.</span>
+                        </p>
 
+                        <p class="callout-lead callout-tier7">
+                            This is Sahar
+                            <a href="about.html" class="callout-chip callout-chip-green" aria-label="more about me">
+                                <img src="img/sahar-chip-cropped.webp" alt="" loading="lazy">
+                                <span class="callout-chip-hint">more about me <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </a> a&nbsp;Vancouver based designer<br>
+                            working across Product design, UX&nbsp;design,
+                            <a href="Projects.html" class="callout-chip callout-chip-yellow" aria-label="project case studies">
+                                <img src="img/Notion--project-card.png" alt="" loading="lazy">
+                                <span class="callout-chip-hint">project case studies <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </a><br>
+                            UX&nbsp;research, and <span class="callout-atomic">Visual
+                                <a href="Archive.html" class="callout-chip callout-chip-blue" aria-label="visual design archive">
+                                    <img src="img/etc-images/x-ergo-y-6.webp" alt="" loading="lazy">
+                                    <span class="callout-chip-hint">visual design archive <svg class="callout-chip-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                </a> design</span>
+                        </p>
+                    </div>
+                </div>
 
-		<!-- main section starts here -->
-		<main>
-			<section class="main-section">
+                <div class="selected-works-sec">
+                    <div class="selected-works-header">
+                        <h3 class="selected-works-heading">Selected works</h3>
+                        <a href="Projects.html" class="vu-nav-style-link">
+                            More projects
+                            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                    <section class="project-card-section grid card-grid card-one-column card-two-column">
 
-				<div class="callout-sec">
-					<h2> Hello there, welcome to my portfolio.</h2>
-					<div class="callout">
-						<p> This is Sahar – </p>
-						<p> an interdisciplinary designer with a strong passion for UX design and creating functional,
-							inclusive and pleasant user experiences. </p>
-					</div>
-				</div>
+                        <a href="Reachability-casestudy.html" class="vu-project-card-link">
+                            <div class="vu-project-card">
+                                <div class="vu-project-card-frame">
+                                    <img src="img/iphone-onehanded-project-card.png" width="2048" height="1277" alt="Apple's native Reachability feature next to the proposed full-time one-handed control panel">
+                                    <div class="vu-project-card-badges">
+                                        <span class="vu-project-card-badge">HCI Research</span>
+                                    </div>
+                                </div>
+                                <span class="vu-project-card-go"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                <div class="vu-project-card-caption">
+                                    <h3 class="vu-project-card-title">Beyond reachability</h3>
+                                    <p class="vu-project-card-tag">Redesigning iPhone's one handed mode</p>
+                                </div>
+                            </div>
+                        </a>
 
-				<!-- <h3> Please feel free to:</h3>
-				<div class="feel-free-points">
-					<p> → Read more <a href="about.html"> about me </a>  , or contact me via  <a href="mailto:snbabaee@gmail.com"> email</a>   </p>
-					<p> → Checkout some of my <a href="works.html"> design work </a></p>
-					<p> → Have a look at my <a href="etc.html"> speculative design projects </a>  </p>
-				</div> -->
+                        <a href="notion-casestudy.html" class="vu-project-card-link">
+                            <div class="vu-project-card">
+                                <div class="vu-project-card-frame">
+                                    <img src="img/Notion--project-card.png" width="2048" height="1139" alt="Notion slash commands controlled experiment case study">
+                                    <div class="vu-project-card-badges">
+                                        <span class="vu-project-card-badge">UX Research</span>
+                                    </div>
+                                </div>
+                                <span class="vu-project-card-go"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8H15M15 8L9.5 2.5M15 8L9.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                <div class="vu-project-card-caption">
+                                    <h3 class="vu-project-card-title">Notion Shortcut on mobile</h3>
+                                    <p class="vu-project-card-tag">A study on efficiency of slash commands</p>
+                                </div>
+                            </div>
+                        </a>
 
-				<div>
-					<!-- <h2> Selected Projects</h2> -->
-					<section class="project-card-section grid card-grid card-one-column card-two-column">
+                    </section>
+                </div>
 
+            </section>
+        </main>
 
-						<a href="speculative-listerine.html">
-							<div class="project-card">
-								<div class="project-card-heading">
-									<h3> LISTERINE FULL MEAL + </h3>
-									<p> Speculative Design / Design Fiction / Visual Design</p>
-								</div>
-
-								<img class="project-card-img" src="img/listerine-project-card-long.png" width="1641"
-									height="865"
-									alt="overview image of the proposed UI redesign for the goodreads app ">
-
-							</div>
-						</a>
-
-
-
-						<a href="goodreads.html">
-							<div class="project-card">
-								<div class="project-card-heading">
-									<h3> Goodreads Feature Redesign </h3>
-									<p> UX Research / UX + UI design </p>
-								</div>
-
-								<img class="project-card-img" src="img/goodreads-project-card-long.png" width="1641"
-									height="865"
-									alt="overview image of the proposed UI redesign for the goodreads app ">
-
-							</div>
-						</a>
-					</section>
-				</div>
-
-			</section>
-
-
-
-
-
-		</main>
-
-
-
-		<footer>
-			<p> Design and code by yours truly. </p>
-			<p> Copyright &copy; 2026, Sahar Babaei </p>
-		</footer>
-
-	</div>
+        <footer>
+            <p>Design and code by yours truly.</p>
+            <p>Copyright &copy; 2026, Sahar Babaei</p>
+        </footer>
+    </div>
 </body>
-
 </html>

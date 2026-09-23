@@ -9,8 +9,29 @@
 
 
 
+/* Very narrow phones only (<350px) — the mobile top-bar's 3 nav
+   labels ("Projects" / "Archive" / "About") get slightly tighter
+   here. Deliberately a max-width query so it only ever affects this
+   sliver below the 30rem ("bigger" mobile) tier, never the sidebar
+   (57.5rem+), which sets its own nav a font-size unaffected by this. */
+@media (max-width: 349px){
+
+    nav a{
+        font-size: 0.94rem;
+    }
+
+}
+
+
 /* 481px or bigger for full name on top bar */
 @media (min-width : 30rem){
+
+    /* Case-study "jump to top" button turns on here — see the base
+       (hidden) rule and full styling in main.css, and the matching
+       turn-off at the 57.5rem sidebar breakpoint below. */
+    .vu-jump-to-top{
+        display: flex;
+    }
 
     .short-logotype{
         display:none;
@@ -34,13 +55,12 @@
         margin:2.3rem auto;
     }
 
-    .callout p{
-        font-size: 2rem;
-        word-spacing: 0.15rem;
-    }
-
     h2{
         font-size: 1.1rem;
+    }
+
+    h2.page-heading{
+        font-size: 1.55rem;
     }
 
     h3{
@@ -102,9 +122,168 @@
         gap: 1rem;
     }
 
+    /* Project card images: fixed 14rem (matches the base rule in
+       casestudy-extra.css) up to ~957px viewport height, then grow
+       with the viewport, capped at 19rem. This exists because once
+       cards go 2-up (this breakpoint), a wide, short, fixed-height
+       image starts looking increasingly panoramic on tall viewports
+       — and separately, .home-main's flush-to-bottom gap (below)
+       grows to fill any spare vertical room on the home page, which
+       on a sufficiently tall viewport made that gap look
+       disproportionately large next to short, wide cards. This
+       formula addresses both at once: past a certain viewport
+       height, some of the room that used to become gap becomes card
+       height instead.
+
+       calc(90vh - 637.38px) is deliberately the same 0.9 slope as
+       .home-main's own padding-bottom formula (10vh's complement) —
+       not a coincidence, this is what makes the two mechanisms
+       compose correctly. .home-main's gap is whatever's left in its
+       flex container after .callout-sec and .selected-works-sec's
+       own heights are subtracted; growing this image grows
+       .selected-works-sec by the same amount, so at a 1:1 (0.9-to-
+       0.9) rate, every extra px of viewport height goes entirely
+       into image growth and none into the gap — the gap holds still
+       while the image climbs from 14rem to 19rem, then once the
+       image hits its cap, the gap resumes absorbing extra space
+       exactly like before. No JS, no observing anything — it works
+       because both formulas independently read the same 100vh.
+
+       637.38px = 653.38px - 16px: shifted down from the original
+       653.38px by exactly the 1rem (16px) this whole range was bumped
+       up by, so the crossover viewport-heights (where growth starts/
+       ends) land at the exact same 957px / ~1290px as before — same
+       resizing behavior, just 1rem taller throughout. If this range
+       is ever re-tuned, keep shifting this constant by minus whatever
+       was added to the min/max so the crossover points don't drift.
+
+       956.4px is where 90vh - 637.38px first equals 14rem (224px) —
+       i.e. roughly where .home-main's gap would otherwise have
+       grown to about 10rem, the point it starts looking oversized
+       against 14rem-tall cards. 19rem is a content-safety ceiling,
+       not an arbitrary round number — calibrated against the Notion
+       case study's card image (img/Notion--project-card.png), not
+       the Listerine/Goodreads images also on this page, which are
+       placeholders. The Notion image is what future project card
+       images are meant to look like: a roughly-centered screenshot
+       with generous margin on all sides, so object-fit:cover can
+       crop in a good deal before touching anything meaningful.
+       Tested crops of that specific image directly: clean through
+       20rem, starts clipping the card's own top/bottom content at
+       22rem. 19rem leaves a healthy buffer under that. If the real
+       project card images end up framed tighter than the Notion one
+       once they're in place, re-check this ceiling against them
+       specifically.
+
+       Shared class, not scoped to .home-main, so Projects.html's cards
+       (and any other page reusing .vu-project-card-frame) grow the
+       same way — no separate rule needed to keep them behaving
+       "similarly," they're already the same rule.
+
+       Prefixed with .project-card-section (rather than just
+       .vu-project-card-frame img) deliberately: casestudy-extra.css,
+       which holds the base 14rem rule, loads AFTER breakpoints.css,
+       so a same-specificity override here would silently lose the
+       cascade regardless of this media query matching. The prefix
+       raises specificity instead of fighting load order. */
+    .project-card-section .vu-project-card-frame img {
+        height: clamp(14rem, calc(90vh - 637.38px), 19rem);
+    }
+
+    .project-card-section .vu-project-card-go {
+        top: clamp(14rem, calc(90vh - 637.38px), 19rem);
+    }
+
+    /* Flush-to-bottom layout starts here (774px) rather than at the
+       920px sidebar breakpoint, since 2-column cards — and the "fits
+       one screen, no scroll" intent — already apply from here up
+       (this covers iPad-ish viewports too: they're usually tall
+       relative to their width, so there's often real spare vertical
+       room to use). The 920px+ block below only overrides
+       .home-main .main-section's width/margin (the one thing that's
+       actually different there for the sidebar); everything else
+       here cascades forward unchanged. Keep these two in sync
+       deliberately — see the note in the 920px block.
+
+       Scoped to .home-main (index.html's <main> only — see index.html)
+       rather than the bare main/.main-section selectors: those are
+       shared across every page (works/about/etc/goodreads all use
+       .main-section too, with completely different child structure —
+       an <h2>+<p>+<section> title block on Projects.html, for instance).
+       An earlier version of this styled main/.main-section directly
+       and forced a 4.5rem gap into all of those unrelated pages by
+       accident. */
+    .home-main{
+        /* Replaces what used to be .main-section's own top/bottom
+           margin (still literally 2.3rem, just moved here as padding
+           instead — see why below). */
+        padding: 2.3rem 0;
+        /* .home-main itself becomes a flex container so its
+           .main-section can get its height via flex-grow (below)
+           rather than via a percentage. Tried min-height:100% on
+           .main-section first — doesn't work: confirmed via
+           computed-style inspection that it stays an unresolved
+           "100%" instead of a px value in this column-mode range,
+           even though .home-main's own height is clearly definite
+           (flex-grow gives it a real, measurable px height here) —
+           percentage-height resolution through a flex-grow'd
+           main-axis size apparently isn't reliable the way it is
+           through align-items:stretch's cross-axis size. flex-grow
+           chains don't have that problem, so nesting one more level
+           of it is the robust fix. */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home-main .main-section{
+        /* margin's vertical component is zeroed here (width/horizontal
+           margin still comes from the 30rem block's own .main-section
+           rule, untouched) — .home-main's padding above replaces it.
+           Missing this the first time is exactly the same class of
+           bug as the .callout margin-bottom leak below: the old
+           margin:2.3rem auto wasn't overridden, so it was stacking on
+           top of .home-main's new padding instead of being replaced
+           by it, pushing .callout-sec ~37px further down than
+           intended and raising the "fits without scrolling" height
+           threshold to match. */
+        margin: 0 auto;
+        /* Grow to fill whatever's left in .home-main (padding already
+           subtracted, box-sizing:border-box) — same flex-grow
+           mechanism that gives .home-main its own height from
+           .main-wrapper, just one level deeper. Content taller than
+           this just pushes .main-section past its flex-grow size like
+           normal content overflow, which is what lets things fall
+           back to scrolling instead of ever compressing the gap
+           below. */
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        /* Floor on the gap between .callout-sec and .selected-works-sec
+           below — .selected-works-sec's margin-top:auto absorbs
+           anything beyond this floor, so the gap only ever grows from
+           here, never shrinks under it. */
+        gap: 4.5rem;
+    }
+
+    .selected-works-sec{
+        /* Pushes this block toward the bottom of .main-section,
+           absorbing all leftover vertical space beyond .callout-sec's
+           natural height + the 4.5rem gap floor above. */
+        margin-top: auto;
+    }
+
     .callout{
-        margin-bottom: 2.1rem;
-        margin-bottom: 3.2rem;
+        /* Explicitly zeroed, not omitted: this used to hold a fixed
+           3.2rem here (and a separate clamp()-based growing version
+           at 920px+). Both are superseded by .main-section's flex gap
+           above. Needs to be an explicit 0 rather than just deleted —
+           once .callout-sec is a flex item (immediately above), a
+           child's trailing margin no longer collapses through it, so
+           any leftover value here would sit trapped inside
+           .callout-sec as unaccounted-for extra height rather than
+           being replaced by the gap. (Cost a debugging round-trip
+           the first time — see the 920px block's .callout comment.) */
+        margin-bottom: 0;
     }
 }
 
@@ -116,17 +295,67 @@
 /* 920 px or bigger so ipad airs can have a side bar too */
 @media (min-width : 57.5rem){
 
+    /* Sidebar is always on-screen from here up, so the "jump to top"
+       button (turned on at 30rem, in that earlier block) is no longer
+       needed — nav is never more than a glance away. */
+    .vu-jump-to-top{
+        display: none;
+    }
+
     .main-wrapper{
-        flex-direction: row-reverse;
+        flex-direction: row;
     }
 
     main{
-        margin-right: 14.5rem;
+        margin-left: 14.5rem;
+    }
+
+    .home-main{
+        /* display:flex/flex-direction:column/padding-top are inherited
+           from the 774px block — .home-main stays a column flex
+           container (for .main-section's flex-grow below) even though
+           .main-wrapper itself just switched to row above; those are
+           two different elements' flex-direction, not in conflict.
+
+           padding-bottom is overridden here (rather than inherited)
+           to line up .selected-works-sec's bottom edge with the
+           sidebar's "Design and code..." line. .nav-section lays its
+           3 children (logo, nav links, .side-footer) out with
+           justify-content:space-around across a height:100vh box, so
+           .side-footer's top follows its own vh-based line — measured
+           empirically (rather than hand-deriving the space-around
+           algebra) at two far-apart heights and fit exactly:
+           side-footer top = 0.9 × viewport height + ~1px. Setting
+           padding-bottom to the complementary 10vh - 25.03px makes
+           .main-section's content-box bottom (and so
+           .selected-works-sec's flush-to-bottom edge) land on that
+           same line at every height, not just one. If the sidebar's
+           three children or .nav-section's own layout ever change,
+           re-measure side-footer's top at two heights and refit (fit
+           the slope first with two far-apart heights, which should
+           land near 10vh, then adjust the constant offset — smaller
+           padding-bottom pushes .selected-works-sec further down —
+           to close the remaining gap; that offset isn't itself
+           meaningful, it was -25.03px here, just whatever this
+           element's other spacing happens to add up to). */
+        padding-bottom: calc(10vh - 25.03px);
     }
 
     .main-section{
+        /* Base horizontal sizing, shared by every page that uses
+           .main-section (works/about/etc/goodreads included) — keep
+           this unscoped and unchanged from its original values. */
         width:88%;
         margin:2.3rem auto;
+    }
+
+    .home-main .main-section{
+        /* Homepage-only override: margin drops its vertical component
+           now that .home-main's own padding handles that (see above
+           and the 774px block) — width stays the shared 88%.
+           flex-grow / gap:4.5rem, the flush-to-bottom mechanics, are
+           inherited unchanged from the 774px block. */
+        margin:0 auto;
     }
 
     .nav-section{
@@ -174,7 +403,7 @@
         text-align: center;
         font-weight: 400;
         margin: 0.5rem 0;
-        padding: 0.4rem 1.8rem;
+        padding: 0.5rem 1.7rem;
         border: var(--navbar-text-color) 0.18rem solid;
         border-radius: 10rem;
     }
@@ -185,7 +414,7 @@
         background-color: var(--navbar-text-color);
 
         margin: 0.5rem 0;
-        padding: 0.4rem 1.8rem;
+        padding: 0.5rem 1.7rem;
 
         border: var(--navbar-text-color) 0.18rem solid;
         border-radius: 10rem;
@@ -222,6 +451,10 @@
         font-size: 1.2rem;
     }
 
+    h2.page-heading{
+        font-size: 1.7rem;
+    }
+
 
     .callout-sec h2{
         font-size: 1.1rem;
@@ -238,17 +471,26 @@
 
 
 
-    .callout p{
-        font-size: 4.6rem;
-        word-spacing: 0.15rem;
-        font-size: 2.8rem;
-    
-    }
-
     .callout{
         margin-top: 6rem;
         margin-top: 2.1rem;
-        margin-bottom: 4.5rem;
+        /* margin-bottom used to hold a clamp()-based growing gap here
+           (floor 4.5rem, grew with spare 100vh, capped at 7rem).
+           Superseded by .main-section's flex gap + .selected-works-sec's
+           margin-top:auto above, which does the same job but flush to
+           the actual bottom of the available space instead of capping
+           out at a fixed 7rem.
+
+           Explicitly zeroed rather than just omitted: main.css and the
+           48.35rem tier both set their own margin-bottom on .callout
+           (2.4rem / 3.2rem, for spacing before .callout-sec's flex-item-
+           ification made this element's trailing margin collapse away
+           on its own). Once .callout-sec became a flex item of
+           .main-section, margins no longer collapse through it, so an
+           inherited non-zero value here would sit trapped inside
+           .callout-sec as unaccounted-for extra height, on top of the
+           gap above rather than replaced by it. */
+        margin-bottom: 0;
     }
 
     .card-grid{
@@ -342,26 +584,24 @@
 
 
 /* for big callout  */
-@media (min-width : 84.625rem){
+@media (min-width : 85.5rem){
 
 
     .callout{
         margin-top: 2.2rem;
-        margin-bottom: 4.5rem;
+        /* margin-bottom's clamp()-based growing gap (same idea as the
+           earlier tiers) is superseded by .main-section's flex gap +
+           .selected-works-sec's margin-top:auto, set once at the 774px
+           breakpoint — no override needed here, that mechanism already
+           covers this wider tier too. */
     }
-
-    .callout p{
-        font-size: 4.6rem;
-        word-spacing: 0.15rem;
-        font-size: 4rem;
-        font-size: 3.2rem;
-    
-    }
-
-
 
     h2{
         font-size: 1.35rem;
+    }
+
+    h2.page-heading{
+        font-size: 1.85rem;
     }
 
 
@@ -402,6 +642,18 @@
     .card-grid{
         grid-template-columns: 1fr 1fr;
         gap: 2.6rem;
+    }
+
+}
+
+
+/* Works page only: 3 columns past 1900px, with a roomier gap to match
+   (2-column layouts elsewhere keep the 2.6rem gap above). */
+@media (min-width : 118.75rem){
+
+    .works-card-grid{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3.4rem;
     }
 
 }

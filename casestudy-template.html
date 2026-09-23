@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+╔═══════════════════════════════════════════════════════════════════╗
+║            CASE STUDY TEMPLATE — HOW TO USE THIS FILE             ║
+╠═══════════════════════════════════════════════════════════════════╣
+║  1. DUPLICATE this file and rename it, e.g. "myproject.html"      ║
+║  2. Find every line marked [EDIT: ...] and update it              ║
+║  3. Replace every img/YOUR-IMAGE.png and img/YOUR-HERO-IMAGE.png  ║
+║     src with your real file, AND update that same <img>'s width/  ║
+║     height attributes to match the real file's actual pixel size  ║
+║     (open it and check, don't guess) — these placeholders were    ║
+║     deliberately left without width/height, since there's no      ║
+║     real file yet to measure. Getting this wrong is worse than    ║
+║     leaving it blank: a wrong aspect ratio reserves the wrong-     ║
+║     shaped space and the page still jumps once the image loads,   ║
+║     the exact thing width/height exists to prevent.               ║
+║  4. Add a project card linking to it on Projects.html                ║
+║  5. Add it to the worksPages array in js/nav.js so "works" shows  ║
+║     as the active nav item when someone's on this page            ║
+║  6. Update the two "Up next" links near the bottom                ║
+║  7. Delete any (flexible) section below that doesn't fit          ║
+║                                                                   ║
+║  EVERY CASE STUDY SHARES ONE CSS FILE: css/casestudy-extra.css    ║
+║  All section classes are prefixed "vu-". Don't add inline styles  ║
+║  or page-specific <style> blocks — if something's missing, add a  ║
+║  new vu- class to casestudy-extra.css so every page can reuse it. ║
+║                                                                   ║
+║  FEATURES BUILT INTO THIS TEMPLATE:                               ║
+║  • Image lightbox — click any image inside a "lightbox-zone" to   ║
+║    view it full-screen. Add data-fullscreen-description="..." to  ║
+║    an <img> for text shown only in that full-screen overlay —     ║
+║    different from .vu-img-caption, which is always visible.       ║
+║  • Cursor follower — automatic site-wide, no markup needed.       ║
+║  • Lazy-loaded video — add class="vid-lazy" alongside vid-class   ║
+║    on any <video autoplay> to defer it until it's near view.      ║
+║  • "Up next" footer linking to your other case studies.           ║
+║                                                                   ║
+║  SECTION ORDER — based on the two finished case studies,          ║
+║  notion-casestudy.html and Reachability-casestudy.html. The     ║
+║  middle varies by project; the open and close don't.              ║
+║                                                                   ║
+║  ALWAYS, IN THIS ORDER:                                           ║
+║  ─ Hero              the pitch — headline, one overview           ║
+║                       paragraph, a quick-facts strip, hero image  ║
+║  ─ Context            the background a stranger needs before      ║
+║                       the problem makes sense                     ║
+║  ─ Problem / Mission  vu-problem-solution-grid — the problem      ║
+║                       stated plainly, your mission/research       ║
+║                       question in reply                           ║
+║                                                                   ║
+║  THEN, WHATEVER THIS PROJECT ACTUALLY EARNS — a research study    ║
+║  and a design concept don't tell their middle the same way:       ║
+║  ─ Research approach / Study design / Competitive analysis /      ║
+║    Ideation — however you actually got from problem to answer.    ║
+║    vu-method-grid, vu-opps-grid, vu-condition-grid, vu-study-     ║
+║    steps, vu-compare-grid — see the two live pages for real       ║
+║    examples of each.                                              ║
+║  ─ Results / Findings — vu-result-grid, vu-highlight-grid,        ║
+║    vu-stat-grid, vu-table-wrap for data; vu-feature-block for a   ║
+║    final-design walkthrough. Whichever this project earns.        ║
+║  ─ What people said — vu-insights-grid, only if you actually      ║
+║    ran sessions with people and have real quotes to show.         ║
+║  ─ Redesign / Design section — vu-before-after + vu-video-row,    ║
+║    repeat once per feature, for a visual before/after walkthrough.║
+║  ─ Impact / Challenges — vu-impact-grid / vu-opps-grid, if the    ║
+║    project has a clean "so what" beyond Recommendations below.    ║
+║                                                                   ║
+║  ALWAYS, IN THIS ORDER:                                           ║
+║  ─ Limitations & Recommendations — vu-opps-grid or vu-numbered-   ║
+║                       list for limitations, then next steps       ║
+║  ─ Reflection         dark section, one real lesson, not a recap  ║
+║  ─ Up Next            links to two other case studies             ║
+║                                                                   ║
+║  ADDITIONAL COMPONENTS — not included below, but already built    ║
+║  in css/casestudy-extra.css. Copy the matching markup straight    ║
+║  out of the page named after each (both live, finished case       ║
+║  studies; "iphone-refined" = Reachability-casestudy.html):      ║
+║  ─ vu-stat-grid       quick numbers row       → notion-casestudy  ║
+║  ─ vu-condition-grid  A vs. B comparison      → notion-casestudy  ║
+║  ─ vu-result-grid     before/after metric     → notion-casestudy  ║
+║  ─ vu-highlight-grid  headline stat pair      → notion-casestudy  ║
+║  ─ vu-threshold-table p-value reference table → notion-casestudy  ║
+║  ─ vu-numbered-list   ordered task/step list  → notion-casestudy  ║
+║  ─ vu-study-steps     numbered process steps  → notion-casestudy  ║
+║  ─ vu-two-img-grid    two images side by side → notion-casestudy  ║
+║  ─ vu-compare-grid    pros/cons direction card → iphone-refined   ║
+║  ─ vu-feature-block   issue/feature + video    → iphone-refined   ║
+║  ─ vu-tldr            "design implication" box → iphone-refined   ║
+║  ─ vu-key-insight     callout box (💡)         → iphone-refined    ║
+║  ─ vu-placeholder     dashed "image needed" box (-med/-tall)      ║
+║    Always pair it with a <p class="vu-img-caption"> underneath    ║
+║    describing what's needed — same as a real image's caption.     ║
+╚═══════════════════════════════════════════════════════════════════╝
+-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- EDIT: page title -->
+    <title>Project Name — Sahar Babaei</title>
+    <!-- EDIT: 1–2 sentence SEO description -->
+    <meta name="description" content="A brief description of this project for search engines.">
+
+    <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Sahar Babaei" />
+    <link rel="manifest" href="img/favicon/site.webmanifest" />
+
+    <link rel="preload" href="fonts/ABCDiatypeRounded-Regular-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-RegularItalic-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/ABCDiatypeRounded-Medium-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-light.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/test-family-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/breakpoints.css">
+    <link rel="stylesheet" href="css/casestudy-extra.css">
+    <script src="js/nav.js" defer></script>
+    <script src="js/lightbox.js" defer></script>
+    <script src="js/cursor.js" defer></script>
+    <script src="js/video-lazy.js" defer></script>
+</head>
+<body class="vu-page">
+<div class="main-wrapper">
+    <header id="site-header" class="nav-section"></header>
+    <!-- ↑ nav is injected automatically by nav.js. Don't edit. -->
+
+    <main>
+
+        <!-- ══ HERO (always keep) ════════════════════════════════
+             .vu-hero--split is the current hero treatment — see
+             casestudy-extra.css, the "Hero — split layout" section,
+             for the rules. Title + overview sit in .vu-hero-text on
+             the left; facts sit in .vu-meta-row on the right at
+             75rem+ (a vertical divider column below that width, a
+             side-by-side split above it). See notion-casestudy.html
+             or Reachability-casestudy.html for real examples. -->
+        <div class="vu-hero vu-hero--split">
+            <div class="vu-hero-inner">
+                <a href="Projects.html" class="vu-hero-back">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 8H1M1 8L6.5 2.5M1 8L6.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Back to projects
+                </a>
+
+                <div class="vu-hero-grid">
+                    <div class="vu-hero-text">
+                        <!-- EDIT: project title — a full sentence that carries
+                             the story, not a "Name — Tagline" label. -->
+                        <h2>Project Name — Subtitle or Tagline</h2>
+
+                        <!-- EDIT: 2–3 sentence overview — lead with the problem
+                             and the outcome. No "Overview" label; this is the
+                             opening line of the story, not a labeled field. -->
+                        <p class="vu-hero-sub">Short intro paragraph here — what the problem was and what you did about it.</p>
+                    </div>
+                    <div class="vu-meta-row">
+                        <!-- EDIT: swap any of these labels/count for what fits
+                             the project (Timeline / Role / Tools / Type, or
+                             Timeline / Team / Tools / Type). 2–4 facts works;
+                             the grid steps 1 → 2 columns on its own as space
+                             allows below 75rem, so no extra markup is needed
+                             for that. -->
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Timeline</span>
+                            <p class="vu-meta-value">X weeks, Month Year</p>
+                        </div>
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Role</span>
+                            <p class="vu-meta-value">Solo designer / Lead designer / etc.</p>
+                        </div>
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Tools</span>
+                            <p class="vu-meta-value">Figma / FigJam / ProtoPie</p>
+                        </div>
+                        <div class="vu-meta-item">
+                            <span class="vu-meta-label">Type</span>
+                            <p class="vu-meta-value">Academic Project</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EDIT: hero image. Use vu-placeholder if you don't have one yet. -->
+            <div class="lightbox-zone vu-hero-img-wrap">
+                <img class="vu-full-img" src="img/YOUR-HERO-IMAGE.png"
+                     alt="EDIT: describe what's in this image"
+                     data-fullscreen-description="EDIT: text shown only when the image is clicked open full-screen">
+                <p class="vu-img-caption">EDIT: short, one-sentence caption.</p>
+            </div>
+            <!-- No image yet? Use this instead:
+            <div class="vu-hero-img-wrap">
+                <div class="vu-placeholder vu-placeholder-tall"></div>
+                <p class="vu-img-caption">Image needed: describe what should go here.</p>
+            </div> -->
+        </div>
+
+
+        <!-- ══ CONTEXT (always keep) ═══════════════════════════════
+             The background a stranger needs before the problem makes
+             sense. See notion-casestudy.html ("Notion's mobile app
+             lacks...") or Reachability-casestudy.html ("Larger
+             screens make one-handed use more difficult.") for real
+             examples — usually 1–2 short paragraphs, optionally with
+             a supporting image or two. -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Context</p>
+                <!-- EDIT: one sentence stating the background fact that
+                     makes the problem worth solving -->
+                <h3 class="vu-section-title">The background fact that makes this problem worth solving.</h3>
+                <!-- EDIT: 1–2 short paragraphs of grounding — what exists
+                     today, and why it falls short. Save your own
+                     research question / mission for the next section. -->
+                <p class="vu-section-body">What the current situation is, in plain terms.</p>
+                <p class="vu-section-body vu-mt-md">Why that's a problem worth spending a case study on.</p>
+
+                <!-- OPTIONAL: one or two supporting images, side by side -->
+                <div class="lightbox-zone vu-two-img-grid vu-mt-lg">
+                    <figure>
+                        <img class="vu-full-img vu-rounded-img" src="img/YOUR-IMAGE.png" alt="EDIT: describe the image">
+                        <figcaption class="vu-img-caption">Caption. EDIT.</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="vu-full-img vu-rounded-img" src="img/YOUR-IMAGE.png" alt="EDIT: describe the image">
+                        <figcaption class="vu-img-caption">Caption. EDIT.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ PROBLEM / MISSION (always keep) ═════════════════════
+             Both finished case studies use this exact pattern right
+             after Context: the problem (or research question) stated
+             plainly on the left, your mission (or hypothesis) in
+             reply on the right. Swap "The Problem" for "Research
+             Question" per notion-casestudy.html if this project is
+             a research study rather than a design one — "The
+             Mission" label on the right stays the same either way. -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <div class="vu-problem-solution-grid">
+                    <div class="vu-ps-block">
+                        <p class="vu-ps-label problem">The Problem</p>
+                        <!-- EDIT -->
+                        <p class="vu-ps-statement">One bold sentence stating the core problem.</p>
+                    </div>
+                    <div class="vu-ps-block">
+                        <p class="vu-ps-label solution">The Mission</p>
+                        <!-- EDIT -->
+                        <p class="vu-ps-statement">One bold sentence stating what you set out to do about it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ RESEARCH APPROACH (for UX projects) ═════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Research approach</p>
+                <!-- EDIT -->
+                <h3 class="vu-section-title">How you went about understanding the problem</h3>
+                <p class="vu-section-body">1–2 sentences framing your research approach.</p>
+
+                <div class="vu-method-grid">
+                    <!-- EDIT: one card per research method, 3–6 cards -->
+                    <div class="vu-method-card">
+                        <p class="vu-method-card-title">Method name</p>
+                        <p class="vu-method-card-body">What you did and what you found.</p>
+                    </div>
+                    <div class="vu-method-card">
+                        <p class="vu-method-card-title">Method name</p>
+                        <p class="vu-method-card-body">What you did and what you found.</p>
+                    </div>
+                    <div class="vu-method-card">
+                        <p class="vu-method-card-title">Method name</p>
+                        <p class="vu-method-card-body">What you did and what you found.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OPTIONAL: a single full-width supporting image, e.g. an affinity diagram -->
+        <div class="lightbox-zone vu-single-img-section">
+            <div class="vu-inner-wrap">
+                <img class="vu-full-img vu-rounded-img" src="img/YOUR-IMAGE.png"
+                     alt="EDIT: describe the image"
+                     data-fullscreen-description="EDIT: full-screen overlay text">
+                <p class="vu-img-caption">Caption. EDIT.</p>
+            </div>
+        </div>
+
+
+        <!-- ══ WHAT PEOPLE SAID (optional — research quotes) ══════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">What people said</p>
+                <!-- EDIT -->
+                <h3 class="vu-section-title">The pattern that came up again and again</h3>
+                <p class="vu-section-body">1–2 sentences introducing the theme below.</p>
+
+                <div class="vu-insights-grid">
+                    <!-- EDIT: 3–5 cards, one quote each -->
+                    <div class="vu-insight-card">
+                        <p class="vu-insight-label">Theme name</p>
+                        <p class="vu-insight-quote">"A direct quote from a participant."</p>
+                    </div>
+                    <div class="vu-insight-card">
+                        <p class="vu-insight-label">Theme name</p>
+                        <p class="vu-insight-quote">"A direct quote from a participant."</p>
+                    </div>
+                    <div class="vu-insight-card">
+                        <p class="vu-insight-label">Theme name</p>
+                        <p class="vu-insight-quote">"A direct quote from a participant."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ OPPORTUNITIES (optional — icon cards) ══════════════ -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Opportunities</p>
+                <!-- EDIT -->
+                <h3 class="vu-section-title">What the research pointed toward</h3>
+                <p class="vu-section-body">1–2 sentences connecting findings to design direction.</p>
+
+                <div class="vu-opps-grid vu-mt-lg">
+                    <!-- EDIT: one card per opportunity, pick an emoji that fits -->
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">💡</span>
+                        <p class="vu-opp-title">Opportunity name</p>
+                        <p class="vu-opp-body">What it addresses and why it matters.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">⚡</span>
+                        <p class="vu-opp-title">Opportunity name</p>
+                        <p class="vu-opp-body">What it addresses and why it matters.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ REDESIGN / DESIGN SECTION (repeat once per feature) ══ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Redesign 01</p>
+                <!-- EDIT -->
+                <h3 class="vu-section-title">Feature or flow name</h3>
+                <!-- EDIT -->
+                <p class="vu-section-body"><strong>Objective:</strong> what this addresses and which insight(s) it connects to.</p>
+
+                <div class="vu-before-after lightbox-zone">
+                    <div class="vu-ba-block">
+                        <span class="vu-ba-label before">Before</span>
+                        <div class="vu-placeholder vu-placeholder-med"></div>
+                        <p class="vu-img-caption">Caption. Before screenshot — replace with your image.</p>
+                        <p class="vu-lss-body vu-mt-sm">What the original experience looked like and why it was a problem.</p>
+                    </div>
+                    <div class="vu-ba-block">
+                        <span class="vu-ba-label after">After</span>
+                        <div class="vu-placeholder vu-placeholder-med"></div>
+                        <p class="vu-img-caption">Caption. After screenshot — replace with your image.</p>
+                        <p class="vu-lss-body vu-mt-sm">What changed and why it's better.</p>
+                    </div>
+                </div>
+
+                <!-- OPTIONAL: video demo, repeat this block once per clip -->
+                <div class="vu-video-row vu-mt-xl">
+                    <div class="vu-video-text">
+                        <h4>Feature or interaction name</h4>
+                        <p>Describe what's shown and the design decision behind it.</p>
+                    </div>
+                    <div class="vid-container">
+                        <video class="vid-class" controls controlslist="nodownload" disablepictureinpicture playsinline muted autoplay loop src="YOUR-VIDEO-URL-HERE.mp4"></video>
+                        <img class="img-overlay" src="img/phone-overlay.png" width="864" height="1769" alt="Phone frame border">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ IMPACT (for UX projects) ═════════════════════════════ -->
+        <div class="vu-section vu-section-bg-white">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Impact</p>
+                <!-- EDIT -->
+                <h3 class="vu-section-title">What these changes could mean for users</h3>
+
+                <div class="vu-impact-grid">
+                    <!-- EDIT: one block per outcome, pick an emoji that fits -->
+                    <div class="vu-impact-block">
+                        <span class="vu-impact-emoji">⚡</span>
+                        <p class="vu-impact-title">Outcome name</p>
+                        <p class="vu-impact-body">What specifically improved or changed.</p>
+                    </div>
+                    <div class="vu-impact-block">
+                        <span class="vu-impact-emoji">🧠</span>
+                        <p class="vu-impact-title">Outcome name</p>
+                        <p class="vu-impact-body">What specifically improved or changed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ CHALLENGES (optional) ════════════════════════════════ -->
+        <div class="vu-section vu-section-bg-grey">
+            <div class="vu-inner-wrap">
+                <p class="vu-section-eyebrow">Challenges</p>
+                <!-- EDIT -->
+                <h3 class="vu-section-title">Working within real constraints</h3>
+
+                <div class="vu-opps-grid vu-mt-lg">
+                    <!-- EDIT: one card per challenge -->
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">01</span>
+                        <p class="vu-opp-title">Challenge name</p>
+                        <p class="vu-opp-body">The constraint and the decision you made to navigate it.</p>
+                    </div>
+                    <div class="vu-opp-card">
+                        <span class="vu-opp-emoji">02</span>
+                        <p class="vu-opp-title">Challenge name</p>
+                        <p class="vu-opp-body">The constraint and the decision you made to navigate it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══ REFLECTION — dark, always keep ═══════════════════════ -->
+        <div class="vu-reflection">
+            <div class="vu-reflection-inner">
+                <p class="vu-section-eyebrow">Reflection</p>
+                <!-- EDIT -->
+                <h3 class="vu-section-title">What this project taught you</h3>
+                <!-- EDIT: 2 paragraphs — process/observation, then learning + what you'd change -->
+                <p class="vu-section-body vu-mb-md">First paragraph — what the experience was like.</p>
+                <p class="vu-section-body">Second paragraph — what you learned and what you'd do differently.</p>
+            </div>
+            <!-- Got a supporting image for the reflection? Swap vu-reflection-inner above
+                 for the two-column version instead:
+            <div class="vu-reflection-grid">
+                <div> ...text as above... </div>
+                <div>
+                    <img class="vu-full-img vu-rounded-img" src="img/YOUR-IMAGE.png" alt="...">
+                    <p class="vu-img-caption">Caption.</p>
+                </div>
+            </div> -->
+        </div>
+
+
+        <!-- ══ UP NEXT — always keep ════════════════════════════════
+             Uses .up-next-card — the shared card style defined in
+             casestudy-extra.css. Don't swap in .vu-project-card here,
+             that's a different, bolder style used on the homepage. -->
+        <div class="vu-up-next">
+            <p class="up-next-label">Up next</p>
+            <div class="vu-up-next-grid">
+                <!-- EDIT: point to your other 2 case studies -->
+                <a href="speculative-listerine.html" class="up-next-card">
+                    <img src="img/listerine-project-card-long.png" width="1641" height="865" alt="Listerine Full Meal + project">
+                    <div class="vu-project-card-badges">
+                        <span class="vu-project-card-badge">Speculative Design</span>
+                    </div>
+                    <div class="up-next-card-info">
+                        <p class="up-next-card-title">Listerine Full Meal +</p>
+                        <p class="up-next-card-tag">Speculative Design / Design Fiction</p>
+                    </div>
+                </a>
+                <a href="goodreadsnew.html" class="up-next-card">
+                    <img src="img/goodreads-project-card-long.png" width="1641" height="863" alt="Goodreads case study project">
+                    <div class="vu-project-card-badges">
+                        <span class="vu-project-card-badge">UX Research</span>
+                    </div>
+                    <div class="up-next-card-info">
+                        <p class="up-next-card-title">Goodreads Feature Redesign</p>
+                        <p class="up-next-card-tag">UX Research / UI Design</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Design and code by yours truly.</p>
+        <p>Copyright &copy; 2026, Sahar Babaei</p>
+    </footer>
+</div>
+</body>
+</html>
